@@ -92,3 +92,14 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 534, 1, "", "", "Hyjal Summit"),
 (2, 564, 1, "", "", "Black Temple"),
 (2, 580, 1, "", "", "Sunwell Plateau");
+
+-- 71-74 level range
+DELETE FROM `disables` WHERE `entry` IN (574, 576, 600, 601, 604, 608, 619);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 574, 1, "", "", "Utgarde Keep"),
+(2, 576, 1, "", "", "The Nexus"),
+(2, 600, 1, "", "", "Drak’Tharon Keep"),
+(2, 601, 1, "", "", "Azjol-Nerub"),
+(2, 604, 1, "", "", "Gundrak"),
+(2, 608, 1, "", "", "Violet Hold"),
+(2, 619, 1, "", "", "Ahn’kahet: The Old Kingdom");
