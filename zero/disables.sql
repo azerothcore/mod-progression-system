@@ -48,3 +48,14 @@ DELETE FROM `disables` WHERE `entry` IN (509, 531);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 509, 1, "", "", "Ahn’Qiraj Runins"),
 (2, 531, 1, "", "", "Ahn’Qiraj Temple");
+
+-- 61-64 level range
+DELETE FROM `disables` WHERE `entry` IN (542, 543, 546, 547, 557, 558, 560);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 542, 1, "", "", "The Blood Furnace"),
+(2, 543, 1, "", "", "Hellfire Ramparts"),
+(2, 546, 1, "", "", "The Underbog"),
+(2, 547, 1, "", "", "The Slave Pens"),
+(2, 557, 1, "", "", "Mana Tombs"),
+(2, 558, 1, "", "", "Auchenai Crypts");
+(2, 560, 1, "", "", "The Escape from Durnholde");
