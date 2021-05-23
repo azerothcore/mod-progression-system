@@ -74,11 +74,12 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 585, 1, "", "", "Magisters' Terrace");
 
 -- 70 level range - Tier 4
-DELETE FROM `disables` WHERE `entry` IN (532, 544, 565);
+DELETE FROM `disables` WHERE `entry` IN (532, 544, 565, 568);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 532, 1, "", "", "Karazhan"),
 (2, 544, 1, "", "", "Magtheiron’s Lair"),
-(2, 565, 1, "", "", "Gruul's Lair");
+(2, 565, 1, "", "", "Gruul's Lair"),
+(2, 568, 1, "", "", "Zul'Aman");
 
 -- 70 level range - Tier 5
 DELETE FROM `disables` WHERE `entry` IN (548, 550);
