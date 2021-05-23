@@ -79,3 +79,9 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 532, 1, "", "", "Karazhan"),
 (2, 544, 1, "", "", "Magtheiron’s Lair"),
 (2, 565, 1, "", "", "Gruul's Lair");
+
+-- 70 level range - Tier 5
+DELETE FROM `disables` WHERE `entry` IN (548, 616);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 548, 1, "", "", "Serpentshrine Cavern"),
+(2, 616, 1, "", "", "The Eye of Eternity");
