@@ -72,3 +72,10 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 555, 1, "", "", "Shadow Labyrinth"),
 (2, 556, 1, "", "", "Sethekk Halls"),
 (2, 585, 1, "", "", "Magisters' Terrace");
+
+-- 70 level range - Tier 4
+DELETE FROM `disables` WHERE `entry` IN (532, 544, 565);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 532, 1, "", "", "Karazhan"),
+(2, 544, 1, "", "", "Magtheiron’s Lair"),
+(2, 565, 1, "", "", "Gruul's Lair");
