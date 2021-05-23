@@ -59,3 +59,16 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 557, 1, "", "", "Mana Tombs"),
 (2, 558, 1, "", "", "Auchenai Crypts");
 (2, 560, 1, "", "", "The Escape from Durnholde");
+
+-- 65-69 level range
+DELETE FROM `disables` WHERE `entry` IN (269, 540, 545, 552, 553, 554, 555, 556, 585);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 269, 1, "", "", "The Black Morass"),
+(2, 540, 1, "", "", "The Shattered Halls"),
+(2, 545, 1, "", "", "The Steamvault"),
+(2, 552, 1, "", "", "The Arcatraz"),
+(2, 553, 1, "", "", "The Botanica"),
+(2, 554, 1, "", "", "The Mechanar"),
+(2, 555, 1, "", "", "Shadow Labyrinth"),
+(2, 556, 1, "", "", "Sethekk Halls"),
+(2, 585, 1, "", "", "Magisters' Terrace");
