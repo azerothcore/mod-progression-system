@@ -81,10 +81,10 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 565, 1, "", "", "Gruul's Lair");
 
 -- 70 level range - Tier 5
-DELETE FROM `disables` WHERE `entry` IN (548, 616);
+DELETE FROM `disables` WHERE `entry` IN (548, 550);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 548, 1, "", "", "Serpentshrine Cavern"),
-(2, 616, 1, "", "", "The Eye of Eternity");
+(2, 550, 1, "", "", "The Eye");
 
 -- 70 level range - Tier 6
 DELETE FROM `disables` WHERE `entry` IN (534, 564, 580);
@@ -112,3 +112,11 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 595, 1, "", "", "The Culling of Stratholme"),
 (2, 599, 1, "", "", "Halls of Stone"),
 (2, 602, 1, "", "", "Halls of Lighting");
+
+-- 80 level range - Tier 7
+DELETE FROM `disables` WHERE `entry` IN (533, 615, 616, 624);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 533, 1, "", "", "Naxxramas"),
+(2, 615, 1, "", "", "The Obsidian Sanctum"),
+(2, 616, 1, "", "", "The Eye of Eternity"),
+(2, 624, 1, "", "", "Vault of Archavon");
