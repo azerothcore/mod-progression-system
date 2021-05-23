@@ -129,5 +129,12 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 -- 80 level range - Tier 9
 DELETE FROM `disables` WHERE `entry` IN (249, 649);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 249, 1, "", "", "Onyxia Lair");
+(2, 249, 1, "", "", "Onyxia Lair"),
 (2, 649, 1, "", "", "Trial of The Crusader");
+
+-- 80 level range
+DELETE FROM `disables` WHERE `entry` IN (632, 658, 668);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 632, 1, "", "", "The Forge of Souls"),
+(2, 658, 1, "", "", "Pit of Saron"),
+(2, 668, 1, "", "", "Halls of Reflection");
