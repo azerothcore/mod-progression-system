@@ -1,3 +1,17 @@
+-- 20-29 level range
+DELETE FROM `disables` WHERE `entry` IN (34, 47, 90);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 34, 1, "", "", "Stormwind Stockades"),
+(2, 47, 1, "", "", "Razorfen Kraul"),
+(2, 90, 1, "", "", "Gnomeregan");
+
+-- 30-39 level range
+DELETE FROM `disables` WHERE `entry` IN (70, 129, 189);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 70, 1, "", "", "Uldaman"),
+(2, 129, 1, "", "", "Razorfen Downs"),
+(2, 189, 1, "", "", "Scarlet Monastery - All wings");
+
 -- 40-49 level range
 DELETE FROM `disables` WHERE `entry` IN (109, 209, 349);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
