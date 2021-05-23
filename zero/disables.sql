@@ -85,3 +85,10 @@ DELETE FROM `disables` WHERE `entry` IN (548, 616);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 548, 1, "", "", "Serpentshrine Cavern"),
 (2, 616, 1, "", "", "The Eye of Eternity");
+
+-- 70 level range - Tier 6
+DELETE FROM `disables` WHERE `entry` IN (534, 564, 580);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 534, 1, "", "", "Hyjal Summit"),
+(2, 564, 1, "", "", "Black Temple"),
+(2, 580, 1, "", "", "Sunwell Plateau");
