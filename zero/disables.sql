@@ -57,7 +57,7 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 546, 1, "", "", "The Underbog"),
 (2, 547, 1, "", "", "The Slave Pens"),
 (2, 557, 1, "", "", "Mana Tombs"),
-(2, 558, 1, "", "", "Auchenai Crypts");
+(2, 558, 1, "", "", "Auchenai Crypts"),
 (2, 560, 1, "", "", "The Escape from Durnholde");
 
 -- 65-69 level range
