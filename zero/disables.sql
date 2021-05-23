@@ -143,4 +143,4 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 DELETE FROM `disables` WHERE `entry` IN (631, 724);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 631, 1, "", "", "Icecrown Citadel"),
-(2, 724, 1, "", "", "Icecrown Citadel");
+(2, 724, 1, "", "", "The Ruby Sanctum");
