@@ -138,3 +138,9 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 632, 1, "", "", "The Forge of Souls"),
 (2, 658, 1, "", "", "Pit of Saron"),
 (2, 668, 1, "", "", "Halls of Reflection");
+
+-- 80 level range - Tier 10
+DELETE FROM `disables` WHERE `entry` IN (631, 724);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 631, 1, "", "", "Icecrown Citadel"),
+(2, 724, 1, "", "", "Icecrown Citadel");
