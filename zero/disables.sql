@@ -120,3 +120,8 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 615, 1, "", "", "The Obsidian Sanctum"),
 (2, 616, 1, "", "", "The Eye of Eternity"),
 (2, 624, 1, "", "", "Vault of Archavon");
+
+-- 80 level range - Tier 8
+DELETE FROM `disables` WHERE `entry` IN (603);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 603, 1, "", "", "Ulduar");
