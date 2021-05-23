@@ -125,3 +125,9 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 DELETE FROM `disables` WHERE `entry` IN (603);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 603, 1, "", "", "Ulduar");
+
+-- 80 level range - Tier 9
+DELETE FROM `disables` WHERE `entry` IN (249, 649);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 249, 1, "", "", "Onyxia Lair");
+(2, 649, 1, "", "", "Trial of The Crusader");
