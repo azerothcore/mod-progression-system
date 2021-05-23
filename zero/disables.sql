@@ -103,3 +103,12 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 604, 1, "", "", "Gundrak"),
 (2, 608, 1, "", "", "Violet Hold"),
 (2, 619, 1, "", "", "Ahn’kahet: The Old Kingdom");
+
+-- 75-79 level range
+DELETE FROM `disables` WHERE `entry` IN (575, 578, 595, 599, 602);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 575, 1, "", "", "Utgarde Pinnacle"),
+(2, 578, 1, "", "", "The Oculus"),
+(2, 595, 1, "", "", "The Culling of Stratholme"),
+(2, 599, 1, "", "", "Halls of Stone"),
+(2, 602, 1, "", "", "Halls of Lighting");
