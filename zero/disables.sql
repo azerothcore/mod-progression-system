@@ -106,35 +106,19 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 599, 1, "", "", "Halls of Stone"),
 (2, 602, 1, "", "", "Halls of Lighting");
 
--- 80 level range - Tier 7
-DELETE FROM `disables` WHERE `entry` IN (533, 615, 616, 624);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 533, 1, "", "", "Naxxramas"),
-(2, 615, 1, "", "", "The Obsidian Sanctum"),
-(2, 616, 1, "", "", "The Eye of Eternity"),
-(2, 624, 1, "", "", "Vault of Archavon");
-
--- 80 level range - Tier 8
-DELETE FROM `disables` WHERE `entry` IN (603);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 603, 1, "", "", "Ulduar");
-
--- 80 level range - Tier 9
-DELETE FROM `disables` WHERE `entry` IN (249, 649);
+-- 80 level range
+DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 249, 1, "", "", "Onyxia Lair"),
-(2, 649, 1, "", "", "Trial of The Crusader");
-
--- 80 level range
-DELETE FROM `disables` WHERE `entry` IN (632, 650, 658, 668);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 533, 1, "", "", "Naxxramas"),
+(2, 603, 1, "", "", "Ulduar"),
+(2, 615, 1, "", "", "The Obsidian Sanctum"),
+(2, 616, 1, "", "", "The Eye of Eternity"),
+(2, 624, 1, "", "", "Vault of Archavon"),
+(2, 631, 1, "", "", "Icecrown Citadel"),
 (2, 632, 1, "", "", "The Forge of Souls"),
+(2, 649, 1, "", "", "Trial of The Crusader"),
 (2, 650, 1, "", "", "Trial of the Champion"),
 (2, 658, 1, "", "", "Pit of Saron"),
-(2, 668, 1, "", "", "Halls of Reflection");
-
--- 80 level range - Tier 10
-DELETE FROM `disables` WHERE `entry` IN (631, 724);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 631, 1, "", "", "Icecrown Citadel"),
+(2, 668, 1, "", "", "Halls of Reflection"),
 (2, 724, 1, "", "", "The Ruby Sanctum");
