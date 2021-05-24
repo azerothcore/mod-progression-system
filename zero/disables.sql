@@ -73,25 +73,17 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 556, 1, "", "", "Sethekk Halls"),
 (2, 585, 1, "", "", "Magisters' Terrace");
 
--- 70 level range - Tier 4
-DELETE FROM `disables` WHERE `entry` IN (532, 544, 565, 568);
+-- 70 level range
+DELETE FROM `disables` WHERE `entry` IN (532, 534, 544, 548, 550, 564, 565, 568, 580);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 532, 1, "", "", "Karazhan"),
-(2, 544, 1, "", "", "Magtheiron’s Lair"),
-(2, 565, 1, "", "", "Gruul's Lair"),
-(2, 568, 1, "", "", "Zul'Aman");
-
--- 70 level range - Tier 5
-DELETE FROM `disables` WHERE `entry` IN (548, 550);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 548, 1, "", "", "Serpentshrine Cavern"),
-(2, 550, 1, "", "", "The Eye");
-
--- 70 level range - Tier 6
-DELETE FROM `disables` WHERE `entry` IN (534, 564, 580);
-INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 534, 1, "", "", "Hyjal Summit"),
+(2, 544, 1, "", "", "Magtheiron’s Lair"),
+(2, 548, 1, "", "", "Serpentshrine Cavern"),
+(2, 550, 1, "", "", "The Eye"),
 (2, 564, 1, "", "", "Black Temple"),
+(2, 565, 1, "", "", "Gruul's Lair"),
+(2, 568, 1, "", "", "Zul'Aman"),
 (2, 580, 1, "", "", "Sunwell Plateau");
 
 -- 71-74 level range
