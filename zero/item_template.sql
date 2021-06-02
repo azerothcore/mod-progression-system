@@ -59,7 +59,7 @@ UPDATE `item_template` SET `spellid_1`=23252 WHERE `entry`=18798; -- Horn of the
 UPDATE `item_template` SET `spellid_1`=23338 WHERE `entry`=18902; -- Reins of the Swift Stormsaber
 UPDATE `item_template` SET `spellid_1`=43900 WHERE `entry`=33977; -- Swift Brewfest Ram
 UPDATE `item_template` SET `spellid_1`=66846 WHERE `entry`=47101; -- Ochre Skeletal Warhorse
-
+-- PvP
 UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry` IN (19029, 19030, 29465, 29466, 29467, 29468, 29469, 29470, 29471, 29472, 34129, 35906);
 UPDATE `item_template` SET `spellid_1`=23509 WHERE `entry`=19029; -- Horn of the Frostwolf Howler
 UPDATE `item_template` SET `spellid_1`=23510 WHERE `entry`=19030; -- Stormpike Battle Charger
