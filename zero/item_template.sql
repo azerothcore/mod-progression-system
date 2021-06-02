@@ -1,6 +1,6 @@
 -- Mounts: Price, level requirement and be usable like in vanilla
 -- Apprentice
-UPDATE `item_template` SET `BuyPrice`=80000, `SellPrice`=0, `ItemLevel`=40, `RequiredLevel`=40, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry` IN (1132, 2414, 5655, 5656, 5665, 5668, 5864, 5872, 5873, 8563, 8588, 8591, 8592, 8595, 8629, 8631, 8632, 13321, 13322, 13331, 13332, 13333, 15277, 15290, 46099, 46100, 46308, 47100);
+UPDATE `item_template` SET `BuyPrice`=80000, `SellPrice`=0, `ItemLevel`=40, `RequiredLevel`=40, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry` IN (1132, 2414, 5655, 5656, 5665, 5668, 5864, 5872, 5873, 8563, 8588, 8591, 8592, 8595, 8629, 8631, 8632, 13321, 13322, 13331, 13332, 13333, 15277, 15290, 46099, 46100, 46308, 47100);
 -- Orc
 UPDATE `item_template` SET `spellid_1`=580 WHERE `entry`=1132;
 UPDATE `item_template` SET `spellid_1`=6653 WHERE `entry`=5665;
@@ -38,7 +38,7 @@ UPDATE `item_template` SET `spellid_1`=8394 WHERE `entry`=8631;
 UPDATE `item_template` SET `spellid_1`=10789 WHERE `entry`=8632;
 UPDATE `item_template` SET `spellid_1`=66847 WHERE `entry`=47100;
 -- Journeyman
-UPDATE `item_template` SET `BuyPrice`=1000000, `SellPrice`=0, `ItemLevel`=60, `RequiredLevel`=60, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry` IN (13334, 18766, 18767, 18772, 18773, 18774, 18776, 18777, 18778, 18785, 18786, 18787, 18788, 18789, 18790, 18791, 18793, 18794, 18795, 18796, 18797, 18798, 18902, 47101);
+UPDATE `item_template` SET `BuyPrice`=1000000, `SellPrice`=0, `ItemLevel`=60, `RequiredLevel`=60, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry` IN (13334, 18766, 18767, 18772, 18773, 18774, 18776, 18777, 18778, 18785, 18786, 18787, 18788, 18789, 18790, 18791, 18793, 18794, 18795, 18796, 18797, 18798, 18902, 47101);
 -- Orc
 UPDATE `item_template` SET `spellid_1`=23250 WHERE `entry`=18796;
 UPDATE `item_template` SET `spellid_1`=23251 WHERE `entry`=18797;
@@ -73,19 +73,19 @@ UPDATE `item_template` SET `spellid_1`=23219 WHERE `entry`=18767;
 UPDATE `item_template` SET `spellid_1`=23338 WHERE `entry`=18902;
 -- PvP
 -- Black Battlestrider
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22719, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29465;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22719, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29465;
 -- Black War Kodo
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22718, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29466;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22718, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29466;
 -- Black War Ram
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22720, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29467;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22720, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29467;
 -- Black War Steed Bridle
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22717, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29468;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22717, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29468;
 -- Horn of the Black War Wolf
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22724, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29469;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22724, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29469;
 -- Red Skeletal Warhorse
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22722, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29470;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22722, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29470;
 -- Reins of the Black War Tiger
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22723, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29471;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22723, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29471;
 -- Whistle of the Black War Raptor
-UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22721, `spellcharges_1`=0, `spellcategory_1`=330, `spellcategorycooldown_1`=3000, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29472;
+UPDATE `item_template` SET `ItemLevel`=60, `RequiredLevel`=60, `spellid_1`=22721, `spellcharges_1`=0, `spellid_2`=0, `spelltrigger_2`=0, `description`='' WHERE `entry`=29472;
 
