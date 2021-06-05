@@ -1,3 +1,12 @@
+-- 1-19 level range
+DELETE FROM `disables` WHERE `entry` IN (33, 36, 43, 48, 389);
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
+(2, 33, 1, "", "", "Shadowfang Keep"),
+(2, 36, 1, "", "", "Deadmines"),
+(2, 43, 1, "", "", "Wailing Caverns"),
+(2, 48, 1, "", "", "Blackfathom Deeps"),
+(2, 389, 1, "", "", "Ragefire Chasm");
+
 -- 20-29 level range
 DELETE FROM `disables` WHERE `entry` IN (34, 47, 90);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
