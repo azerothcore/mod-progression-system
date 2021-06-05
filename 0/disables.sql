@@ -85,15 +85,15 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 -- 70 level range
 DELETE FROM `disables` WHERE `entry` IN (532, 534, 544, 548, 550, 564, 565, 568, 580);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 532, 15, "", "", "Karazhan"),
-(2, 534, 15, "", "", "Hyjal Summit"),
-(2, 544, 15, "", "", "Magtheiron’s Lair"),
-(2, 548, 15, "", "", "Serpentshrine Cavern"),
-(2, 550, 15, "", "", "The Eye"),
-(2, 564, 15, "", "", "Black Temple"),
-(2, 565, 15, "", "", "Gruul's Lair"),
-(2, 568, 15, "", "", "Zul'Aman"),
-(2, 580, 15, "", "", "Sunwell Plateau");
+(2, 532, 1, "", "", "Karazhan"),
+(2, 534, 1, "", "", "Hyjal Summit"),
+(2, 544, 1, "", "", "Magtheiron’s Lair"),
+(2, 548, 1, "", "", "Serpentshrine Cavern"),
+(2, 550, 1, "", "", "The Eye"),
+(2, 564, 1, "", "", "Black Temple"),
+(2, 565, 1, "", "", "Gruul's Lair"),
+(2, 568, 1, "", "", "Zul'Aman"),
+(2, 580, 1, "", "", "Sunwell Plateau");
 
 -- 71-74 level range
 DELETE FROM `disables` WHERE `entry` IN (574, 576, 600, 601, 604, 608, 619);
@@ -118,12 +118,12 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 -- 80 level range
 DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 249, 15, "", "", "Onyxia Lair"),
-(2, 533, 15, "", "", "Naxxramas"),
-(2, 603, 15, "", "", "Ulduar"),
-(2, 615, 15, "", "", "The Obsidian Sanctum"),
-(2, 616, 15, "", "", "The Eye of Eternity"),
-(2, 624, 15, "", "", "Vault of Archavon"),
+(2, 249, 3, "", "", "Onyxia Lair"),
+(2, 533, 3, "", "", "Naxxramas"),
+(2, 603, 3, "", "", "Ulduar"),
+(2, 615, 3, "", "", "The Obsidian Sanctum"),
+(2, 616, 3, "", "", "The Eye of Eternity"),
+(2, 624, 3, "", "", "Vault of Archavon"),
 (2, 631, 15, "", "", "Icecrown Citadel"),
 (2, 632, 3, "", "", "The Forge of Souls"),
 (2, 649, 15, "", "", "Trial of The Crusader"),
