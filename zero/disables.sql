@@ -52,73 +52,73 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 -- 61-64 level range
 DELETE FROM `disables` WHERE `entry` IN (542, 543, 546, 547, 557, 558, 560);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 542, 1, "", "", "The Blood Furnace"),
-(2, 543, 1, "", "", "Hellfire Ramparts"),
-(2, 546, 1, "", "", "The Underbog"),
-(2, 547, 1, "", "", "The Slave Pens"),
-(2, 557, 1, "", "", "Mana Tombs"),
-(2, 558, 1, "", "", "Auchenai Crypts"),
-(2, 560, 1, "", "", "The Escape from Durnholde");
+(2, 542, 3, "", "", "The Blood Furnace"),
+(2, 543, 3, "", "", "Hellfire Ramparts"),
+(2, 546, 3, "", "", "The Underbog"),
+(2, 547, 3, "", "", "The Slave Pens"),
+(2, 557, 3, "", "", "Mana Tombs"),
+(2, 558, 3, "", "", "Auchenai Crypts"),
+(2, 560, 3, "", "", "The Escape from Durnholde");
 
 -- 65-69 level range
 DELETE FROM `disables` WHERE `entry` IN (269, 540, 545, 552, 553, 554, 555, 556, 585);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 269, 1, "", "", "The Black Morass"),
-(2, 540, 1, "", "", "The Shattered Halls"),
-(2, 545, 1, "", "", "The Steamvault"),
-(2, 552, 1, "", "", "The Arcatraz"),
-(2, 553, 1, "", "", "The Botanica"),
-(2, 554, 1, "", "", "The Mechanar"),
-(2, 555, 1, "", "", "Shadow Labyrinth"),
-(2, 556, 1, "", "", "Sethekk Halls"),
-(2, 585, 1, "", "", "Magisters' Terrace");
+(2, 269, 3, "", "", "The Black Morass"),
+(2, 540, 3, "", "", "The Shattered Halls"),
+(2, 545, 3, "", "", "The Steamvault"),
+(2, 552, 3, "", "", "The Arcatraz"),
+(2, 553, 3, "", "", "The Botanica"),
+(2, 554, 3, "", "", "The Mechanar"),
+(2, 555, 3, "", "", "Shadow Labyrinth"),
+(2, 556, 3, "", "", "Sethekk Halls"),
+(2, 585, 3, "", "", "Magisters' Terrace");
 
 -- 70 level range
 DELETE FROM `disables` WHERE `entry` IN (532, 534, 544, 548, 550, 564, 565, 568, 580);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 532, 1, "", "", "Karazhan"),
-(2, 534, 1, "", "", "Hyjal Summit"),
-(2, 544, 1, "", "", "Magtheiron’s Lair"),
-(2, 548, 1, "", "", "Serpentshrine Cavern"),
-(2, 550, 1, "", "", "The Eye"),
-(2, 564, 1, "", "", "Black Temple"),
-(2, 565, 1, "", "", "Gruul's Lair"),
-(2, 568, 1, "", "", "Zul'Aman"),
-(2, 580, 1, "", "", "Sunwell Plateau");
+(2, 532, 15, "", "", "Karazhan"),
+(2, 534, 15, "", "", "Hyjal Summit"),
+(2, 544, 15, "", "", "Magtheiron’s Lair"),
+(2, 548, 15, "", "", "Serpentshrine Cavern"),
+(2, 550, 15, "", "", "The Eye"),
+(2, 564, 15, "", "", "Black Temple"),
+(2, 565, 15, "", "", "Gruul's Lair"),
+(2, 568, 15, "", "", "Zul'Aman"),
+(2, 580, 15, "", "", "Sunwell Plateau");
 
 -- 71-74 level range
 DELETE FROM `disables` WHERE `entry` IN (574, 576, 600, 601, 604, 608, 619);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 574, 1, "", "", "Utgarde Keep"),
-(2, 576, 1, "", "", "The Nexus"),
-(2, 600, 1, "", "", "Drak’Tharon Keep"),
-(2, 601, 1, "", "", "Azjol-Nerub"),
-(2, 604, 1, "", "", "Gundrak"),
-(2, 608, 1, "", "", "Violet Hold"),
-(2, 619, 1, "", "", "Ahn’kahet: The Old Kingdom");
+(2, 574, 3, "", "", "Utgarde Keep"),
+(2, 576, 3, "", "", "The Nexus"),
+(2, 600, 3, "", "", "Drak’Tharon Keep"),
+(2, 601, 3, "", "", "Azjol-Nerub"),
+(2, 604, 3, "", "", "Gundrak"),
+(2, 608, 3, "", "", "Violet Hold"),
+(2, 619, 3, "", "", "Ahn’kahet: The Old Kingdom");
 
 -- 75-79 level range
 DELETE FROM `disables` WHERE `entry` IN (575, 578, 595, 599, 602);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 575, 1, "", "", "Utgarde Pinnacle"),
-(2, 578, 1, "", "", "The Oculus"),
-(2, 595, 1, "", "", "The Culling of Stratholme"),
-(2, 599, 1, "", "", "Halls of Stone"),
-(2, 602, 1, "", "", "Halls of Lighting");
+(2, 575, 3, "", "", "Utgarde Pinnacle"),
+(2, 578, 3, "", "", "The Oculus"),
+(2, 595, 3, "", "", "The Culling of Stratholme"),
+(2, 599, 3, "", "", "Halls of Stone"),
+(2, 602, 3, "", "", "Halls of Lighting");
 
 -- 80 level range
 DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 249, 1, "", "", "Onyxia Lair"),
-(2, 533, 1, "", "", "Naxxramas"),
-(2, 603, 1, "", "", "Ulduar"),
-(2, 615, 1, "", "", "The Obsidian Sanctum"),
-(2, 616, 1, "", "", "The Eye of Eternity"),
-(2, 624, 1, "", "", "Vault of Archavon"),
-(2, 631, 1, "", "", "Icecrown Citadel"),
-(2, 632, 1, "", "", "The Forge of Souls"),
-(2, 649, 1, "", "", "Trial of The Crusader"),
-(2, 650, 1, "", "", "Trial of the Champion"),
-(2, 658, 1, "", "", "Pit of Saron"),
-(2, 668, 1, "", "", "Halls of Reflection"),
-(2, 724, 1, "", "", "The Ruby Sanctum");
+(2, 249, 15, "", "", "Onyxia Lair"),
+(2, 533, 15, "", "", "Naxxramas"),
+(2, 603, 15, "", "", "Ulduar"),
+(2, 615, 15, "", "", "The Obsidian Sanctum"),
+(2, 616, 15, "", "", "The Eye of Eternity"),
+(2, 624, 15, "", "", "Vault of Archavon"),
+(2, 631, 15, "", "", "Icecrown Citadel"),
+(2, 632, 3, "", "", "The Forge of Souls"),
+(2, 649, 15, "", "", "Trial of The Crusader"),
+(2, 650, 3, "", "", "Trial of the Champion"),
+(2, 658, 3, "", "", "Pit of Saron"),
+(2, 668, 3, "", "", "Halls of Reflection"),
+(2, 724, 15, "", "", "The Ruby Sanctum");
