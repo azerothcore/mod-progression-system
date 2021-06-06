@@ -55,7 +55,7 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 -- 60 level range - Ahn’Qiraj
 DELETE FROM `disables` WHERE `entry` IN (509, 531);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
-(2, 509, 1, "", "", "Ahn’Qiraj Runins"),
+(2, 509, 1, "", "", "Ahn’Qiraj Ruins"),
 (2, 531, 1, "", "", "Ahn’Qiraj Temple");
 
 -- 61-64 level range
@@ -87,7 +87,7 @@ DELETE FROM `disables` WHERE `entry` IN (532, 534, 544, 548, 550, 564, 565, 568,
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 532, 1, "", "", "Karazhan"),
 (2, 534, 1, "", "", "Hyjal Summit"),
-(2, 544, 1, "", "", "Magtheiron’s Lair"),
+(2, 544, 1, "", "", "Magtheridon's Lair"),
 (2, 548, 1, "", "", "Serpentshrine Cavern"),
 (2, 550, 1, "", "", "The Eye"),
 (2, 564, 1, "", "", "Black Temple"),
