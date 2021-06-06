@@ -70,7 +70,6 @@ INSERT INTO creature (`guid`,`id`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask
 (4059,12377,0,0,0,1,1,11649,0,-11240.2,-2197.94,22.7016,3.9263,600,5,0,2699,0,1,0,0,0,'',0),
 (4060,12377,0,0,0,1,1,11649,0,-11190.6,-2152.13,22.6994,2.11148,600,3,0,2699,0,1,0,0,0,'',0);
 
-
 -- restore gangrenus which is accesible from exploits
 DELETE FROM `creature` WHERE `guid` = 125760;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES 
