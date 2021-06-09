@@ -11,3 +11,9 @@ DELETE FROM `creature` WHERE `guid` = 125760;
 DELETE FROM `waypoint_data` WHERE `id` in (286020,286040);
 DELETE FROM `creature_addon` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
 DELETE FROM `creature` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
+
+-- Hide Emalon, Koralon and Toravon at Vaulth of Archavon
+UPDATE `creature` SET `phaseMask` = 2 WHERE `id` IN (
+33993, -- Emalon
+35013, -- Koralon
+38433); -- Toravon
