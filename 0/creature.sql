@@ -6,3 +6,8 @@ DELETE FROM `creature` where `guid` IN (3961, 3965, 3966, 3967, 3968, 3976, 3977
 
 -- despawn gangrenus which is accesible from exploits
 DELETE FROM `creature` WHERE `guid` = 125760;
+
+-- Remove the 11 cultists from Un'Goro
+DELETE FROM `waypoint_data` WHERE `id` in (286020,286040);
+DELETE FROM `creature_addon` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
+DELETE FROM `creature` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
