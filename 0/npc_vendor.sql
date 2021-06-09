@@ -22,4 +22,4 @@ DELETE FROM `npc_vendor` WHERE (`entry` = 15126) AND (`item` IN (20068, 20158, 2
   Arathi Alliance vendor entry: (15127)
   items: (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069)
 */
-DELETE FROM `npc_vendor` WHERE (`entry` = 15127) AND (`item` IN (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069
+DELETE FROM `npc_vendor` WHERE (`entry` = 15127) AND (`item` IN (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069));
