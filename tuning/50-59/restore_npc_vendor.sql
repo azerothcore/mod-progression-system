@@ -38,3 +38,37 @@ UPDATE `npc_vendor` SET `ExtendedCost` = 464 WHERE `entry` IN (12795) AND `item`
 UPDATE `npc_vendor` SET `ExtendedCost` = 465 WHERE `entry` IN (12795) AND `item` IN (16536,16539,16544,16545,16551,16554,16558,16562,16568,16569,16573,16580,17586,17590,17618,17622,29612,29617);
 UPDATE `npc_vendor` SET `ExtendedCost` = 541 WHERE `entry` IN (12795) AND `item` IN (16540,16548,16555,16560,16571,16574,17588,17620,29613);
 
+
+-- alliance vendor "Samuel Hawke" (15127)
+
+-- restore to 3k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` IN (15127) AND `item` IN (20041,20042,20043,20044,20045,20046,20047,20048,20049,20050,20051,20052,20053,20054);
+UPDATE `npc_vendor` SET `ExtendedCost` = 520 WHERE `entry` IN (15127) AND `item` IN (20071);
+
+-- restore to 5k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 495 WHERE `entry` IN (15127) AND `item` IN (20073);
+
+-- restore to 9k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 501 WHERE `entry` IN (15127) AND `item` IN (20055,20056,20057,20058,20059,20060,20061);
+UPDATE `npc_vendor` SET `ExtendedCost` = 746 WHERE `entry` IN (15127) AND `item` IN (20070);
+
+-- restore to 16k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 567 WHERE `entry` IN (15127) AND `item` IN (20069);
+
+
+-- horde vendor "Rutherford Twing" (15126)
+
+-- restore to 3k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 520 WHERE `entry` IN (15126) AND `item` IN (20072);
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` IN (15126) AND `item` IN (20150,20154,20159,20163,20167,20171,20177,20181,20186,20190,20195,20199,20204,20208);
+
+-- restore to 5k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 495 WHERE `entry` IN (15126) AND `item` IN (20068);
+
+-- restore to 9k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 501 WHERE `entry` IN (15126) AND `item` IN (20158,20175,20176,20184,20194,20203,20212);
+UPDATE `npc_vendor` SET `ExtendedCost` = 746 WHERE `entry` IN (15126) AND `item` IN (20214);
+
+-- restore to 16k honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 567 WHERE `entry` IN (15126) AND `item` IN (20220);
+
