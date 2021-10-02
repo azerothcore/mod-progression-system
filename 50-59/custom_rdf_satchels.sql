@@ -12,13 +12,6 @@ INSERT INTO `reference_loot_template` VALUES
 (999555, 13463, 0, 0, 0, 1, 1, 1, 1, 'Dreamfoil'),
 (999555, 8838, 0, 0, 0, 1, 1, 1, 1, 'Sungrass'),
 (999555, 8846, 0, 0, 0, 1, 1, 1, 1, 'Gromsblood'),
--- essences
-(999555, 7080, 0, 0, 0, 1, 1, 1, 1, 'Essence of Water'),
-(999555, 7078, 0, 0, 0, 1, 1, 1, 1, 'Essence of Fire'),
-(999555, 7082, 0, 0, 0, 1, 1, 1, 1, 'Essence of Air'),
-(999555, 7076, 0, 0, 0, 1, 1, 1, 1, 'Essence of Earth'),
-(999555, 12808, 0, 0, 0, 1, 1, 1, 1, 'Essence of Undeath'),
-(999555, 12803, 0, 0, 0, 1, 1, 1, 1, 'Living Essence'),
 -- gems
 (999555, 7910, 0, 0, 0, 1, 1, 1, 1, 'Star Ruby'),
 (999555, 12799, 0, 0, 0, 1, 1, 1, 1, 'Large Opal'),
@@ -40,13 +33,6 @@ INSERT INTO `reference_loot_template` VALUES
 (999556, 13463, 0, 0, 0, 1, 1, 1, 1, 'Dreamfoil'),
 (999556, 8838, 0, 0, 0, 1, 1, 1, 1, 'Sungrass'),
 (999556, 8846, 0, 0, 0, 1, 1, 1, 1, 'Gromsblood'),
--- essences
-(999556, 7080, 0, 0, 0, 1, 1, 1, 1, 'Essence of Water'),
-(999556, 7078, 0, 0, 0, 1, 1, 1, 1, 'Essence of Fire'),
-(999556, 7082, 0, 0, 0, 1, 1, 1, 1, 'Essence of Air'),
-(999556, 7076, 0, 0, 0, 1, 1, 1, 1, 'Essence of Earth'),
-(999556, 12808, 0, 0, 0, 1, 1, 1, 1, 'Essence of Undeath'),
-(999556, 12803, 0, 0, 0, 1, 1, 1, 1, 'Living Essence'),
 -- gems
 (999556, 7910, 0, 0, 0, 1, 1, 1, 1, 'Star Ruby'),
 (999556, 12799, 0, 0, 0, 1, 1, 1, 1, 'Large Opal'),
@@ -66,4 +52,4 @@ INSERT INTO `item_loot_template` VALUES
 (52003, 1, 999555, 100, 0, 1, 1, 3, 3, 'Satchel of Helpful Goods - (ReferenceTable)'),
 (52003, 2, 999556, 100, 0, 1, 2, 3, 3, 'Satchel of Helpful Goods - (ReferenceTable)'),
 (52003, 3, 999555, 100, 0, 1, 3, 3, 3, 'Satchel of Helpful Goods - (ReferenceTable)'),
-(52003, 4, 999555, 100, 0, 1, 4, 3, 3, 'Satchel of Helpful Goods - (ReferenceTable)'),
+(52003, 4, 999555, 100, 0, 1, 4, 3, 3, 'Satchel of Helpful Goods - (ReferenceTable)');
