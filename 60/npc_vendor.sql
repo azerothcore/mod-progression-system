@@ -33,6 +33,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 /*
   Warsong vendor entry: (14753, 14754)
   items:(19582, 19587, 19578, 19595, 22672, 22749, 22748, 22750, 22752, 22753, 30497)
+  req level 60
 */
 
 DELETE FROM `npc_vendor` WHERE (`entry` = 14753) AND (`item` IN (19582, 19587, 19595, 22672, 22749, 22748, 22750, 22752, 22753, 30497));
@@ -76,6 +77,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 /*
   Arathi Alliance vendor entry: (15127)
   items: (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069)
+  req level 60
 */
 
 DELETE FROM `npc_vendor` WHERE (`entry` = 15127) AND (`item` IN (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069));
