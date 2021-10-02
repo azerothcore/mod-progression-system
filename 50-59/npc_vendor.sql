@@ -52,7 +52,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (12793, 0, 16532, 0, 0, @EXTENDED_COST, 0),
 (12793, 0, 18429, 0, 0, @EXTENDED_COST, 0),
 (12793, 0, 18434, 0, 0, @EXTENDED_COST, 0),
-(12793, 0, 18461, 0, 0, @EXTENDED_COST, 0),
+(12793, 0, 18461, 0, 0, @EXTENDED_COST, 0);
 
 -- Samuel Hawke <League of Arathor Supply Officer> (15127)
 -- items req lvl 58
