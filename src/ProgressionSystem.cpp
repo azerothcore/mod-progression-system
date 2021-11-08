@@ -30,7 +30,7 @@ class ProgressionSystemLoadingDBUpdates : public DatabaseScript
 public:
     ProgressionSystemLoadingDBUpdates() : DatabaseScript("ProgressionSystemLoadingDBUpdates") {}
 
-    void AfterDatabasesLoaded(uint32 updateFlags) override
+    void OnAfterDatabasesLoaded(uint32 updateFlags) override
     {
         if (DBUpdater<LoginDatabaseConnection>::IsEnabled(updateFlags))
         {
