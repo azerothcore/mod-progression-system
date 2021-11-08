@@ -1,0 +1,34 @@
+#
+# Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
+#
+
+[worldserver]
+
+#
+#    ProgressionSystem.LoadScripts
+#        Description: Enable loading scripts from bracket modules
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+ProgressionSystem.LoadScripts = 1
+
+#
+#    ProgressionSystem.LoadDatabase
+#        Description: Enable loading SQL files from bracket modules
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+ProgressionSystem.LoadDatabase = 1
+
+#
+#    ProgressionSystem.Brackets
+#        Description: Defined what brackets should be loaded. It is a bitmask. Available mask values are present in ProgressionSystem.h
+#        Default:     0 - None
+#                     > 0 - Specific brackets are loaded
+#					  E.g. 256 is Bracket 60 - Tier 2;
+#						   14 is: Bracket 10-19, 20-29 and 30-39
+#
+
+ProgressionSystem.Brackets = 0
