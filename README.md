@@ -30,7 +30,7 @@ C++ scripts can also be automatically loaded dependent on bracket level. All you
 </br>
 2 notes:
 </br>
-1. Your custom script must renamed to something slightly different, otherwise core will still load old script. Preferable: `xxx_yy`, where `xxx` is the name ofold script and `yy` is the name of bracket, e.g. `boss_drakkisath` renamed to `boss_drakkisath_50_59_b`. Also, scripts loader function (`AddSC_xxx`) must be renamed accordingly, e.g. `AddSC_boss_drakkisath` renamed to `AddSC_boss_drakkisath_50_59_b`.
+1. Your custom script must renamed to something slightly different, otherwise core will still load old script. Preferable: `xxx_yy`, where `xxx` is the name of old script and `yy` is the name of bracket, e.g. `boss_drakkisath` renamed to `boss_drakkisath_50_59_b`. Also, scripts loader function (`AddSC_xxx`) must be renamed accordingly, e.g. `AddSC_boss_drakkisath` renamed to `AddSC_boss_drakkisath_50_59_b`.
 </br>
 2. Don't forget to include that scripts loader function (`AddSC_xxx`) in bracket loader. E.g. `AddSC_boss_drakkisath_50_59_b` holds scripts related to bracket 50-59, it should be declared and defined in `Bracket_50_59_B_loader.cpp` (https://github.com/azerothcore/mod-progression-system/blob/NewModule/src/Bracket_50_59_B/Bracket_50_59_B_loader.cpp)
 
