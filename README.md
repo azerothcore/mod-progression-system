@@ -20,11 +20,13 @@ WARNING: SQL files once executed cannot be "unloaded". E.g. if you set in config
 
 </br>
 </br>
+</br>
 <b>C++ SCRIPTS</b>
 </br>
 C++ scripts can also be automatically loaded dependent on bracket level. All you need to do, is to copy and paste C++ script you want to modify to proper folder, change whatever you want within and just create a new script loader function. <b>You don't need to change your script's name in database nor your C++ script's name (only script object name)</b>.
 [Here](https://github.com/UltraNix/mod_progression-system/commit/aad916bbe068f28ce769d028f138f434ba4655a8) is the example how to do it.
 
+</br>
 </br>
 2 notes:
 </br>
@@ -32,5 +34,6 @@ C++ scripts can also be automatically loaded dependent on bracket level. All you
 </br>
 2. Don't forget to include that scripts loader function (`AddSC_xxx`) in bracket loader. E.g. `AddSC_boss_drakkisath_50_59_b` holds scripts related to bracket 50-59, it should be declared and defined in `Bracket_50_59_B_loader.cpp` (https://github.com/azerothcore/mod-progression-system/blob/NewModule/src/Bracket_50_59_B/Bracket_50_59_B_loader.cpp)
 
+</br>
 </br>
 WARNING: If you are applying some changes to main script (in AzerothCore) and they are independent from the level bracket, you should apply these changes to your progressive script as well.
