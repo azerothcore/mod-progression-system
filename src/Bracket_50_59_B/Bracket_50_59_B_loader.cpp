@@ -5,6 +5,7 @@
 #include "ProgressionSystem.h"
 
 void AddSC_instance_blackrock_spire_50_59_B();
+void AddSC_boss_drakkisath_50_59_B();
 
 void AddBracket_50_59_B_Scripts()
 {
@@ -15,5 +16,6 @@ void AddBracket_50_59_B_Scripts()
     if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_80_TIER_8))
     {
         AddSC_instance_blackrock_spire_50_59_B();
+        AddSC_boss_drakkisath_50_59_B();
     }
 }

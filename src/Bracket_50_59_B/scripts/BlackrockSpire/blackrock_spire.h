@@ -53,7 +53,7 @@ enum DataTypes
     DATA_SOLAKAR_FLAMEWREATH        = 23,
 
     // Progression module
-    DATA_UBRS_DOOR_OPEN             = 23,
+    DATA_UBRS_DOOR_OPEN             = 24,
 };
 
 enum CreaturesIds
