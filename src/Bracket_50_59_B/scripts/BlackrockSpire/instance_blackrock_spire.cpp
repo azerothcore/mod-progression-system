@@ -412,6 +412,7 @@ public:
                         SaveToDB();
                         Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_1, 1);
                     }
+                    break;
                 case DATA_SOLAKAR_FLAMEWREATH:
                     switch (data)
                     {
