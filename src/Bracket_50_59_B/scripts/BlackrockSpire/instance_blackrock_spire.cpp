@@ -474,13 +474,14 @@ public:
 
         uint32 GetData(uint32 type) const override
         {
-            if (type == DATA_SOLAKAR_FLAMEWREATH)
+            switch (type)
             {
-                return SolakarState;
-            }
-            else
-            {
-                return InstanceScript::GetData(type);
+                case DATA_SOLAKAR_FLAMEWREATH:
+                    return SolakarState;
+                case DATA_UBRS_DOOR_OPEN:
+                    return UBRSDoorOpen ? 1 : 0;
+                default:
+                    return InstanceScript::GetData(type);
             }
         }
 
