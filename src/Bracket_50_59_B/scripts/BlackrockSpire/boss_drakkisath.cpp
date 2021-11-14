@@ -67,7 +67,7 @@ public:
             _Reset();
         }
 
-        void EnterCombat(Unit* who) override
+        void EnterCombat(Unit* /*who*/) override
         {
             _EnterCombat();
             events.ScheduleEvent(EVENT_FLAMESTRIKE, 6000);
