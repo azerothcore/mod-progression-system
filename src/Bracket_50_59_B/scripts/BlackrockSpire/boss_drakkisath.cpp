@@ -39,20 +39,6 @@ enum Events
     EVENT_RAGE
 };
 
-enum ChromaticEliteGuardEvents
-{
-    EVENT_MORTAL_STRIKE = 1,
-    EVENT_KNOCKDOWN     = 2,
-    EVENT_STRIKE        = 3
-};
-
-enum ChromaticEliteGuardSpells
-{
-    SPELL_MORTAL_STRIKE = 15708,
-    SPELL_KNOCKDOWN     = 16790,
-    SPELL_STRIKE        = 15580
-};
-
 class boss_drakkisath_50_59_B : public CreatureScript
 {
 public:
@@ -61,11 +47,6 @@ public:
     struct boss_drakkisathAI_50_59_B : public BossAI
     {
         boss_drakkisathAI_50_59_B(Creature* creature) : BossAI(creature, DATA_GENERAL_DRAKKISATH) {}
-
-        void Reset() override
-        {
-            _Reset();
-        }
 
         void EnterCombat(Unit* /*who*/) override
         {
@@ -82,11 +63,6 @@ public:
             {
                 DoCastSelf(68378 /* Berserk */);
             }
-        }
-
-        void JustDied(Unit* /*killer*/) override
-        {
-            _JustDied();
         }
 
         void UpdateAI(uint32 diff) override
