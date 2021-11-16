@@ -735,8 +735,7 @@ public:
             OUT_SAVE_INST_DATA;
 
             std::ostringstream saveStream;
-            saveStream << "B S " << GetBossSaveData() << uint8(UBRSDoorOpen) << ' ';
-
+            saveStream << "B S " << GetBossSaveData() << uint32(UBRSDoorOpen ? 1 : 0);
             OUT_SAVE_INST_DATA_COMPLETE;
             return saveStream.str();
         }
