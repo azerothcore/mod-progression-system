@@ -36,7 +36,8 @@ enum Events
     EVENT_CONFLAGRATION,
     EVENT_THUNDERCLAP,
     EVENT_PIERCE_ARMOR,
-    EVENT_RAGE
+    EVENT_RAGE,
+    EVENT_CHECK_CONFLAGRATION_TARGET
 };
 
 class boss_drakkisath_50_59_B : public CreatureScript
@@ -89,7 +90,15 @@ public:
                         break;
                     case EVENT_CONFLAGRATION:
                         DoCastVictim(SPELL_CONFLAGRATION);
+
+                        if (Unit* target = me->GetVictim())
+                        {
+                            _conflagrateTarget = me->GetVictim()->GetGUID();
+                            _conflagrateThreat = me->getThreatMgr().getThreat(me->GetVictim());
+                            me->getThreatMgr().modifyThreatPercent(target, -100);
+                        }
                         events.ScheduleEvent(EVENT_CONFLAGRATION, 18000);
+                        events.ScheduleEvent(EVENT_CHECK_CONFLAGRATION_TARGET, 10000);
                         break;
                     case EVENT_THUNDERCLAP:
                         DoCastVictim(SPELL_THUNDERCLAP);
@@ -103,10 +112,20 @@ public:
                         DoCastSelf(SPELL_RAGE);
                         events.ScheduleEvent(EVENT_RAGE, 35000);
                         break;
+                    case EVENT_CHECK_CONFLAGRATION_TARGET:
+                        if (Unit* target = ObjectAccessor::GetUnit(*me, _conflagrateTarget))
+                        {
+                            me->getThreatMgr().addThreat(target, _conflagrateThreat);
+                        }
+                        break;
                 }
             }
             DoMeleeAttackIfReady();
         }
+
+    private:
+        float _conflagrateThreat;
+        ObjectGuid _conflagrateTarget;
     };
 
     CreatureAI* GetAI(Creature* creature) const override
