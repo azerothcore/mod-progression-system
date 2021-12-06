@@ -62,10 +62,10 @@ Config.GainItemAmount[1] = 1
 Config.GossipOptionText[1] = 'Take 1 of my Nexus Crystal and ask Chromie to send me 1 of her Small Prismatic Shard by mail.'
 
 Config.TurnInItemEntry[2] = 14344 --Large Brilliant Shard
-Config.TurnInItemAmount[2] = 3
-Config.GainItemEntry[2] = 22446 --Greater Planar Essence
+Config.TurnInItemAmount[2] = 1
+Config.GainItemEntry[2] = 22447 --Lesser Planar Essence
 Config.GainItemAmount[2] = 1
-Config.GossipOptionText[2] = 'Take 3 of my Large Brilliant Shards and ask Chromie to send me 1 of her Greater Planar Essence by mail.'
+Config.GossipOptionText[2] = 'Take 1 of my Large Brilliant Shards and ask Chromie to send me 1 of her Greater Planar Essence by mail.'
 
 Config.TurnInItemEntry[3] = 12809 --Guardian Stone
 Config.TurnInItemAmount[3] = 1
@@ -79,17 +79,17 @@ Config.GainItemEntry[4] = 22794 --Fel Lotus
 Config.GainItemAmount[4] = 1
 Config.GossipOptionText[4] = 'Take 1 of my Black Lotus and ask Chromie to send me 1 of her Fel Lotus by mail.'
 
-Config.TurnInItemEntry[5] = 11754 --Black Diamond
+Config.TurnInItemEntry[5] = 7972 --Ichor of Undeath
 Config.TurnInItemAmount[5] = 1
-Config.GainItemEntry[5] = 22456 --Primal Shadow
-Config.GainItemAmount[5] = 4
-Config.GossipOptionText[5] = 'Take 1 of my Black Diamond and ask Chromie to send me 4 of her Small Primal Shadow by mail.'
+Config.GainItemEntry[5] = 22577 --Mote of Shadow
+Config.GainItemAmount[5] = 1
+Config.GossipOptionText[5] = 'Take 1 of my Ichor of Undeath and ask Chromie to send me 1 of her Mote of Shadow by mail.'
 
-Config.TurnInItemEntry[6] = 7082 --Essence of Air
-Config.TurnInItemAmount[6] = 2
-Config.GainItemEntry[6] = 22451 --Primal Air
+Config.TurnInItemEntry[6] = 7069 --Elemental Air
+Config.TurnInItemAmount[6] = 1
+Config.GainItemEntry[6] = 22572 --Mote of Air
 Config.GainItemAmount[6] = 1
-Config.GossipOptionText[6] = 'Take 2 of my Essence of Air and ask Chromie to send me 1 of her Primal Air by mail.'
+Config.GossipOptionText[6] = 'Take 1 of my Elemental Air and ask Chromie to send me 1 of her Mote of Air by mail.'
 
 Config.TurnInItemEntry[7] = 18512 --Larval Acid
 Config.TurnInItemAmount[7] = 1
