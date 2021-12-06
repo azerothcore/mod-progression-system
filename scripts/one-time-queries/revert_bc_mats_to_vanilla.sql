@@ -1,0 +1,10 @@
+UPDATE `item_instance` SET `itemEntry` = 20725 WHERE `itemEntry` = 22448;
+UPDATE `item_instance` SET `itemEntry` = 14344 WHERE `itemEntry` = 22447;
+UPDATE `item_instance` SET `itemEntry` = 14344 WHERE `itemEntry` = 22446;
+UPDATE `item_instance` SET `itemEntry` = 12809 WHERE `itemEntry` = 22452;
+UPDATE `item_instance` SET `itemEntry` = 13468 WHERE `itemEntry` = 22794;
+UPDATE `item_instance` SET `itemEntry` = 7972 WHERE `itemEntry` = 22577;
+UPDATE `item_instance` SET `itemEntry` = 12808 WHERE `itemEntry` = 22456;
+UPDATE `item_instance` SET `itemEntry` = 7069 WHERE `itemEntry` = 22572;
+UPDATE `item_instance` SET `itemEntry` = 7082 WHERE `itemEntry` = 22451;
+UPDATE `item_instance` SET `itemEntry` = 18512 WHERE `itemEntry` = 21886;
