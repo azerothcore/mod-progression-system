@@ -44,7 +44,7 @@ DELETE FROM `npc_vendor` WHERE `entry` IN (5134, 3625) AND `item` IN (41584, 415
   Removed sold items form pvp vendors
   items not like: (19031, 17348, 17349, 17351, 17352)
 */
-DELETE `npc_vendor`FROM `npc_vendor` WHERE `entry` IN (13218, 13216) AND `item` NOT IN (19029, 19030, 19031, 17348, 17349, 17351, 17352);
+DELETE `npc_vendor`FROM `npc_vendor` WHERE `entry` IN (13218, 13216) AND `item` NOT IN (19029, 19030, 17348, 17349, 17351, 17352);
 
 /*
   Vendors for Impact Shell and Wicked Arrow, all NPCs selling them.
