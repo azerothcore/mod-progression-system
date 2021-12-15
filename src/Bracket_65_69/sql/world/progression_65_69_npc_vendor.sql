@@ -8,3 +8,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 	(14847, 0, 27501, 1, 7200, 0, 0),
 	(14847, 0, 27502, 2, 7200, 0, 0),
 	(14847, 0, 27503, 2, 7200, 0, 0);
+
+-- Added TBC ammunition to Alterac Valley General Goods vendors
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(5134, 0, 28056, 0, 0, 0, 0),
+(5134, 0, 28061, 0, 0, 0, 0),
+(3625, 0, 28056, 0, 0, 0, 0),
+(3625, 0, 28061, 0, 0, 0, 0);
