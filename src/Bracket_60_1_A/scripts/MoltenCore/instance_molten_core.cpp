@@ -324,7 +324,7 @@ public:
             {
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
-                    if (sConfigMgr->GetOption<bool>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", true))
+                    if (sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", 1))
                     {
                         rune->SetGoState(GO_STATE_ACTIVE);
                         rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
@@ -427,7 +427,7 @@ public:
                 return false;
             }
 
-            if (sConfigMgr->GetOption<bool>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", true))
+            if (sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", 1))
             {
                 return CheckFirelordRunes();
             }
@@ -561,7 +561,7 @@ public:
             bool _hasBeenUsed;
     };
 
-    bool OnGossipHello(Player* player, GameObject* go) override
+    bool OnGossipHello(Player* /*player*/, GameObject* go) override
     {
         go->SetFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
 
