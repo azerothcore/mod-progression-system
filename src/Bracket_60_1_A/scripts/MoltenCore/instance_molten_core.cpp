@@ -27,6 +27,8 @@
 #include "ObjectMgr.h"
 #include "molten_core.h"
 
+#include "ProgressionSystem.h"
+
 MinionData const minionData[] =
 {
     { NPC_FIRESWORN,                DATA_GARR },
@@ -150,6 +152,33 @@ public:
                 case GO_CACHE_OF_THE_FIRELORD:
                 {
                     _cacheOfTheFirelordGUID = go->GetGUID();
+                    break;
+                }
+                case GO_CIRCLE_GEDDON:
+                case GO_CIRCLE_GARR:
+                case GO_CIRCLE_GEHENNAS:
+                case GO_CIRCLE_GOLEMAGG:
+                case GO_CIRCLE_MAGMADAR:
+                case GO_CIRCLE_SHAZZRAH:
+                case GO_CIRCLE_SULFURON:
+                {
+                    for (uint8 i = 0; i < MAX_MC_LINKED_BOSS_OBJ; ++i)
+                    {
+                        if (linkedBossObjData[i].circleId != go->GetEntry())
+                        {
+                            continue;
+                        }
+
+                        if (GetBossState(linkedBossObjData[i].bossId) == DONE)
+                        {
+                            go->DespawnOrUnsummon();
+                        }
+                        else
+                        {
+                            _circlesGUIDs[linkedBossObjData[i].bossId] = go->GetGUID();
+                        }
+                    }
+
                     break;
                 }
                 case GO_RUNE_KRESS:
@@ -289,13 +318,28 @@ public:
             {
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
-                    rune->SetGoState(GO_STATE_ACTIVE);
-                    _runesGUIDs[bossId].Clear();
-                }
+                    if (sConfigMgr->GetOption<bool>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", true))
+                    {
+                        rune->SetGoState(GO_STATE_ACTIVE);
+                        rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+                    }
+                    else
+                    {
+                        if (GameObject* circle = instance->GetGameObject(_circlesGUIDs[bossId]))
+                        {
+                            circle->DespawnOrUnsummon();
+                            _circlesGUIDs[bossId].Clear();
+                        }
 
-                if (CheckMajordomoExecutus())
-                {
-                    SummonMajordomoExecutus();
+                        rune->SetGoState(GO_STATE_ACTIVE);
+
+                        if (CheckMajordomoExecutus())
+                        {
+                            SummonMajordomoExecutus();
+                        }
+                    }
+
+                    _runesGUIDs[bossId].Clear();
                 }
             }
 
@@ -320,6 +364,13 @@ public:
                             minion->AI()->EnterEvadeMode();
                         }
                     }
+                }
+            }
+            else if (action == ACTION_CHECK_RUNES)
+            {
+                if (CheckMajordomoExecutus())
+                {
+                    SummonMajordomoExecutus();
                 }
             }
         }
@@ -368,6 +419,27 @@ public:
             if (instance->GetCreature(_ragnarosGUID))
             {
                 return false;
+            }
+
+            if (sConfigMgr->GetOption<bool>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", true))
+            {
+                return CheckFirelordRunes();
+            }
+
+            return true;
+        }
+
+        bool CheckFirelordRunes() const
+        {
+            for (auto const& guidpair : _runesGUIDs)
+            {
+                if (GameObject* rune = instance->GetGameObject(guidpair.second))
+                {
+                    if (rune->GetGoState() == GO_STATE_ACTIVE)
+                    {
+                        return false;
+                    }
+                }
             }
 
             return true;
@@ -427,6 +499,7 @@ public:
         }
 
     private:
+        std::unordered_map<uint32 /*bossid*/, ObjectGuid /*circleGUID*/> _circlesGUIDs;
         std::unordered_map<uint32/*bossid*/, ObjectGuid/*runeGUID*/> _runesGUIDs;
 
         // Golemagg encounter related
@@ -450,7 +523,31 @@ public:
     }
 };
 
+class go_firelord_rune : public GameObjectScript
+{
+public:
+    go_firelord_rune() : GameObjectScript("go_firelord_rune") {}
+
+    bool OnGossipHello(Player* player, GameObject* go) override
+    {
+        go->SetFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+
+        if (GameObject* circle = go->GetLinkedTrap())
+        {
+            circle->DespawnOrUnsummon();
+        }
+
+        if (InstanceScript* instance = go->GetInstanceScript())
+        {
+            instance->DoAction(ACTION_CHECK_RUNES);
+        }
+
+        return true;
+    }
+};
+
 void AddSC_instance_molten_core_60_1_A()
 {
     new instance_molten_core_60_1_A();
+    new go_firelord_rune();
 }

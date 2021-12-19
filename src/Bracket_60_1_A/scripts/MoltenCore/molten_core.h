@@ -49,6 +49,9 @@ enum MCActions
     ACTION_FINISH_RAGNAROS_INTRO        = -2,
     ACTION_RESET_GOLEMAGG_ENCOUNTER     = -3,   // Used when ragers are pulled far away
     ACTION_PREPARE_MAJORDOMO_RAGNA      = -4,
+
+    // Poisoned Water - Progression
+    ACTION_CHECK_RUNES                  = -5
 };
 
 enum MCCreatures
