@@ -41,6 +41,8 @@ enum MCData
     // Other data
     DATA_LAVA_STEAM                 = 10,
     DATA_LAVA_SPLASH                = 11,
+
+    DATA_RUNE_STATUS                = 12,
 };
 
 enum MCActions

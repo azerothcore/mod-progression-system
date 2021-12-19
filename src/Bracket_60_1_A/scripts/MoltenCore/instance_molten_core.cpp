@@ -18,6 +18,7 @@
 #include "InstanceScript.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
+#include "GameObjectAI.h"
 #include "TemporarySummon.h"
 #include "Cell.h"
 #include "CellImpl.h"
@@ -199,6 +200,11 @@ public:
                         if (GetBossState(linkedBossObjData[i].bossId) == DONE)
                         {
                             go->SetGoState(GO_STATE_ACTIVE);
+
+                            if (go->AI())
+                            {
+                                go->AI()->SetData(DATA_RUNE_STATUS, 1);
+                            }
                         }
                         else
                         {
@@ -435,7 +441,7 @@ public:
             {
                 if (GameObject* rune = instance->GetGameObject(guidpair.second))
                 {
-                    if (rune->GetGoState() == GO_STATE_ACTIVE)
+                    if (!rune->AI()->GetData(DATA_RUNE_STATUS))
                     {
                         return false;
                     }
@@ -528,6 +534,33 @@ class go_firelord_rune : public GameObjectScript
 public:
     go_firelord_rune() : GameObjectScript("go_firelord_rune") {}
 
+
+    struct go_firelord_runeAI : public GameObjectAI
+    {
+        go_firelord_runeAI(GameObject* go) : GameObjectAI(go), _hasBeenUsed(false) { }
+
+        uint32 GetData(uint32 type) const override
+        {
+            if (type == DATA_RUNE_STATUS)
+            {
+                return static_cast<uint32>(_hasBeenUsed);
+            }
+
+            return 0;
+        }
+
+        void SetData(uint32 index, uint32 /*type*/) override
+        {
+            if (index == DATA_RUNE_STATUS)
+            {
+                _hasBeenUsed = true;
+            }
+        }
+
+        private:
+            bool _hasBeenUsed;
+    };
+
     bool OnGossipHello(Player* player, GameObject* go) override
     {
         go->SetFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
@@ -541,6 +574,8 @@ public:
         {
             instance->DoAction(ACTION_CHECK_RUNES);
         }
+
+        go->AI()->SetData(DATA_RUNE_STATUS, 1);
 
         return true;
     }
