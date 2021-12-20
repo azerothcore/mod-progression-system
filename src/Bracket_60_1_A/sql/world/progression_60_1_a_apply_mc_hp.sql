@@ -1,5 +1,5 @@
 -- Increasing MC boss hp by 3x
-
+-- boss name original value, new value
 -- Lucifron 132 - 396
 UPDATE `creature_template` SET `HealthModifier` = 396 WHERE (`entry` = 12118);
 
@@ -31,7 +31,7 @@ UPDATE `creature_template` SET `HealthModifier` = 600 WHERE (`entry` = 12018);
 UPDATE `creature_template` SET `HealthModifier` = 990 WHERE (`entry` = 11502);
 
 -- Increasing MCAdd hp by 2.5x
-
+-- add name original value, new value
 -- Flamewaker Protector 35 - 87.5
 UPDATE `creature_template` SET `HealthModifier` = 87.5 WHERE (`entry` = 12119);
 
