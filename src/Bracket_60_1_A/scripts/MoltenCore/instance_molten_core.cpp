@@ -200,15 +200,12 @@ public:
                         if (GetBossState(linkedBossObjData[i].bossId) == DONE)
                         {
                             go->SetGoState(GO_STATE_ACTIVE);
-
-                            if (go->AI())
-                            {
-                                go->AI()->SetData(DATA_RUNE_STATUS, 1);
-                            }
+                            _runeStatus[go->GetEntry()] = true;
                         }
                         else
                         {
                             _runesGUIDs[linkedBossObjData[i].bossId] = go->GetGUID();
+                            _runeStatus[go->GetEntry()] = false;
                         }
                     }
                     break;
@@ -352,6 +349,14 @@ public:
             return true;
         }
 
+        void SetData(uint32 index, uint32 data) override
+        {
+            if (index == DATA_RUNE_STATUS)
+            {
+                _runeStatus[data] = true;
+            }
+        }
+
         void DoAction(int32 action) override
         {
             if (action == ACTION_RESET_GOLEMAGG_ENCOUNTER)
@@ -437,14 +442,11 @@ public:
 
         bool CheckFirelordRunes() const
         {
-            for (auto const& guidpair : _runesGUIDs)
+            for (auto const& status : _runeStatus)
             {
-                if (GameObject* rune = instance->GetGameObject(guidpair.second))
+                if (!status.second)
                 {
-                    if (!rune->AI()->GetData(DATA_RUNE_STATUS))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
 
@@ -507,6 +509,7 @@ public:
     private:
         std::unordered_map<uint32 /*bossid*/, ObjectGuid /*circleGUID*/> _circlesGUIDs;
         std::unordered_map<uint32/*bossid*/, ObjectGuid/*runeGUID*/> _runesGUIDs;
+        std::unordered_map<uint32 /*bossid*/, bool /*status*/> _runeStatus;
 
         // Golemagg encounter related
         ObjectGuid _golemaggGUID;
@@ -532,34 +535,7 @@ public:
 class go_firelord_rune : public GameObjectScript
 {
 public:
-    go_firelord_rune() : GameObjectScript("go_firelord_rune") {}
-
-
-    struct go_firelord_runeAI : public GameObjectAI
-    {
-        go_firelord_runeAI(GameObject* go) : GameObjectAI(go), _hasBeenUsed(false) { }
-
-        uint32 GetData(uint32 type) const override
-        {
-            if (type == DATA_RUNE_STATUS)
-            {
-                return static_cast<uint32>(_hasBeenUsed);
-            }
-
-            return 0;
-        }
-
-        void SetData(uint32 index, uint32 /*type*/) override
-        {
-            if (index == DATA_RUNE_STATUS)
-            {
-                _hasBeenUsed = true;
-            }
-        }
-
-        private:
-            bool _hasBeenUsed;
-    };
+    go_firelord_rune() : GameObjectScript("go_firelord_rune") { }
 
     bool OnGossipHello(Player* /*player*/, GameObject* go) override
     {
@@ -572,10 +548,9 @@ public:
 
         if (InstanceScript* instance = go->GetInstanceScript())
         {
+            instance->SetData(DATA_RUNE_STATUS, go->GetEntry());
             instance->DoAction(ACTION_CHECK_RUNES);
         }
-
-        go->AI()->SetData(DATA_RUNE_STATUS, 1);
 
         return true;
     }
