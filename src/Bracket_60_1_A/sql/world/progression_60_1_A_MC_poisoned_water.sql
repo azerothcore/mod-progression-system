@@ -31,7 +31,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 15) AND (`SourceGroup` = 5065) AND (`SourceId` IN (0, 1));
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (15, 5065, 0, 0, 0, 5, 0, 749, 224, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Aqual Quintessence Gossip - Requires Honored Rep'),
-(15, 5065, 1, 0, 0, 5, 0, 749, 192, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Revered Rep');
+(15, 5065, 0, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Duke Hydraxis - Aqual Quintessence Gossip available if quest Hand of the Enemy rewarded.'),
+(15, 5065, 1, 0, 0, 5, 0, 749, 192, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Revered Rep'),
+(15, 5065, 1, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Hand of the Enemy rewarded');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (6822, 6823, 6824, 7486);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
@@ -48,3 +50,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
 (13278, 0, 3, 0, 61, 0, 100, 0, 0, 1, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \' Eternal Quintessence\'');
 
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 5065 AND `OptionID` IN (0, 1);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
+(5065,0,0,'I require a vial of aqual quintessence, Hydraxis, for I go to the Molten Core to extinguish a rune of the Firelords.',8666,1,2,0,0,0,0,'',0,0),
+(5065,1,0,'I desire this eternal quintessence, Duke Hydraxis.',12363,1,2,0,0,0,0,'',0,0);
