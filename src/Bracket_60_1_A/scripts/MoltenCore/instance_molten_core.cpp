@@ -532,12 +532,14 @@ public:
     }
 };
 
+constexpr uint32 SPELL_AQUAL_QUINTESSENCE = 21358;
+
 class go_firelord_rune : public GameObjectScript
 {
 public:
     go_firelord_rune() : GameObjectScript("go_firelord_rune") { }
 
-    bool OnGossipHello(Player* /*player*/, GameObject* go) override
+    bool OnGossipHello(Player* player, GameObject* go) override
     {
         go->SetFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
 
@@ -550,6 +552,12 @@ public:
         {
             instance->SetData(DATA_RUNE_STATUS, go->GetEntry());
             instance->DoAction(ACTION_CHECK_RUNES);
+        }
+
+        if (uint32 cooldown = player->GetSpellCooldownDelay(SPELL_AQUAL_QUINTESSENCE))
+        {
+            int32 cooldownredux = sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction", 0);
+            player->ModifySpellCooldown(SPELL_AQUAL_QUINTESSENCE, -(cooldownredux * MINUTE * IN_MILLISECONDS));
         }
 
         return true;

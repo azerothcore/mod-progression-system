@@ -44,3 +44,14 @@ ProgressionSystem.Brackets = 0
 #
 
 ProgressionSystem.60.MoltenCore.ManualRuneHandling = 1
+
+#
+#    ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction
+#        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
+#        Default:   0 - Disabled (1 hour cooldown)
+#                   60 - (No cooldown)
+#
+#
+
+ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
+
