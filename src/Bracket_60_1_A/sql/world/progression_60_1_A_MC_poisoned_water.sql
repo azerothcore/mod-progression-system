@@ -33,6 +33,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 5065, 0, 0, 0, 5, 0, 749, 224, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Aqual Quintessence Gossip - Requires Honored Rep'),
 (15, 5065, 1, 0, 0, 5, 0, 749, 192, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Revered Rep');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (6822, 6823, 6824, 7486);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(19, 0, 6822, 0, 0, 47, 0, 6821, 64, 0, 0, 0, 0, '', 'Quest Molten Core available if quest Eye of the Emberseer has been rewarded.'),
+(19, 0, 6823, 0, 0, 47, 0, 6822, 64, 0, 0, 0, 0, '', 'Quest Agent of Hydraxis available if quest Molten Core has been rewarded.'),
+(19, 0, 6824, 0, 0, 47, 0, 6823, 64, 0, 0, 0, 0, '', 'Quest Hands of the Enemy available if quest Agents of Hydraxis has been rewarded.'),
+(19, 0, 7486, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Quest A Hero\'s Reward available if quest Hands of the Enemy has been rewarded.');
+
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 13278;
 DELETE FROM `smart_scripts` WHERE (`entryorguid` = 13278) AND (`source_type` = 0) AND (`id` IN (0, 1, 2, 3));
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
