@@ -32,3 +32,26 @@ ProgressionSystem.LoadDatabase = 1
 #
 
 ProgressionSystem.Brackets = 0
+
+#
+#
+#
+#    ProgressionSystem.60.MoltenCore.ManualRuneHandling
+#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) or automatic when bosses are defeated (WotLK default)
+#        Default:   1 - Enabled (requires dousing)
+#                   0 - Disabled (automatic, handled when bosses are defeated)
+#
+#
+
+ProgressionSystem.60.MoltenCore.ManualRuneHandling = 1
+
+#
+#    ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction
+#        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
+#        Default:   0 - Disabled (1 hour cooldown)
+#                   60 - (No cooldown)
+#
+#
+
+ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
+
