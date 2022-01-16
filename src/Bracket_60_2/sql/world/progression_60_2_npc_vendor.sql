@@ -1,4 +1,5 @@
 -- Re-inserting the Vanilla PVP gear in Alterac Valley Vendors
+DELETE FROM `npc_vendor` WHERE `entry` IN (13216, 13218);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
 (13216, 0, 19030, 0, 0, 1005, 0),
 (13218, 0, 19029, 0, 0, 1005, 0),
