@@ -247,8 +247,8 @@ UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 1749;
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 1749 AND `Source_type` = 0; 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) values
-(1749,0,0,1,62,0,100,0,51752,0,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,'Lady Katrana Prestor - On Gossip Option Select - Close Gossip'),
-(1749,0,1,0,61,0,100,0,0,0,0,0,0,15,4185,0,0,0,0,0,7,0,0,0,0,0,0,0,'Lady Katrana Prestor - On Gossip Option Select - Complete Quest - The True Masters');
+(1749, 0, 0, 1, 62, 0, 100, 0, 51752, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 'Lady Katrana Prestor - On Gossip Option Select - Close Gossip'),
+(1749, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 15, 4185, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 'Lady Katrana Prestor - On Gossip Option Select - Complete Quest - The True Masters');
 
 -- Spawn Lady Katrana Prestor
 -- Positions are hand-made. There's a huge throne where she used to be spawned in classic...
@@ -262,3 +262,12 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (30, 0, 1749, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest The Great Masquerade NOT rewarded.');
 
 UPDATE `item_template` SET `startquest` = 4264 WHERE `entry` = 11446; -- A crumpled up note
+
+DELETE FROM `creature` WHERE `guid` = 500801 AND `id1` = 1748;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(500801, 1748, 0, 0, 0, 1, 1, 1, -8445.01, 329.85, 122.163, 2.12562, 300, 0, 1055700, 67740, 0, 0, 0, 0, '', 0);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.'),
+(30, 0, 1748, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Highlord Bolvar Forddring - Visibility - Require quest The Great Masquerade NOT rewarded.');
