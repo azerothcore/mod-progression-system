@@ -237,9 +237,11 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (59573, 0, 0, 'Ahhh... Ironfoe.', 5034, 1, 1, 59574, 0, 0, 0, '', 0),
 (59574, 0, 0, 'Thanks, Ragged John. Your story was very uplifting and informative.', 5038, 1, 1, 0, 0, 0, 0, '', 0);
 
+UPDATE `smart_scripts` SET `event_param1` = 59574 WHERE `entryorguid` = 9563 AND `id` = 3 AND `event_type` = 62; -- Ragged John quest credit
+
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 59563;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(15,59563,0,0,0,9,0,4224,0,0,0,0,0,'','Ragged John - Require True Masters (6)');
+(15,59563,0,0,0,9,0,4224,0,0,0,0,0,'','Ragged John - Require True Masters (6)'); 
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 1749;
 
@@ -247,3 +249,16 @@ DELETE FROM `smart_scripts` WHERE `entryorguid` = 1749 AND `Source_type` = 0;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) values
 (1749,0,0,1,62,0,100,0,51752,0,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,'Lady Katrana Prestor - On Gossip Option Select - Close Gossip'),
 (1749,0,1,0,61,0,100,0,0,0,0,0,0,15,4185,0,0,0,0,0,7,0,0,0,0,0,0,0,'Lady Katrana Prestor - On Gossip Option Select - Complete Quest - The True Masters');
+
+-- Spawn Lady Katrana Prestor
+-- Positions are hand-made. There's a huge throne where she used to be spawned in classic...
+DELETE FROM `creature` WHERE `guid` = 500800 AND `id1` = 1749;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(500800, 1749, 0, 0, 0, 1, 1, 1, -8435, 335.559, 122.163, 2.56468, 300, 0, 3497, 2568, 0, 0, 0, 0, '', 0);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(30, 0, 1749, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest Dragonkin Menace rewarded.'),
+(30, 0, 1749, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest The Great Masquerade NOT rewarded.');
+
+UPDATE `item_template` SET `startquest` = 4264 WHERE `entry` = 11446; -- A crumpled up note
