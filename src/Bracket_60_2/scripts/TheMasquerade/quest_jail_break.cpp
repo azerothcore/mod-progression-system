@@ -367,7 +367,7 @@ public:
 class npc_jail_break_dughal_or_seecher : public CreatureScript
 {
 public:
-    npc_jail_break_dughal_or_seecher() : CreatureScript("cus_npc_jail_break_dughal_or_seecher") { }
+    npc_jail_break_dughal_or_seecher() : CreatureScript("npc_jail_break_dughal_or_seecher") { }
 
     struct npc_jail_break_dughal_or_seecherAI : public npc_escortAI
     {

@@ -1054,7 +1054,7 @@ public:
 class npc_royal_stormwind_guard : public CreatureScript
 {
 public:
-    npc_royal_stormwind_guard() : CreatureScript("cus_npc_royal_stormwind_guard") { }
+    npc_royal_stormwind_guard() : CreatureScript("npc_royal_stormwind_guard") { }
 
     struct npc_royal_stormwind_guardAI : public ScriptedAI
     {

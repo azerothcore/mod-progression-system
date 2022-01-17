@@ -65,6 +65,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 UPDATE `creature_template` SET `ScriptName` = 'npc_squire_rowe' WHERE `entry` = 17804;
 UPDATE `creature_template` SET `ScriptName` = 'npc_reginald_windsor' WHERE `entry` = 12580;
 UPDATE `creature_template` SET `ScriptName` = 'npc_royal_stormwind_guard' WHERE `entry` = 1756;
+UPDATE `creature_template` SET `ScriptName` = 'npc_marshal_windsor' WHERE `entry` = 9023;
+UPDATE `creature_template` SET `ScriptName` = 'npc_jail_break_dughal_or_seecher' WHERE `entry` IN (9022, 9679);
 
 DELETE FROM `gossip_menu` WHERE `MenuID` = 12580 AND `TextID` = 5633;
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
@@ -267,7 +269,7 @@ DELETE FROM `creature` WHERE `guid` = 500801 AND `id1` = 1748;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (500801, 1748, 0, 0, 0, 1, 1, 1, -8445.01, 329.85, 122.163, 2.12562, 300, 0, 1055700, 67740, 0, 0, 0, 0, '', 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1748;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.'),
 (30, 0, 1748, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Highlord Bolvar Forddring - Visibility - Require quest The Great Masquerade NOT rewarded.');
