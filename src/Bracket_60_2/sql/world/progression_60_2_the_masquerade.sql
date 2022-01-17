@@ -139,7 +139,7 @@ INSERT INTO `conditions`(`SourceTypeOrReferenceId`,`SourceGroup`,`SourceEntry`,`
 SET @ENTRY  := 68;
 SET @ENTRY2 := 1756;
 SET @ENTRY3 := 1976;
-DELETE FROM `creature_text` WHERE `CreatureID` IN (68, 1756, 1976) AND groupid = 10;
+DELETE FROM `creature_text` WHERE `CreatureID` IN (68, 1756, 1976) AND `GroupID` = 10;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (@ENTRY, 10, 0, 'Light be with you, sir.', 12, 0, 100, 0, 0, 0, 8167, 0, ''),
 (@ENTRY, 10, 1, 'We are but dirt beneath your feet, sir.', 12, 0, 100, 0, 0, 0, 8177, 0, ''),
@@ -334,3 +334,15 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 56, 470.39, -6.01, -70.1, 0, ''),
 (9023, 57, 452.45, 29.85, -70.37, 1500, 'SAY_WINDSOR_FREE_1'),
 (9023, 58, 452.45, 29.85, -70.37, 15000, 'SAY_WINDSOR_FREE_2');
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 9023;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(9023, 0, 0, 'You locked up the wrong Marshal, $n. Prepare to be destroyed!', 12, 0, 100, 0, 0, 0, 5253, 0, 'Marshal Windsor - SAY_AGGRO'),
+(9023, 0, 1, 'I bet you\'re sorry now, aren\'nt you!?!', 12, 0, 100, 0, 0, 0, 5252, 0, 'Marshal Windsor - SAY_AGGRO'),
+(9023, 0, 2, 'You better hold me back or $n is going to feel some prison house beatings.', 12, 0, 100, 0, 0, 0, 5250, 0, 'Marshal Windsor - SAY_AGGRO'),
+(9023, 0, 3, 'Administering fists of fury on $n!', 12, 0, 100, 0, 0, 0, 5249, 0, 'Marshal Windsor - SAY_AGGRO'),
+(9023, 1, 0, 'Let\'s get a move on. My gear should be in the storage area up this way...', 12, 0, 100, 0, 0, 0, 5205, 0, 'Marshal Windsor - SAY_START_ESCORT'),
+(9023, 2, 0, 'Check that cell, $n. If someone is alive in there, we need to get them out.', 12, 0, 100, 0, 0, 0, 5207, 0, 'Marshal Windsor - SAY_DUGHAL_CELL_1'),
+(9023, 3, 0, 'Good work! We\'re almost there! This way.', 12, 0, 100, 0, 0, 0, 5213, 0, 'Marshal Windsor - SAY_DUGHAL_CELL_2'),
+(9023, 4, 0, 'This is it, $n. My stuff should be in that room. Cover me, I\'m going in!', 12, 0, 100, 0, 0, 0, 5214, 0, 'Marshal Windsor - SAY_EQUIPMENT_1'),
+(9023, 5, 0, 'Ah, there it is!', 12, 0, 100, 0, 0, 0, 5215, 0, 'Marshal Windsor - SAY_EQUIPMENT_2');
