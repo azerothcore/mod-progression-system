@@ -139,7 +139,10 @@ public:
         void DoAction(int32 actionId) override
         {
             if (actionId == 0)
+            {
                 SetEscortPaused(false);
+                LOG_ERROR("sql.sql", "Doing action");
+            }
         }
 
         void EnterCombat(Unit* who) override
@@ -162,7 +165,7 @@ public:
                     Talk(SAY_DUGHAL_CELL_1, player);
                 }
 
-                if (Creature* dughal = ObjectAccessor::GetCreature(*me, _instance->GetGuidData(NPC_DUGHAL_STORMWING)))
+                if (Creature* dughal = me->FindNearestCreature(NPC_DUGHAL_STORMWING, 100.0f))
                 {
                     if (!dughal->IsAlive())
                         dughal->Respawn(true);
@@ -249,7 +252,7 @@ public:
                 Talk(SAY_CREST_CELL_2);
                 break;
             case 49:
-                if (Creature* tobias = ObjectAccessor::GetCreature(*me, _instance->GetGuidData(NPC_TOBIAS_SEECHER)))
+                if (Creature* tobias = me->FindNearestCreature(NPC_TOBIAS_SEECHER, 200.0f))
                 {
                     if (!tobias->IsAlive())
                     {
@@ -320,7 +323,7 @@ public:
 
         void SchedulePrisonerActivation(uint32 entry)
         {
-            if (Creature* prisoner = ObjectAccessor::GetCreature(*me, _instance->GetGuidData(entry)))
+            if (Creature* prisoner = me->FindNearestCreature(entry, 250.0f))
             {
                 if (!prisoner->IsAlive())
                 {
@@ -390,7 +393,16 @@ public:
             }
         }
 
-        void WaypointReached(uint32 id) override { }
+        void WaypointReached(uint32 id) override
+        {
+            if ((me->GetEntry() == NPC_DUGHAL_STORMWING && id == 2) ||
+                (me->GetEntry() == NPC_TOBIAS_SEECHER && id == 4))
+            {
+                LOG_ERROR("sql.sql", "Pathing");
+                if (Creature* windsor = me->FindNearestCreature(9023, 200.0f))
+                    windsor->AI()->DoAction(0);
+            }
+        }
 
         void DoAction(int32 actionId) override
         {
@@ -422,7 +434,7 @@ public:
         CloseGossipMenuFor(player);
         uint32 const action = player->PlayerTalkClass->GetGossipOptionAction(gossipListId);
 
-        if (action == GOSSIP_ACTION_INFO_DEF + 1)
+        if (action == 0)
         {
             me->AI()->Talk(0, player);
             me->AI()->DoAction(0);
