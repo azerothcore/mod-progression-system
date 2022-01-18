@@ -346,3 +346,25 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (9023, 3, 0, 'Good work! We\'re almost there! This way.', 12, 0, 100, 0, 0, 0, 5213, 0, 'Marshal Windsor - SAY_DUGHAL_CELL_2'),
 (9023, 4, 0, 'This is it, $n. My stuff should be in that room. Cover me, I\'m going in!', 12, 0, 100, 0, 0, 0, 5214, 0, 'Marshal Windsor - SAY_EQUIPMENT_1'),
 (9023, 5, 0, 'Ah, there it is!', 12, 0, 100, 0, 0, 0, 5215, 0, 'Marshal Windsor - SAY_EQUIPMENT_2');
+
+-- Windsor, armored up.
+DELETE FROM `creature_text` WHERE `CreatureID` = 9682;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(9682, 0, 0, 'You locked up the wrong Marshal, $n. Prepare to be destroyed!, 12, 0, 100, 0, 0, 0, 5253, 0, Marshal Windsor - SAY_AGGRO', ''),
+(9682, 0, 1, 'I bet you\'re sorry now, aren\'nt you!?!, 12, 0, 100, 0, 0, 0, 5252, 0, Marshal Windsor - SAY_AGGRO', ''),
+(9682, 0, 2, 'You better hold me back or $n is going to feel some prison house beatings., 12, 0, 100, 0, 0, 0, 5250, 0, Marshal Windsor - SAY_AGGRO', ''),
+(9682, 0, 3, 'Administering fists of fury on $n!, 12, 0, 100, 0, 0, 0, 5249, 0, Marshal Windsor - SAY_AGGRO', ''),
+(9682, 6, 0, 'Can you feel the power, $n??? It\'s time to ROCK!, 12, 0, 100, 0, 0, 0, 5216, 0, Reginald Windsor - SAY_EQUIPMENT_3', ''),
+(9682, 7, 0, 'Now we just have to free Tobias and we can get out of here. This way!, 12, 0, 100, 0, 0, 0, 5217, 0, Reginald Windsor - SAY_EQUIPMENT_4', ''),
+(9682, 8, 0, 'Open it., 12, 0, 100, 0, 0, 0, 5222, 0, Reginald Windsor - SAY_JAZ_CELL_1', ''),
+(9682, 9, 0, 'I never did like those two. Let\'s get moving., 12, 0, 100, 0, 0, 0, 5223, 0, Reginald Windsor - SAY_JAZ_CELL2', ''),
+(9682, 10, 0, 'Open it and be careful this time!, 12, 0, 100, 0, 0, 0, 5224, 0, Reginald Windsor - SAY_SHILL_CELL_1', ''),
+(9682, 11, 0, 'That intolerant dirtbag finally got what was coming to him. Good riddance!, 12, 0, 100, 0, 0, 0, 5225, 0, Reginald Windsor - SAY_SHILL_CELL_2', ''),
+(9682, 12, 0, 'Alright, let\'s go., 12, 0, 100, 0, 0, 0, 5227, 0, Reginald Windsor - SAY_SHILL_CELL_3', ''),
+(9682, 13, 0, 'Open it. We need to hurry up. I can smell those Dark Irons coming a mile away and I can tell you one thing, they\'re COMING!, 12, 0, 100, 0, 0, 0, 5228, 0, Reginald Windsor - SAY_CREST_CELL_1', ''),
+(9682, 14, 0, 'He has to be in the last cell. Unless... they killed him., 12, 0, 100, 0, 0, 0, 5229, 0, Reginald Windsor - SAY_CREST_CELL_2', ''),
+(9682, 15, 0, 'Get him out of there!, 12, 0, 100, 0, 0, 0, 5230, 0, Reginald Windsor - SAY_TOBIAS_CELL_1', ''),
+(9682, 16, 0, 'Excellent work, $n. Let\'s find the exit. I think I know the way. Follow me!, 12, 0, 100, 0, 0, 0, 5221, 0, Reginald Windsor - SAY_TOBIAS_CELL_2', ''),
+(9682, 17, 0, 'We made it!, 12, 0, 100, 0, 0, 0, 5231, 0, Reginald Windsor - SAY_FREE_1', ''),
+(9682, 18, 0, 'Meet me at Maxwell\'s encampment. We\'ll go over the next stages of the plan there and figure out a way to decode my tablets without the decryption ring., 12, 0, 100, 0, 0, 0, 5232, 0, Reginald Windsor - SAY_FREE_2', '');
+
