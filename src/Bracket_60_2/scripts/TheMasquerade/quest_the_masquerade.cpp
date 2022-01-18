@@ -1013,18 +1013,12 @@ public:
         CloseGossipMenuFor(player);
         uint32 const action = player->PlayerTalkClass->GetGossipOptionAction(gossipListId);
 
-        if (action == 1)
+        if (action == 0)
         {
             me->m_Events.AddEvent(new DelayedEmoteEvent(me, EMOTE_ONESHOT_POINT), me->m_Events.CalculateTime(1000));
             me->AI()->Talk(SAY_REGINALD_MOVE_IN_KEEP);
             me->AI()->DoAction(ACTION_START_ESCORT);
             me->RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP);
-
-            if (Creature* varian = me->FindNearestCreature(NPC_VARIAN, 500.0f))
-            {
-                if (!varian->IsInCombat())
-                    varian->SetVisible(false);
-            }
             return true;
         }
         return true;
