@@ -20,6 +20,7 @@
 #include "ScriptedEscortAI.h"
 #include "ScriptedGossip.h"
 #include "SpellAuras.h"
+#include "TaskScheduler.h"
 
 #include "ProgressionSystem.h"
 
@@ -112,6 +113,7 @@ public:
             npc_escortAI::UpdateAI(diff);
 
             _events.Update(diff);
+            _scheduler.Update(diff);
 
             while (uint32 eventId = _events.ExecuteEvent())
             {
@@ -225,6 +227,22 @@ public:
                 SchedulePrisonerActivation(NPC_OGRABISI);
                 SchedulePrisonerActivation(NPC_JAZ);
                 SetEscortPaused(true);
+
+                _scheduler.Schedule(5s, [this](TaskContext task)
+                    {
+                        Creature* ograbisi = me->FindNearestCreature(NPC_OGRABISI, 100.0f);
+                        Creature* jaz = me->FindNearestCreature(NPC_JAZ, 100.0f);
+
+                        if (jaz || ograbisi)
+                        {
+                            task.Repeat();
+                        }
+                        else
+                        {
+                            SetEscortPaused(false);
+                        }
+                    });
+
                 break;
             case 32:
                 Talk(SAY_JAZ_CELL_2);
@@ -234,6 +252,18 @@ public:
                 Talk(SAY_SHILL_CELL_1);
                 SchedulePrisonerActivation(NPC_SHILL_DINGER);
                 SetEscortPaused(true);
+
+                _scheduler.Schedule(5s, [this](TaskContext task)
+                    {
+                        if (Creature* shill = me->FindNearestCreature(NPC_SHILL_DINGER, 50.0f))
+                        {
+                            task.Repeat();
+                        }
+                        else
+                        {
+                            SetEscortPaused(false);
+                        }
+                    });
                 break;
             case 37:
                 Talk(SAY_SHILL_CELL_2);
@@ -246,6 +276,18 @@ public:
                 Talk(SAY_CREST_CELL_1);
                 SchedulePrisonerActivation(NPC_CREST_KILLER);
                 SetEscortPaused(true);
+
+                _scheduler.Schedule(5s, [this](TaskContext task)
+                    {
+                        if (Creature* prisioner = me->FindNearestCreature(NPC_CREST_KILLER, 50.0f))
+                        {
+                            task.Repeat();
+                        }
+                        else
+                        {
+                            SetEscortPaused(false);
+                        }
+                    });
                 break;
             case 47:
                 Talk(SAY_CREST_CELL_2);
@@ -337,6 +379,7 @@ public:
         EventMap _events;
         ObjectGuid _playerGUID;
         InstanceScript* _instance;
+        TaskScheduler _scheduler;
     };
 
     bool OnQuestAccept(Player* player, Creature* me, Quest const* quest) override
@@ -397,7 +440,7 @@ public:
             if ((me->GetEntry() == NPC_DUGHAL_STORMWING && id == 2) ||
                 (me->GetEntry() == NPC_TOBIAS_SEECHER && id == 4))
             {
-                if (Creature* windsor = me->FindNearestCreature(9023, 200.0f))
+                if (Creature* windsor = me->FindNearestCreature(9023, 500.0f))
                     windsor->AI()->DoAction(0);
             }
         }

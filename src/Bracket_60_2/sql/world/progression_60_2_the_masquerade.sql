@@ -368,3 +368,12 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (9682, 17, 0, 'We made it!', 12, 0, 100, 0, 0, 0, 5231, 0, 'Reginald Windsor - SAY_FREE_1'),
 (9682, 18, 0, 'Meet me at Maxwell\'s encampment. We\'ll go over the next stages of the plan there and figure out a way to decode my tablets without the decryption ring.', 12, 0, 100, 0, 0, 0, 5232, 0, 'Reginald Windsor - SAY_FREE_2');
 
+DELETE FROM `creature_text` WHERE `CreatureID` = 9022;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(9022, 0, 0, 'Thank you, $n! I\'m free!!!', 12, 0, 100, 0, 0, 0, 5210, 0,'Dughal Stormwing - On Gossip Select');
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 9679;  
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(9679, 0, 0, 'Finally!! I can leave this dump.', 12, 0, 100, 0, 0, 0, 5218, 0,'Tobias Seecher - SAY_FREED');
+
+
