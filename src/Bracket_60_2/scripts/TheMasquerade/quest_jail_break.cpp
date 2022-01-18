@@ -141,7 +141,6 @@ public:
             if (actionId == 0)
             {
                 SetEscortPaused(false);
-                LOG_ERROR("sql.sql", "Doing action");
             }
         }
 
@@ -398,7 +397,6 @@ public:
             if ((me->GetEntry() == NPC_DUGHAL_STORMWING && id == 2) ||
                 (me->GetEntry() == NPC_TOBIAS_SEECHER && id == 4))
             {
-                LOG_ERROR("sql.sql", "Pathing");
                 if (Creature* windsor = me->FindNearestCreature(9023, 200.0f))
                     windsor->AI()->DoAction(0);
             }
