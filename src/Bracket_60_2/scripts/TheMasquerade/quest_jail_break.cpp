@@ -325,6 +325,7 @@ public:
                 if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                 {
                     player->GroupEventHappens(QUEST_JAIL_BREAK, me);
+                    me->SetFacingToObject(player);
                 }
                 break;
             }
@@ -437,11 +438,19 @@ public:
 
         void WaypointReached(uint32 id) override
         {
-            if ((me->GetEntry() == NPC_DUGHAL_STORMWING && id == 2) ||
-                (me->GetEntry() == NPC_TOBIAS_SEECHER && id == 4))
+            if (me->GetEntry() == NPC_DUGHAL_STORMWING && id == 2)
             {
-                if (Creature* windsor = me->FindNearestCreature(9023, 500.0f))
+                if (Creature* windsor = me->FindNearestCreature(9023, 200.0f))
+                {
                     windsor->AI()->DoAction(0);
+                }
+            }
+            else if (me->GetEntry() == NPC_TOBIAS_SEECHER && id == 4)
+            {
+                if (Creature* windsor = me->FindNearestCreature(NPC_MARSHAL_REGINALD_WINDSOR, 200.0f))
+                {
+                    windsor->AI()->DoAction(0);
+                }
             }
         }
 
