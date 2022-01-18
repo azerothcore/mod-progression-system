@@ -1097,10 +1097,11 @@ public:
             {
                 switch (eventId)
                 {
-                case 5:
-                    DoCastVictim(15284); // Cleave
-                    _events.ScheduleEvent(5, urand(5000, 8000));
-                    break;
+                    case 5:
+                        DoCastVictim(15284); // Cleave
+                        _events.ScheduleEvent(5, urand(5000, 8000));
+                        break;
+                }
             }
 
             DoMeleeAttackIfReady();
