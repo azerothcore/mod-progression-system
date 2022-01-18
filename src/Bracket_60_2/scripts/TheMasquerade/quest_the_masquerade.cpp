@@ -221,7 +221,7 @@ public:
             case 4:
                 me->GetMotionMaster()->Clear();
                 me->SetFacingTo(me->GetHomePosition().GetOrientation());
-                _events.ScheduleEvent(5, 5000);
+                _events.ScheduleEvent(5, 1000);
                 break;
             default:
                 break;
@@ -309,20 +309,12 @@ public:
             {
                 me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
 
-                ObjectGuid::LowType guid = GUID_REGINALD;
-
-                if (Creature* reginald = GetCreature(guid))
-                    reginald->SetRespawnTime(5);
-
-                guid = GUID_ROWE;
+                ObjectGuid::LowType guid = GUID_ROWE;
                 if (Creature* rowe = GetCreature(guid))
                 {
                     me->GetMap()->LoadGrid(-9042.23f, 434.24f);
                     rowe->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
                 }
-
-                if (Creature* varian = me->FindNearestCreature(NPC_VARIAN, 20.0f))
-                    varian->SetVisible(true);
             }
 
             if (actionId == ACTION_START_ESCORT)
