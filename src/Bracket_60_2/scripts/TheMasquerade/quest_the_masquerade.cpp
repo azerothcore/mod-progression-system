@@ -266,7 +266,7 @@ public:
     {
         CloseGossipMenuFor(player);
         uint32 const action = player->PlayerTalkClass->GetGossipOptionAction(gossipListId);
-        if (action == 1)
+        if (action == 0)
         {
             me->AI()->SetGUID(player->GetGUID(), ACTION_START_ESCORT);
             me->RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);

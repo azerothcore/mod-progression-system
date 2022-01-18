@@ -325,7 +325,7 @@ public:
                 if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                 {
                     player->GroupEventHappens(QUEST_JAIL_BREAK, me);
-                    me->SetFacingToObject(player);
+                    me->SetFacingTo(5.196206f);
                 }
                 break;
             }
