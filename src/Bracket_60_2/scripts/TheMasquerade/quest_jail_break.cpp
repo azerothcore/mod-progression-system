@@ -184,7 +184,7 @@ public:
                 me->HandleEmoteCommand(EMOTE_ONESHOT_USE_STANDING);
                 break;
             case 16:
-                if (GameObject* door = me->FindNearestGameObject(GO_SUPPLY_ROOM_DOOR, 15.0f))
+                if (GameObject* door = me->FindNearestGameObject(GO_SUPPLY_ROOM_DOOR, 50.0f))
                     _instance->DoUseDoorOrButton(door->GetGUID());
                 break;
             case 18:
