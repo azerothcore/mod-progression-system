@@ -376,4 +376,9 @@ DELETE FROM `creature_text` WHERE `CreatureID` = 9679;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (9679, 0, 0, 'Finally!! I can leave this dump.', 12, 0, 100, 0, 0, 0, 5218, 0,'Tobias Seecher - SAY_FREED');
 
+-- The Great Masquerade
+DELETE FROM `creature_questender` WHERE `id` = 1748 AND `quest` = 6403;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(1748, 6403);
+
 

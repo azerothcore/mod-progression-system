@@ -374,6 +374,7 @@ public:
                 _events.ScheduleEvent(3, 1);
                 break;
             case 3:
+                me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
                 _events.ScheduleEvent(EVENT_DISMOUNT, 3000);
                 break;
             case 4:
