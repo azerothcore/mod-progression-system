@@ -402,3 +402,9 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 DELETE FROM `creature_questender` WHERE `quest` = 6502;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (10929, 6502);
+
+UPDATE creature_text SET TextRange = 1 WHERE CreatureID = 1748 AND GroupID = 2;
+UPDATE creature_text SET TextRange = 1 WHERE CreatureID = 1749 AND GroupID = 0;
+UPDATE creature_text SET TextRange = 1 WHERE CreatureID = 12580 AND GroupID = 3;
+UPDATE creature_text SET TextRange = 1 WHERE CreatureID = 466 AND GroupID = 7;
+
