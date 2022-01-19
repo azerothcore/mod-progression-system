@@ -271,8 +271,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1748;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.'),
-(30, 0, 1748, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Highlord Bolvar Forddring - Visibility - Require quest The Great Masquerade NOT rewarded.');
+(30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.');
 
 DELETE FROM `script_waypoint` WHERE `entry` = 9023;
 INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `location_z`, `waittime`, `point_comment`) VALUES
@@ -381,4 +380,5 @@ DELETE FROM `creature_questender` WHERE `id` = 1748 AND `quest` = 6403;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (1748, 6403);
 
-
+-- Disable mmaps for Reginald in stormwind
+UPDATE `creature_template` SET `flags_extra` = `flags_extra` |536870912 WHERE `entry` = 12580;
