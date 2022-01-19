@@ -382,3 +382,23 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 
 -- Disable mmaps for Reginald in stormwind
 UPDATE `creature_template` SET `flags_extra` = `flags_extra` |536870912 WHERE `entry` = 12580;
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 6501;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(1748, 6501);
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 6501;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(1748, 6501);
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 6502;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(10929, 6502);
+
+DELETE FROM `creature_questender` WHERE `quest` = 6501;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(10929, 6501);
+
+DELETE FROM `creature_questender` WHERE `quest` = 6502;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(10929, 6502);
