@@ -4,8 +4,14 @@
 
 #include "ProgressionSystem.h"
 
+void AddSC_quest_jail_break_60_2();
+void AddSC_quest_the_masquerade_60_2();
+
 void AddBracket_60_2_Scripts()
 {
     if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_60_TIER_2))
         return;
+
+    AddSC_quest_jail_break_60_2();
+    AddSC_quest_the_masquerade_60_2();
 }
