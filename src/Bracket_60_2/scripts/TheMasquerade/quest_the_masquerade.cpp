@@ -303,6 +303,20 @@ public:
             _canGreet = false;
         }
 
+        bool CanBeSeen(Player const* player) override
+        {
+            // Hide the Reginald patrolling stormwind... he uses the same creature entry... unfortunately.
+            if ((player->GetQuestStatus(QUEST_STORMWIND_RENDEZVOUZ) == QUEST_STATUS_COMPLETE) || (player->GetQuestStatus(QUEST_THE_GREAT_MASQUERADE) == QUEST_STATUS_INCOMPLETE))
+            {
+                if (me->GetSpawnId() == 86900)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         void DoAction(int32 actionId) override
         {
             if (actionId == ACTION_RESET_MASQUERADE)
