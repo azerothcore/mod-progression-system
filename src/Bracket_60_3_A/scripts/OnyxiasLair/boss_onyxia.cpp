@@ -404,7 +404,7 @@ public:
                 }
                 case EVENT_SPELL_FIREBALL_FIRST:
                 {
-                    if (Unit* v = SelectTarget(SELECT_TARGET_RANDOM, 0, 200.0f, true))
+                    if (Unit* v = SelectTarget(SelectTargetMethod::Random, 0, 200.0f, true))
                     {
                         me->SetFacingToObject(v);
                         CustomSpellValues values;
@@ -417,7 +417,7 @@ public:
                 }
                 case EVENT_SPELL_FIREBALL_SECOND:
                 {
-                    if (Unit* v = SelectTarget(SELECT_TARGET_RANDOM, 0, 200.0f, true))
+                    if (Unit* v = SelectTarget(SelectTargetMethod::Random, 0, 200.0f, true))
                     {
                         me->SetFacingToObject(v);
                         CustomSpellValues values;
@@ -487,7 +487,7 @@ public:
                 {
                     me->SetReactState(REACT_AGGRESSIVE);
 
-                    if (Unit* target = SelectTarget(SELECT_TARGET_TOPAGGRO, 0, 0, false))
+                    if (Unit* target = SelectTarget(SelectTargetMethod::MaxThreat, 0, 0, false))
                     {
                         AttackStart(target);
                     }
