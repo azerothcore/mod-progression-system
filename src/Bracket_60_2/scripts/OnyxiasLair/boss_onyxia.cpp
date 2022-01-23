@@ -117,15 +117,15 @@ enum Yells
     EMOTE_BREATH                = 4
 };
 
-class boss_onyxia_60_3_A : public CreatureScript
+class boss_onyxia_60_2 : public CreatureScript
 {
 public:
-    boss_onyxia_60_3_A() : CreatureScript("boss_onyxia") {}
+    boss_onyxia_60_2() : CreatureScript("boss_onyxia") {}
 
-    struct boss_onyxiaAI_60_3_A : public BossAI
+    struct boss_onyxiaAI_60_2 : public BossAI
     {
     public:
-        boss_onyxiaAI_60_3_A(Creature* pCreature) : BossAI(pCreature, DATA_ONYXIA)
+        boss_onyxiaAI_60_2(Creature* pCreature) : BossAI(pCreature, DATA_ONYXIA)
         {
             Initialize();
         }
@@ -552,11 +552,11 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return GetOnyxiasLairAI<boss_onyxiaAI_60_3_A>(creature);
+        return GetOnyxiasLairAI<boss_onyxiaAI_60_2>(creature);
     };
 };
 
-void AddSC_boss_onyxia_60_3_A()
+void AddSC_boss_onyxia_60_2()
 {
-    new boss_onyxia_60_3_A();
+    new boss_onyxia_60_2();
 }

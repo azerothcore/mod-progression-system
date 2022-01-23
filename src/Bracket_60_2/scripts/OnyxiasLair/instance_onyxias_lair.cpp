@@ -24,10 +24,10 @@ ObjectData const creatureData[] =
     { NPC_ONYXIA, DATA_ONYXIA }
 };
 
-class instance_onyxias_lair_60_3_A : public InstanceMapScript
+class instance_onyxias_lair_60_2 : public InstanceMapScript
 {
 public:
-    instance_onyxias_lair_60_3_A() : InstanceMapScript("instance_onyxias_lair", 249) {}
+    instance_onyxias_lair_60_2() : InstanceMapScript("instance_onyxias_lair", 249) {}
 
     InstanceScript* GetInstanceScript(InstanceMap* pMap) const override
     {
@@ -153,7 +153,7 @@ public:
     };
 };
 
-void AddSC_instance_onyxias_lair_60_3_A()
+void AddSC_instance_onyxias_lair_60_2()
 {
-    new instance_onyxias_lair_60_3_A();
+    new instance_onyxias_lair_60_2();
 }
