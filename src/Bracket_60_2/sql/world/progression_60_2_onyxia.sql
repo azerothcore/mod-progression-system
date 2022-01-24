@@ -1,7 +1,7 @@
 -- Onyxia
 UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 36538;
 
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (54001, 54002);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (54000, 54001);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (54000, 17064, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Shard of the Scale'),
 (54000, 17067, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Ancient Cornerstone Grimoire'),
