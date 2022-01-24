@@ -134,3 +134,4 @@ DELETE FROM `creature_questender` WHERE `quest` = 6501;
 
 DELETE FROM `creature_questender` WHERE `quest` = 6502;
 
+UPDATE `creature_template` SET `npcflag` = `npcflag` &~1&~2 WHERE `entry` = 1749;
