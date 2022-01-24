@@ -329,6 +329,12 @@ public:
                     me->GetMap()->LoadGrid(-9042.23f, 434.24f);
                     rowe->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
                 }
+
+                guid = GUID_PRESTOR;
+                if (Creature* prestor = GetCreature(guid))
+                {
+                    prestor->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
+                }
             }
 
             if (actionId == ACTION_START_ESCORT)
