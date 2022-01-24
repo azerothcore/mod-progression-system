@@ -33,3 +33,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (54003, 21108, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies');
 
 UPDATE `creature_template` SET `lootid` = 54003 WHERE `entry` = 36538;
+
+DELETE FROM `disables` WHERE `entry` = 12559 AND `sourceType` = 4;
+INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES
+(4, 12559, 0, 0, 0, 'Disable Onyxia Lair 25 achievement');
