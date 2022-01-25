@@ -94,7 +94,7 @@ public:
             Talk(SAY_AGGRO);
         }
 
-        void KilledUnit(Unit* victim) override
+        void KilledUnit(Unit* /*victim*/) override
         {
             DoCast(me, SPELL_CAPTURE_SOUL);
             Talk(SAY_KILL);
