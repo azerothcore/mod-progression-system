@@ -1,5 +1,8 @@
 -- Onyxia
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 36538;
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `damagemodifier` = 35 WHERE `entry` = 36538;
+
+-- Trash mobs
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `lootid` = 0 WHERE `entry` = 36572;
 
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (54000, 54001);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
