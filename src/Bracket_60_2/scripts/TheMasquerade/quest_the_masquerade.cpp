@@ -351,6 +351,12 @@ public:
         {
             if (index == ACTION_START_ESCORT)
             {
+                if (ObjectAccessor::FindConnectedPlayer(_playerGUID))
+                {
+                    // Prevent starting the escort script multiple times.
+                    return;
+                }
+
                 _events.ScheduleEvent(1, 2000);
                 _playerGUID = guid;
             }
