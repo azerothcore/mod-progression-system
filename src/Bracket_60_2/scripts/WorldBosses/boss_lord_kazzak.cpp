@@ -192,7 +192,7 @@ public:
 class spell_mark_of_kazzak_60_2 : public SpellScriptLoader
 {
 public:
-    spell_mark_of_kazzak_60_2() : SpellScriptLoader("spell_mark_of_kazzak") { }
+    spell_mark_of_kazzak_60_2() : SpellScriptLoader("spell_mark_of_kazzak_60") { }
 
     class spell_mark_of_kazzak_AuraScript : public AuraScript
     {

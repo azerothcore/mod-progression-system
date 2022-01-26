@@ -2,7 +2,7 @@ UPDATE `creature_template` SET `ScriptName` = 'boss_lord_kazzak' WHERE `entry` =
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 21056;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
-(21056, 'spell_mark_of_kazzak');
+(21056, 'spell_mark_of_kazzak_60');
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 12397;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
