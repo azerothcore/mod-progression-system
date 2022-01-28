@@ -9,10 +9,13 @@ DELETE FROM `reference_loot_template` WHERE `Entry` IN (54001, 54002);
 
 DELETE FROM `disables` WHERE `entry` = 12559 AND `sourceType` = 4;
 
-DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12567, 12558) AND `sourceType` = 4;
+DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12564, 12558) AND `sourceType` = 4;
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 15;
 
 UPDATE `dungeon_access_template` SET `min_level` = 80 WHERE `map_id` = 249 AND `difficulty` = 0;
 
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
+
+-- Might want to revert this sooner at 61-64, Ony achievements
+UPDATE `achievement_criteria_data` SET `value1` = 1 WHERE `criteria_id` IN (12567, 12568, 12569);

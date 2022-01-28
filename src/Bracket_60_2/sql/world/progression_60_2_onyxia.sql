@@ -35,7 +35,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (54003, 18705, 0, 100, 1, 1, 0, 1, 1, 'Onyxia - Mature Black Dragon Sinew'),
 (54003, 21108, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies');
 
-DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12567, 12558) AND `sourceType` = 4;
+DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12564, 12558) AND `sourceType` = 4;
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES
 (4, 12565, 0, 0, 0, 'Disable Many Whelps, Handle it! (10) achievement'),
 (4, 12566, 0, 0, 0, 'Disable She deeps breah more (10) achievement'),
@@ -52,3 +52,4 @@ DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
 INSERT INTO `mapdifficulty_dbc` (`MapID`, `Difficulty`, `MaxPlayers`) VALUES
 (249, 0, 25);
 
+UPDATE `achievement_criteria_data` SET `value1` = 0 WHERE `criteria_id` IN (12567, 12568, 12569);
