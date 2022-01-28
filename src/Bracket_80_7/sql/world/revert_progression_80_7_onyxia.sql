@@ -1,5 +1,5 @@
 -- Onyxia
-UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `lootid` = 36538, `damagemodifier` = 70 WHERE `entry` = 36538;
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `lootid` = 10184 WHERE `entry` = 10184;
 
 UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `lootid` = 0, `skinloot` = 0 WHERE `entry` IN (11262, 12129);
 

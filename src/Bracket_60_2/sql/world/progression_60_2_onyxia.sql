@@ -1,5 +1,5 @@
 -- Onyxia
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `damagemodifier` = 35, `lootid` = 54003 WHERE `entry` = 10184;
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `lootid` = 54003 WHERE `entry` = 10184;
 
 -- Trash mobs
 UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `lootid` = 0, `skinloot` = 0 WHERE `entry` IN (11262, 12129);
