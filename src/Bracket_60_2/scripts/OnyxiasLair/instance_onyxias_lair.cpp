@@ -76,6 +76,10 @@ public:
                 ManyWhelpsCounter = 0;
                 bDeepBreath = true;
             }
+            else if (type == DATA_ONYXIA && state == DONE)
+            {
+                DoUpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_COMPLETE_QUEST, 7495, 1);
+            }
 
             return true;
         }
