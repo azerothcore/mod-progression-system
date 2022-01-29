@@ -19,3 +19,8 @@ DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
 
 -- Might want to revert this sooner at 61-64, Ony achievements
 UPDATE `achievement_criteria_data` SET `value1` = 1 WHERE `criteria_id` IN (12567, 12568, 12569);
+
+UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
+
+DELETE FROM `creature_questender` WHERE `quest` = 7495;
+DELETE FROM `creature_questender` WHERE `quest` = 7490;

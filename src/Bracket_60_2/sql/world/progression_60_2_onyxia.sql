@@ -49,7 +49,19 @@ INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_typ
 UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = 249 AND `difficulty` = 0;
 
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
-INSERT INTO `mapdifficulty_dbc` (`MapID`, `Difficulty`, `MaxPlayers`) VALUES
-(249, 0, 25);
+INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`) VALUES
+(26, 249, 0, 432000, 25, 'RAID_DIFFICULTY_25PLAYER');
 
 UPDATE `achievement_criteria_data` SET `value1` = 0 WHERE `criteria_id` IN (12567, 12568, 12569);
+
+UPDATE `item_template` SET `startquest` = 7507 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
+
+-- Victory for the Alliance - Varian
+DELETE FROM `creature_questender` WHERE `quest` = 7495;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(29611, 7495);
+
+-- Victory for the Horde - Thrall
+DELETE FROM `creature_questender` WHERE `quest` = 7490;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(4949, 7490);
