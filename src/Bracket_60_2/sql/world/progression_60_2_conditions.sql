@@ -7,7 +7,7 @@ SET @NPC_ENTRY_HORDE = 14754; -- Kelm Hargunth <Warsong Supply Officer>
 
 SET @FACTION_RANK_EXALTED_FLAG = 128;
 
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND `SourceGroup` IN (@NPC_ENTRY_ALLIANCE, @NPC_ENTRY_HORDE) AND `SourceEntry` IN (19578,19595,19587,19582,22752,22749,22750,22748,22672,22753,22747,22740,22741,22676,22673,22651) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 5) AND `ConditionTarget` = 0 AND `ConditionValue1` IN (@FACTION_ID_ALLIANCE, @FACTION_ID_HORDE) AND `ConditionValue2` = @FACTION_RANK_EXALTED_FLAG AND (`ConditionValue3` = 0);
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND `SourceGroup` IN (@NPC_ENTRY_ALLIANCE, @NPC_ENTRY_HORDE) AND `SourceEntry` IN (19578,19595,19587,19582,22752,22749,22750,22748,22672,22753,22747,22740,22741,22676,22673,22651, 30497, 30498) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 5) AND `ConditionTarget` = 0 AND `ConditionValue1` IN (@FACTION_ID_ALLIANCE, @FACTION_ID_HORDE) AND `ConditionValue2` = @FACTION_RANK_EXALTED_FLAG AND (`ConditionValue3` = 0);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 -- Illiyana Moonblaze <Silverwing Supply Officer>
 (23, @NPC_ENTRY_ALLIANCE, 30497, 0, 0, 5, 0, @FACTION_ID_ALLIANCE, @FACTION_RANK_EXALTED_FLAG, 0, 0, 0, 0, '', NULL),
@@ -46,7 +46,7 @@ SET @NPC_ENTRY_HORDE = 13219; -- Jekyll Flandring <Frostwolf Supply Officer>
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23)
  AND `SourceGroup` IN (@NPC_ENTRY_ALLIANCE, @NPC_ENTRY_HORDE)
- AND `SourceEntry` IN (19325,21563,19324,19323,19321,19311,19310,19309,19315,19312)
+ AND `SourceEntry` IN (19325,21563,19324,19323,19321,19311,19310,19309,19315,19312,19308)
  AND (`SourceId` = 0)
  AND (`ElseGroup` = 0)
  AND (`ConditionTypeOrReference` = 5)
