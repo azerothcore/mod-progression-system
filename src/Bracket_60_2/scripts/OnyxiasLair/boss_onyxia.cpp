@@ -318,17 +318,13 @@ public:
             {
                 case EVENT_SPELL_WINGBUFFET:
                 {
-                    CustomSpellValues values;
-                    values.AddSpellMod(SPELLVALUE_BASE_POINT1, 562);
-                    me->CastCustomSpell(SPELL_WINGBUFFET, values);
+                    DoCast(SPELL_WINGBUFFET);
                     events.RepeatEvent(urand(15000, 30000));
                     break;
                 }
                 case EVENT_SPELL_FLAMEBREATH:
                 {
-                    CustomSpellValues values;
-                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, 3062);
-                    me->CastCustomSpell(SPELL_FLAMEBREATH, values);
+                    DoCast(SPELL_FLAMEBREATH);
                     events.RepeatEvent(urand(10000, 20000));
                     break;
                 }
@@ -407,9 +403,7 @@ public:
                     if (Unit* v = SelectTarget(SelectTargetMethod::Random, 0, 200.0f, true))
                     {
                         me->SetFacingToObject(v);
-                        CustomSpellValues values;
-                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, 1700);
-                        me->CastCustomSpell(SPELL_FIREBALL, values, v);
+                        DoCast(v, SPELL_FIREBALL);
                     }
 
                     events.ScheduleEvent(EVENT_SPELL_FIREBALL_SECOND, 4000);
@@ -420,9 +414,7 @@ public:
                     if (Unit* v = SelectTarget(SelectTargetMethod::Random, 0, 200.0f, true))
                     {
                         me->SetFacingToObject(v);
-                        CustomSpellValues values;
-                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, 1700);
-                        me->CastCustomSpell(SPELL_FIREBALL, values, v);
+                        DoCast(v, SPELL_FIREBALL);
                     }
 
                     uint8 rand = urand(0, 99);
@@ -464,9 +456,7 @@ public:
                 {
                     Talk(EMOTE_BREATH);
                     me->SetFacingTo(OnyxiaMoveData[CurrentWP].o);
-                    CustomSpellValues values;
-                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, 1275);
-                    me->CastCustomSpell(OnyxiaMoveData[CurrentWP].spellId, values);
+                    DoCast(OnyxiaMoveData[CurrentWP].spellId);
                     events.ScheduleEvent(EVENT_SPELL_BREATH, 8250);
                     break;
                 }
@@ -514,9 +504,7 @@ public:
                 {
                     if (Creature* trigger = me->SummonCreature(12758, *me, TEMPSUMMON_TIMED_DESPAWN, 1000))
                     {
-                        CustomSpellValues values;
-                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, 1312);
-                        trigger->CastCustomSpell(17731, values, trigger);
+                        trigger->AI()->DoCast(trigger, 17731);
                     }
                     break;
                 }
