@@ -409,3 +409,5 @@ UPDATE creature_text SET TextRange = 2 WHERE CreatureID = 12580 AND GroupID = 3;
 UPDATE creature_text SET TextRange = 2 WHERE CreatureID = 466 AND GroupID = 7;
 
 UPDATE `creature_template` SET `npcflag` = `npcflag` |1|2 WHERE `entry` = 1749;
+
+UPDATE `quest_template` SET `flags` = `flags`|2|8 WHERE `id` = 6403; -- The Great Masquerade, shareable & escort flag

@@ -135,3 +135,5 @@ DELETE FROM `creature_questender` WHERE `quest` = 6501;
 DELETE FROM `creature_questender` WHERE `quest` = 6502;
 
 UPDATE `creature_template` SET `npcflag` = `npcflag` &~1&~2 WHERE `entry` = 1749;
+
+UPDATE `quest_template` SET `flags` = `flags`&~2&~8 WHERE `id` = 6403; -- The Great Masquerade, shareable & escort flag
