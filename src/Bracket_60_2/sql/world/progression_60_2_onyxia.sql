@@ -61,7 +61,39 @@ DELETE FROM `creature_questender` WHERE `quest` = 7495;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (29611, 7495);
 
--- Victory for the Horde - Thrall
+-- Thrall
 DELETE FROM `creature_questender` WHERE `quest` = 7490;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(4949, 7490);
+(4949, 7490); -- Victory for the Horde
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 7491;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(4949, 7491);
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 7493;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(14392, 7493);
+
+DELETE FROM `creature_queststarter` WHERE `quest` = 7496;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(1748, 7496);
+
+DELETE FROM `creature_questender` WHERE `quest` = 7491;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(14392, 7491);
+
+DELETE FROM `creature_questender` WHERE `quest` = 7496;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(14394, 7496);
+
+-- Cloak quest - A 
+DELETE FROM `creature_queststarter` WHERE `quest` = 7497;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(14394, 7497);
+
+DELETE FROM `creature_questender` WHERE `quest` = 7497;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(14394, 7497);
+
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7496 WHERE `ID` = 7497; -- Previously 24428
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7490 WHERE `ID` = 7493; -- Previously 24429
