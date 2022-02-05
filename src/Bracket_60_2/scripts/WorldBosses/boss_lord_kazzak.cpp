@@ -16,10 +16,15 @@
  */
 
 #include "Creature.h"
+#include "Group.h"
+#include "GroupReference.h"
+#include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
+
+#include "ProgressionSystem.h"
 
 enum Texts
 {
@@ -59,6 +64,12 @@ enum Events
     EVENT_BERSERK            = 8
 };
 
+enum Phases
+{
+    PHASE_NORMAL = 1,
+    PHASE_OUTRO = 2
+};
+
 class boss_lord_kazzak_60_2 : public CreatureScript
 {
 public:
@@ -89,9 +100,56 @@ public:
             Talk(SAY_INTRO);
         }
 
-        void EnterCombat(Unit* /*who*/) override
+        void EnterCombat(Unit* who) override
         {
             Talk(SAY_AGGRO);
+
+            if (sConfigMgr->GetOption<int>("ProgressionSystem.60.WorldBosses.KazzakPhasing", 1))
+            {
+                me->SetPhaseMask(PHASE_OUTRO, true);
+
+                if (Player* player = who->ToPlayer())
+                {
+                    PhaseOutPlayers(player, PHASE_OUTRO);
+                    _playerOwnerGUID = player->GetGUID();
+                }
+                else if (Player* player = who->GetCharmerOrOwnerPlayerOrPlayerItself())
+                {
+                    PhaseOutPlayers(player, PHASE_OUTRO);
+                    _playerOwnerGUID = player->GetGUID();
+                }
+            }
+        }
+
+        void PhaseOutPlayers(Player* source, uint8 phase)
+        {
+            if (Group* group = source->GetGroup())
+            {
+                for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                {
+                    Player* groupGuy = itr->GetSource();
+                    if (!groupGuy)
+                    {
+                        continue;
+                    }
+
+                    if (!groupGuy->IsInWorld())
+                    {
+                        continue;
+                    }
+
+                    if (!groupGuy->IsWithinDist(me, 500.0f))
+                    {
+                        continue;
+                    }
+
+                    groupGuy->SetPhaseMask(phase, true);
+                }
+            }
+            else
+            {
+                source->SetPhaseMask(phase, true);
+            }
         }
 
         void KilledUnit(Unit* /*victim*/) override
@@ -104,11 +162,32 @@ public:
         {
             Talk(SAY_WIPE);
             ScriptedAI::EnterEvadeMode();
+
+            if (sConfigMgr->GetOption<int>("ProgressionSystem.60.WorldBosses.KazzakPhasing", 1))
+            {
+                me->SetPhaseMask(PHASE_NORMAL, true);
+
+                if (Player* player = ObjectAccessor::FindConnectedPlayer(_playerOwnerGUID))
+                {
+                    PhaseOutPlayers(player, PHASE_NORMAL);
+                }
+
+                _playerOwnerGUID.Clear();
+            }
         }
 
         void JustDied(Unit* /*killer*/) override
         {
             Talk(SAY_DEATH);
+
+            if (sConfigMgr->GetOption<int>("ProgressionSystem.60.WorldBosses.KazzakPhasing", 1))
+            {
+                if (Player* player = ObjectAccessor::FindConnectedPlayer(_playerOwnerGUID))
+                {
+                    me->SetPhaseMask(PHASE_NORMAL, true);
+                    PhaseOutPlayers(player, PHASE_NORMAL);
+                }
+            }
         }
 
         void UpdateAI(uint32 diff) override
@@ -175,6 +254,7 @@ public:
 
     private:
         EventMap _events;
+        ObjectGuid _playerOwnerGUID;
         bool _supremeMode;
     };
 
