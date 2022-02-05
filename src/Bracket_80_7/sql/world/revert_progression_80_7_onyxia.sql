@@ -32,3 +32,8 @@ DELETE FROM `creature_queststarter` WHERE `quest` = 7493;
 
 UPDATE `quest_template_addon` SET `PrevQuestID` = 24428 WHERE `ID` = 7497;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 24429 WHERE `ID` = 7493;
+
+-- Compendium
+UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
+
+DELETE FROM `creature_questender` WHERE `quest` = 7507; -- Lorekeeper Lydros, Foror's Compendium
