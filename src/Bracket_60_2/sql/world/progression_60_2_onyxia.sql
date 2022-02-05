@@ -54,8 +54,6 @@ INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `M
 
 UPDATE `achievement_criteria_data` SET `value1` = 0 WHERE `criteria_id` IN (12567, 12568, 12569);
 
-UPDATE `item_template` SET `startquest` = 7507 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
-
 -- Victory for the Alliance - Varian
 DELETE FROM `creature_questender` WHERE `quest` = 7495;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
@@ -97,3 +95,10 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7496 WHERE `ID` = 7497; -- Previously 24428
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7490 WHERE `ID` = 7493; -- Previously 24429
+
+-- Compendium
+UPDATE `item_template` SET `startquest` = 7507 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
+
+DELETE FROM `creature_questender` WHERE `quest` = 7507; -- Lorekeeper Lydros, Foror's Compendium
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(14368, 7507);
