@@ -100,11 +100,6 @@ public:
             Talk(SAY_KILL);
         }
 
-        void HealReceived(Unit* /*healer*/, uint32& heal) override
-        {
-            heal = 0.15 * me->GetMaxHealth();
-        }
-
         void EnterEvadeMode() override
         {
             Talk(SAY_WIPE);
