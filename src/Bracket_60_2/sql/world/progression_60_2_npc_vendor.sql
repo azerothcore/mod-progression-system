@@ -123,9 +123,9 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (12795, 0, 29605, 0, 0, @EXTENDED_COST, 0);
 
 
-/* Arathi Basin & Warsong Gulch Epics */
+/* AV, WSG, AB epics */
 
-SET @EXTENDED_COST = 2290; -- 20k honor
+SET @EXTENDED_COST = 2257; -- 25k honor
 
 /*
   Alterac vendor entry: (13217, 13219)
