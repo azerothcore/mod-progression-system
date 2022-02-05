@@ -55,3 +55,13 @@ ProgressionSystem.60.MoltenCore.ManualRuneHandling = 1
 
 ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
 
+#
+#    ProgressionSystem.60.WorldBosses.KazzakPhasing
+#        Description: Enables phasing out players and boss when Lord Kazzak is engaged.
+#        Default:   1 - Enabled (Players and boss will be phased)
+#                   0 - Disabled
+#
+#
+
+ProgressionSystem.60.WorldBosses.KazzakPhasing = 1
+
