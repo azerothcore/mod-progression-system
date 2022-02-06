@@ -1,5 +1,5 @@
 -- restore karazhan npc spawns
-INSERT INTO creature (`guid`,`id`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`) VALUES
+INSERT INTO creature (`guid`,`id1`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`) VALUES
 (3961,12380,0,0,0,1,1,12431,1,-11153,-1969.56,35.7485,5.12761,600,5,0,6761,0,1,0,0,0,'',0),
 (3965,12380,0,0,0,1,1,12430,1,-11167.1,-1963.88,35.7485,1.27882,600,5,0,6761,0,1,0,0,0,'',0),
 (3966,7370,0,0,0,1,1,4870,0,-11057.7,-1973.01,-24.1974,0.498566,600,5,0,5233,2991,1,0,0,0,'',0),
@@ -72,5 +72,5 @@ INSERT INTO creature (`guid`,`id`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask
 
 -- restore gangrenus which is accesible from exploits
 DELETE FROM `creature` WHERE `guid` = 125760;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES 
 ('125760', '29207', '0', '0', '0', '1', '1', '4631', '0', '2387.36', '-5579.47', '420.737', '0', '180', '0', '0', '2699', '0', '0', '0', '0', '0', '', '0');

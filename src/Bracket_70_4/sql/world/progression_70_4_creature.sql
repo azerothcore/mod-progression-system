@@ -3,7 +3,7 @@ DELETE FROM `waypoint_data` WHERE `id` in (286020,286040);
 DELETE FROM `creature_addon` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
 DELETE FROM `creature` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
 
-INSERT INTO `creature` (`guid`,`id`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`,`id1`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`) VALUES
 (209102,28602,1,0,0,1,1,0,1,-6163.63,-1249.54,-159.733,3.11264,120,0,0,1,0,2,0,0,0,'',0),
 (209103,28602,1,0,0,1,1,0,1,-6083.67,-1249.46,-143.482,0.01435,120,0,0,1,0,2,0,0,0,'',0),
 (209104,28602,1,0,0,1,1,0,1,-6037.48,-1243.38,-146.828,5.98647,120,0,0,1,0,0,0,0,0,'',0),
