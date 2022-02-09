@@ -23,3 +23,21 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 DELETE FROM `creature` WHERE `guid` = 156950 AND `id1` = 12397;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `spawntimesecs`) VALUES
 (156950, 12397, 0, 0, 0, -12275.6, -2524.26, 3.79202, 1.69492, 259200, 604800);
+
+DELETE FROM `reference_loot_template` WHERE `Entry` = 60000;
+INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(60000, 17111, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 17113, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 18204, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 18543, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 18544, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 18546, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 19133, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 19134, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 19135, 0, 0, 0, 1, 1, 1, 1, NULL);
+
+DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Reference` = 60000;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(12397, 1, 60000, 100, 0, 1, 1, 2, 2, NULL);
+
+DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Item` IN (19133, 19134, 19135, 18546, 18544, 18543, 18204, 17113, 17112, 17111);
