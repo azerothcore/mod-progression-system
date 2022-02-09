@@ -11,3 +11,15 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3110429, 40438, 0, 0, 0, 0, 0, 1, 1, 0, -4923.93, -984.195, 501.458, 1.89939, 300, 0, 0, 2215, 0, 0, 0, 0, 0, '', 0),
 (3110428, 40438, 0, 0, 1, 0, 0, 1, 1, 0, 9872.92, 2497.57, 1315.88, 5.48987, 300, 0, 0, 2215, 0, 0, 0, 0, 0, '', 0),
 (3110427, 40438, 0, 0, 0, 0, 0, 1, 1, 0, -8870.44, 640.768, 96.0921, 0.318439, 300, 0, 0, 2215, 0, 0, 0, 0, 0, '', 0);
+
+-- Heart Shapped Box Loot
+DELETE FROM `item_loot_template` WHERE `Entry` = 54537;
+INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(54537, 49715, 0, 0, 0, 1, 1, 1, 1, NULL),
+(54537, 49927, 0, 100, 0, 1, 0, 5, 10, NULL),
+(54537, 50250, 0, 0.5, 0, 1, 3, 1, 1, NULL),
+(54537, 50446, 0, 0, 0, 1, 1, 1, 1, NULL),
+(54537, 50471, 0, 0, 0, 1, 1, 1, 1, NULL);
+
+UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` IN (36565, 36296, 36272);
+UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 36296;

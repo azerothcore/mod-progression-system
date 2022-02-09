@@ -114,8 +114,27 @@ public:
         {
             me->AI()->Talk(SAY_HUMMEL_5);
             Map::PlayerList const& players = me->GetMap()->GetPlayers();
+
             if (!players.IsEmpty() && players.begin()->GetSource() && players.begin()->GetSource()->GetGroup())
                 sLFGMgr->FinishDungeon(players.begin()->GetSource()->GetGroup()->GetGUID(), lfg::LFG_DUNGEON_CROWN_CHEMICAL_CO, me->FindMap());
+
+            for (auto itr = players.begin(); itr != players.end(); ++itr)
+            {
+                Quest const* quest = sObjectMgr->GetQuestTemplate(25485);
+                if (!quest)
+                    continue;
+
+                if (Player* player = itr->GetSource())
+                {
+                    // if we can take the quest, means that we haven't done this kind of "run"
+                    if (player->CanRewardQuest(quest, false))
+                        player->RewardQuest(quest, 0, nullptr, false, true);
+                    else
+                    {
+                        // We don't reward them anything on the second run of the day.
+                    }
+                }
+            }
         }
 
         void JustSummoned(Creature* cr) override
@@ -198,9 +217,10 @@ public:
         }
     };
 
-    bool OnGossipSelect(Player* /*player*/, Creature* creature, uint32 /*sender*/, uint32 action) override
+    bool OnGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
     {
         creature->AI()->DoAction(ACTION_START_EVENT);
+        CloseGossipMenuFor(player);
         return true;
     }
 
