@@ -12,3 +12,5 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 
 UPDATE `creature_template` SET `minlevel` = 82, `maxlevel` = 82 WHERE `entry` IN (36565, 36296, 36272);
 UPDATE `creature_template` SET `lootid` = 36296 WHERE `entry` = 36296;
+
+UPDATE `item_template` SET `RequiredLevel` = 80 WHERE `entry` = 50250; -- love rocket

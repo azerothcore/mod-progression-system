@@ -17,9 +17,11 @@ DELETE FROM `item_loot_template` WHERE `Entry` = 54537;
 INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (54537, 49715, 0, 0, 0, 1, 1, 1, 1, NULL),
 (54537, 49927, 0, 100, 0, 1, 0, 5, 10, NULL),
-(54537, 50250, 0, 0.5, 0, 1, 3, 1, 1, NULL),
+(54537, 50250, 0, 0.1, 0, 1, 3, 1, 1, NULL),
 (54537, 50446, 0, 0, 0, 1, 1, 1, 1, NULL),
 (54537, 50471, 0, 0, 0, 1, 1, 1, 1, NULL);
 
 UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` IN (36565, 36296, 36272);
 UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 36296;
+
+UPDATE `item_template` SET `RequiredLevel` = 40 WHERE `entry` = 50250; -- love rocket
