@@ -280,12 +280,6 @@ public:
             return true;
         }
 
-        void CalculateAmount(AuraEffect const* /*aurEff*/, int32& amount, bool& /*canBeRecalculated*/)
-        {
-            if (Unit* owner = GetUnitOwner())
-                amount = CalculatePct(owner->GetPower(POWER_MANA), 5);
-        }
-
         void OnPeriodic(AuraEffect const* aurEff)
         {
             Unit* target = GetTarget();
@@ -300,7 +294,6 @@ public:
 
         void Register() override
         {
-            DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_mark_of_kazzak_AuraScript::CalculateAmount, EFFECT_0, SPELL_AURA_PERIODIC_MANA_LEECH);
             OnEffectPeriodic += AuraEffectPeriodicFn(spell_mark_of_kazzak_AuraScript::OnPeriodic, EFFECT_0, SPELL_AURA_PERIODIC_MANA_LEECH);
         }
     };

@@ -1,4 +1,4 @@
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 12397;
+UPDATE `creature_template` SET `minlevel` = 73, `maxlevel` = 73, `ScriptName` = '' WHERE `entry` = 12397;
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 21056;
 
@@ -22,3 +22,4 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (12397, 19133, 0, 12.0482, 0, 1, 0, 1, 1, 'Lord Kazzak - Fel Infused Leggings'),
 (12397, 19134, 0, 3.6145, 0, 1, 0, 1, 1, 'Lord Kazzak - Flayed Doomguard Belt'),
 (12397, 19135, 0, 3.6145, 0, 1, 0, 1, 1,' Lord Kazzak - Blacklight Bracer');
+
