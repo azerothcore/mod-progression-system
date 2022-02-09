@@ -91,7 +91,7 @@ public:
                 return true;
             }
 
-            return player->getLevel() == sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL);
+            return player->getLevel() >= 55;
         }
 
         void Reset() override
@@ -233,11 +233,7 @@ public:
                 return true;
             }
 
-            return player->getLevel() == sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL);
-        }
-
-        void Reset() override
-        {
+            return player->getLevel() >= 55;
         }
 
         void DoAction(int32 param) override
