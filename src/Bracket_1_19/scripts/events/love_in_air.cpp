@@ -220,9 +220,9 @@ class npc_love_in_air_hummel_helper_1_19 : public CreatureScript
 public:
     npc_love_in_air_hummel_helper_1_19() : CreatureScript("npc_love_in_air_hummel_helper") { }
 
-    struct npc_love_in_air_hummel_helper : public ScriptedAI
+    struct npc_love_in_air_hummel_helperAI_1_19 : public ScriptedAI
     {
-        npc_love_in_air_hummel_helper(Creature* creature) : ScriptedAI(creature) { }
+        npc_love_in_air_hummel_helperAI_1_19(Creature* creature) : ScriptedAI(creature) { }
 
         EventMap events;
 
@@ -299,6 +299,11 @@ public:
 
             DoMeleeAttackIfReady();
         }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_love_in_air_hummel_helperAI_1_19(creature);
     };
 };
 
