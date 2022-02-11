@@ -420,7 +420,10 @@ public:
                     case FAIL:
                         for (const auto& creature : SolakarSummons)
                         {
-                            creature->RemoveFromWorld();
+                            if (creature)
+                            {
+                                creature->RemoveFromWorld();
+                            }
                         }
                         SolakarSummons.clear();
                         CurrentSolakarWave = 0;
