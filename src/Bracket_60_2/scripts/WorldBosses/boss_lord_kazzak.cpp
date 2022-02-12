@@ -188,6 +188,8 @@ public:
                     PhaseOutPlayers(player, PHASE_NORMAL);
                 }
             }
+
+            me->SetRespawnTime(urand(2 * DAY, 3 * DAY));
         }
 
         void UpdateAI(uint32 diff) override
