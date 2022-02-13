@@ -416,18 +416,20 @@ public:
             // Love's in the air
             case 68641: // Alluring Perfume
             case 68947: // Irresistible Collogne
+            case 68934: // Cologne Spill
+            case 68927: // Perfume Spill
                 spellInfo->Effects[EFFECT_0].BasePoints = 800;
                 break;
             case 68607: // Alluring Perfume Spray
             case 68948: // Irresistible Collogne Spray
-                spellInfo->Effects[EFFECT_0].BasePoints = 2000;
+                spellInfo->Effects[EFFECT_0].BasePoints = 1000;
                 spellInfo->Effects[EFFECT_1].BasePoints = 500;
                 break;
             case 68821: // Chain Reaction
-                spellInfo->Effects[EFFECT_0].BasePoints = 2000;
+                spellInfo->Effects[EFFECT_0].BasePoints = 1000;
                 break;
             case 68957: // Unstable Reaction
-                spellInfo->Effects[EFFECT_2].BasePoints = 1000;
+                spellInfo->Effects[EFFECT_2].BasePoints = 100;
                 break;
         }
     }
