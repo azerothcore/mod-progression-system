@@ -11,6 +11,7 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 (54537,50250,0,0.1,0,1,0,1,1,'Heart-Shaped Box - Big Love Rocket');
 
 UPDATE `creature_template` SET `minlevel` = 82, `maxlevel` = 82 WHERE `entry` IN (36565, 36296, 36272);
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 36568; -- crazed apothecary
 UPDATE `creature_template` SET `lootid` = 36296 WHERE `entry` = 36296;
 
 UPDATE `item_template` SET `RequiredLevel` = 80 WHERE `entry` = 50250; -- love rocket
