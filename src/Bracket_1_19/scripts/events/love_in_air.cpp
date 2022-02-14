@@ -256,23 +256,21 @@ public:
                 }
             }
 
-            for (auto itr = players.begin(); itr != players.end(); ++itr)
-            {
-                Quest const* quest = sObjectMgr->GetQuestTemplate(25485);
-                if (!quest)
-                    continue;
-
-                if (Player* player = itr->GetSource())
+            me->GetMap()->DoForAllPlayers([&](Player* player)
                 {
-                    // if we can take the quest, means that we haven't done this kind of "run"
-                    if (player->CanRewardQuest(quest, false))
-                        player->RewardQuest(quest, 0, nullptr, false, true);
-                    else
+                    if (Quest const* quest = sObjectMgr->GetQuestTemplate(25485))
                     {
-                        // We don't reward them anything on the second run of the day.
+                        // if we can take the quest, means that we haven't done this kind of "run"
+                        if (player->CanRewardQuest(quest, false))
+                        {
+                            player->RewardQuest(quest, 0, nullptr, false, true);
+                        }
+                        else
+                        {
+                            // We don't reward them anything on the second run of the day.
+                        }
                     }
-                }
-            }
+                });
         }
 
         void UpdateAI(uint32 diff) override
