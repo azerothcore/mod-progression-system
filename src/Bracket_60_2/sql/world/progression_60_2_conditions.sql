@@ -40,7 +40,7 @@ SET @FACTION_ID_ALLIANCE = 730; -- Stormpike Guard
 SET @FACTION_ID_HORDE = 729; -- Frostwolf Clan
 
 -- both AV factions require Honored
-SET @FACTION_RANK_HONORED_FLAG = 32; -- Honored
+SET @FACTION_RANK_HONORED_FLAG = 224; -- Honored Revered and Exalted
 SET @NPC_ENTRY_ALLIANCE = 13217; -- Thanthaldis Snowgleam <Stormpike Supply Officer>
 SET @NPC_ENTRY_HORDE = 13219; -- Jekyll Flandring <Frostwolf Supply Officer>
 
@@ -52,7 +52,6 @@ DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23)
  AND (`ConditionTypeOrReference` = 5)
  AND `ConditionTarget` = 0
  AND `ConditionValue1` IN (@FACTION_ID_ALLIANCE, @FACTION_ID_HORDE)
- AND `ConditionValue2` = @FACTION_RANK_HONORED_FLAG
  AND (`ConditionValue3` = 0);
 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
