@@ -416,7 +416,7 @@ public:
             case 68947: // Irresistible Collogne
             case 68934: // Cologne Spill
             case 68927: // Perfume Spill
-                spellInfo->Effects[EFFECT_0].BasePoints = 800;
+                spellInfo->Effects[EFFECT_0].BasePoints = 400;
                 break;
             case 68607: // Alluring Perfume Spray
             case 68948: // Irresistible Collogne Spray
