@@ -35,5 +35,14 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 24429 WHERE `ID` = 7493;
 
 -- Compendium
 UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
+UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 18513; -- Dull Elven Blade
+UPDATE `item_template` SET `spellid_1` = 0 WHERE `entry` = 18489;
 
-DELETE FROM `creature_questender` WHERE `quest` = 7507; -- Lorekeeper Lydros, Foror's Compendium
+DELETE FROM `creature_questender` WHERE `quest` IN (7507, 7508, 7509); -- Lorekeeper Lydros, Foror's Compendium
+DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 14 AND `SourceGroup` = 5747 AND `SourceEntry` = 60040;
+DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
+DELETE FROM `npc_text` WHERE `ID` IN (60040, 60041, 60042, 60043, 60044, 60046);
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (60040, 60041, 60042, 60043, 60044, 60045, 60046);
+
+DELETE FROM spell_linked_spell where spell_trigger = 7509;
