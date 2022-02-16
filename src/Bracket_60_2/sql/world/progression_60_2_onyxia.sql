@@ -133,10 +133,18 @@ INSERT INTO `npc_text` (`ID`, `text0_0`,  `BroadcastTextID0`) VALUES
 (60045, 'Have you heard of the brood mother of the Black Flight? I believe she is called Onyxia...', 0),
 (60046, 'I have sensed your coming for quite some time, $n. It was written in the pattern of stars.', 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 14 AND `SourceGroup` = 5747 AND `SourceEntry` = 60040;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (14,5747,60040,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
-(14,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded');
+(14,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
+(15,5747,0,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
+(15,5747,0,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded');
+
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 5747 AND `SourceEntry` = 60040;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(15,5747,60040,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
+(15,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded');
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (5747, 60040, 60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu_option` (`menuID`, `optionid`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
@@ -156,7 +164,7 @@ UPDATE `item_template` SET `spellid_1` = 22905 WHERE `entry` = 18489;
 delete from `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND  `SourceEntry` = 22905;
 insert into `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) values('17','0','22905','0','0','29','0','10184','10','1','0','0','0','','Place Unfired Blade - near dead onyxia');
 
-DELETE FROM spell_linked_spell where spell_trigger = 7509;
+DELETE FROM spell_linked_spell where spell_trigger = 22905;
 INSERT INTO spell_linked_spell (spell_trigger, spell_effect, TYPE, COMMENT) VALUES
 (22905, 22906, 0, 'quelserrar');
 
