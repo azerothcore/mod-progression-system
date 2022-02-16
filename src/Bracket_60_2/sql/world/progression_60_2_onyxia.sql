@@ -159,3 +159,5 @@ insert into `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM spell_linked_spell where spell_trigger = 7509;
 INSERT INTO spell_linked_spell (spell_trigger, spell_effect, TYPE, COMMENT) VALUES
 (22905, 22906, 0, 'quelserrar');
+
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;

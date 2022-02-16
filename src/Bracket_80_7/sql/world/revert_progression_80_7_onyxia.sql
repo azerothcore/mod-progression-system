@@ -46,3 +46,5 @@ DELETE FROM `npc_text` WHERE `ID` IN (60040, 60041, 60042, 60043, 60044, 60046);
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (60040, 60041, 60042, 60043, 60044, 60045, 60046);
 
 DELETE FROM spell_linked_spell where spell_trigger = 7509;
+
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `id` = 7509;
