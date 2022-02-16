@@ -102,3 +102,5 @@ UPDATE `item_template` SET `startquest` = 7507 WHERE `entry` = 18401; -- Foror's
 DELETE FROM `creature_questender` WHERE `quest` = 7507; -- Lorekeeper Lydros, Foror's Compendium
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14368, 7507);
+
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;
