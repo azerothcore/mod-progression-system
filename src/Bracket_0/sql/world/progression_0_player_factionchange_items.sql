@@ -67,23 +67,3 @@ INSERT INTO `player_factionchange_items` (`alliance_id`, `alliance_comment`, `ho
 (16430, 'Knight-Captain\'s Plate Chestguard', 16514, 'Champion\'s Plate Headguard'),
 (16431, 'Knight-Captain\'s Plate Leggings', 16515, 'Legionnaire\'s Plate Legguards'),
 (16432, 'Lieutenant Commander\'s Plate Pauldrons', 16516, 'Champion\'s Plate Pauldrons');
-
--- (Paladin)
-/*DELETE FROM `player_factionchange_items` WHERE `alliance_id` IN () OR `horde_id` IN ();
-INSERT INTO `player_factionchange_items` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , '');
-
--- (Shaman)
-DELETE FROM `player_factionchange_items` WHERE `alliance_id` IN () OR `horde_id` IN ();
-INSERT INTO `player_factionchange_items` (`alliance_id`, `alliance_comment`, `horde_id`, `horde_comment`) VALUES
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , ''),
-(, '', , '');*/
