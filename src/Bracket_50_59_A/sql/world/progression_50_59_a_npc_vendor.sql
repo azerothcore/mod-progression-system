@@ -1,6 +1,6 @@
 -- STARTING PHASE 50-59
 
-SET @EXTENDED_COST = 2290; -- 20k honor
+SET @EXTENDED_COST = 444; -- 5k honor
 
 -- Thanthaldis Snowgleam <Stormpike Supply Officer> (13217)
 -- item req lvl 55 blue
@@ -28,7 +28,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (13219, 0, 19095, 0, 0, @EXTENDED_COST, 0),
 (13219, 0, 19096, 0, 0, @EXTENDED_COST, 0);
 
-SET @EXTENDED_COST = 2257; -- 25k honor
+SET @EXTENDED_COST = 444; -- 5k honor
 
 -- Master Sergeant Biggins <Accessories Quartermaster> (12781)
 -- items req lvl 58 blue (sergeant)
@@ -93,7 +93,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15126, 0, 20204, 0, 0, @EXTENDED_COST, 0),
 (15126, 0, 20208, 0, 0, @EXTENDED_COST, 0);
 
-SET @EXTENDED_COST = 125; -- 23 k honor
+SET @EXTENDED_COST = 444; -- 5 k honor
 -- Illiyana Moonblaze <Silverwing Supply Officer> (14753)
 DELETE FROM `npc_vendor` WHERE (`entry` = 14753) AND `item` IN (19514, 19522, 19530, 19538, 19546, 19554, 19562, 19570, 19580, 19583, 19589, 19596);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
