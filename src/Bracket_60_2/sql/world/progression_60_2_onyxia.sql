@@ -33,7 +33,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (54003, 18422, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
 (54003, 18423, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
 (54003, 18705, 0, 100, 1, 1, 0, 1, 1, 'Onyxia - Mature Black Dragon Sinew'),
-(54003, 21108, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies');
+(54003, 21108, 0, 100, 1, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies');
 
 DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12564, 12558) AND `sourceType` = 4;
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES
@@ -84,7 +84,7 @@ DELETE FROM `creature_questender` WHERE `quest` = 7496;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14394, 7496);
 
--- Cloak quest - A 
+-- Cloak quest - A
 DELETE FROM `creature_queststarter` WHERE `quest` = 7497;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (14394, 7497);
