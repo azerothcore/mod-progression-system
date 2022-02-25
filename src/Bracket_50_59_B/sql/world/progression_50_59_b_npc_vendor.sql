@@ -1,5 +1,5 @@
 -- END PHASE 50-59
-SET @EXTENDED_COST = 444; -- 5k honor
+SET @EXTENDED_COST = 2290; -- 20k honor
 
 -- ALLY
 SET @ENTRY = 12785;
