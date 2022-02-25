@@ -353,3 +353,67 @@ UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 15127 AND `item` IN
 -- ExtendedCost 3k Honor
 -- RequiredLevel 58
 UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 15126 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (6, 8, 12) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Illiyana Moonblaze
+-- Faction Alliance
+-- InventoryType Finger, Back, Neck
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 14753 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (11, 16, 2) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Illiyana Moonblaze
+-- Faction Alliance
+-- InventoryType Dagger OneHand, Sword OneHand, Bow
+-- Quality Rare
+-- ExtendedCost 6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 747 WHERE `entry` = 14753 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (15, 13) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Illiyana Moonblaze
+-- Faction Alliance
+-- InventoryType Staff (TwoHand)
+-- Quality Rare
+-- ExtendedCost 15k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 171 WHERE `entry` = 14753 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (17) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Illiyana Moonblaze
+-- Faction Alliance
+-- InventoryType Wirst
+-- Quality Rare
+-- ExtendedCost 700 Honor
+-- RequiredLevel 50
+UPDATE `npc_vendor` SET `ExtendedCost` = 837 WHERE `entry` = 14753 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (9) AND `Quality` = 3 AND `RequiredLevel` = 50);
+
+-- Kelm Hargunth
+-- Faction Horde
+-- InventoryType Finger, Back, Neck
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 14754 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (11, 16, 2) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Kelm Hargunth
+-- Faction Horde
+-- InventoryType Dagger OneHand, Sword OneHand, Bow
+-- Quality Rare
+-- ExtendedCost 6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 747 WHERE `entry` = 14754 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (15, 13) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Kelm Hargunth
+-- Faction Horde
+-- InventoryType Staff (TwoHand)
+-- Quality Rare
+-- ExtendedCost 15k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 171 WHERE `entry` = 14754 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (17) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Kelm Hargunth
+-- Faction Horde
+-- InventoryType Wirst
+-- Quality Rare
+-- ExtendedCost 700 Honor
+-- RequiredLevel 50
+UPDATE `npc_vendor` SET `ExtendedCost` = 837 WHERE `entry` = 14754 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (9) AND `Quality` = 3 AND `RequiredLevel` = 50);
