@@ -337,3 +337,19 @@ UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 12781 AND `item` IN
 -- ExtendedCost 1.6k Honor
 -- RequiredLevel 58
 UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 12793 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (16, 2, 9) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Samuel Hawke
+-- Faction Alliance
+-- InventoryType Waist, Feet Trinket
+-- Quality Rare
+-- ExtendedCost 3k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 15127 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (6, 8, 12) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Rutherford Twing
+-- Faction Horde
+-- InventoryType Waist, Feet Trinket
+-- Quality Rare
+-- ExtendedCost 3k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 15126 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (6, 8, 12) AND `Quality` = 3 AND `RequiredLevel` = 58);
