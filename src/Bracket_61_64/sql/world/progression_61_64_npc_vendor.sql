@@ -293,3 +293,47 @@ UPDATE `npc_vendor` SET `ExtendedCost` = 444 WHERE `entry` = 12795 AND `item` IN
 -- Quality Rare
 -- ExtendedCost 3k Honor
 UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 12795 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (10, 8, 3) AND `Quality` = 3);
+
+-- Thanthaldis Snowgleam
+-- Faction Alliance
+-- InventoryType Back, Neck
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 13217 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (16, 2) AND `Quality` = 3);
+
+-- Thanthaldis Snowgleam
+-- Faction Alliance
+-- InventoryType Waist
+-- Quality Rare
+-- ExtendedCost 3k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 13217 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (6) AND `Quality` = 3);
+
+-- Jekyll Flandring
+-- Faction Horde
+-- InventoryType Back, Neck
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 13219 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (16, 2) AND `Quality` = 3);
+
+-- Jekyll Flandring
+-- Faction Horde
+-- InventoryType Waist
+-- Quality Rare
+-- ExtendedCost 3k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 13219 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (6) AND `Quality` = 3);
+
+-- Master Sergeant Biggins
+-- Faction Alliance
+-- InventoryType Back, Neck, Wrist
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 12781 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (16, 2, 9) AND `Quality` = 3 AND `RequiredLevel` = 58);
+
+-- Brave Stonehide
+-- Faction Horde
+-- InventoryType Back, Neck, Wrist
+-- Quality Rare
+-- ExtendedCost 1.6k Honor
+-- RequiredLevel 58
+UPDATE `npc_vendor` SET `ExtendedCost` = 491 WHERE `entry` = 12793 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (16, 2, 9) AND `Quality` = 3 AND `RequiredLevel` = 58);
