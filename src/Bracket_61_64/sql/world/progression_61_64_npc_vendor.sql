@@ -35,7 +35,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
   This ammunition was introduced in The Burning Crusade patch 2.5
   items: (28060,28053)
 */
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
 (734, 0, 28060, 0, 0, 0, 0),
 (1149, 0, 28060, 0, 0, 0, 0),
 (1285, 0, 28060, 0, 0, 0, 0),
@@ -265,3 +265,31 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (29493, 0, 28053, 0, 0, 0, 0),
 (30572, 0, 28053, 0, 0, 0, 0),
 (31025, 0, 28053, 0, 0, 0, 0);
+
+-- Sergeant Major Clate
+-- Faction Alliance
+-- InventoryType Head, Chest, Leg
+-- Quality Rare
+-- ExtendedCost 5k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 444 WHERE `entry` = 12785 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (1, 7, 5) AND `Quality` = 3);
+
+-- Sergeant Major Clate
+-- Faction Alliance
+-- InventoryType Hand, Feet, Shoulder
+-- Quality Rare
+-- ExtendedCost 3k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 12785 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (10, 8, 3) AND `Quality` = 3);
+
+-- First Sergeant Hola'mahi
+-- Faction Horde
+-- InventoryType Head, Chest, Leg
+-- Quality Rare
+-- ExtendedCost 5k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 444 WHERE `entry` = 12795 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (1, 7, 5) AND `Quality` = 3);
+
+-- First Sergeant Hola'mahi
+-- Faction Horde
+-- InventoryType Hand, Feet, Shoulder
+-- Quality Rare
+-- ExtendedCost 3k Honor
+UPDATE `npc_vendor` SET `ExtendedCost` = 427 WHERE `entry` = 12795 AND `item` IN (SELECT `entry` FROM `item_template` WHERE `InventoryType` IN (10, 8, 3) AND `Quality` = 3);
