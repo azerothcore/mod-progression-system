@@ -27,6 +27,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (54003, 1, 54000, 100, 0, 1, 0, 1, 1, 'Onyxia - Reference Loot - Trinkets'),
 (54003, 2, 54001, 100, 0, 1, 0, 1, 2, 'Onyxia - Reference Loot - Tier Pieces'),
 (54003, 17966, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Onyxia Hide Backpack'),
+(54003, 17966, 0, 20, 0, 1, 0, 1, 1, 'Onyxia - Onyxia Hide Backpack'),
 (54003, 18422, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
 (54003, 18423, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
 (54003, 18705, 0, 40, 1, 1, 0, 1, 1, 'Onyxia - Mature Black Dragon Sinew'),
