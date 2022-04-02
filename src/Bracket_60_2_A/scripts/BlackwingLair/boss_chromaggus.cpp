@@ -71,14 +71,14 @@ enum Misc
 // not sniffed yet.
 Position const homePos = { -7487.577148f, -1074.366943f, 476.555023f, 5.325001f };
 
-class boss_chromaggus_60_1 : public CreatureScript
+class boss_chromaggus_60_2_A : public CreatureScript
 {
 public:
-    boss_chromaggus_60_1() : CreatureScript("boss_chromaggus") { }
+    boss_chromaggus_60_2_A() : CreatureScript("boss_chromaggus") { }
 
-    struct boss_chromaggusAI_60_1 : public BossAI
+    struct boss_chromaggusAI_60_2_A : public BossAI
     {
-        boss_chromaggusAI_60_1(Creature* creature) : BossAI(creature, DATA_CHROMAGGUS)
+        boss_chromaggusAI_60_2_A(Creature* creature) : BossAI(creature, DATA_CHROMAGGUS)
         {
             Initialize();
 
@@ -267,21 +267,29 @@ public:
                     case EVENT_AFFLICTION:
                     {
                         uint32 afflictionSpellID = RAND(SPELL_BROODAF_BLUE, SPELL_BROODAF_BLACK, SPELL_BROODAF_RED, SPELL_BROODAF_BRONZE, SPELL_BROODAF_GREEN);
+                        std::vector<Player*> playerTargets;
                         Map::PlayerList const& players = me->GetMap()->GetPlayers();
                         for (Map::PlayerList::const_iterator itr = players.begin(); itr != players.end(); ++itr)
                         {
-                            if (Player* player = itr->GetSource()->ToPlayer())
+                            if (!player->IsGameMaster() && !player->IsSpectator() && player->IsAlive())
                             {
-                                DoCast(player, afflictionSpellID, true);
+                                playerTargets.push_back(player);
+                            }
+                        }
 
-                                if (player->HasAura(SPELL_BROODAF_BLUE) &&
-                                    player->HasAura(SPELL_BROODAF_BLACK) &&
-                                    player->HasAura(SPELL_BROODAF_RED) &&
-                                    player->HasAura(SPELL_BROODAF_BRONZE) &&
-                                    player->HasAura(SPELL_BROODAF_GREEN))
-                                {
-                                    DoCast(player, SPELL_CHROMATIC_MUT_1);
-                                }
+                        if (playerTargets.size() > 12)
+                        {
+                            Acore::Containers::RandomResize(playerTargets, 12);
+                        }
+
+                        for (Player* player : playerTargets)
+                        {
+                            DoCast(player, afflictionSpellID, true);
+
+                            if (player->HasAura(SPELL_BROODAF_BLUE) && player->HasAura(SPELL_BROODAF_BLACK) && player->HasAura(SPELL_BROODAF_RED) &&
+                                player->HasAura(SPELL_BROODAF_BRONZE) && player->HasAura(SPELL_BROODAF_GREEN))
+                            {
+                                DoCast(player, SPELL_CHROMATIC_MUT_1);
                             }
                         }
                         events.ScheduleEvent(EVENT_AFFLICTION, 10000);
@@ -323,11 +331,11 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return GetBlackwingLairAI<boss_chromaggusAI_60_1>(creature);
+        return GetBlackwingLairAI<boss_chromaggusAI_60_2_A>(creature);
     }
 };
 
-void AddSC_boss_chromaggus_60_1()
+void AddSC_boss_chromaggus_60_2_A()
 {
-    new boss_chromaggus_60_1();
+    new boss_chromaggus_60_2_A();
 }

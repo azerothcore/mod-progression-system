@@ -4,16 +4,8 @@
 
 #include "ProgressionSystem.h"
 
-void AddSC_boss_chromaggus_60_1();
-
 void AddBracket_60_1_Scripts()
 {
     if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_60_TIER_1))
         return;
-
-    // Time Lapse: This ability used to permanently reduce threat, but does not do so as of patch 2.0.1
-    if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_70_TIER_4))
-    {
-        AddSC_boss_chromaggus_60_1();
-    }
 }
