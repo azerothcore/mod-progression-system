@@ -216,6 +216,11 @@ public:
             events.ScheduleEvent(EVENT_FRENZY, 15000);
         }
 
+        bool CanAIAttack(Unit const* victim) const override
+        {
+            return !victim->HasAura(SPELL_TIMELAPSE);
+        }
+
         void UpdateAI(uint32 diff) override
         {
             if (!UpdateVictim())
@@ -271,9 +276,12 @@ public:
                         Map::PlayerList const& players = me->GetMap()->GetPlayers();
                         for (Map::PlayerList::const_iterator itr = players.begin(); itr != players.end(); ++itr)
                         {
-                            if (!player->IsGameMaster() && !player->IsSpectator() && player->IsAlive())
+                            if (Player* player = itr->GetSource())
                             {
-                                playerTargets.push_back(player);
+                                if (!player->IsGameMaster() && !player->IsSpectator() && player->IsAlive())
+                                {
+                                    playerTargets.push_back(player);
+                                }
                             }
                         }
 
