@@ -6,10 +6,7 @@ UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `lootid` = 0, `
 
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (54000, 54001);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(54000, 17064, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Shard of the Scale'),
 (54000, 17067, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Ancient Cornerstone Grimoire'),
-(54000, 17068, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Deathbringer'),
-(54000, 17075, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Viskag the Bloodletter'),
 (54000, 17078, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Sapphiron Drape'),
 (54000, 18205, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Eskhandar Collar'),
 (54000, 18813, 0, 0, 0, 1, 1, 1, 1, 'Onyxia Ref - Ring of Binding');
@@ -27,13 +24,21 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 
 DELETE FROM `creature_loot_template` WHERE `Entry` = 54003;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(54003, 1, 54000, 100, 0, 1, 0, 1, 2, 'Onyxia - Reference Loot - Trinkets & Misc'),
+(54003, 1, 54000, 100, 0, 1, 0, 1, 1, 'Onyxia - Reference Loot - Trinkets'),
 (54003, 2, 54001, 100, 0, 1, 0, 1, 2, 'Onyxia - Reference Loot - Tier Pieces'),
-(54003, 17966, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Onyxia Hide Backpack'),
+(54003, 17966, 0, 100, 0, 1, 2, 1, 2, 'Onyxia - Onyxia Hide Backpack'),
+(54003, 17966, 0, 20, 0, 1, 3, 1, 2, 'Onyxia - Onyxia Hide Backpack'),
 (54003, 18422, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
 (54003, 18423, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Head of Onyxia'),
-(54003, 18705, 0, 100, 1, 1, 0, 1, 1, 'Onyxia - Mature Black Dragon Sinew'),
-(54003, 21108, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies');
+(54003, 18705, 0, 40, 1, 1, 0, 1, 1, 'Onyxia - Mature Black Dragon Sinew'),
+(54003, 21108, 0, 100, 0, 1, 0, 1, 1, 'Onyxia - Draconic for Dummies'),
+(54003, 17064, 0, 8.0, 0, 1, 1, 1, 1, 'Onyxia Ref - Shard of the Scale'),
+(54003, 17075, 0, 8.0, 0, 1, 1, 1, 1, 'Onyxia Ref - Viskag the Bloodletter'),
+(54003, 17068, 0, 8.0, 0, 1, 1, 1, 1, 'Onyxia Ref - Deathbringer');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 54003 AND `SourceEntry` = 21108;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 54003, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player have The Only Prescription (8620) in their quest log');
 
 DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12564, 12558) AND `sourceType` = 4;
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES
@@ -84,7 +89,7 @@ DELETE FROM `creature_questender` WHERE `quest` = 7496;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14394, 7496);
 
--- Cloak quest - A 
+-- Cloak quest - A
 DELETE FROM `creature_queststarter` WHERE `quest` = 7497;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (14394, 7497);

@@ -411,3 +411,13 @@ UPDATE creature_text SET TextRange = 2 WHERE CreatureID = 466 AND GroupID = 7;
 UPDATE `creature_template` SET `npcflag` = `npcflag` |1|2 WHERE `entry` = 1749;
 
 UPDATE `quest_template` SET `flags` = `flags`|2|8 WHERE `id` = 6403; -- The Great Masquerade, shareable & escort flag
+
+-- Adjust quest Mother's Milk gossip option to work with changed Ragged John gossip menu
+DELETE FROM `gossip_menu_option` WHERE `MenuID`=59563 AND `OptionID`=1;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES (59563, 1, 0, 'Milk me, John.', 5833, 1, 1, 2062, 0, 0, 0, '', 0, 0);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=59563 AND `SourceEntry`=1;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(15, 59563, 1, 0, 1, 1, 0, 16468, 0, 0, 0, 0, 0, '', 'Show Gossip 59563 option 1 only if player has aura 16468'),
+(15, 59563, 1, 0, 1, 9, 0, 4866, 0, 0, 0, 0, 0, '', 'Show gossip 59563 option 1 if player does have quest 4866 taken');
+
