@@ -124,7 +124,7 @@ public:
             me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP);
         }
 
-        void EnterEvadeMode() override
+        void EnterEvadeMode(EvadeReason /* why */) override
         {
             summons.DespawnAll();
             _EnterEvadeMode();
