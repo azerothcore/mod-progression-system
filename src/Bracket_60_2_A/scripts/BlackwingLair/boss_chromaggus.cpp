@@ -90,7 +90,7 @@ public:
             // This way we don't end up casting 2 of the same breath
             // TL TL would be stupid
 
-            std::vector<uint32> breathSpells = { SPELL_INCINERATE, SPELL_TIMELAPSE,  SPELL_CORROSIVEACID, SPELL_FROSTBURN };
+            std::vector<uint32> breathSpells = { SPELL_INCINERATE, SPELL_TIMELAPSE,  SPELL_CORROSIVEACID, SPELL_IGNITEFLESH, SPELL_FROSTBURN };
 
             Acore::Containers::RandomResize(breathSpells, 2);
 
