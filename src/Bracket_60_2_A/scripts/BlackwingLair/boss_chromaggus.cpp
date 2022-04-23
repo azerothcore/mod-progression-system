@@ -89,100 +89,13 @@ public:
             // 5 possiblities for the first breath, 4 for the second, 20 total possiblites
             // This way we don't end up casting 2 of the same breath
             // TL TL would be stupid
-            switch (urand(0, 19))
-            {
-                // B1 - Incin
-                case 0:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 1:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 2:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 3:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
 
-                    // B1 - TL
-                case 4:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 5:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 6:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 7:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
+            std::vector<uint32> breathSpells = { SPELL_INCINERATE, SPELL_TIMELAPSE,  SPELL_CORROSIVEACID, SPELL_FROSTBURN };
 
-                    //B1 - Acid
-                case 8:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 9:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 10:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 11:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
+            Acore::Containers::RandomResize(breathSpells, 2);
 
-                    //B1 - Ignite
-                case 12:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 13:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 14:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 15:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
-
-                    //B1 - Frost
-                case 16:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 17:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 18:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 19:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-            };
-
-            EnterEvadeMode();
+            Breath1_Spell = breathSpells[0];
+            Breath2_Spell = breathSpells[1];
         }
 
         void Initialize()
