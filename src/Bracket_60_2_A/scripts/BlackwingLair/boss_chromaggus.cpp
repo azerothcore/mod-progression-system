@@ -64,9 +64,7 @@ enum Events
 
 enum Misc
 {
-    GUID_LEVER_USER = 0,
-
-    PATH_FINAL_DESTINATION = 4
+    GUID_LEVER_USER = 0
 };
 
 // not sniffed yet.
