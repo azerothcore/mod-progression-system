@@ -56,16 +56,15 @@ enum Spells
 enum Events
 {
     EVENT_SHIMMER                   = 1,
-    EVENT_BREATH_1                  = 2,
-    EVENT_BREATH_2                  = 3,
-    EVENT_AFFLICTION                = 4,
-    EVENT_FRENZY                    = 5,
-    EVENT_CHECK_TIME_LAPSE_TARGET   = 6
+    EVENT_BREATH                    = 2,
+    EVENT_AFFLICTION                = 3,
+    EVENT_FRENZY                    = 4,
+    EVENT_CHECK_TIME_LAPSE_TARGET   = 5
 };
 
 enum Misc
 {
-    DATA_LEVER_USED = 0
+    GUID_LEVER_USER = 0
 };
 
 // not sniffed yet.
@@ -82,120 +81,15 @@ public:
         {
             Initialize();
 
-            Breath1_Spell = 0;
-            Breath2_Spell = 0;
+            // Select the 2 breaths that we are going to use until despawned so we don't end up casting 2 of the same breath.
+            _breathSpells = { SPELL_INCINERATE, SPELL_TIMELAPSE,  SPELL_CORROSIVEACID, SPELL_IGNITEFLESH, SPELL_FROSTBURN };
 
-            // Select the 2 breaths that we are going to use until despawned
-            // 5 possiblities for the first breath, 4 for the second, 20 total possiblites
-            // This way we don't end up casting 2 of the same breath
-            // TL TL would be stupid
-            switch (urand(0, 19))
-            {
-                // B1 - Incin
-                case 0:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 1:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 2:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 3:
-                    Breath1_Spell = SPELL_INCINERATE;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
-
-                    // B1 - TL
-                case 4:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 5:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 6:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 7:
-                    Breath1_Spell = SPELL_TIMELAPSE;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
-
-                    //B1 - Acid
-                case 8:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 9:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 10:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-                case 11:
-                    Breath1_Spell = SPELL_CORROSIVEACID;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
-
-                    //B1 - Ignite
-                case 12:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 13:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 14:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 15:
-                    Breath1_Spell = SPELL_IGNITEFLESH;
-                    Breath2_Spell = SPELL_FROSTBURN;
-                    break;
-
-                    //B1 - Frost
-                case 16:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_INCINERATE;
-                    break;
-                case 17:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_TIMELAPSE;
-                    break;
-                case 18:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_CORROSIVEACID;
-                    break;
-                case 19:
-                    Breath1_Spell = SPELL_FROSTBURN;
-                    Breath2_Spell = SPELL_IGNITEFLESH;
-                    break;
-            };
-
-            EnterEvadeMode();
+            Acore::Containers::RandomResize(_breathSpells, 2);
         }
 
         void Initialize()
         {
             Enraged = false;
-        }
-
-        void SetData(uint32 id, uint32 /*data*/) override
-        {
-            if (id == DATA_LEVER_USED)
-            {
-                me->SetHomePosition(homePos);
-            }
         }
 
         void Reset() override
@@ -210,8 +104,8 @@ public:
             BossAI::EnterCombat(victim);
 
             events.ScheduleEvent(EVENT_SHIMMER, 1000);
-            events.ScheduleEvent(EVENT_BREATH_1, 30000);
-            events.ScheduleEvent(EVENT_BREATH_2, 60000);
+            events.ScheduleEvent(EVENT_BREATH, 30000);
+            events.ScheduleEvent(EVENT_BREATH, 60000);
             events.ScheduleEvent(EVENT_AFFLICTION, 10000);
             events.ScheduleEvent(EVENT_FRENZY, 15000);
         }
@@ -219,6 +113,31 @@ public:
         bool CanAIAttack(Unit const* victim) const override
         {
             return !victim->HasAura(SPELL_TIMELAPSE);
+        }
+
+        void SetGUID(ObjectGuid guid, int32 id) override
+        {
+            if (id == GUID_LEVER_USER)
+            {
+                _playerGUID = guid;
+            }
+        }
+
+        void PathEndReached(uint32 /*pathId*/) override
+        {
+            if (Unit* player = ObjectAccessor::GetUnit(*me, _playerGUID))
+            {
+                me->SetInCombatWith(player);
+            }
+        }
+
+        void DamageTaken(Unit* /*unit*/, uint32& damage, DamageEffectType, SpellSchoolMask) override
+        {
+            if (me->HealthBelowPctDamaged(20, damage) && !Enraged)
+            {
+                DoCastSelf(SPELL_ENRAGE);
+                Enraged = true;
+            }
         }
 
         void UpdateAI(uint32 diff) override
@@ -237,13 +156,14 @@ public:
                 {
                     case EVENT_SHIMMER:
                         // Cast new random vulnerabilty on self
-                        DoCast(me, SPELL_ELEMENTAL_SHIELD);
+                        DoCastSelf(SPELL_ELEMENTAL_SHIELD);
                         Talk(EMOTE_SHIMMER);
                         events.ScheduleEvent(EVENT_SHIMMER, urand(17000, 25000));
                         break;
-                    case EVENT_BREATH_1:
-                        DoCastVictim(Breath1_Spell);
-                        if (Breath1_Spell == SPELL_TIMELAPSE)
+                    case EVENT_BREATH:
+                        DoCastVictim(_breathSpells.front());
+
+                        if (_breathSpells.front() == SPELL_TIMELAPSE)
                         {
                             if (Unit* target = me->GetVictim())
                             {
@@ -253,21 +173,9 @@ public:
                                 events.ScheduleEvent(EVENT_CHECK_TIME_LAPSE_TARGET, 8000);
                             }
                         }
-                        events.ScheduleEvent(EVENT_BREATH_1, 60000);
-                        break;
-                    case EVENT_BREATH_2:
-                        DoCastVictim(Breath2_Spell);
-                        if (Breath2_Spell == SPELL_TIMELAPSE)
-                        {
-                            if (Unit* target = me->GetVictim())
-                            {
-                                _timeLapseTarget = me->GetVictim()->GetGUID();
-                                _timeLapseThreat = me->getThreatMgr().getThreat(me->GetVictim());
-                                me->getThreatMgr().modifyThreatPercent(target, -100);
-                                events.ScheduleEvent(EVENT_CHECK_TIME_LAPSE_TARGET, 8000);
-                            }
-                        }
-                        events.ScheduleEvent(EVENT_BREATH_2, 60000);
+
+                        _breathSpells.reverse();
+                        events.RepeatEvent(60000);
                         break;
                     case EVENT_AFFLICTION:
                     {
@@ -304,7 +212,7 @@ public:
                         break;
                     }
                     case EVENT_FRENZY:
-                        DoCast(me, SPELL_FRENZY);
+                        DoCastSelf(SPELL_FRENZY);
                         events.ScheduleEvent(EVENT_FRENZY, 10000, 15000);
                         break;
                     case EVENT_CHECK_TIME_LAPSE_TARGET:
@@ -319,22 +227,15 @@ public:
                     return;
             }
 
-            // Enrage if not already enraged and below 20%
-            if (!Enraged && HealthBelowPct(20))
-            {
-                DoCast(me, SPELL_ENRAGE);
-                Enraged = true;
-            }
-
             DoMeleeAttackIfReady();
         }
 
     private:
-        uint32 Breath1_Spell;
-        uint32 Breath2_Spell;
+        std::list<uint32> _breathSpells;
         bool Enraged;
         float _timeLapseThreat;
         ObjectGuid _timeLapseTarget;
+        ObjectGuid _playerGUID;
     };
 
     CreatureAI* GetAI(Creature* creature) const override
