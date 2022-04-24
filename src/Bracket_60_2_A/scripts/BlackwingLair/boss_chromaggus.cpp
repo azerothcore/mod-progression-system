@@ -64,7 +64,9 @@ enum Events
 
 enum Misc
 {
-    DATA_LEVER_USED = 0
+    GUID_LEVER_USER = 0,
+
+    PATH_FINAL_DESTINATION = 4
 };
 
 // not sniffed yet.
@@ -92,14 +94,6 @@ public:
             Enraged = false;
         }
 
-        void SetData(uint32 id, uint32 /*data*/) override
-        {
-            if (id == DATA_LEVER_USED)
-            {
-                me->SetHomePosition(homePos);
-            }
-        }
-
         void Reset() override
         {
             _Reset();
@@ -121,6 +115,22 @@ public:
         bool CanAIAttack(Unit const* victim) const override
         {
             return !victim->HasAura(SPELL_TIMELAPSE);
+        }
+
+        void SetGUID(ObjectGuid guid, int32 id) override
+        {
+            if (id == GUID_LEVER_USER)
+            {
+                _playerGUID = guid;
+            }
+        }
+
+        void PathEndReached(uint32 /*pathId*/) override
+        {
+            if (Unit* player = ObjectAccessor::GetUnit(*me, _playerGUID))
+            {
+                me->SetInCombatWith(player);
+            }
         }
 
         void DamageTaken(Unit* /*unit*/, uint32& damage, DamageEffectType, SpellSchoolMask) override
@@ -227,6 +237,7 @@ public:
         bool Enraged;
         float _timeLapseThreat;
         ObjectGuid _timeLapseTarget;
+        ObjectGuid _playerGUID;
     };
 
     CreatureAI* GetAI(Creature* creature) const override
