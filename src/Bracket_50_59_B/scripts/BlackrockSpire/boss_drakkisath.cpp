@@ -94,8 +94,8 @@ public:
                         if (Unit* target = me->GetVictim())
                         {
                             _conflagrateTarget = me->GetVictim()->GetGUID();
-                            _conflagrateThreat = me->getThreatMgr().getThreat(me->GetVictim());
-                            me->getThreatMgr().modifyThreatPercent(target, -100);
+                            _conflagrateThreat = me->GetThreatMgr().getThreat(me->GetVictim());
+                            me->GetThreatMgr().modifyThreatPercent(target, -100);
                         }
                         events.ScheduleEvent(EVENT_CONFLAGRATION, 18000);
                         events.ScheduleEvent(EVENT_CHECK_CONFLAGRATION_TARGET, 10000);
@@ -115,7 +115,7 @@ public:
                     case EVENT_CHECK_CONFLAGRATION_TARGET:
                         if (Unit* target = ObjectAccessor::GetUnit(*me, _conflagrateTarget))
                         {
-                            me->getThreatMgr().addThreat(target, _conflagrateThreat);
+                            me->GetThreatMgr().addThreat(target, _conflagrateThreat);
                         }
                         break;
                 }
