@@ -132,4 +132,3 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 658, 3, "", "", "Pit of Saron"),
 (2, 668, 3, "", "", "Halls of Reflection"),
 (2, 724, 15, "", "", "The Ruby Sanctum");
-
