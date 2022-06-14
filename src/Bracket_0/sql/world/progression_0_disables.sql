@@ -116,9 +116,10 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 602, 3, "", "", "Halls of Lighting");
 
 -- 80 level range
-DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724);
+DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724, 13276);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 249, 3, "", "", "Onyxia Lair"),
+(4, 13276, 0, "", "", "Onyxia Lair LK Statistic"),
 (2, 533, 3, "", "", "Naxxramas"),
 (2, 603, 3, "", "", "Ulduar"),
 (2, 615, 3, "", "", "The Obsidian Sanctum"),
@@ -131,3 +132,4 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 658, 3, "", "", "Pit of Saron"),
 (2, 668, 3, "", "", "Halls of Reflection"),
 (2, 724, 15, "", "", "The Ruby Sanctum");
+
