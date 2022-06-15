@@ -44,7 +44,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Item` IN (19133, 19134, 19135, 18546, 18544, 18543, 18204, 17113, 17112, 17111);
 
 DELETE FROM `waypoint_data` WHERE `id` = 1569500;
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_change`, `wpguid`) VALUES
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
 (1569500, 1, -12241.3, -2432.1, 2.93936, 0, 30000, 0, 0, 0, 100, 0),
 (1569500, 2, -12271.6, -2453.36, 3.84158, 0, 0, 0, 0, 0, 100, 0),
 (1569500, 3, -12279.2, -2488.66, 4.38164, 0, 0, 0, 0, 0, 100, 0),
