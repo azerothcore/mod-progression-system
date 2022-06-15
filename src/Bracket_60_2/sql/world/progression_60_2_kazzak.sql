@@ -1,4 +1,4 @@
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63,`ScriptName` = 'boss_lord_kazzak' WHERE `entry` = 12397;
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63,`ScriptName` = 'boss_lord_kazzak', scale` = 2.2  WHERE `entry` = 12397;
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 21056;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
