@@ -57,4 +57,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (1569500, 10, -12171.4, -2452.79, -0.15142, 0, 0, 0, 0, 100, 0),
 (1569500, 11, -12208, -2436.73, 0.09382, 0, 0, 0, 0, 100, 0);
 
+DELETE FROM `creature_addon` WHERE (`guid` IN (156950));
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(156950, 1569500, 0, 0, 0, 0, 0, NULL);
 
