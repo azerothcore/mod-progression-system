@@ -21,8 +21,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (12397, 8, 0, 'Kazzak is supreme!', 16, 0, 0, 0, 0, 0, 0, 0, 'kazzak SAY_SUPREME_VANILA');
 
 DELETE FROM `creature` WHERE `guid` = 156950 AND `id1` = 12397;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `spawntimesecs`) VALUES
-(156950, 12397, 0, 0, 0, -12275.6, -2524.26, 3.79202, 1.69492, 259200, 604800);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(156950, 12397, 0, 0, 0, 0, 0, 1, 1, 0, -12241.3, -2432.1, 2.93936, 3.26504, 604800, 259200, 0, 1, 0, 2, 0, 0, 0, '', 0);
 
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60000;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
@@ -42,3 +42,19 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (12397, 1, 60000, 100, 0, 1, 1, 2, 2, NULL);
 
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Item` IN (19133, 19134, 19135, 18546, 18544, 18543, 18204, 17113, 17112, 17111);
+
+DELETE FROM 'waypoint_data' WHERE 'id' = 1569500;
+INSERT INTO 'waypoint_data ('id', 'point', 'position_x', 'position_y', 'position_z', 'orientation', 'delay', 'move_type', 'action, 'action_change', 'wpguid') values
+(1569500, 1, -12241.3, -2432.1, 2.93936, 0, 30000, 0, 0, 0, 100, 0),
+(1569500, 2, -12271.6, -2453.36, 3.84158, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 3, -12279.2, -2488.66, 4.38164, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 4, -12275.1, -2520.88, 3.67985, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 5, -12224.9, -2522.83, 1.56836, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 6, -12191.6, -2502.13, -0.148134, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 7, -12114.8, -2510.99, 3.11959, 0, 40000, 0, 0, 0, 100, 0),
+(1569500, 8, -12138.4, -2494.16, 3.89333, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 9, -12166, -2478.6, 0.810272, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 10, -12171.4, -2452.79, -0.15142, 0, 0, 0, 0, 0, 100, 0),
+(1569500, 11, -12208, -2436.73, 0.09382, 0, 0, 0, 0, 0, 100, 0);
+
+
