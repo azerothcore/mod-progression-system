@@ -177,8 +177,10 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 7480;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(15, 7480, 0, 0, 0, 28, 0, 6403, 0, 0, 1, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
-(15, 7480, 0, 0, 0, 28, 0, 6402, 0, 0, 0, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous');
+(15, 7480, 0, 0, 0, 28, 0, 6403, 0, 0, 1, 0, 0, '', ''),
+(15, 7480, 0, 0, 0, 8, 0, 6402, 0, 0, 0, 0, 0, '', ''),
+(15, 7480, 0, 0, 1, 28, 0, 6403, 0, 0, 1, 0, 0, '', ''),
+(15, 7480, 0, 0, 1, 8, 0, 6402, 0, 0, 0, 0, 0, '', '');
 
 DELETE FROM `gossip_menu` WHERE `MenuID` = 51749 AND `TextID` = 2693;
 DELETE FROM `gossip_menu` WHERE `MenuID` = 51750 AND `TextID` = 2694;
