@@ -26,3 +26,14 @@ UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 
 UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 36296;
 
 UPDATE `item_template` SET `RequiredLevel` = 40 WHERE `entry` = 50250; -- love rocket
+
+DELETE FROM `game_event_creature` WHERE (`eventEntry` = 8 AND `guid` IN (3110434, 3110433, 3110432, 3110431, 3110430, 3110429, 3110428, 3110427));
+INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES 
+('8', '3110434'),
+('8', '3110433'),
+('8', '3110432'),
+('8', '3110431'),
+('8', '3110430'),
+('8', '3110429'),
+('8', '3110428'),
+('8', '3110427');
