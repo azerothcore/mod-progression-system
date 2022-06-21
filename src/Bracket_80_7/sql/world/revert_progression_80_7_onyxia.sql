@@ -9,6 +9,8 @@ DELETE FROM `reference_loot_template` WHERE `Entry` IN (54001, 54002);
 
 DELETE FROM `disables` WHERE `entry` = 12559 AND `sourceType` = 4;
 
+DELETE FROM `disables` WHERE `entry` = 13276 AND `sourceType` = 4;
+
 DELETE FROM `disables` WHERE `entry` IN (12565, 12566, 12564, 12558) AND `sourceType` = 4;
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 15;
