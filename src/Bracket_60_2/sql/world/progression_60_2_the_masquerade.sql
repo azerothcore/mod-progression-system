@@ -177,10 +177,10 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 7480;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(15, 7480, 0, 0, 0, 8, 0, 6403, 0, 0, 1, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
+(15, 7480, 0, 0, 0, 28, 0, 6403, 0, 0, 1, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
 (15, 7480, 0, 0, 0, 8, 0, 6402, 0, 0, 0, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
-(15, 7480, 0, 0, 1, 8, 0, 6403, 0, 0, 1, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
-(15, 7480, 0, 0, 1, 28, 0, 6402, 0, 0, 0,0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous');
+(15, 7480, 0, 0, 1, 28, 0, 6403, 0, 0, 1, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous'),
+(15, 7480, 0, 0, 1, 8, 0, 6402, 0, 0, 0, 0, 0, '', 'Squire Rowe - Require Stormwind Rendezvous');
 
 DELETE FROM `gossip_menu` WHERE `MenuID` = 51749 AND `TextID` = 2693;
 DELETE FROM `gossip_menu` WHERE `MenuID` = 51750 AND `TextID` = 2694;
@@ -421,3 +421,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 59563, 1, 0, 1, 1, 0, 16468, 0, 0, 0, 0, 0, '', 'Show Gossip 59563 option 1 only if player has aura 16468'),
 (15, 59563, 1, 0, 1, 9, 0, 4866, 0, 0, 0, 0, 0, '', 'Show gossip 59563 option 1 if player does have quest 4866 taken');
 
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 15) AND (`SourceGroup` = 12580) AND (`SourceEntry` = 0) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 9) AND (`ConditionTarget` = 0) AND (`ConditionValue1` = 6403) AND (`ConditionValue2` = 0) AND (`ConditionValue3` = 0);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(15, 12580, 0, 0, 0, 9, 0, 6403, 0, 0, 0, 0, 0, '', 'hide lets end masquerade if quest is not taken');
