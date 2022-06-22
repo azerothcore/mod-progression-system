@@ -23,6 +23,15 @@ ProgressionSystem.LoadScripts = 1
 ProgressionSystem.LoadDatabase = 1
 
 #
+#    ProgressionSystem.ReapplyUpdates
+#        Description: Always reapply every SQL file on start up. Warning: impacts start up times.
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+ProgressionSystem.ReapplyUpdates = 0
+
+#
 #    ProgressionSystem.Brackets
 #        Description: Defined what brackets should be loaded. It is a bitmask. Available mask values are present in ProgressionSystem.h
 #        Default:     0 - None

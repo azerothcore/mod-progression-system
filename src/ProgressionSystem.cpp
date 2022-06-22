@@ -34,6 +34,11 @@ public:
     {
         if (DBUpdater<LoginDatabaseConnection>::IsEnabled(updateFlags))
         {
+            if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
+            {
+                LoginDatabase.Query("DELETE FROM updates WHERE name LIKE '%progression%'");
+            }
+
             std::vector<std::string> loginDatabaseDirectories = GetDatabaseDirectories("auth");
             if (!loginDatabaseDirectories.empty())
             {
@@ -43,6 +48,11 @@ public:
 
         if (DBUpdater<CharacterDatabaseConnection>::IsEnabled(updateFlags))
         {
+            if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
+            {
+                CharacterDatabase.Query("DELETE FROM updates WHERE name LIKE '%progression%'");
+            }
+
             std::vector<std::string> charactersDatabaseDirectories = GetDatabaseDirectories("characters");
             if (!charactersDatabaseDirectories.empty())
             {
@@ -52,6 +62,11 @@ public:
 
         if (DBUpdater<WorldDatabaseConnection>::IsEnabled(updateFlags))
         {
+            if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
+            {
+                WorldDatabase.Query("DELETE FROM updates WHERE name LIKE '%progression%'");
+            }
+
             std::vector<std::string> worldDatabaseDirectories = GetDatabaseDirectories("world");
             if (!worldDatabaseDirectories.empty())
             {
