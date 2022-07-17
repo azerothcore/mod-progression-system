@@ -1,1 +1,1 @@
-UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = 249 AND `difficulty` = 1; 
+DELETE FROM `disables` WHERE `entry` = 249 AND `sourcetype` = 2;
