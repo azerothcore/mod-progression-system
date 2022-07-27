@@ -136,6 +136,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
   This ammunition was introduced in The Burning Crusade patch 2.5
   items: (28060,28053)
 */
+DELETE `npc_vendor`FROM `npc_vendor` WHERE `entry` IN (13218, 13216) AND `item` NOT IN (19029, 19030, 17348, 17349, 17351, 17352);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
 (734, 0, 28060, 0, 0, 0, 0),
 (1149, 0, 28060, 0, 0, 0, 0),
