@@ -303,20 +303,6 @@ public:
             _canGreet = false;
         }
 
-        bool CanBeSeen(Player const* player) override
-        {
-            // Hide the Reginald patrolling stormwind... he uses the same creature entry... unfortunately.
-            if ((player->GetQuestStatus(QUEST_STORMWIND_RENDEZVOUZ) == QUEST_STATUS_COMPLETE) || (player->GetQuestStatus(QUEST_THE_GREAT_MASQUERADE) == QUEST_STATUS_INCOMPLETE))
-            {
-                if (me->GetSpawnId() == 86900)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         void DoAction(int32 actionId) override
         {
             if (actionId == ACTION_RESET_MASQUERADE)
@@ -582,14 +568,6 @@ public:
 
                         me->GetMap()->LoadGrid(8435.00f, 335.55f);
                         katrana->AI()->Talk(SAY_KATRANA_1);
-                    }
-
-                    guid = GUID_REGINALD;
-
-                    if (Creature* reginald = GetCreature(guid))
-                    {
-                        reginald->DespawnOrUnsummon();
-                        reginald->SetRespawnTime(30 * 60);
                     }
 
                     if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 200.0f))
@@ -970,6 +948,15 @@ public:
                         DoAction(ACTION_RESET_MASQUERADE);
                         me->DespawnOrUnsummon(10000);
                     }
+                    else if (Player* player = ObjectAccessor::FindConnectedPlayer(_playerGUID))
+                    {
+                        if (!player->IsInMap(me) || !player->IsWithinDist(me, 100.0f))
+                        {
+                            DoAction(ACTION_RESET_MASQUERADE);
+                            me->DespawnOrUnsummon(10000);
+                        }
+                    }
+                    _events.Repeat(5min);
                     break;
                 case 68:
                     if (Creature* bolvar = me->FindNearestCreature(NPC_BOLVAR, 20.0f))
