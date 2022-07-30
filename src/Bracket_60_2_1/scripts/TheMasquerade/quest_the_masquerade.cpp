@@ -301,6 +301,7 @@ public:
         npc_reginald_windsorAI(Creature* creature) : ScriptedAI(creature), Summons(creature)
         {
             _canGreet = false;
+            creature->SetUnitFlag(UNIT_FLAG_IMMUNE_TO_PC);
         }
 
         void DoAction(int32 actionId) override
@@ -1001,6 +1002,11 @@ public:
                 default:
                     break;
                 }
+
+                if (!UpdateVictim())
+                    return;
+
+                DoMeleeAttackIfReady();
             }
         }
 
