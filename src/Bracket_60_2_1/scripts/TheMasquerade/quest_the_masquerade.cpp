@@ -301,6 +301,7 @@ public:
         npc_reginald_windsorAI(Creature* creature) : ScriptedAI(creature), Summons(creature)
         {
             _canGreet = false;
+            creature->SetUnitFlag(UNIT_FLAG_IMMUNE_TO_PC);
         }
 
         bool CanBeSeen(Player const* player) override
@@ -1014,6 +1015,11 @@ public:
                 default:
                     break;
                 }
+
+                if (!UpdateVictim())
+                    return;
+
+                DoMeleeAttackIfReady();
             }
         }
 
