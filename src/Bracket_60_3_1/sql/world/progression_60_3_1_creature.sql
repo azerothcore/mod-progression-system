@@ -6,7 +6,7 @@ INSERT INTO `creature` (`guid`,`id1`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseM
 (50012,14889,1,0,0,1,1,0,-2872.66,1884.25,52.7336,2.6529,868400,0,0,1895000,0,0,0,0,0,'',0),
 (4256,14890,0,0,0,1,1,0,-10428.8,-392.176,43.7411,0.932375,868400,0,0,1895000,0,2,0,0,0,'',0);
 -- add silithus npcs
-DELETE FROM `creature` WHERE `guid` IN ( 42761, 42662, 42764, 42765, 42918, 42919, 43236, 43200 , 70574 , 46164, 46165, 46167 , 46168, 42763, 42749, 45610, 43123);(
+DELETE FROM `creature` WHERE `guid` IN ( 42761, 42662, 42764, 42765, 42918, 42919, 43236, 43200 , 70574 , 46164, 46165, 46167 , 46168, 42763, 42749, 45610, 43123);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,  `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES 
 (42762, 15181, 1, 0, 0, 1, 1, 1, -6752.38, 823.836, 57.3633, 0.344505, 600, 0, 0, 97110, 0, 0, 0, 0, 0, '', 0),
 (42764, 15182, 1, 0, 0, 1, 1, 1, -6740.08, 769.562, 128.521, 3.50811, 600, 0, 0, 25152, 0, 0, 0, 0, 0, '', 0),
