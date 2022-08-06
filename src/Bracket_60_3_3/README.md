@@ -18,6 +18,19 @@ PROS: Scales all damage and can be tuned with global modifiers
 CONS: Hooks apply to all maps and creatures.
 Applies scaling of 1.0f to 99.99% of all combat interactions.
 
+Progress:
+- [x] Allow lvl 60 to enter
+- [x] Remove boss loot
+- [x] Remove trash loot
+- [ ] Scale instance with autobalancer (90% complete)
+- [ ] Add 60 Boss Loot (WIP)
+- [ ] Add 60 Trash Loot 
+- [ ] Add AreaTrigger in EPL to teleport to instance
+- [ ] Fix graveyard to EPL
+- [ ] Add quests to turn in tokens
+- [ ] Attunement requirement
+- [-] Scourge event (skip)
+
 ## 3 Dump and Scale  ❔
 
 Use data from autobalancer to scale only Naxx25 mobs.
@@ -244,7 +257,11 @@ reference_loot_template
 Reference 34382
 Reference 34146
 
-
+brotalnia chest gameobject_loot_template
+entry=181366
+reference 12002 for tokens
+reference_loot_template
+token 22349
 
 Thaddius loot example found in brotalnia
 
