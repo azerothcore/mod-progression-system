@@ -28,8 +28,8 @@ Use data from autobalancer to scale only Naxx25 mobs.
 PROS: Accurate scaling with low overhead
 CONS: more work
 
-# Approach 1 details
-List some data of Naxx25
+# Data
+some data of Naxx25
 
 ## Select non-bosses 
 select spawned on map 533
@@ -131,8 +131,6 @@ SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, c
 (30047, 30049, 30016, 29279, 29632, 29633, 29635, 29634, 29941, 29267, 29256, 29274, 29273, 30057, 30303, 29388, 30068, 29988, 29989, 29990, 30264, 29986, 29985, 29987)
 ```
 
-
-
 ## Select bosses
 ```
 SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank = 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21;
@@ -163,22 +161,6 @@ SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, c
 (29373, 29417, 29701, 29268, 29615, 29249, 29718, 29324, 29955, 29940, 29448, 29278, 30603, 30601, 30600, 30602, 29991, 30061)
 ```
 
-## Scaling
-
-
-
- Scale trash level health modifier with 1.5
-```
-UPDATE creature_template SET HealthModifier = HealthModifier * 1.5   WHERE entry IN ();
-```
- Scale level
-```
-UPDATE creature_template SET minlevel = (minlevel - 20)   WHERE entry IN ();
-UPDATE creature_template SET maxlevel = (maxlevel - 20)   WHERE entry IN ();
-```
-
-
-
 ## Comparing mobs acore vs brotalnia db
 Select mobs from acore
 ```
@@ -200,7 +182,18 @@ Select health from brotalnia
 SELECT DISTINCT creature_template.entry, creature_template.armor, creature_template.dmg_min, creature_template.dmg_max, creature_template.name, creature_template.health_min, creature_template.health_max FROM creature_template, creature WHERE creature.map = 533 AND creature_template.entry = creature.id
 ```
 
-### Scaling
+# Approach 1 details
+## Scaling
+
+ Scale trash level health modifier with 1.5
+```
+UPDATE creature_template SET HealthModifier = HealthModifier * 1.5   WHERE entry IN ();
+```
+ Scale level
+```
+UPDATE creature_template SET minlevel = (minlevel - 20)   WHERE entry IN ();
+UPDATE creature_template SET maxlevel = (maxlevel - 20)   WHERE entry IN ();
+```
 Values observed of Naxx10
 | Creature | Brotalnia (nax40) | AzerothCore Naxx10 (scaled to lvl60) | modifier| health (pre scaling)|
 |--|--|--|--|--|
@@ -220,7 +213,39 @@ Conclusion: No scaling needed for HP values after scaling to lvl60
 
 Issue: Spells need scaling
 
+## Approach 2 Details
+Naxx25 scaling observed with offset 24, total=25
+
+Autobalancer set to level 60 with offset X
+
+| Creature |	 Brotalnia (naxx40) |	25|	10|
+|--|--|--|--|
+|Skitterer	|15720|	25791|	8750
+|Venom Stalker	|94320|	154000|	52496|
+|Noth the Plaguebringer|	1665500|	2766000|	938000|
+|Frenzied Bat|	10682|	15475|	5250|
+|Patchwork Golem|	88032|	154000|	52496|
+|Embalming Slime|	12208|	20000|	7000|
+|Patchwork|	3997200|	5343000|	1812000|
+
+
 # Loot
+4H Chest
+Deathknight Wing Eye Portal Boss
+GUID 65854
+ID 181230
+Damnation 
+40348
+
+gameobject_loot_template 
+Entry=25193
+
+reference_loot_template
+Reference 34382
+Reference 34146
+
+
+
 Thaddius loot example found in brotalnia
 
 ```
@@ -296,5 +321,14 @@ reset instance
 go Thaddius
 ```
 .go c 130957
+```
+4H door
+```
+.gobject activate 65753
+.go c 130961
+```
+patchwerk
+```
+.go c 128135
 ```
 

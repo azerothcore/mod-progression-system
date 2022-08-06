@@ -40,8 +40,8 @@ ProgressionSystem.ReapplyUpdates = 0
 #						   14 is: Bracket 10-19, 20-29 and 30-39
 #
 
-ProgressionSystem.Brackets = 8191 | PROGRESSION_BRACKET_60_TIER3_C_NAXXAMAS
-
+ProgressionSystem.Brackets = 134217728 # Naxx60
+#ProgressionSystem.Brackets = 134225919 # 1-60 and Naxx60
 #
 #
 #
