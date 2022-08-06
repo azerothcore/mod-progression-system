@@ -2,20 +2,40 @@
 SET @MapID := 533;
 DELETE FROM `disables` WHERE `entry` = @MapID;
 
--- Update map difficulty of Naxx25
+-- Update map difficulty of Naxx25  to '0'
 -- https://wow.tools/dbc/?dbc=mapdifficulty&build=10.0.0.44895#page=1&search=533
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = @MapID;
 INSERT INTO `mapdifficulty_dbc`
 (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`)
-VALUES (128, @MapID, 1, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
-
--- Update spawn masks to only spawn in 25man
-
-
+VALUES
+(128, @MapID, 0, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
 
 -- Set access to min level 60 for Naxx25
-UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = @MapID
-AND `difficulty` = 1;
+UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `id` = 31;
+
+-- By Default lvl60 players will enter map with difficulty 0
+-- Update scripts to default to 25
+
+-- Floating Naxxramas object, "naxxramas" id: 181056
+DELETE FROM gameobject WHERE id=181056;
+INSERT INTO gameobject
+(id, `map`, zoneId, areaId, spawnMask, phaseMask, position_x, position_y,
+position_z, orientation, rotation0, rotation1, rotation2, rotation3,
+spawntimesecs, animprogress, state, ScriptName, VerifiedBuild)
+VALUES
+(181056, 0, 0, 0, 1, 1, 3132, -3731, 200, -2.148, 0.0, 0.0, 0,
+0, 900, 100, 1, '', 0);
+
+-- Update Naxx exits to somewhere in EPL
+DELETE FROM areatrigger_teleport WHERE ID in (5196, 5197, 5198, 5199);
+INSERT INTO areatrigger_teleport
+(ID, Name, target_map, target_position_x, target_position_y, target_position_z,
+target_orientation)
+VALUES
+(5196, 'Naxxramas (exit1)', 0, 3090.68, -3874.88, 138.36, 3.2138),
+(5197, 'Naxxramas (exit2)', 0, 3090.68, -3874.88, 138.36, 3.2138),
+(5198, 'Naxxramas (exit3)', 0, 3090.68, -3874.88, 138.36, 3.2138),
+(5199, 'Naxxramas (exit4)', 0, 3090.68, -3874.88, 138.36, 3.2138);
 
 -- Disable 25man achievements
 -- https://wow.tools/dbc/?dbc=achievement_criteria&build=3.3.5.12340
@@ -147,7 +167,7 @@ INSERT INTO `creature_loot_template`
 VALUES
 (@Patchwerk, 34140, 34140, 100, 0, 1, 0, 1, 1, 'Patchwerk (1) - (ReferenceTable)'),
 (@Patchwerk, 34100, 34100, 100, 0, 1, 0, 1, 1, 'Patchwerk (1) - (ReferenceTable)'),
-(@Patchwerk, 22726,     0,  30, 0, 1, 0, 1, 1, 'Patchwerk (1) - Atiesh Splinter'),
+(@Patchwerk, 22726,     0,  30, 0, 1, 0, 1, 1, 'Patchwerk (1) - Atiesh Splinter');
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34140, 34100);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)

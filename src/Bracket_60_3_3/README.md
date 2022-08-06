@@ -22,13 +22,17 @@ Progress:
 - [x] Allow lvl 60 to enter
 - [x] Remove boss loot
 - [x] Remove trash loot
+- [x] Floating Naxx (must be somewhat close range)
+- [x] Exit portals TP to EPL
 - [ ] Scale instance with autobalancer (90% complete)
+- [ ] Update Naxx script so mechanics are 25man
 - [ ] Add 60 Boss Loot (WIP)
 - [ ] Add 60 Trash Loot 
-- [ ] Add AreaTrigger in EPL to teleport to instance
+- [ ] Add Teleport method, NPC or item to TP
 - [ ] Fix graveyard to EPL
-- [ ] Add quests to turn in tokens
 - [ ] Attunement requirement
+- [ ] Add quests to turn in tokens 
+- [-] Add AreaTrigger in EPL to teleport to instance (failed)
 - [-] Scourge event (skip)
 
 ## 3 Dump and Scale  ❔
@@ -48,6 +52,14 @@ some data of Naxx25
 select spawned on map 533
 ```
 SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21;
+```
+
+
+ID1 of non-bosses
+```
+15974, 15975, 15976, 15977, 15978, 15979, 15980, 15981, 16017, 16018, 16020, 16021, 16022, 16024, 16025, 16029, 16034, 16036, 16037, 16056, 16057, 16067, 16082, 16145, 16146, 16154, 16156, 16163, 16164, 16165, 16167, 16168, 16193, 16194, 16215, 16216, 16236, 16243, 16244, 16297, 16400, 16447, 16980, 29912, 30071, 30083, 30085,
+
+16027, 16573, 16698, 16505, 16506, 17055, 16290, 16984, 16983, 16981, 16982, 16803, 16125, 16126, 16124, 16150, 16149, 16148, 23561, 23563, 23562, 16441, 16286, 16127, 16360
 ```
 
 |entry|difficulty_entry_1|name|
@@ -330,7 +342,29 @@ upload_max_filesize = 256M
 post_max_size = 256M
 ```
 
-### Some commands
+## Entrance
+How to teleport to naxx?
+item on use:
+    https://github.com/azerothcore/mod-pocket-portal
+    PROS: neat, more lore friendly
+    CONS: more difficult to implement
+portal NPC in Lights Hope:
+    https://github.com/Zoidwaffle/sql-npc-teleporter
+    PRO: easy
+    CONS: boring
+
+On eastern kingdoms map
+```
+.go xyz 3116 -3871 139
+.go xyz 3116 -3871 339
+naxx
+.gobject add 181056
+instance portal
+.gobject add 193588
+```
+
+## Some commands
+
 reset instance
 ```
 .instance unbount all
