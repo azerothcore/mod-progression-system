@@ -20,7 +20,7 @@ Progress:
 - [ ] Add frost resistance recipes
 - [ ] Add frost resistance anvil (gobject)
 - [ ] Add Attunement quest requirement
-
+- [ ] Add enter spell (ID: 29296) when entering Naxx (AreaTrigger: 5194)
 Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
@@ -62,6 +62,10 @@ Use data from autobalancer to scale only Naxx25 mobs.
 
 PROS: Accurate scaling with low overhead
 CONS: more work
+
+## 4 Custom Map
+PROS: Allows lvl 80 Naxx AND lvl 60 Naxx to co-exist
+CONS: even more work
 
 # Data
 some data of Naxx25
@@ -278,8 +282,43 @@ Autobalancer set to level 60 with playerCount X
 |Embalming Slime|	12208| 12209	| 4142	|
 |Patchwork|	3997200| 3114000 	| 1056000	|
 
+## Approach 3 Details
+Armor, hp, mana can be set with select/update statements as in Approach 1
+
+Mechanics stay the same
+
+Spell damage values need to be changed
+### Spells
+Grab Wrath Spells
+We have a list of creatures in Naxx
+look up their smart ai scripts
+lookup the spells, then open spellDBC 
+https://github.com/wowgaming/node-dbc-reader
+
+Grab Brotalnia 1.12 Spells
+check IDs and damage
+
+create update/select query to scale
+
+Scale
+Venom Stalker
+15976 29243
+Poison Charge
+
+## Approach 4 Details
+create custom patch
+
+edit the map to spawn naxx in EPL incl portal
+
+custom spells (copy of naxx25 values) and scale those to lvl60
+
+custom map area
 
 # Loot
+Trash loot:
+LootID in Creature_Template
+100003
+
 4H Chest
 Deathknight Wing Eye Portal Boss
 GUID 65854
@@ -378,6 +417,17 @@ item on use:
     https://github.com/azerothcore/mod-pocket-portal
     PROS: neat, more lore friendly
     CONS: more difficult to implement
+Set epic, itemlvl, turn off boa
+
+Orb that teles from Sapphiron to Naxx
+ID GUID
+202278 268048
+
+29295 Tele DND -> does nothing
+72613 -> teles to Sapphiron (exit) 
+72617 Spphiron Entry: Teles to naxxramas
+
+
 portal NPC in Lights Hope:
     https://github.com/Zoidwaffle/sql-npc-teleporter
     PRO: easy
