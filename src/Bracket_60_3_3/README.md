@@ -24,14 +24,14 @@ Progress:
 - [x] Remove trash loot
 - [x] Floating Naxx (must be somewhat close range)
 - [x] Exit portals TP to EPL
-- [ ] Scale instance with autobalancer (90% complete)
-- [ ] Update Naxx script so mechanics are 25man
+- [x] Scale instance with autobalancer (may require tuning global for balance)
 - [ ] Add 60 Boss Loot (WIP)
 - [ ] Add 60 Trash Loot 
 - [ ] Add Teleport method, NPC or item to TP
 - [ ] Fix graveyard to EPL
 - [ ] Attunement requirement
 - [ ] Add quests to turn in tokens 
+- [-] Update Naxx script so mechanics are 25man (using 25man map instead of 10)
 - [-] Add AreaTrigger in EPL to teleport to instance (failed)
 - [-] Scourge event (skip)
 
@@ -239,19 +239,26 @@ Conclusion: No scaling needed for HP values after scaling to lvl60
 Issue: Spells need scaling
 
 ## Approach 2 Details
-Naxx25 scaling observed with offset 24, total=25
+Naxx25 scaling observed with playerCount X and mapLevel 60
 
-Autobalancer set to level 60 with offset X
+```
+3a12bd2d1565bde7a84c1f9d87d859775863e01f
+AutoBalance.cpp +132
+uint32 playerCount = 25;
+uint8 mapLevel = 60;
+```
 
-| Creature |	 Brotalnia (naxx40) |	25|	10|
+Autobalancer set to level 60 with playerCount X
+
+| Creature |	Naxx40 (Brotalnia) |	25|	10|
 |--|--|--|--|
-|Skitterer	|15720|	25791|	8750
-|Venom Stalker	|94320|	154000|	52496|
-|Noth the Plaguebringer|	1665500|	2766000|	938000|
-|Frenzied Bat|	10682|	15475|	5250|
-|Patchwork Golem|	88032|	154000|	52496|
-|Embalming Slime|	12208|	20000|	7000|
-|Patchwork|	3997200|	5343000|	1812000|
+|Skitterer	|15720|15721| 5334 |
+|Venom Stalker	|94320| 94321	| 31998 	|
+|Noth the Plaguebringer|	1665500| 1612000	| 546000	|
+|Frenzied Bat|	10682| 9157	| 3107 	|
+|Patchwork Golem|	88032| 94321	| 31998	|
+|Embalming Slime|	12208| 12209	| 4142	|
+|Patchwork|	3997200| 3114000 	| 1056000	|
 
 
 # Loot
@@ -343,6 +350,11 @@ post_max_size = 256M
 ```
 
 ## Entrance
+By default it'll enter Naxx10 (difficulty: 0) which makes things complicated as
+we want 25man mechanics.
+
+Need to run `/script SetRaidDifficulty(2)` ingame to set difficulty to 25m
+
 How to teleport to naxx?
 item on use:
     https://github.com/azerothcore/mod-pocket-portal
@@ -364,6 +376,11 @@ instance portal
 ```
 
 ## Some commands
+
+set 25man difficulty
+```
+/script SetRaidDifficulty(2)
+```
 
 reset instance
 ```

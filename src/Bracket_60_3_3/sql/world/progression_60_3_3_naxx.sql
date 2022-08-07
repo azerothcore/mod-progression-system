@@ -2,16 +2,16 @@
 SET @MapID := 533;
 DELETE FROM `disables` WHERE `entry` = @MapID;
 
--- Update map difficulty of Naxx25  to '0'
+-- Update map difficulty of Naxx25  to '1'
 -- https://wow.tools/dbc/?dbc=mapdifficulty&build=10.0.0.44895#page=1&search=533
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = @MapID;
 INSERT INTO `mapdifficulty_dbc`
 (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`)
 VALUES
-(128, @MapID, 0, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
+(128, @MapID, 1, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
 
--- Set access to min level 60 for Naxx25
-UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `id` = 31;
+-- Set access to min level 60 for Naxx
+UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = @MapID AND `difficulty` = 1;
 
 -- By Default lvl60 players will enter map with difficulty 0
 -- Update scripts to default to 25
