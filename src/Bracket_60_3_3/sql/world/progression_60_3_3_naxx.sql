@@ -9,33 +9,38 @@ INSERT INTO `mapdifficulty_dbc`
 (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`)
 VALUES
 (128, @MapID, 1, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
-
 -- Set access to min level 60 for Naxx25
 UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = @MapID AND `difficulty` = 1;
 
--- By Default lvl60 players will enter map with difficulty 0
--- Update scripts to default to 25
-
 -- Floating Naxxramas object, "naxxramas" id: 181056
+-- TODO: Fix visibility. Not always visible
+-- DELETE FROM `gameobject_template` WHERE `entry`=181056;
+-- INSERT INTO gameobject_template
+-- (entry, `type`, displayId, name, IconName, castBarCaption, unk1, `size`, Data0, Data1, Data2, Data3, Data4, Data5, Data6, Data7, Data8, Data9, Data10, Data11, Data12, Data13, Data14, Data15, Data16, Data17, Data18, Data19, Data20, Data21, Data22, Data23, AIName, ScriptName, VerifiedBuild)
+-- VALUES(181056, 1, 6637, 'Naxxramas', '', '', '', 1.0, 436, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 1);
+-- Spawn floating above cauldron
 DELETE FROM `gameobject` WHERE `id`=181056;
 INSERT INTO `gameobject`
 (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`,
 `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`,
 `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`)
 VALUES
-(181056, 0, 0, 0, 15, 3, 3132, -3731, 160, 2.148, 0.0, 0.0, 0,
-0, 30, 100, 0, '', 0);
+(181056, 0, 0, 0, 1, 1, 3132, -3731, 200, -2.148, 0.0, 0.0, 0, 0, 900, 100, 1, '', 0);
 
 -- Update Naxx exits to somewhere in EPL
+SET @EXIT_X:= 3090.68;
+SET @EXIT_Y:= -3874.88;
+SET @EXIT_Z:= 138.36;
+SET @EXIT_O:= 3.2138;
 DELETE FROM `areatrigger_teleport` WHERE `ID` in (5196, 5197, 5198, 5199);
 INSERT INTO `areatrigger_teleport`
 (`ID`, `Name`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`,
 `target_orientation`)
 VALUES
-(5196, 'Naxxramas (exit1)', 0, 3090.68, -3874.88, 138.36, 3.2138),
-(5197, 'Naxxramas (exit2)', 0, 3090.68, -3874.88, 138.36, 3.2138),
-(5198, 'Naxxramas (exit3)', 0, 3090.68, -3874.88, 138.36, 3.2138),
-(5199, 'Naxxramas (exit4)', 0, 3090.68, -3874.88, 138.36, 3.2138);
+(5196, 'Naxxramas (exit1)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5197, 'Naxxramas (exit2)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5198, 'Naxxramas (exit3)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5199, 'Naxxramas (exit4)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O);
 
 -- Disable 25man achievements
 -- https://wow.tools/dbc/?dbc=achievement_criteria&build=3.3.5.12340
