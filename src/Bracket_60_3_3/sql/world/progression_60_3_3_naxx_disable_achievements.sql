@@ -1,10 +1,11 @@
 -- Disable 25man achievements
 -- https://wow.tools/dbc/?dbc=achievement_criteria&build=3.3.5.12340
 DELETE FROM `disables` WHERE `entry` IN 
-(382, 3834, 3835, 3836, 3837, 3838, 3839, 3840, 3847, 389, 390, 393, 577, 7127,
-7129, 7159, 7160, 7161, 7162, 7163, 7164, 7165, 7166, 7167, 7168, 7169, 7170,
-7171, 7172, 7538, 7539, 7540, 7542, 7549, 7601, 7605, 7607, 7611, 7613, 7615,
-7619, 7621)
+(13233, 13234, 13235, 13236, 382, 3834, 3835, 3836, 3837, 3838, 3839, 3840,
+3841, 3842, 3843, 3844, 3845, 3847, 389, 390, 391, 392, 393, 393, 394, 577,
+7127, 7129, 7159, 7160, 7161, 7162, 7163, 7164, 7165, 7166, 7167, 7168, 7169,
+7170, 7171, 7172, 7193, 7538, 7539, 7540, 7541, 7542, 7548, 7549, 7568, 7569,
+7601, 7603, 7605, 7607, 7611, 7613, 7615, 7616, 7619, 7621)
 AND `sourceType` = 4;
 INSERT INTO `disables`
  (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`)
@@ -22,7 +23,6 @@ VALUES
 (4,  7549, 0, '', '', 'Disable Momma Said Knock You Out (25 player)'),
 (4,  7542, 0, '', '', 'Disable Momma Said Knock You Out (25 player)'),
 (4,  3847, 0, '', '', 'Disable Sapphiron\'s Demise (25 player)'),
-(4,   393, 0, '', '', 'Disable Sapphiron\'s Demise (25 player)'),
 (4,  7605, 0, '', '', 'Disable Shocking! (25 player)'),
 (4,  7607, 0, '', '', 'Disable Shocking! (25 player)'),
 (4,  7613, 0, '', '', 'Disable Spore Loser (25 player)'),

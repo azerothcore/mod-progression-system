@@ -26,14 +26,15 @@ SET @PORTAL_Y:= -3873.87;
 SET @PORTAL_Z:= 135.46;
 SET @PORTAL_O:= 3.2138;
 SET @EXIT_Z:= 138.36;
+SET @FLOAT_Z:= 200;
 
 -- Add Entrance portal object. Green circle (id: 190564)
-DELETE FROM gameobject WHERE id=190564 AND map=0 AND zoneId = 0 AND areaID =0;
-INSERT INTO gameobject
-(id, `map`, zoneId, areaId, spawnMask, phaseMask, position_x, position_y,
-position_z, orientation, rotation0, rotation1, rotation2, rotation3,
-spawntimesecs, animprogress, state, ScriptName, VerifiedBuild)
-VALUES
+DELETE FROM `gameobject` WHERE `id`=190564 AND `map`=0 AND `zoneId` = 0 AND `areaID` =0;
+INSERT INTO `gameobject`
+(`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
+`position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
+`rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`,
+`ScriptName`, `VerifiedBuild`) VALUES
 (190564, 0, 0, 0, 1, 1, @PORTAL_X, @PORTAL_Y, @PORTAL_Z, @PORTAL_O, 0, 0,
 -0.063658, -1, 1, 0, 1, '', 0);
 
@@ -41,11 +42,11 @@ VALUES
 -- TODO: Fix visibility. Not always visible
 DELETE FROM `gameobject` WHERE `id`=181056;
 INSERT INTO `gameobject`
-(`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`,
-`position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`,
-`spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`)
-VALUES
-(181056, 0, 0, 0, 1, 1, @PORTAL_X, @PORTAL_Y, 200, -2.148, 0.0, 0.0, 0, 0, 900,
+(`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
+`position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
+`rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`,
+`ScriptName`, `VerifiedBuild`) VALUES
+(181056, 0, 0, 0, 1, 1, @PORTAL_X, @PORTAL_Y, @FLOAT_Z, -2.148, 0.0, 0.0, 0, 0, 900,
 100, 1, '', 0);
 
 -- Update Naxx exits (mapID: 533) to somewhere in EPL
