@@ -10,27 +10,27 @@ INSERT INTO `mapdifficulty_dbc`
 VALUES
 (128, @MapID, 1, 604800, 25, 'RAID_DIFFICULTY_25PLAYER');
 
--- Set access to min level 60 for Naxx
+-- Set access to min level 60 for Naxx25
 UPDATE `dungeon_access_template` SET `min_level` = 60 WHERE `map_id` = @MapID AND `difficulty` = 1;
 
 -- By Default lvl60 players will enter map with difficulty 0
 -- Update scripts to default to 25
 
 -- Floating Naxxramas object, "naxxramas" id: 181056
-DELETE FROM gameobject WHERE id=181056;
-INSERT INTO gameobject
-(id, `map`, zoneId, areaId, spawnMask, phaseMask, position_x, position_y,
-position_z, orientation, rotation0, rotation1, rotation2, rotation3,
-spawntimesecs, animprogress, state, ScriptName, VerifiedBuild)
+DELETE FROM `gameobject` WHERE `id`=181056;
+INSERT INTO `gameobject`
+(`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`,
+`position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`,
+`spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`)
 VALUES
-(181056, 0, 0, 0, 1, 1, 3132, -3731, 200, -2.148, 0.0, 0.0, 0,
-0, 900, 100, 1, '', 0);
+(181056, 0, 0, 0, 15, 3, 3132, -3731, 160, 2.148, 0.0, 0.0, 0,
+0, 30, 100, 0, '', 0);
 
 -- Update Naxx exits to somewhere in EPL
-DELETE FROM areatrigger_teleport WHERE ID in (5196, 5197, 5198, 5199);
-INSERT INTO areatrigger_teleport
-(ID, Name, target_map, target_position_x, target_position_y, target_position_z,
-target_orientation)
+DELETE FROM `areatrigger_teleport` WHERE `ID` in (5196, 5197, 5198, 5199);
+INSERT INTO `areatrigger_teleport`
+(`ID`, `Name`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`,
+`target_orientation`)
 VALUES
 (5196, 'Naxxramas (exit1)', 0, 3090.68, -3874.88, 138.36, 3.2138),
 (5197, 'Naxxramas (exit2)', 0, 3090.68, -3874.88, 138.36, 3.2138),
