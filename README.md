@@ -2,6 +2,14 @@
 
 Also see AutoBalance fork https://github.com/SoglaHash/mod-autobalance-naxx25-60/tree/naxx
 
+A video (WIP). See more details below
+
+
+
+https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
+
+
+
 Progress:
 - [x] Allow lvl 60 to enter
 - [x] Add floating Naxx (need to move away outside Plaguewood for it to load)
@@ -12,6 +20,7 @@ Progress:
 - [x] Add summoning stone to EPL
 - [x] Add Teleport gameobject in EPL
 - [x] Integrate scaling script in this repo (v1.2.2-clean-up-old-code from [mod-autobalance-naxx25-60](https://github.com/SoglaHash/mod-autobalance-naxx25-60/tree/naxx)
+- [x] Add enter spell (ID: 29296) when entering Naxx (need to overwrite instance OnPlayerEntered)
 - [ ] Update Boss Loot to lvl60 (WIP: Thaddius, 4H, Patchwerk complete)
 - [ ] Update Trash Loot to lvl60
 - [ ] Add quests to turn in tokens
@@ -19,7 +28,6 @@ Progress:
 - [ ] Add frost resistance recipes
 - [ ] Add frost resistance anvil (gobject)
 - [ ] Add Attunement quest requirement
-- [ ] Add enter spell (ID: 29296) when entering Naxx (need to overwrite instance OnPlayerEntered)
 Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
@@ -46,6 +54,7 @@ Scale level and hp to appropriate level with SELECT
 and UPDATE statements
 
 PROS: EZ
+
 CONS: Data value of spells is not changed
 
 ## 2 Autobalancer  ✅ ❔
@@ -72,10 +81,13 @@ Use data from autobalancer to scale only Naxx25 mobs.
 2. apply scaling script only to creatures in Naxx.
 
 PROS: Accurate scaling with low overhead
+
 CONS: more work
 
 ## 4 Custom Map
+
 PROS: Allows lvl 80 Naxx AND lvl 60 Naxx to co-exist
+
 CONS: even more work
 
 # Data
@@ -272,10 +284,10 @@ Conclusion: No scaling needed for HP values after scaling to lvl60
 Issue: Spells need scaling
 
 ## Approach 2 Details
-Naxx25 scaling observed 
+Naxx25 scaling observed with linear scaling factor X
 
-| Creature |	Naxx40 (Brotalnia) |	AutoBalance |
-|--|--|--|--|
+| Creature |	Naxx40 (Brotalnia) |	AutoBalance (X=1.0) |
+|--|--|--|
 |Skitterer	|15720|15721|
 |Venom Stalker	|94320| 94321	|
 |Noth the Plaguebringer|	1665500| 1612000	|
@@ -319,27 +331,42 @@ custom map area
 # Loot
 Trash loot:
 LootID in Creature_Template
+
 100003
 
 4H Chest
+
 Deathknight Wing Eye Portal Boss
+
 GUID 65854
+
 ID 181230
+
 Damnation 
+
 40348
 
 gameobject_loot_template 
+
 Entry=25193
 
 reference_loot_template
+
 Reference 34382
+
 Reference 34146
 
+
 brotalnia chest gameobject_loot_template
+
 entry=181366
+
 reference 12002 for tokens
+
 reference_loot_template
+
 token 22349
+
 
 Thaddius loot example found in brotalnia
 

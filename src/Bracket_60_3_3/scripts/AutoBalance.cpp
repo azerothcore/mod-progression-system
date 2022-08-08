@@ -31,7 +31,6 @@
 #include "Unit.h"
 #include "Creature.h"
 #include "Player.h"
-#include "MapMgr.h"
 #include "World.h"
 #include "Map.h"
 #include "ScriptMgr.h"
@@ -93,7 +92,7 @@ class AutoBalance_WorldScript : public WorldScript
         damageMultiplier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.rate.damage", 1.0f);
         MinHPModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinHPModifier", 0.1f);
         MinManaModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinManaModifier", 0.1f);
-        MinDamageModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinDamageModifier", 0.1f);
+        MinDamageModifier = sConfigMgr->GetOption<float>("ProgressionSyst tem.60.Naxxramas.MinDamageModifier", 0.1f);
     }
 };
 
@@ -145,26 +144,6 @@ class AutoBalance_UnitScript : public UnitScript
 
         return damage * damageMultiplier;
     }
-};
-
-
-class AutoBalance_AllMapScript : public AllMapScript
-{
-    public:
-    AutoBalance_AllMapScript()
-        : AllMapScript("AutoBalance_AllMapScript")
-        {
-        }
-
-        void OnPlayerEnterAll(Map* map, Player* player)
-        {
-            if (player->IsGameMaster())
-                return;
-
-            // Check if mapId equals to Naxxramas (mapId: 533)
-            if (map->GetId() != 533)
-                return;
-        }
 };
 
 class AutoBalance_AllCreatureScript : public AllCreatureScript
@@ -366,5 +345,4 @@ void AddSC_auto_balance_60_3_C()
     new AutoBalance_WorldScript();
     new AutoBalance_UnitScript();
     new AutoBalance_AllCreatureScript();
-    // new AutoBalance_AllMapScript();
 }
