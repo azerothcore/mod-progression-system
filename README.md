@@ -4,15 +4,15 @@ Also see AutoBalance fork https://github.com/SoglaHash/mod-autobalance-naxx25-60
 
 Progress:
 - [x] Allow lvl 60 to enter
-- [x] Add floating Naxx 
+- [x] Add floating Naxx (need to move away outside Plaguewood for it to load)
 - [x] Exit portals TP to EPL
 - [x] Scale instance with autobalancer (may require more tuning)
 - [x] Naxx25 mechanics
 - [x] Change graveyard to EPL
 - [x] Add summoning stone to EPL
 - [x] Add floating Naxx to EPL
+- [x] Add Teleport gameobject in EPL
 - [ ] Integrate scaling script in this repo
-- [ ] Add Teleport to instance, NPC or item to TP
 - [ ] Update Boss Loot to lvl60 (WIP)
 - [ ] Update Trash Loot to lvl60
 - [ ] Add quests to turn in tokens
@@ -20,7 +20,7 @@ Progress:
 - [ ] Add frost resistance recipes
 - [ ] Add frost resistance anvil (gobject)
 - [ ] Add Attunement quest requirement
-- [ ] Add enter spell (ID: 29296) when entering Naxx (AreaTrigger: 5194)
+- [ ] Add enter spell (ID: 29296) when entering Naxx (need to overwrite instance OnPlayerEntered)
 Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
@@ -30,7 +30,11 @@ Skipping (for now):
 Exit portal to EPl
 ![exit](exit.png)
 Floating naxx object
-![outside](outside.jpg)
+![outside](outside.png)
+transporter naxx object
+![outside](transporter.png)
+transporter naxx object2
+![outside](transporter2.png)
 Chest loot
 ![loot_4h](loot_4h.png)
 Thaddius loot
@@ -419,6 +423,11 @@ item on use:
     CONS: more difficult to implement
 Set epic, itemlvl, turn off boa
 
+portal NPC in Lights Hope:
+    https://github.com/Zoidwaffle/sql-npc-teleporter
+    PRO: easy
+    CONS: boring
+
 Orb that teles from Sapphiron to Naxx
 ID GUID
 202278 268048
@@ -427,11 +436,27 @@ ID GUID
 72613 -> teles to Sapphiron (exit) 
 72617 Spphiron Entry: Teles to naxxramas
 
+just add the gameobject to EPL
 
-portal NPC in Lights Hope:
-    https://github.com/Zoidwaffle/sql-npc-teleporter
-    PRO: easy
-    CONS: boring
+.gobject add 181599 blue rune // purple 181600
+icy rune
+186747
+or frozen rune
+181287 
+blue rune 182591 (wall) or 182590 ground
+necro rune stone
+189314
+rune
+188695
+Scourge transporter rune
+
+Overwrite Instance Naxx somehow
+```
+void OnPlayerEnter(Player* player) override
+{
+    player->CastSpell(player, 29296, true);
+}
+```
 
 ## Some commands
 

@@ -21,21 +21,43 @@ VALUES
 (909, 3456, 0, 'Naxxramas, Eastern Plaguelands - Blackwood Lake');
 
 -- Set coordinates for Naxx in EPL
-SET @PORTAL_X:= 3094.8951;
-SET @PORTAL_Y:= -3873.87;
-SET @PORTAL_Z:= 135.46;
-SET @PORTAL_O:= 3.2138;
+-- Exit EPL Player
+SET @EXIT_X:= 3094.8951;
+SET @EXIT_Y:= -3873.87;
+SET @EXIT_Z:= 135.46;
+SET @EXIT_O:= 3.2138;
 SET @EXIT_Z:= 138.36;
 SET @FLOAT_Z:= 200;
+-- Teleport To Naxxramas Object
+SET @TRANSPORTER_X:= 3123.26;
+SET @TRANSPORTER_Y:= -3869.36;
+SET @TRANSPORTER_Z:= 138.34;
+SET @TRANSPORTER_O:= 0.2175;
 
--- Add Entrance portal object. Green circle (id: 190564)
-DELETE FROM `gameobject` WHERE `id`=190564 AND `map`=0 AND `zoneId` = 0 AND `areaID` =0;
+
+-- Add Entrance transporter object. Necromantic Runestone (id: 189314, displayID: 7786)
+SET @TRANSPORTER_ENTRY:=9000;
+SET @TRANSPORTER_COOLDOWN:=5;
+DELETE FROM `gameobject_template` WHERE (`entry` = @TRANSPORTER_ENTRY);
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`,
+`IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`,
+`Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`,
+`Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`,
+`Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`,
+`VerifiedBuild`)
+VALUES
+(@TRANSPORTER_ENTRY, 10, 7786, 'Teleport To Naxxramas', '', '', '', 1, 0, 0, 0, 0,
+@TRANSPORTER_COOLDOWN, 0, 0, 0, 0, 0, 72617, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+'', '',
+12340);
+
+DELETE FROM `gameobject` WHERE `id`=@TRANSPORTER_ENTRY AND `map`=0 AND `zoneId`=0 AND `areaID`=0;
 INSERT INTO `gameobject`
 (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
 `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
 `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`,
 `ScriptName`, `VerifiedBuild`) VALUES
-(190564, 0, 0, 0, 1, 1, @PORTAL_X, @PORTAL_Y, @PORTAL_Z, @PORTAL_O, 0, 0,
+(@TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0,
 -0.063658, -1, 1, 0, 1, '', 0);
 
 -- Add Floating Naxx Object (id: 181056)
@@ -46,19 +68,20 @@ INSERT INTO `gameobject`
 `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
 `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`,
 `ScriptName`, `VerifiedBuild`) VALUES
-(181056, 0, 0, 0, 1, 1, @PORTAL_X, @PORTAL_Y, @FLOAT_Z, -2.148, 0.0, 0.0, 0, 0, 900,
-100, 1, '', 0);
+(181056, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @FLOAT_Z, -2.148, 0.0,
+0.0, 0, 0, 900, 100, 1, '', 0);
 
 -- Update Naxx exits (mapID: 533) to somewhere in EPL
 DELETE FROM `areatrigger_teleport` WHERE `ID` in (5196, 5197, 5198, 5199);
+-- Remove INSERT to disable teleporting outside of Naxxramas like Naxx40
 INSERT INTO `areatrigger_teleport`
 (`ID`, `Name`, `target_map`, `target_position_x`, `target_position_y`,
 `target_position_z`, `target_orientation`)
 VALUES
-(5196, 'Naxxramas (exit1)', 0, @PORTAL_X, @PORTAL_Y, @EXIT_Z, @PORTAL_O),
-(5197, 'Naxxramas (exit2)', 0, @PORTAL_X, @PORTAL_Y, @EXIT_Z, @PORTAL_O),
-(5198, 'Naxxramas (exit3)', 0, @PORTAL_X, @PORTAL_Y, @EXIT_Z, @PORTAL_O),
-(5199, 'Naxxramas (exit4)', 0, @PORTAL_X, @PORTAL_Y, @EXIT_Z, @PORTAL_O);
+(5196, 'Naxxramas (exit1)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5197, 'Naxxramas (exit2)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5198, 'Naxxramas (exit3)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O),
+(5199, 'Naxxramas (exit4)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O);
 
 -- Meeting stone
 DELETE FROM `gameobject` WHERE id=193166;
