@@ -5,9 +5,7 @@ Also see AutoBalance fork https://github.com/SoglaHash/mod-autobalance-naxx25-60
 A video (WIP). See more details below
 
 
-
 https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
-
 
 
 Progress:
@@ -21,7 +19,7 @@ Progress:
 - [x] Add Teleport gameobject in EPL
 - [x] Integrate scaling script in this repo (v1.2.2-clean-up-old-code from [mod-autobalance-naxx25-60](https://github.com/SoglaHash/mod-autobalance-naxx25-60/tree/naxx)
 - [x] Add enter spell (ID: 29296) when entering Naxx (need to overwrite instance OnPlayerEntered)
-- [ ] Update Boss Loot to lvl60 (WIP: Thaddius, 4H, Patchwerk complete)
+- [x] Update Boss Loot to lvl60
 - [ ] Update Trash Loot to lvl60
 - [ ] Add quests to turn in tokens
 - [ ] Add Frozen Rune game objects
