@@ -92,7 +92,7 @@ class AutoBalance_WorldScript : public WorldScript
         damageMultiplier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.rate.damage", 1.0f);
         MinHPModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinHPModifier", 0.1f);
         MinManaModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinManaModifier", 0.1f);
-        MinDamageModifier = sConfigMgr->GetOption<float>("ProgressionSyst tem.60.Naxxramas.MinDamageModifier", 0.1f);
+        MinDamageModifier = sConfigMgr->GetOption<float>("ProgressionSystem.60.Naxxramas.MinDamageModifier", 0.1f);
     }
 };
 

@@ -48,6 +48,34 @@ Chest loot
 Thaddius loot
 ![loot_thaddius](loot_thaddius.png)
 
+## Naxx Fixes
+-- .go xyz 3668 -1262 310 (with .gm fly on)
+-- 4 orbs naxx25, naxx orb visible 11:03, tp location to sapphiron 31:40
+-- https://www.youtube.com/watch?v=jIwKLtcbdq0
+--
+-- https://www.youtube.com/watch?v=1Th3zKT4Tas
+-- each wing casts (spellID: 28444) Portal Effect: Deathknight Wing
+-- Portal after each boss portals  should to blue zone and then auto portal to sapphiron
+
+
+-- Current: TPs next to portals
+-- Expected: TPs to blue circle
+SET @DEATH_KNIGHT_PORTAL_EFFECT:= 28444;
+-- Current: TPs to blue circle
+-- Expected: TPs next to portals
+SET @SAPPHIRON_EXIT_SPELL:= 72613;
+-- Current: TPs next to portals
+-- Expected: TPs to Sapphiron
+SET @SAPPHIRON_ENTRY_SPELL:= 72617;
+
+This fixes overlapping portals inside and outside Naxxramas. Their              
+rotation is also corrected (from CCW to CW). The post-boss                      
+Naxxramas portals now teleport to the blue hub portal and activate only         
+when all wings are cleared. This requirement can be bypassed with the           
+orbs, which are now correctly                                                   
+casting their respective sapphiron entry/exit spells in addition to having the  
+correct position.   
+
 Summary of multiple approaches
 ## 1 Select and Update ❌
 Scale level and hp to appropriate level with SELECT
