@@ -1,7 +1,3 @@
--- Bosses
--- Horsemen
--- DELETE FROM `creature_loot_template` WHERE `Entry` IN (30603, 30601, 30600, 30602);
-
 SET @4HChest    := 25193;
 SET @Anubrekhan := 29249;
 SET @Faerlina   := 29268;
@@ -83,6 +79,7 @@ VALUES
 (34141, 22968, 0, 0, 0, 1, 1, 1, 1, 'Glacial Mantle'),
 (34141, 22988, 0, 0, 0, 1, 1, 1, 1, 'The End of Dreams');
 
+
 -- Gluth
 DELETE FROM `creature_loot_template` WHERE `Entry` = @Gluth;
 INSERT INTO `creature_loot_template`
@@ -143,7 +140,7 @@ INSERT INTO `creature_loot_template`
 `MinCount`, `MaxCount`, `Comment`)
 VALUES
 (@Noth, 34042, 34042, 100.0, 0, 1, 0, 1, 1, 'Noth the Plaguebringer (1) - (ReferenceTable)'),
-(@Noth, 34147, 34147, 100.0, 0, 1, 0, 1, 1, 'Noth the Plaguebringer (1) - (ReferenceTable)');
+(@Noth, 34147, 34147, 100.0, 0, 1, 0, 1, 1, 'Noth the Plaguebringer (1) - (ReferenceTable)'),
 (@Noth, 22726,     0,  30, 0, 1, 0, 1, 1, 'Noth the Plaguebringer (1) - Atiesh Splinter');
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34042, 34147);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
@@ -199,7 +196,7 @@ VALUES
 (34381, 23037, 0, 0, 0, 1, 1, 1, 1, 'Ring of Spiritual Fervor'),
 (34381, 23038, 0, 0, 0, 1, 1, 1, 1, 'Band of Unnatural Forces'),
 (34381, 23039, 0, 0, 0, 1, 1, 1, 1, 'The Eye of Nerub'),
-(34381, 23042, 0, 0, 0, 1, 1, 1, 1, 'Loatheb's Reflection'),
+(34381, 23042, 0, 0, 0, 1, 1, 1, 1, 'Loatheb\'s Reflection');
 
 -- Anub'Rekhan
 DELETE FROM `creature_loot_template` WHERE `Entry` = @Anubrekhan;
@@ -239,7 +236,7 @@ VALUES
 (34138, 22806, 0, 0, 0, 1, 1, 1, 1, 'Widow\'s Remose'),
 (34138, 22940, 0, 0, 0, 1, 1, 1, 1, 'Icebane Pauldrons'),
 (34138, 22941, 0, 0, 0, 1, 1, 1, 1, 'Polar Shoulder Pads'),
-(34138, 22942, 0, 0, 0, 1, 1, 1, 1, 'The Widow's Embrace'),
+(34138, 22942, 0, 0, 0, 1, 1, 1, 1, 'The Widow\'s Embrace'),
 (34138, 22943, 0, 0, 0, 1, 1, 1, 1, 'Malice Stone Pendant');
 
 -- Maexxna
@@ -313,14 +310,14 @@ INSERT INTO `creature_loot_template`
 `MinCount`, `MaxCount`, `Comment`)
 VALUES
 (@Sapphiron, 34043, 34043, 100, 0, 1, 0, 1, 2, 'Sapphiron (1) - (ReferenceTable)'),
-(@Sapphiron, 34101, 34101, 100, 0, 1, 0, 1, 2, 'Sapphiron (1) - (ReferenceTable)'),
-(@Sapphiron, 34135, 34135, 100, 0, 1, 0, 1, 2, 'Sapphiron (1) - (ReferenceTable)');
+(@Sapphiron, 34101, 34101, 100, 0, 1, 0, 1, 1, 'Sapphiron (1) - (ReferenceTable)'),
+(@Sapphiron, 34135, 34135, 100, 0, 1, 0, 1, 1, 'Sapphiron (1) - (ReferenceTable)');
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34043, 34101, 34135);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)
 VALUES
 (34043, 23040, 0, 0, 0, 1, 1, 1, 1, 'Glyph of Deflection'),
-(34043, 23041, 0, 0, 0, 1, 1, 1, 1, 'Slayer\'s Crest''),
+(34043, 23041, 0, 0, 0, 1, 1, 1, 1, 'Slayer\'s Crest'),
 (34043, 23043, 0, 0, 0, 1, 1, 1, 1, 'The Face of Death'),
 (34043, 23045, 0, 0, 0, 1, 1, 1, 1, 'Shroud of Dominion'),
 (34043, 23046, 0, 0, 0, 1, 1, 1, 1, 'The Restrained Essence of Sapphiron'),
@@ -335,16 +332,15 @@ VALUES
 (34135, 23549, 0, 0, 0, 1, 1, 1, 1, 'Fortitude of the Scourge');
 
 -- Kel'Thuzad
--- Atiesh, the Befouled Greatstaff questID: 9251
 DELETE FROM `creature_loot_template` WHERE `Entry` = @Kelthuzad;
 INSERT INTO `creature_loot_template`
 (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
 `MinCount`, `MaxCount`, `Comment`)
 VALUES
-(@Kelthuzad, 34133, 34133, 100, 0, 1, 1, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)'),
+(@Kelthuzad, 22520,     0,  30, 0, 1, 1, 1, 1, 'Kel\'Thuzad (1) - The Phylactery of Kel\'Thuzad'),
+(@Kelthuzad, 22733,     0,  30, 1, 1, 2, 1, 1, 'Kel\'Thuzad (1) - Staff Head of Atiesh');
 (@Kelthuzad, 34136, 34136, 100, 0, 1, 0, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)'),
-(@Kelthuzad, 22520,     0,  30, 0, 1, 0, 1, 1, 'Kel\'Thuzad (1) - The Phylactery of Kel\'Thuzad'),
-(@Kelthuzad, 22733,     0,  30, 1, 1, 0, 1, 1, 'Kel\'Thuzad (1) - Staff Head of Atiesh');
+(@Kelthuzad, 34133, 34133, 100, 0, 1, 0, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)'),
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34133, 34136);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)

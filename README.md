@@ -7,7 +7,6 @@ A video (WIP). See more details below
 
 https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
 
-
 Progress:
 - [x] Allow lvl 60 to enter
 - [x] Add floating Naxx (need to move away outside Plaguewood for it to load)
@@ -18,17 +17,21 @@ Progress:
 - [x] Add summoning stone to EPL
 - [x] Add Teleport gameobject in EPL
 - [x] Integrate scaling script in this repo (v1.2.2-clean-up-old-code from [mod-autobalance-naxx25-60](https://github.com/SoglaHash/mod-autobalance-naxx25-60/tree/naxx)
-- [x] Add enter spell (ID: 29296) when entering Naxx (need to overwrite instance OnPlayerEntered)
+- [x] Add enter spell (ID: 29296) when entering Naxx (improve: need to overwrite instance OnPlayerEntered)
+- [x] Add Attunement quest requirement (only to TP orb and boss->start tp)
+- [x] Add quests to turn in T3 tokens
 - [x] Update Boss Loot to lvl60
 - [ ] Update Trash Loot to lvl60
-- [ ] Add quests to turn in tokens
 - [ ] Add Frozen Rune game objects
+- [ ] Update Echoes of War kill quest to naxx25 NPCs
 - [ ] Add frost resistance recipes
 - [ ] Add frost resistance anvil (gobject)
-- [ ] Add Attunement quest requirement
 Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
+
+Needs testing:
+  KTZ Boss loot, atiesh staff + philactery
 
 
 25man mechanics (using 25man map)
@@ -406,7 +409,7 @@ creature_loot_template
     30450 ref
        reference_loot_template 
        22353
-       22360
+       22361
        22367
     30451 ref
        22353
@@ -479,6 +482,15 @@ portal NPC in Lights Hope:
     PRO: easy
     CONS: boring
 
+Object that auto teleports nearby players
+```
+UPDATE `gameobject_template` SET `AIName` = 'SmartGameObjectAI' WHERE `entry` = 9000;
+
+DELETE FROM `smart_scripts` WHERE (`entryorguid` = 9000) AND (`source_type` = 1) AND (`id` IN (0));
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(9000, 1, 0, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 11, 28444, 0, 0, 0, 0, 0, 17, 0, 5, 99, 0, 0, 0, 0, 0, '');
+```
+
 Orb that teles from Sapphiron to Naxx
 ID GUID
 202278 268048
@@ -488,6 +500,8 @@ ID GUID
 72617 Spphiron Entry: Teles to naxxramas
 
 just add the gameobject to EPL
+
+Add transporter that you need to click like BWL orb
 
 .gobject add 181599 blue rune // purple 181600
 icy rune
@@ -501,12 +515,117 @@ rune
 188695
 Scourge transporter rune
 
-Overwrite Instance Naxx somehow
+Entrance flag
 ```
 void OnPlayerEnter(Player* player) override
 {
     player->CastSpell(player, 29296, true);
 }
+```
+
+custom game object "attacks" nearby players with teleport spell
+
+## Attunement 
+dungeon ids
+naxx25 ID 31
+naxx10 ID 30
+Attunement quests
+9121
+9122
+9123
+reward learn spell 
+arcane cloaking
+280006
+
+DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 30;
+INSERT INTO `dungeon_access_requirements`
+(`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`)
+VALUES
+(31, 1, 16309, 'Must have completed attunement', 2, NULL, 0, '');
+
+requirement_type set to 2 for quest requirement is of AND type.
+
+Known Issue:
+Not possible to set requirement of any attument quest complete (19121 || 19122 || 19123)
+
+Without dungeon_access_requirement, players can be summoned inside the instance without completeing the quest.
+
+However! The quest must be completed to pickup Echoes of War. Which is a raid
+kill quest where you must kill trash inside Naxx. It is requirement to enable
+the turn in of tokens and scraps for T3 tokens.
+
+The teleporter outside is disabled and teleporter (wing->start) inside do not work without attunement
+
+arcane cloaking
+28006
+
+Either condition of either of 3 quests OR arcane cloaking learned
+
+
+Test attunement
+make fresh lvl 60 char 
+try without attunement and try with attunement
+attunement spells are `9121, 9122, 9123`
+the attunement has an OR condition.
+
+It is not possible to complete multiple attunements as a player so only test 1
+quest for 1 character.
+```
+.tele lightshope
+.quest add 9121
+.quest complete 9121
+.quest reward 9121
+```
+
+Test T3
+lvl 60 char 
+```
+.tele lightshope
+.mod reputation 529 10000
+.quest complete 9121
+```
+
+
+```
+-- Add condition Attunement to teleport spell
+-- Shows when not attuned Error Message 107: That spell is not available to you
+```
+
+
+Check loot quests after echoes of war
+```
+.quest complete 9033
+```
+## T3 loot quests
+
+loot quests wrong allowable classes
+also 
+missing quest starter and quest ender
+
+hunter character
+.quest add 9059
+.quest complete 9059
+
+Also T3 Paladin helm quest is not disable. The only one out of all the T3 quests.
+
+Check AllowableClasses flag
+```
+SELECT * FROM `quest_template_addon` WHERE `ID` IN
+(9034, 9036, 9037, 9038,
+9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9054,
+9055, 9056, 9057, 9058, 9059, 9060, 9061, 9068, 9069, 9070, 9071, 9072, 9073,
+9074, 9075, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9086, 9087, 9088,
+9089, 9090, 9091, 9092, 9093, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102,
+9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115,
+9116, 9117, 9118);
+```
+(9034, 9036, 9037, 9038,
+9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9054,
+9055, 9056, 9057, 9058, 9059, 9060, 9061, 9068, 9069, 9070, 9071, 9072, 9073,
+9074, 9075, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9086, 9087, 9088,
+9089, 9090, 9091, 9092, 9093, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102,
+9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115,
+9116, 9117, 9118)
 ```
 
 ## Some commands
