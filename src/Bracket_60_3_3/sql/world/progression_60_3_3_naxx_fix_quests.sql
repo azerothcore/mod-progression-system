@@ -78,3 +78,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9111), (@NPC, 
 DELETE FROM `creature_questender` WHERE (`quest` IN (9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118)) AND (`id` = @NPC);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9111), (@NPC, 9112), (@NPC, 9113), (@NPC, 9114), (@NPC, 9115), (@NPC, 9116), (@NPC, 9117), (@NPC, 9118);
 UPDATE `quest_template_addon` SET `AllowableClasses` = @CLASS WHERE (`ID` IN (9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118));
+
+-- Add questender to Phylactery  Quest The Fall of Kel'Thuzad
+DELETE FROM `creature_questender` WHERE (`quest` = 9120);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (16113, 9120);

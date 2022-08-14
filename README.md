@@ -20,19 +20,16 @@ Progress:
 - [x] Add enter spell (ID: 29296) when entering Naxx (improve: need to overwrite instance OnPlayerEntered)
 - [x] Add Attunement quest requirement (only to TP orb and boss->start tp)
 - [x] Add quests to turn in T3 tokens
+- [x] Update Echoes of War (adjust kill count)
 - [x] Update Boss Loot to lvl60
+- [x] Make Phylactery quest completable
 - [ ] Update Trash Loot to lvl60
 - [ ] Add Frozen Rune game objects
-- [ ] Update Echoes of War kill quest to naxx25 NPCs
 - [ ] Add frost resistance recipes
 - [ ] Add frost resistance anvil (gobject)
 Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
-
-Needs testing:
-  KTZ Boss loot, atiesh staff + philactery
-
 
 25man mechanics (using 25man map)
 ![raz](razuvious_25man_mechanics.png)

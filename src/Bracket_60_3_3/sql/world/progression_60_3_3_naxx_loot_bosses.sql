@@ -337,10 +337,10 @@ INSERT INTO `creature_loot_template`
 (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
 `MinCount`, `MaxCount`, `Comment`)
 VALUES
-(@Kelthuzad, 22520,     0,  30, 0, 1, 1, 1, 1, 'Kel\'Thuzad (1) - The Phylactery of Kel\'Thuzad'),
-(@Kelthuzad, 22733,     0,  30, 1, 1, 2, 1, 1, 'Kel\'Thuzad (1) - Staff Head of Atiesh');
+(@Kelthuzad, 22520,     0,  100, 0, 1, 0, 1, 1, 'Kel\'Thuzad (1) - The Phylactery of Kel\'Thuzad'),
+(@Kelthuzad, 22733,     0,  100, 1, 1, 0, 1, 1, 'Kel\'Thuzad (1) - Staff Head of Atiesh'),
 (@Kelthuzad, 34136, 34136, 100, 0, 1, 0, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)'),
-(@Kelthuzad, 34133, 34133, 100, 0, 1, 0, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)'),
+(@Kelthuzad, 34133, 34133, 100, 0, 1, 0, 1, 2, 'Kel\'Thuzad (1) - (ReferenceTable)');
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34133, 34136);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)

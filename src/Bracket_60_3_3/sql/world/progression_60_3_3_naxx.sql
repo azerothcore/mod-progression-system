@@ -36,8 +36,8 @@ VALUES
 
 -- Add Entrance transporter object. Necromantic Runestone (id: 189314, displayID: 7786)
 SET @DEATH_KNIGHT_PORTAL_EFFECT:= 28444;
-SET @TRANSPORTER_ENTRY:=9000;
-SET @TRANSPORTER_COOLDOWN:=5;
+SET @TRANSPORTER_ENTRY:= 9000;
+SET @TRANSPORTER_COOLDOWN:= 5;
 DELETE FROM `gameobject_template` WHERE (`entry` = @TRANSPORTER_ENTRY);
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`,
 `IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`,
@@ -92,7 +92,7 @@ INSERT INTO `gameobject`
 DELETE FROM `areatrigger` WHERE `entry` in (5196, 5197, 5198,  5199);
 DELETE FROM `areatrigger_teleport` WHERE `ID` in (5196, 5197, 5198, 5199);
 
--- If DISALBE exit EPL then comment out the following
+-- If DISABLE exit EPL then comment out the following
 -- The green portals can not be removed without map editing
 -- Add triggers to Naxx exits (mapID: 533)
 INSERT INTO `areatrigger`
@@ -113,7 +113,8 @@ VALUES
 (5199, 'Naxxramas (exit4)', 0, @EXIT_X, @EXIT_Y, @EXIT_Z, @EXIT_O);
 
 -- Meeting stone
-DELETE FROM `gameobject` WHERE id=193166;
+-- 193166 specific Naxxramas in Dragonblight
+DELETE FROM `gameobject` WHERE `id`=193166 and `map`=0;
 INSERT INTO `gameobject`
 (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
 `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
@@ -136,8 +137,12 @@ VALUES
 (193166, 23, 5492, 'Meeting Stone', '', '', '', 0.75, @MINLEVEL, 255, 3456, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12340);
 
+-- Update Echoes of War (QuestID: 9003)
+-- Lower amount of Living Monstrosity from 5 to 3 as there are only 3
+UPDATE `quest_template` SET `RequiredNpcOrGoCount3` = 3 WHERE (`ID` = 9033);
+
 -- Enable T3 turn in Quests
-DELETE FROM disables WHERE sourceType=1 AND entry IN(9034, 9036, 9037, 9038,
+DELETE FROM `disables` WHERE `sourceType`=1 AND entry IN(9034, 9036, 9037, 9038,
 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9054,
 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9068, 9069, 9070, 9071, 9072, 9073,
 9074, 9075, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9086, 9087, 9088,
