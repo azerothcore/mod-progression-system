@@ -9,7 +9,7 @@ https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-
 
 Progress:
 - [x] Allow lvl 60 to enter
-- [x] Add floating Naxx (need to move away outside Plaguewood for it to load)
+- [x] Add floating and pathing Naxxramas in Plaguewood
 - [x] Exit portals TP to EPL
 - [x] Scale instance with autobalancer (can be tuned easily)
 - [x] Naxx25 mechanics
@@ -31,12 +31,21 @@ Skipping (for now):
 - [ ] Scourge event
 - [ ] Accurate Naxx40 mechanics
 
+floating naxx 25 pathing plaguewood
+
+
+
+https://user-images.githubusercontent.com/74299960/184688910-a65da21f-cd03-4e46-b22e-7021fc1deb48.mp4
+
+
+
+https://user-images.githubusercontent.com/74299960/184688921-0f3c694e-2826-48ce-9e57-9519405a0ad2.mp4
+
+
 25man mechanics (using 25man map)
 ![raz](razuvious_25man_mechanics.png)
 Exit portal to EPl
 ![exit](exit.png)
-Floating naxx object
-![outside](outside.png)
 transporter naxx object
 ![outside](transporter.png)
 transporter naxx object2
@@ -47,6 +56,14 @@ Thaddius loot
 ![loot_thaddius](loot_thaddius.png)
 
 ## Naxx Fixes
+I put fixes in fixes-*.sql
+
+Portal/instance/tp fixes in azerothcore/azerothcore-wotlk PR #12696
+
+Fixes for t3 quests and phylacter, no PR yet.
+
+
+```
 -- .go xyz 3668 -1262 310 (with .gm fly on)
 -- 4 orbs naxx25, naxx orb visible 11:03, tp location to sapphiron 31:40
 -- https://www.youtube.com/watch?v=jIwKLtcbdq0
@@ -54,8 +71,10 @@ Thaddius loot
 -- https://www.youtube.com/watch?v=1Th3zKT4Tas
 -- each wing casts (spellID: 28444) Portal Effect: Deathknight Wing
 -- Portal after each boss portals  should to blue zone and then auto portal to sapphiron
+```
 
 
+```
 -- Current: TPs next to portals
 -- Expected: TPs to blue circle
 SET @DEATH_KNIGHT_PORTAL_EFFECT:= 28444;
@@ -65,6 +84,7 @@ SET @SAPPHIRON_EXIT_SPELL:= 72613;
 -- Current: TPs next to portals
 -- Expected: TPs to Sapphiron
 SET @SAPPHIRON_ENTRY_SPELL:= 72617;
+```
 
 This fixes overlapping portals inside and outside Naxxramas. Their              
 rotation is also corrected (from CCW to CW). The post-boss                      
@@ -225,6 +245,344 @@ SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, c
 ```
 (30047, 30049, 30016, 29279, 29632, 29633, 29635, 29634, 29941, 29267, 29256, 29274, 29273, 30057, 30303, 29388, 30068, 29988, 29989, 29990, 30264, 29986, 29985, 29987)
 ```
+
+NPC Missing 16381
+Archmage Tarsis Kir-Moldir
+dialogue
+sitting position
+
+NPC Missing 16365
+Master Craftsman Omarion <Brotherhood of the Light>
+Inside cage in DK wing
+level 300 BS and revered AD
+levle 300 Tailor
+levle 300 leatherworking
+```
+Omarion will teach players crafting recipes, depending on their crafting profession and reputation with Argent Down:
+Tailoring Revered:
+- Glacial Wrists
+- Glacial Gloves
+Tailoring Exalted:
+- Glacial Vest
+- Glacial Cloak
+Leatherworking Revered
+- Polar Bracers
+- Polar Gloves
+- Icy Scale Bracers
+- Icy Scale Gauntlets
+Leatherworking Exalted
+- Polar Tunic
+- Icy Scale Breastplate
+Blacksmithing Revered
+- Icebane Bracers
+- Icebane Gauntlets
+Blacksmithing Exalted
+- Icebane Breastplate
+```
+Omarion's Handbook, Craftsman Wilhelm craft
+quest 9233
+craft items + 200-300g
+
+## Trash Loot
+Mobs found in Naxx40 by ID according to classic.wowhead
+--loot
+16025
+16451
+16021
+16452
+16368
+16018
+16167
+16156
+16158
+16145
+16163
+16157
+16244
+16020
+15981
+16506
+16165
+16448
+16446
+16447
+16154
+16164
+16193
+16067
+16449
+16168
+16194
+16215
+16216
+15980
+16505
+16017
+16022
+16803
+
+--loot and spider
+15974
+16453
+15979
+15976
+15975
+15978
+
+--loot only scraps
+16243
+16034
+
+--noloot
+16982
+14881
+16030
+16068
+16998
+16486
+16124
+16286
+17055
+16698
+16360
+16428
+16429
+16427
+16375
+16057
+16441
+16037
+16036
+16290
+16024
+16056
+15977
+16125
+16390
+16981
+16984
+16983
+16297
+16236
+16146
+16861
+16573
+16148
+16149
+16150
+16127
+16029
+16126
+16142
+
+
+Mobs that should not drop loot
+```
+(16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
+```
+
+Select non-bosses that are not in the list non-loot and that are not in the drop loot list
+```
+SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21
+AND creature_template.entry NOT IN (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
+AND creature_template.entry NOT IN
+(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163, 16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164, 16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022, 16803);
+ ```
+
+ ```
+ 16400	0	Toxic Tunnel
+15974	29242	Dread Creeper lootspider
+15975	29241	Carrion Spinner  lootspider
+15976	29243	Venom Stalker lootspider
+15978	30389	Crypt Reaver lootspider
+15979	29286	Tomb Horror loot
+16243	29575	Plague Slime loot
+30071	30075	Stitched Colossus noloot
+30085	30087	Vigilant Shade noloot
+16034	29609	Plague Beast noloot
+29912	0	Obedience Crystal
+16980	0	The Lich King
+16082	0	Naxxramas Trigger
+30083	30424	Marauding Geist loot
+ ```
+ Manually judge new NPCs:
+lootspider
+ ```
+(15974, 15975, 15976, 15978)
+ ```
+ loot
+ ```
+(15979, 16243, 30083)
+ ```
+ noloot
+ ```
+ (30085, 30071)
+ ```
+
+
+Translated IDs to nax25 
+```
+select * from creature_template where 
+entry  IN (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
+```
+entry difficulty_entry_1
+
+(29229, 29355, 29356, 29608, 29603, 29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988, 29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057, 30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279)
+
+entry difficulty_entry_0
+
+(14881, 16030, 16068, 16861, 16998)
+
+Mobs that drop loot
+```
+(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163, 16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164, 16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022, 16803)
+```
+
+Select non-bosses that are in the list loot and that are in not the no loot list and not in spiderloot
+```
+SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21
+AND creature_template.entry NOT IN 
+(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163, 16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164, 16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022, 16803)
+AND creature_template.entry NOT IN
+(16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
+AND creature_template.entry NOT IN
+(15974, 16453, 15979, 15976, 15975, 15978)
+AND creature_template.entry NOT IN
+ (16034, 30085, 30071)
+AND creature_template.entry NOT IN
+(15979, 16243, 30083)
+;
+ ```
+
+Translated to 25man IDs if possible:
+
+Mobs that drop loot
+```
+(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163,
+16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164,
+16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022,
+16803, 30083, 30085, 30071)
+```
+
+
+Mobs should not drop loot
+```
+(16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360,
+16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056,
+15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573,
+16148, 16149, 16150, 16127, 16029, 16126, 16142, 16453)
+```
+
+
+Mobs drop loot and spider loot
+```
+(15974, 15979, 15976, 15975, 15978)
+```
+
+
+drop scraps
+```
+(16243, 16034)
+```
+
+
+### 25 man IDs trash loot
+no loot
+```
+(14881, 16030, 16068, 16453, 16861, 16998, 29229, 29355, 29356, 29608, 29603,
+29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988,
+29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057,
+30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279)
+```
+
+drop scraps
+```
+(29609, 29575)
+```
+
+spiderloot
+```
+(29242, 29241, 29243, 30389, 29286)
+```
+
+loot
+```
+(16157, 16158, 16368, 16446, 16448, 16449, 16451, 16452, 29247, 29248, 29347,
+29353, 29362, 29359, 29363, 29371, 29852, 29824, 29831, 29833, 29842, 29825,
+29828, 29835, 29576, 29837, 29898, 29899, 29900, 29574, 30097, 29273, 29274,
+29941, 30075, 30424, 30087)
+```
+
+lootids used 100003 and 100004
+
+### Loot Tables
+no loot, drop scraps only, spiderloot, loot
+
+need tables for scraps, spiderloot, randoms, epic trash loot
+
+scraps
+entry 16243 check in brotalnia
+creature_template
+```
+loot_id=16243
+skinning_loot_id=0
+pickpcoket_loot_id=0
+```
+creature_loot_template
+
+random slime so also slimes stuff... cba
+
+DK
+16157
+loot_id=16157
+
+no ref tables hardcodes in :)
+runecloth, star ruby, word of thawing, harbinger of doom, 2 ref tables
+reference_loot_template
+drops guaranteed weapon and armor green 
+random greens armor
+24016 -> acore 24020 (weapons and armor)
+random greens weapon
+30061 - > ?
+
+Dog
+16448
+hardcodes some grey
+word of thawing
+hardcodes chance epics
+chance scraps
+guaranteed random green
+24016
+30107
+
+Necro Guardian
+16452
+tables
+24016
+30107 -> 24018
+30061
+
+
+16243
+
+Strategy:
+Copy the loot for each mob. Chances should be OK. 
+
+Translate ref tables 24016, 24018 or make new ones
+```
+Brotalnia -> Acore
+24016 -> 24020
+24024 -> 24024
+30061 -> 24020
+30107 -> 24018
+```
+
+
+
+
+
+
+
 
 ## Select bosses
 ```
@@ -401,6 +759,8 @@ reference 12002 for tokens
 reference_loot_template
 
 token 22349
+
+
 
 
 ## Boss loot

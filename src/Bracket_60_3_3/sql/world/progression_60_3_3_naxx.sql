@@ -9,7 +9,6 @@ SET @EXIT_Y:= -3873.87;
 SET @EXIT_Z:= 135.46;
 SET @EXIT_O:= 3.2138;
 SET @EXIT_Z:= 138.36;
-SET @FLOAT_Z:= 200;
 -- Teleport To Naxxramas Object
 SET @TRANSPORTER_X:= 3123.26;
 SET @TRANSPORTER_Y:= -3869.36;
@@ -79,14 +78,27 @@ INSERT INTO `conditions`
 
 -- Add Floating Naxx Object (id: 181056)
 -- TODO: Fix visibility. Not always visible
+-- Node 0 of PathID 436 in NtaxiPathNode
+-- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter%5B1%5D=436
+-- 3067.1255	-3533.4387	231.89944
+-- bug: double spawn, one stationary
+-- make it spawn underground, dunno
+-- rotation was -2.148
 DELETE FROM `gameobject` WHERE `id`=181056;
 INSERT INTO `gameobject`
 (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
 `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`,
 `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`,
 `ScriptName`, `VerifiedBuild`) VALUES
-(181056, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @FLOAT_Z, -2.148, 0.0,
+(181056, 0, 0, 0, 1, 1, 3067.1255, -3533.4387, -331.89944, 0.0, 0.0,
 0.0, 0, 0, 900, 100, 1, '', 0);
+DELETE FROM `transports` WHERE `guid`=21 AND `entry`=181056;
+INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
+(21, 181056, '"Naxxramas" floating in Plaguewood - Eastern Plaguelands', '');
+-- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter[1]=436
+-- Set speed and map
+-- TODO: This might not be needed as its already set
+UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE entry=181056;
 
 -- Update exit portals to EPL OR Disable exit portals like Naxx40
 DELETE FROM `areatrigger` WHERE `entry` in (5196, 5197, 5198,  5199);
