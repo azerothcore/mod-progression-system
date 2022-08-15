@@ -40,7 +40,7 @@ enum ProgressionBrackets
     PROGRESSION_BRACKET_80_TIER_10_B            = 0x08000000
 };
 
-#define PROGRESSION_BRACKET_MAX 27
+#define PROGRESSION_BRACKET_MAX 28
 char const* const ProgressionBracketsNames[PROGRESSION_BRACKET_MAX] =
 {
     "0",
