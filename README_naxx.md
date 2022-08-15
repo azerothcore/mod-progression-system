@@ -23,9 +23,10 @@ Progress:
 - [x] Update Echoes of War (adjust kill count)
 - [x] Update Boss Loot to lvl60
 - [x] Make Phylactery quest completable
+- [x] Add frost resistance quests from Crafsman Wilhelm
 - [ ] Update Trash Loot to lvl60
 - [ ] Add Frozen Rune game objects
-- [ ] Add frost resistance recipes
+- [ ] Add profession frost resistance recipes learned from Omarion
 - [ ] Add frost resistance anvil (gobject)
 Skipping (for now):
 - [ ] Scourge event
@@ -282,6 +283,8 @@ Blacksmithing Exalted
 Omarion's Handbook, Craftsman Wilhelm craft
 quest 9233
 craft items + 200-300g
+
+Frost Resistance quests depend on: reputation with AD, class and completion 9033 echoes of war
 
 ## Trash Loot
 Mobs found in Naxx40 by ID according to classic.wowhead

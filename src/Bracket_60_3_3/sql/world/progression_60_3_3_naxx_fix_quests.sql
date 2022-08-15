@@ -79,6 +79,26 @@ DELETE FROM `creature_questender` WHERE (`quest` IN (9111, 9112, 9113, 9114, 911
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9111), (@NPC, 9112), (@NPC, 9113), (@NPC, 9114), (@NPC, 9115), (@NPC, 9116), (@NPC, 9117), (@NPC, 9118);
 UPDATE `quest_template_addon` SET `AllowableClasses` = @CLASS WHERE (`ID` IN (9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118));
 
--- Add questender to Phylactery  Quest The Fall of Kel'Thuzad
+-- Add queststarter/ender
+-- Phylactery  Quest The Fall of Kel'Thuzad
 DELETE FROM `creature_questender` WHERE (`quest` = 9120);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (16113, 9120);
+-- The Fate of Ramaladni
+-- Ramaladni's Icy Grasp
+DELETE FROM `creature_queststarter` WHERE (`quest` IN (9229, 9230));
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (16112, 9229), (16112, 9230);
+DELETE FROM `creature_questender` WHERE (`quest` IN (9229, 9230));
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (16112, 9229), (16112, 9230);
+-- Omarion's Handbook
+DELETE FROM `creature_questender` WHERE (`quest` = 9233);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (16376, 9233);
+
+-- Frost Resistance quests from Craftsman Wilhelm
+-- Echoes of War 9033; Omarion's Handbook quest: 9233
+SET @NPC:= 16376;
+UPDATE `quest_template_addon` SET `PrevQuestID` = 9033 WHERE `ID` = 9232;
+UPDATE `quest_template_addon` SET `PrevQuestID` = 9233 WHERE (`ID` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243));
+DELETE FROM `creature_queststarter` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243, 9232));
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
+DELETE FROM `creature_questender` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243, 9232));
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
