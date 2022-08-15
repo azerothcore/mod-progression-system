@@ -56,6 +56,7 @@ char const* const ProgressionBracketsNames[PROGRESSION_BRACKET_MAX] =
     "60_2_2",
     "60_3_1",
     "60_3_2",
+    "60_3_3",
     "61_64",
     "65_69",
     "70_4",
