@@ -1,10 +1,3 @@
--- Fix CTM for Dragons AQ
-UPDATE `creature_template_movement` SET `Flight` = 1 WHERE (`CreatureId` = 15378); --Merithra
-UPDATE `creature_template_movement` SET `Flight` = 1 WHERE (`CreatureId` = 15411); -- Arygos
-UPDATE `creature_template_movement` SET `Flight` = 1 WHERE (`CreatureId` = 15412); -- Cael
-UPDATE `creature_template_movement` SET `Flight` = 1 WHERE (`CreatureId` = 15378);
-
-
 -- Fix drop rate for Nightmare_corruption
 UPDATE `creature_loot_template` SET `Chance` = 1 WHERE `Item` = 21146;
 UPDATE `creature_loot_template` SET `Chance` = 1 WHERE `Item` = 21147;
