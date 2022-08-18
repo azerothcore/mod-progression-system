@@ -2,7 +2,6 @@
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21146;
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21147;
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21148;
-UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21148;
 
 --Revert Narain's Scrying Goggles
 DELETE FROM `creature_loot_template` WHERE `Item` = 20951;
