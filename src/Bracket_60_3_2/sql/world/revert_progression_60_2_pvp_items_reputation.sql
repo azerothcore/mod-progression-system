@@ -3,6 +3,10 @@ SET @FACTION_ID = 0; -- The League of Arathor
 SET @REPUTATION = 0; -- Exalted
 UPDATE `item_template` SET `RequiredReputationFaction` = @FACTION_ID, `RequiredReputationRank` = @REPUTATION WHERE `entry` IN (20055, 20056, 20057, 20058, 20059, 20060, 20061, 20070, 20073, 20069);
 
+SET @FACTION_ID = 0; -- The Defilers
+SET @REPUTATION = 0; -- Exalted
+UPDATE `item_template` SET `RequiredReputationFaction` = @FACTION_ID, `RequiredReputationRank` = @REPUTATION WHERE `entry` IN (20068, 20158, 20175, 20176, 20184, 20194, 20203, 20212, 20214, 20220);
+
 -- WSG factions requirements
 SET @FACTION_ID_ALLIANCE = 890; -- Silverwing Sentinels
 SET @FACTION_ID_HORDE = 889; -- Warsong Outriders
