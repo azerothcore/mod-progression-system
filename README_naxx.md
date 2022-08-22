@@ -21,10 +21,11 @@ Progress:
 - [x] Add Attunement quest requirement (only to TP orb and boss->start tp)
 - [x] Add quests to turn in T3 tokens
 - [x] Update Echoes of War (adjust kill count)
-- [x] Update Boss Loot to lvl60
+- [x] Update Boss Loot to lvl60 (+verify with CMangos)
 - [x] Make Phylactery quest completable
 - [x] Add frost resistance quests from Crafsman Wilhelm
-- [ ] Update Trash Loot to lvl60
+- [x] Update Trash Loot to lvl60
+- [ ] Update Trash gold drops to lvl60
 - [ ] Add Frozen Rune game objects
 - [ ] Add profession frost resistance recipes learned from Omarion
 - [ ] Add frost resistance anvil (gobject)
@@ -287,6 +288,10 @@ craft items + 200-300g
 Frost Resistance quests depend on: reputation with AD, class and completion 9033 echoes of war
 
 ## Trash Loot
+Grab list of IDs wowhead -> check if drop loot
+split in loot, noloot, spiderloot, scraps
+verify with Brotalnia and CMangos DB
+
 Mobs found in Naxx40 by ID according to classic.wowhead
 --loot
 16025
@@ -384,6 +389,9 @@ Mobs that should not drop loot
 (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
 ```
 
+CMangos verify: 16029 sludge belcher has only 1% loot, everything else no loot
+
+Check ACore 25man mobs
 Select non-bosses that are not in the list non-loot and that are not in the drop loot list
 ```
 SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21
@@ -422,42 +430,11 @@ lootspider
  (30085, 30071)
  ```
 
-
-Translated IDs to nax25 
-```
-select * from creature_template where 
-entry  IN (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
-```
-entry difficulty_entry_1
-
-(29229, 29355, 29356, 29608, 29603, 29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988, 29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057, 30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279)
-
-entry difficulty_entry_0
-
-(14881, 16030, 16068, 16861, 16998)
-
-Mobs that drop loot
-```
-(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163, 16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164, 16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022, 16803)
-```
-
-Select non-bosses that are in the list loot and that are in not the no loot list and not in spiderloot
-```
-SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21
-AND creature_template.entry NOT IN 
-(16025, 16451, 16021, 16452, 16368, 16018, 16167, 16156, 16158, 16145, 16163, 16157, 16244, 16020, 15981, 16506, 16165, 16448, 16446, 16447, 16154, 16164, 16193, 16067, 16449, 16168, 16194, 16215, 16216, 15980, 16505, 16017, 16022, 16803)
-AND creature_template.entry NOT IN
-(16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360, 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056, 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573, 16148, 16149, 16150, 16127, 16029, 16126, 16142)
-AND creature_template.entry NOT IN
-(15974, 16453, 15979, 15976, 15975, 15978)
-AND creature_template.entry NOT IN
- (16034, 30085, 30071)
-AND creature_template.entry NOT IN
-(15979, 16243, 30083)
-;
+### Create Markdown tables of ACore DB
  ```
-
-Translated to 25man IDs if possible:
+ select entry, difficulty_entry_1, name, lootid, skinloot, pickpocketloot  from creature_template where 
+entry  IN (...)
+```
 
 Mobs that drop loot
 ```
@@ -467,35 +444,139 @@ Mobs that drop loot
 16803, 30083, 30085, 30071)
 ```
 
+Mobs that DROP LOOT
+
+|entry|difficulty_entry_1|name|lootid|skinloot|pickpocketloot|
+|-----|------------------|----|------|--------|--------------|
+|15980|29247|Naxxramas Cultist|100003|0|0|
+|15981|29248|Naxxramas Acolyte|100003|0|0|
+|16017|29347|Patchwork Golem|100003|0|0|
+|16018|29353|Bile Retcher|100003|0|0|
+|16020|29362|Mad Scientist|100003|0|0|
+|16021|29359|Living Monstrosity|100003|0|0|
+|16022|29363|Surgical Assistant|100003|0|0|
+|16025|29371|Stitched Giant|100003|0|0|
+|16067|29852|Deathcharger Steed|100003|0|0|
+|16145|29824|Death Knight Captain|100003|0|0|
+|16154|29831|Risen Squire|100003|0|0|
+|16156|29833|Dark Touched Warrior|0|0|0|
+|16157|0|Doom Touched Warrior|0|0|0|
+|16158|0|Death Touched Warrior|0|0|0|
+|16163|29842|Death Knight Cavalier|100003|0|0|
+|16164|29825|Shade of Naxxramas|100003|0|0|
+|16165|29828|Necro Knight|100003|0|0|
+|16167|29835|Bony Construct|100003|0|0|
+|16168|29576|Stoneskin Gargoyle|100003|0|0|
+|16193|29837|Skeletal Smith|100003|0|0|
+|16194|29898|Unholy Axe|100003|0|0|
+|16215|29899|Unholy Staff|100003|0|0|
+|16216|29900|Unholy Swords|100003|0|0|
+|16244|29574|Infectious Ghoul|100003|0|0|
+|16368|0|Necropolis Acolyte|0|0|0|
+|16446|0|Plagued Gargoyle|0|0|0|
+|16447|30097|Plagued Ghoul|100003|0|0|
+|16448|0|Plagued Deathhound|0|0|0|
+|16449|0|Spirit of Naxxramas|0|0|0|
+|16451|0|[UNUSED] Death Knight Vindicator|0|0|0|
+|16452|0|Necro Knight Guardian|0|0|0|
+|30071|30075|Stitched Colossus|100003|0|0|
+|30083|30424|Marauding Geist|100003|0|0|
+|30085|30087|Vigilant Shade|0|0|0|
+
+These should not have loot according to CMangos
+16505
+16506
+16803
+
+|16505|29273|Naxxramas Follower|0|0|0|
+|16506|29274|Naxxramas Worshipper|16506|0|0|
+|16803|29941|Death Knight Understudy|0|0|0|
 
 Mobs should not drop loot
 ```
 (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360,
 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056,
 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573,
-16148, 16149, 16150, 16127, 16029, 16126, 16142, 16453)
+16148, 16149, 16150, 16127, 16029, 16126, 16142) 
 ```
 
+
+Mobs that should NOT drop loot
+
+|entry|difficulty_entry_1|name|lootid|skinloot|pickpocketloot|
+|-----|------------------|----|------|--------|--------------|
+|14881|0|Spider|0|0|0|
+|15977|29229|Poisonous Skitterer|0|0|0|
+|16024|29355|Embalming Slime|0|0|0|
+|16029|29356|Sludge Belcher|100003|0|0|
+|16030|0|Maggot|0|0|0|
+|16036|29608|Frenzied Bat|100003|0|0|
+|16037|29603|Plagued Bat|100003|0|0|
+|16056|29612|Diseased Maggot|0|0|0|
+|16057|31542|Rotting Maggot|0|0|0|
+|16068|0|Larva|0|0|0|
+|16124|29987|Unrelenting Trainee|0|0|0|
+|16125|29985|Unrelenting Death Knight|0|0|0|
+|16126|29986|Unrelenting Rider|0|0|0|
+|16127|30264|Spectral Trainee|0|0|0|
+|16142|29357|Bile Sludge|0|0|0|
+|16146|29823|Death Knight|100003|0|0|
+|16148|29990|Spectral Death Knight|0|0|0|
+|16149|29989|Spectral Horse|0|0|0|
+|16150|29988|Spectral Rider|0|0|0|
+|16236|29613|Eye Stalk|0|0|0|
+|16286|30068|Spore|0|0|0|
+|16290|29388|Fallout Slime|0|0|0|
+|16297|29601|Mutated Grub|100003|0|0|
+|16360|30303|Zombie Chow|0|0|0|
+|16375|29354|Sewage Slime|0|0|0|
+|16390|29901|Deathchill Servant|0|0|0|
+|16427|30015|Soldier of the Frozen Wastes|0|0|0|
+|16428|30048|Unstoppable Abomination|0|0|0|
+|16429|30018|Soul Weaver|0|0|0|
+|16441|30057|Guardian of Icecrown|0|0|0|
+|16486|30183|Web Wrap|0|0|0|
+|16573|29256|Crypt Guard|0|0|0|
+|16698|29267|Corpse Scarab|0|0|0|
+|16861|0|[UNUSED] Death Lord|0|0|0|
+|16981|29634|Plagued Guardian|0|0|0|
+|16982|29635|Plagued Construct|0|0|0|
+|16983|29633|Plagued Champion|0|0|0|
+|16984|29632|Plagued Warrior|0|0|0|
+|16998|0|Mr. Bigglesworth|0|0|0|
+|17055|29279|Maexxna Spiderling|0|0|0|
+
+CMangos: OK
 
 Mobs drop loot and spider loot
 ```
 (15974, 15979, 15976, 15975, 15978)
 ```
-
+|entry|difficulty_entry_1|name|lootid|skinloot|pickpocketloot|
+|-----|------------------|----|------|--------|--------------|
+|15974|29242|Dread Creeper|100004|0|0|
+|15975|29241|Carrion Spinner|100004|0|0|
+|15976|29243|Venom Stalker|100004|0|0|
+|15978|30389|Crypt Reaver|100004|0|0|
+|15979|29286|Tomb Horror|100004|0|0|
 
 drop scraps
 ```
 (16243, 16034)
 ```
 
+|entry|difficulty_entry_1|name|lootid|skinloot|pickpocketloot|
+|-----|------------------|----|------|--------|--------------|
+|16034|29609|Plague Beast|100003|0|0|
+|16243|29575|Plague Slime|100003|0|0|
 
 ### 25 man IDs trash loot
 no loot
+
 ```
 (14881, 16030, 16068, 16453, 16861, 16998, 29229, 29355, 29356, 29608, 29603,
 29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988,
-29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057,
-30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279)
+29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057)
 ```
 
 drop scraps
@@ -518,76 +599,15 @@ loot
 
 lootids used 100003 and 100004
 
+### CMangos
+check if loot tables are present in CMangos
+looks OK
+no pickpocket, no skinning loot IDs
+not bothered with minlootgold, maxlootgold values atm
+
+
 ### Loot Tables
-no loot, drop scraps only, spiderloot, loot
-
-need tables for scraps, spiderloot, randoms, epic trash loot
-
-scraps
-entry 16243 check in brotalnia
-creature_template
-```
-loot_id=16243
-skinning_loot_id=0
-pickpcoket_loot_id=0
-```
-creature_loot_template
-
-random slime so also slimes stuff... cba
-
-DK
-16157
-loot_id=16157
-
-no ref tables hardcodes in :)
-runecloth, star ruby, word of thawing, harbinger of doom, 2 ref tables
-reference_loot_template
-drops guaranteed weapon and armor green 
-random greens armor
-24016 -> acore 24020 (weapons and armor)
-random greens weapon
-30061 - > ?
-
-Dog
-16448
-hardcodes some grey
-word of thawing
-hardcodes chance epics
-chance scraps
-guaranteed random green
-24016
-30107
-
-Necro Guardian
-16452
-tables
-24016
-30107 -> 24018
-30061
-
-
-16243
-
-Strategy:
-Copy the loot for each mob. Chances should be OK. 
-
-Translate ref tables 24016, 24018 or make new ones
-```
-Brotalnia -> Acore
-24016 -> 24020
-24024 -> 24024
-30061 -> 24020
-30107 -> 24018
-
-//24016
-//24031
-```
-
-
-
-
-
-
+Each category update CMangos -> ACore query
 
 
 ## Select bosses
@@ -798,6 +818,9 @@ creature_loot_template
        23001
        23070
 ```
+
+Loot CMangos
+
 
 
 ## Brotalnia data
