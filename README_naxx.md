@@ -578,6 +578,9 @@ Brotalnia -> Acore
 24024 -> 24024
 30061 -> 24020
 30107 -> 24018
+
+//24016
+//24031
 ```
 
 
@@ -887,6 +890,7 @@ just add the gameobject to EPL
 Add transporter that you need to click like BWL orb
 
 .gobject add 181599 blue rune // purple 181600
+181476 Nox Portal Plaguewood
 icy rune
 186747
 or frozen rune

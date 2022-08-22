@@ -1,11 +1,392 @@
--- Disable loot 
-UPDATE `creature_template` SET `mingold` = 0, `maxgold` = 0, `lootid` = 0,
-`skinloot` = 0 WHERE `Entry` IN
-(14881, 16030, 16068, 16453, 16861, 16998, 29229, 29355, 29356, 29608, 29603,
-29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988,
-29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057,
-30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279);
-
--- Add loot
--- Only drop scraps
--- (29609, 29575)
+-- -- Translated ids
+-- -- TODO Check creature_loot_template with fresh DB
+-- -- 30707, 30107
+-- SET @GREENS_REF_1:= 24018;
+-- -- 24016, 30061
+-- SET @GREENS_REF_2:= 24020;
+-- -- 24024
+-- SET @GREENS_REF_3:= 24024;
+-- -- 30081
+-- SET @GREENS_REF_4:= 24023;
+-- 
+-- -- Mobs that drop loot
+-- -- loot
+-- -- ```
+-- -- (16157, 16158, 16368, 16446, 16448, 16449, 16451, 16452,
+-- -- 29247, 29248,
+-- 
+-- -- 29347,
+-- -- 29353, 29362, 29359, 29363, 29371, 29852, 29824, 29831, 29833, 29842, 29825,
+-- -- 29828, 29835, 29576, 29837, 29898, 29899, 29900, 29574, 30097, 29273, 29274,
+-- -- 29941, 30075, 30424, 30087)
+-- 
+-- -- Template reference loot
+-- -- INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
+-- -- `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)
+-- -- VALUES
+-- -- (34140, 22815, 0, 0, 0, 1, 1, 1, 1, 'Severance'),
+-- -- (34140, 22818, 0, 0, 0, 1, 1, 1, 1, 'The The Plague Bearer'),
+-- -- (34140, 22820, 0, 0, 0, 1, 1, 1, 1, 'Wand of Fates'),
+-- -- (34140, 22960, 0, 0, 0, 1, 1, 1, 1, 'Cloak of Suturing'),
+-- -- (34140, 22961, 0, 0, 0, 1, 1, 1, 1, 'Band of Reanimation'),
+-- -- (34100, 22354, 0, 0, 0, 1, 1, 1, 1, 'Desecrated Pauldrons'),
+-- -- (34100, 22361, 0, 0, 0, 1, 1, 1, 1, 'Desecrated Spaulders'),
+-- -- (34100, 22368, 0, 0, 0, 1, 1, 1, 1, 'Desecrated Shoulderpads');
+-- 
+-- -- Disable loot 
+-- UPDATE `creature_template` SET `mingold` = 0, `maxgold` = 0, `lootid` = 0,
+-- `skinloot` = 0 WHERE `Entry` IN
+-- (14881, 16030, 16068, 16453, 16861, 16998, 29229, 29355, 29356, 29608, 29603,
+-- 29612, 31542, 29987, 29985, 29986, 30264, 29357, 29823, 29990, 29989, 29988,
+-- 29613, 30068, 29388, 29601, 30303, 29354, 29901, 30015, 30048, 30018, 30057,
+-- 30183, 29256, 29267, 29634, 29635, 29633, 29632, 29279);
+-- 
+-- -- scraps should not be equal
+-- SET @SCRAP_REF:= 34117;
+-- DELETE FROM `reference_loot_template` WHERE `Entry` = @SCRAP_REF;
+-- INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
+-- `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@SCRAP_REF, 22373, 0, 0, 0, 1, 1, 1, 1, 'Wartorn Leather Scrap'),
+-- (@SCRAP_REF, 22374, 0, 0, 0, 1, 1, 1, 1, 'Wartorn Chain Scrap'),
+-- (@SCRAP_REF, 22375, 0, 0, 0, 1, 1, 1, 1, 'Wartorn Plate Scrap'),
+-- (@SCRAP_REF, 22376, 0, 0, 0, 1, 1, 1, 1, 'Wartorn Cloth Scrap');
+-- 
+-- -- Only drop scraps
+-- -- (29609, 29575)
+-- DELETE FROM `creature_loot_template` WHERE `Entry` IN (29609, 29575);
+-- UPDATE `creature_template` SET `lootid` = 29609 WHERE `Entry` = 29609; 
+-- UPDATE `creature_template` SET `lootid` = 29575 WHERE `Entry` = 29575; 
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (29609, @SCRAP_REF, @SCRAP_REF, 20, 0, 1, 0, 1, 1, 'Naxxramas Trash (1) - (ReferenceTable)'),
+-- (29575, @SCRAP_REF, @SCRAP_REF, 20, 0, 1, 0, 1, 1, 'Naxxramas Trash (1) - (ReferenceTable)');
+-- 
+-- -- Necro Knight Guardian
+-- SET @NPC:= 16157;
+-- UPDATE `creature_template` SET `lootid` = @NPC WHERE `Entry` = @NPC; 
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 7910, 0, 0.98, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 30.88, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 10.29, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 13.24, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 8.82, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 1.47, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 3.92, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, 0, 1.0, 0, 1, 0, 1, 1, 'comment');
+-- 
+-- -- Necro Knight Guardian
+-- SET @NPC:= 16158;
+-- 
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 7909, 0, 1.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 27.93, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15746, 0, 0.47, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 13.68, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 6.21, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 9.31, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 13.68, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 1.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 1.38, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 2.07, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.34, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Necropolis Acolyte
+-- SET @NPC:= 16368;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 5760, 0, 0.56, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7909, 0, 0.2, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 0.3851, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12713, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12728, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 22.208, 0, 1, 0, 2, 5, 'comment'),
+-- (@NPC, 14492, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14497, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14504, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14506, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15765, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 16251, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17683, 0, 0.06, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18335, 0, 0.1284, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18600, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19263, 0, 0.2567, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19265, 0, 0.1284, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19283, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 16.8164, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 10.1412, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 16.8164, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 19.7689, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22708, 0, -1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22890, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22891, 0, 0.06, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 0.17, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 5.1348, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 0.56, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 0.2, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.14, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.5135, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.17, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23665, 0, 0.3851, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23666, 0, 0.1284, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23667, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 0, 2, 1, 1, 'comment');
+-- 
+-- 
+-- -- Plagued Gargoyle
+-- SET @NPC:= 16446;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 5760, 0, 0.1802, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7909, 0, 0.1802, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 0.3604, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12808, 0, 1.0811, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14504, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14508, 0, 0.2, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17414, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17683, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 15.3153, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 10.0901, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 16.3964, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 17.8378, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22393, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22708, 0, -1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22890, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 0.24, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 4.1441, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 7.46, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 0.16, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.32, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.1802, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.2, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23666, 0, 0.1802, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_4, @GREENS_REF_4, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Plagued Deathhound
+-- SET @NPC:= 16448;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 4583, 0, 46.8085, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 4584, 0, 19.1489, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 5760, 0, 2.1277, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 2.1277, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18600, 0, 0.31, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 4.2553, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 8.5106, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 21.2766, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 21.2766, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 2.1277, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 1.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.93, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Spirit of Naxxramas
+-- SET @NPC:= 16449;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 5760, 0, 0.4292, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7909, 0, 0.4292, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 0.18, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12713, 0, 0.09, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12808, 0, 0.4292, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14508, 0, 0.45, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15765, 0, 0.09, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 18.4549, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 13.3047, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 16.7382, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 12.4464, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22708, 0, -1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 0.45, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 4.721, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 0.18, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 3.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.27, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 1.2876, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.09, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23664, 0, 0.8584, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23667, 0, 0.09, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23668, 0, 0.09, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Deathknight Vindicator
+-- SET @NPC:= 16451;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 7909, 0, 0.34, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 31.7757, 0, 1, 0, 2, 5, 'comment'),
+-- (@NPC, 16251, 0, 0.34, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19236, 0, 0.34, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 23.3645, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 12.1495, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 8.4112, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 21.4953, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 0.9346, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 0.68, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.68, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 1.01, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Necro Knight Guardian
+-- SET @NPC:= 16452;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 12808, 0, 1.4493, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 16251, 0, 0.24, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 26.087, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 10.8696, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 18.1159, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 14.4928, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 0.48, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 9.4203, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.24, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.72, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.24, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23668, 0, 0.7246, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Naxxramas Cultist
+-- SET @NPC:= 29247;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 5760, 0, 0.2514, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7909, 0, 0.1886, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 0.1886, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12697, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12713, 0, 0.05, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 23.8843, 0, 1, 0, 2, 5, 'comment'),
+-- (@NPC, 14504, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14506, 0, 0.07, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14508, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15743, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15765, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 16251, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17414, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17683, 0, 0.12, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18335, 0, 0.1886, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18600, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19234, 0, 0.0629, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19235, 0, 0.0629, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19236, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19265, 0, 0.07, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19272, 0, 0.27, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19275, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19282, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 14.8963, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 8.0453, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 13.6392, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 18.1647, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22393, 0, 0.05, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22708, 0, -1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22890, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22891, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 1.36, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 4.4626, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 0.5, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 0.28, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.35, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.1257, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 1.36, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23663, 0, 0.1257, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23665, 0, 0.0629, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23666, 0, 0.2514, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23667, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23668, 0, 0.2, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_4, @GREENS_REF_4, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
+-- 
+-- -- Naxxramas Acolyte
+-- SET @NPC:= 29248;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = @NPC;
+-- INSERT INTO `creature_loot_template`
+-- (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`,
+-- `MinCount`, `MaxCount`, `Comment`)
+-- VALUES
+-- (@NPC, 5760, 0, 0.7268, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7909, 0, 0.1817, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 7910, 0, 0.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12694, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 12704, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14047, 0, 25.2574, 0, 1, 0, 1, 5, 'comment'),
+-- (@NPC, 14494, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14498, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14499, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14504, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14506, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 14508, 0, 0.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 15765, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 16251, 0, 0.05, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17414, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 17683, 0, 0.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18335, 0, 0.1211, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 18600, 0, 0.08, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19233, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19235, 0, 0.69, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19264, 0, 0.23, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19265, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19272, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19275, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19282, 0, 0.2423, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 19284, 0, 0.0606, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22373, 0, 14.9606, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22374, 0, 7.874, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22375, 0, 13.9915, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22376, 0, 17.9285, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22393, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22708, 0, -1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22890, 0, 0.02, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 22891, 0, 0.03, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23044, 0, 0.35, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23055, 0, 4.0581, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23069, 0, 0.61, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23221, 0, 0.69, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23226, 0, 0.69, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23237, 0, 0.848, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23238, 0, 0.5, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23664, 0, 0.04, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23665, 0, 0.1817, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23666, 0, 0.05, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23667, 0, 0.3028, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, 23668, 0, 0.26, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_2, @GREENS_REF_2, 1.0, 0, 1, 0, 1, 1, 'comment'),
+-- (@NPC, @GREENS_REF_1, @GREENS_REF_1, 1.0, 0, 1, 2, 1, 1, 'comment');
