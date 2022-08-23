@@ -6,6 +6,7 @@
 
 void AddSC_auto_balance_60_3_C();
 void AddSC_naxx_entry_flag_60_3_C();
+void AddSC_omarion_60_3_C();
 
 void AddBracket_60_3_C_Scripts()
 {
@@ -13,4 +14,5 @@ void AddBracket_60_3_C_Scripts()
         return;
     AddSC_auto_balance_60_3_C();
     AddSC_naxx_entry_flag_60_3_C();
+    AddSC_omarion_60_3_C();
 }
