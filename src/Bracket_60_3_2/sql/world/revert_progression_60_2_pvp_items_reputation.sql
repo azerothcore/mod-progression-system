@@ -17,7 +17,7 @@ SET @NPC_ENTRY_HORDE = 14754; -- Kelm Hargunth <Warsong Supply Officer>
 SET @FACTION_RANK_EXALTED_FLAG = 128;
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND `SourceGroup` IN (@NPC_ENTRY_ALLIANCE, @NPC_ENTRY_HORDE) AND `SourceEntry` 
-IN (19578,19595,19587,19582,22752,22749,22750,22748,22672,22753,22747,22740,22741,22676,22673,22651, 30497, 30498) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 5) AND `ConditionTarget` = 0 AND `ConditionValue1` IN (@FACTION_ID_ALLIANCE, @FACTION_ID_HORDE) AND `ConditionValue2` = @FACTION_RANK_EXALTED_FLAG AND (`ConditionValue3` = 0);
+IN (19578,19595,19587,19582,22752,22749,22750,22748,22672,22753,22747,22740,22741,22676,22673,22651, 30497, 30498) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 5) AND `ConditionTarget` = 0 AND `ConditionValue1` IN (@FACTION_ID_ALLIANCE, @FACTION_ID_HORDE) AND (`ConditionValue3` = 0);
 
 SET @FACTION_ID_ALLIANCE = 730; -- Stormpike Guard
 SET @FACTION_ID_HORDE = 729; -- Frostwolf Clan
