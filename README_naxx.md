@@ -26,8 +26,8 @@ Progress:
 - [x] Add frost resistance quests from Crafsman Wilhelm
 - [x] Update Trash Loot to lvl60
 - [x] Update Trash gold drops to lvl60
+- [x] Add Omarion (frost resistance trainer) script
 - [ ] Add Frozen Rune game objects
-- [ ] Add profession frost resistance recipes learned from Omarion (WIP: Missing /spit when not enough reputation/skill)
 - [ ] Add frost resistance anvil (gobject)
 Skipping (for now):
 - [ ] Scourge event
