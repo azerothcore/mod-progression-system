@@ -32,6 +32,8 @@ public:
 
     void OnAfterDatabasesLoaded(uint32 updateFlags) override
     {
+        LOG_INFO("server.server", "Loading mod-progression-system updates...");
+
         if (DBUpdater<LoginDatabaseConnection>::IsEnabled(updateFlags))
         {
             if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
