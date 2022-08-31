@@ -27,10 +27,11 @@ Progress:
 - [x] Update Trash Loot to lvl60
 - [x] Update Trash gold drops to lvl60
 - [x] Add Omarion (frost resistance trainer) script
-- [ ] Add Frozen Rune game objects
-- [ ] Add frost resistance anvil (gobject)
-Skipping (for now):
+- [x] Add Frozen Rune game objects
+- [x] Add frost resistance anvil (gobject) BS Craft requirement (already existed)
 - [ ] Scourge event
+- [ ] Add map edit teleporter to EPL
+- [ ] Add custom map to put NPCs in (seperate map than 533)
 - [ ] Accurate Naxx40 mechanics
 
 floating naxx 25 pathing plaguewood
@@ -47,23 +48,53 @@ https://user-images.githubusercontent.com/74299960/184688921-0f3c694e-2826-48ce-
 25man mechanics (using 25man map)
 ![raz](razuvious_25man_mechanics.png)
 Exit portal to EPl
-![exit](exit.png)
+
+
+![exit](https://user-images.githubusercontent.com/74299960/187784768-6f9af068-e450-4ada-ac2a-9e3af3baf986.png)
+
+
 transporter naxx object
-![outside](transporter.png)
+
+![outside](https://user-images.githubusercontent.com/74299960/187784825-cb30aad0-d4f5-4092-a50a-8b8284c05a01.png)
+
+
 transporter naxx object2
-![outside](transporter2.png)
+
+
+![transporter2](https://user-images.githubusercontent.com/74299960/187784874-db0a502f-fc82-446b-aeb1-90bcb8354ba6.png)
+
+
 Chest loot
-![loot_4h](loot_4h.png)
+
+![loot_4h](https://user-images.githubusercontent.com/74299960/187784922-0fe556e1-7c38-49a9-a4d1-7342a83315cf.png)
+
+
 Thaddius loot
-![loot_thaddius](loot_thaddius.png)
+
+
+![loot_thaddius](https://user-images.githubusercontent.com/74299960/187784950-f1d307e2-4661-4389-87f2-f55e50c0a870.png)
+
+trash loot
+
+![trash_loot](https://user-images.githubusercontent.com/74299960/187785550-6cc4e477-cf2d-4ceb-a467-e0144d1a60a8.png)
+
+
+Frozen runes
+
+![frozen_runes](https://user-images.githubusercontent.com/74299960/187781176-7e5dc5f9-da39-473a-8bbc-9e268dea4a3a.png)
+omarion
+
+https://user-images.githubusercontent.com/74299960/187783939-14d68da6-5254-4d7f-b5cc-8f58ada33969.mp4
+
+anvil craft
+![craft_requirement](https://user-images.githubusercontent.com/74299960/187784083-9d0249ab-0631-47db-ac5b-f68bc7c28b6c.png)
+
+
 
 ## Naxx Fixes
 I put fixes in fixes-*.sql
 
 Portal/instance/tp fixes in azerothcore/azerothcore-wotlk PR #12696
-
-Fixes for t3 quests and phylacter, no PR yet.
-
 
 ```
 -- .go xyz 3668 -1262 310 (with .gm fly on)
@@ -74,7 +105,6 @@ Fixes for t3 quests and phylacter, no PR yet.
 -- each wing casts (spellID: 28444) Portal Effect: Deathknight Wing
 -- Portal after each boss portals  should to blue zone and then auto portal to sapphiron
 ```
-
 
 ```
 -- Current: TPs next to portals
@@ -319,17 +349,17 @@ Leatherwork
 
 .mod reputation 529 10000
 
-
 Omarion
 .go c 88811
 
 
-implementing menu with DB, gossip menu and SmartAI 
+implementing menu with SmartAI
 - [x] giving book to non crafters
 - [x] show master crafter option to master crafters
 - [x] show recipes based on reputation
 - [ ] teaching recipe
 - [ ] /spit and close menu when not high enough skill or rep
+
 Need to use a cpp script instead as the gossip is too complicated
 
 ## Trash Loot
