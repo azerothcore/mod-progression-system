@@ -40,7 +40,7 @@ ProgressionSystem.ReapplyUpdates = 0
 #						   14 is: Bracket 10-19, 20-29 and 30-39
 #
 
-ProgressionSystem.Brackets = 268435456
+ProgressionSystem.Brackets = 0
 
 #
 #

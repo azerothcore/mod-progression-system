@@ -77,13 +77,8 @@ INSERT INTO `conditions`
 (17, 0, @DEATH_KNIGHT_PORTAL_EFFECT, 0, 2, 8, 1, 9123, 0, 0, 0, 107, 0, '', 'Naxxramas Teleporter Attunement Exalted');
 
 -- Add Floating Naxx Object (id: 181056)
--- TODO: Fix visibility. Not always visible
--- Node 0 of PathID 436 in NtaxiPathNode
+-- Node 0 of PathID 436 in taxiPathNode
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter%5B1%5D=436
--- 3067.1255	-3533.4387	231.89944
--- bug: double spawn, one stationary
--- make it spawn underground, dunno
--- rotation was -2.148
 DELETE FROM `gameobject` WHERE `id`=181056;
 INSERT INTO `gameobject`
 (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`,
@@ -96,24 +91,24 @@ DELETE FROM `transports` WHERE `guid`=21 AND `entry`=181056;
 INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
 (21, 181056, '"Naxxramas" floating in Plaguewood - Eastern Plaguelands', '');
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter[1]=436
--- Set speed and map
--- TODO: This might not be needed as its already set
+-- Set speed (Data1) and map (Data6)
 UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE entry=181056;
 
 -- Update exit portals to EPL OR Disable exit portals like Naxx40
-DELETE FROM `areatrigger` WHERE `entry` in (5196, 5197, 5198,  5199);
 DELETE FROM `areatrigger_teleport` WHERE `ID` in (5196, 5197, 5198, 5199);
 
--- If DISABLE exit EPL then comment out the following
 -- The green portals can not be removed without map editing
+-- Remove ability to exit by DELETING areatrigger
 -- Add triggers to Naxx exits (mapID: 533)
-INSERT INTO `areatrigger`
-(`entry`, `map`, `x`, `y`, `z`, `radius`, `length`, `width`, `height`, `orientation`)
-VALUES
-(5196, @MAP_ID, 3005.47, -3445.11, 297.925, 0.0, 9.3, 1.718, 8.0, 0.02805),
-(5197, @MAP_ID, 3016.94, -3434.39, 297.928, 0.0, 9.3, 1.718, 8.0, 4.714),
-(5198, @MAP_ID, 3005.67, -3423.28, 297.927, 0.0, 9.3, 1.718, 8.0, 6.276),
-(5199, @MAP_ID, 2994.63, -3434.37, 297.928, 0.0, 9.3, 1.718, 8.0, 4.728);
+-- DELETE FROM `areatrigger` WHERE `entry` in (5196, 5197, 5198,  5199);
+-- INSERT to add areatriggers
+-- INSERT INTO `areatrigger`
+-- (`entry`, `map`, `x`, `y`, `z`, `radius`, `length`, `width`, `height`, `orientation`)
+-- VALUES
+-- (5196, @MAP_ID, 3005.47, -3445.11, 297.925, 0.0, 9.3, 1.718, 8.0, 0.02805),
+-- (5197, @MAP_ID, 3016.94, -3434.39, 297.928, 0.0, 9.3, 1.718, 8.0, 4.714),
+-- (5198, @MAP_ID, 3005.67, -3423.28, 297.927, 0.0, 9.3, 1.718, 8.0, 6.276),
+-- (5199, @MAP_ID, 2994.63, -3434.37, 297.928, 0.0, 9.3, 1.718, 8.0, 4.728);
 -- Update `areatrigger_teleport` to EPL
 INSERT INTO `areatrigger_teleport`
 (`ID`, `Name`, `target_map`, `target_position_x`, `target_position_y`,
@@ -161,3 +156,4 @@ DELETE FROM `disables` WHERE `sourceType`=1 AND entry IN(9034, 9036, 9037, 9038,
 9089, 9090, 9091, 9092, 9093, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102,
 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115,
 9116, 9117, 9118);
+-- Frost Resistance/Phylactery quests are not in `disables`

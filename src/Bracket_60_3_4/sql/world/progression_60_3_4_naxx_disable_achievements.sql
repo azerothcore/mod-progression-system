@@ -1,5 +1,3 @@
--- TODO: Realm First: Conquerer of Naxxramas
--- TODO: Shocking
 -- Disable 25man achievements
 -- https://wow.tools/dbc/?dbc=achievement_criteria&build=3.3.5.12340
 DELETE FROM `disables` WHERE `entry` IN 
