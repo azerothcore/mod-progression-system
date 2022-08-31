@@ -56,6 +56,7 @@ void Addmod_progression_systemScripts()
     AddBracket_60_3_A_Scripts();
     AddBracket_60_3_B_Scripts();
     AddBracket_60_3_C_Scripts();
+    AddBracket_60_3_D_Scripts();
     AddBracket_61_64_Scripts();
     AddBracket_65_69_Scripts();
     AddBracket_70_4_Scripts();

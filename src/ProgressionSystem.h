@@ -58,7 +58,6 @@ char const* const ProgressionBracketsNames[PROGRESSION_BRACKET_MAX] =
     "60_3_1",
     "60_3_2",
     "60_3_3",
-    "60_3_4",
     "61_64",
     "65_69",
     "70_4",
@@ -72,7 +71,8 @@ char const* const ProgressionBracketsNames[PROGRESSION_BRACKET_MAX] =
     "80_8",
     "80_9",
     "80_10_1",
-    "80_10_2"
+    "80_10_2",
+    "60_3_4"
 };
 
 #endif // _PROGRESSION_SYSTEM_H_

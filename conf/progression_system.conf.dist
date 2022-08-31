@@ -40,7 +40,7 @@ ProgressionSystem.ReapplyUpdates = 0
 #						   14 is: Bracket 10-19, 20-29 and 30-39
 #
 
-ProgressionSystem.Brackets = 0
+ProgressionSystem.Brackets = 268435456
 
 #
 #
@@ -74,3 +74,15 @@ ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
 
 ProgressionSystem.60.WorldBosses.KazzakPhasing = 1
 
+#
+#     ProgressionSystem.60.Naxxramas.rate.*
+#        Tune all rates increasing/decreasing difficulty in a linear way
+#        Note that global rate will increase all other rates. For example:
+#        global = 2.0 , damage = 1.5  -> it means that damage will be 3.0
+#        Default:     1.0
+
+ProgressionSystem.60.Naxxramas.rate.global = 1.0
+ProgressionSystem.60.Naxxramas.rate.health = 1.0
+ProgressionSystem.60.Naxxramas.rate.mana   = 1.0
+ProgressionSystem.60.Naxxramas.rate.armor  = 1.0
+ProgressionSystem.60.Naxxramas.rate.damage = 1.0
