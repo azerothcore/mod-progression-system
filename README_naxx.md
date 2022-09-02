@@ -29,6 +29,7 @@ Progress:
 - [x] Add Omarion (frost resistance trainer) script
 - [x] Add Frozen Rune game objects
 - [x] Add frost resistance anvil (gobject) BS Craft requirement (already existed)
+- [x] Add Archmage Tarsis Kir-Moldir incl. RP event Frame of Atiesh
 - [ ] Scourge event
 - [ ] Add map edit teleporter to EPL
 - [ ] Add custom map to put NPCs in (seperate map than 533)
@@ -88,6 +89,10 @@ https://user-images.githubusercontent.com/74299960/187783939-14d68da6-5254-4d7f-
 
 anvil craft
 ![craft_requirement](https://user-images.githubusercontent.com/74299960/187784083-9d0249ab-0631-47db-ac5b-f68bc7c28b6c.png)
+
+archmage
+
+https://user-images.githubusercontent.com/74299960/188228191-6a0598be-161c-4a8e-9eea-b9b5b67194fc.mp4
 
 
 
@@ -281,7 +286,8 @@ SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, c
 NPC Missing 16381
 Archmage Tarsis Kir-Moldir
 dialogue
-sitting position
+
+issue: he stands up while talking instead of remaining seated
 
 ## Omarion
 

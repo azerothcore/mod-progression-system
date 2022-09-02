@@ -1,5 +1,6 @@
 -- Add Omarion to the cage in The Military Quarter
-DELETE FROM `creature` WHERE `guid` = 88811 and `id1` = 16365;
+SET @GUID:= 88811;
+DELETE FROM `creature` WHERE `guid` = @GUID AND `id1` = 16365;
 INSERT INTO `creature`
 (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`,
 `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`,
@@ -7,7 +8,7 @@ INSERT INTO `creature`
 `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`,
 `ScriptName`, `VerifiedBuild`)
 VALUES
-(88811, 16365, 0, 0, 533, 0, 0, 3, 1, 0, 2853.57, -3251.69, 298.21, 5.19, 3520,
+(@GUID, 16365, 0, 0, 533, 0, 0, 3, 1, 0, 2853.57, -3251.69, 298.21, 5.19, 3520,
 0.0, 0, 3052, 0, 0, 0, 0, 0, '', 0);
 
 -- Handle gossip with cpp script
