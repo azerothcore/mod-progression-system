@@ -14,10 +14,10 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 -- CreatureText
 DELETE FROM `creature_text` WHERE `CreatureID`=16381;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
-(16381, 0, 0, "%s gets to one knee.", 16, 0, 100, 0, 0, 0, 12295, 0, "Archmage Tarsis Kir-Moldir - kneels"),
-(16381, 1, 0, "%s sits down.", 16, 0, 100, 0, 0, 0, 12296, 0, "Archmage Tarsis Kir-Moldir - sits down"),
-(16381, 2, 0, "You... The frame! How? You must not... It... the Destroyer...", 12, 0, 100, 0, 0, 0, 12312, 0, "Archmage Tarsis Kir-Moldir"),
-(16381, 3, 0, "%s scratches at his throat.", 16, 0, 100, 0, 0, 0, 12314, 0, "Archmage Tarsis Kir-Moldir");
+(16381, 0, 0, '%s gets to one knee.', 16, 0, 100, 0, 0, 0, 12295, 0, 'Archmage Tarsis Kir-Moldir - kneels'),
+(16381, 1, 0, '%s sits down.', 16, 0, 100, 0, 0, 0, 12296, 0, 'Archmage Tarsis Kir-Moldir - sits down'),
+(16381, 2, 0, 'You... The frame! How? You must not... It... the Destroyer...', 12, 0, 100, 0, 0, 0, 12312, 0, 'Archmage Tarsis Kir-Moldir'),
+(16381, 3, 0, '%s scratches at his throat.', 16, 0, 100, 0, 0, 0, 12314, 0, 'Archmage Tarsis Kir-Moldir');
 
 -- Menu
 DELETE FROM `gossip_menu` WHERE `MenuID` IN 

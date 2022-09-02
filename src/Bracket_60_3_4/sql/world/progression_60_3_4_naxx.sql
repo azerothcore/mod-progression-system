@@ -89,7 +89,7 @@ INSERT INTO `gameobject`
 0.0, 0, 0, 900, 100, 1, '', 0);
 DELETE FROM `transports` WHERE `guid`=21 AND `entry`=181056;
 INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
-(21, 181056, '"Naxxramas" floating in Plaguewood - Eastern Plaguelands', '');
+(21, 181056, 'Naxxramas floating in Plaguewood - Eastern Plaguelands', '');
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter[1]=436
 -- Set speed (Data1) and map (Data6)
 UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE entry=181056;

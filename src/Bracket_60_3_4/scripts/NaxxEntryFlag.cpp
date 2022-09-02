@@ -24,7 +24,6 @@ class NaxxEntryFlag_AllMapScript : public AllMapScript
 
             // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
             player->CastSpell(player, 29296, true);
-
         }
 };
 

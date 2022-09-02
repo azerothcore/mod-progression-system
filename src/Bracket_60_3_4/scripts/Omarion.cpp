@@ -35,12 +35,12 @@ enum CraftsSpellIds : uint32
     LEARN_ICEBANE_BRACERS       = 28252,
     HAS_ICEBANE_BRACERS         = 28244,
     LEARN_ICEBANE_BREASTPLATE   = 28251,
-    HAS_ICEBANE_BREASTPLATE     = 28242,
+    HAS_ICEBANE_BREASTPLATE     = 28242
 };
 
 enum Say
 {
-    BROADCAST_TEXT_SPIT_TARGET = 31673,
+    BROADCAST_TEXT_SPIT_TARGET = 31673
 };
 
 enum Requirements
@@ -50,13 +50,13 @@ enum Requirements
     CRAFT1_REQ_RANK     = REP_REVERED,
     CRAFT2_REQ_RANK     = REP_EXALTED,
     MASTER_REQ_SKILL    = 225,
-    LEARN_REQ_SKILL     = 300,
+    LEARN_REQ_SKILL     = 300
 };
 
 enum Quests
 {
     QUEST_OMARIONS_HANDBOOK = 9233,
-    OMARIONS_HANDBOOK       = 22719,
+    OMARIONS_HANDBOOK       = 22719
 };
 
 enum Gossips
@@ -108,7 +108,7 @@ enum Gossips
     // No crafter, book
     ITEM_ID_GOODBYE_NO_CRAFTER     = 1,
 
-    GOSSIP_CLOSE                   = 100,
+    GOSSIP_CLOSE                   = 100
 };
 
 class npc_omarion : public CreatureScript
