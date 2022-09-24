@@ -401,7 +401,7 @@ public:
     {
         if (spellInfo->Id == 50313)
         {
-            spellInfo->Effects[EFFECT_1].BasePoints = 2000;
+            spellInfo->Effects[EFFECT_1].BasePoints = 1000;
         }
     }
 };
