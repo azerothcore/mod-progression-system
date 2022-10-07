@@ -4,8 +4,12 @@
 
 #include "ProgressionSystem.h"
 
-void AddBracket_60_3_C_Scripts()
+void AddSC_temple_of_ahn_qiraj_tuning();
+
+void AddBracket_60_3_3_Scripts()
 {
     if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_60_TIER_3_C_AHN_QIRAJ))
         return;
+
+    AddSC_temple_of_ahn_qiraj_tuning();
 }
