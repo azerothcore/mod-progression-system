@@ -32,15 +32,40 @@ ProgressionSystem.LoadDatabase = 1
 ProgressionSystem.ReapplyUpdates = 0
 
 #
-#    ProgressionSystem.Brackets
-#        Description: Defined what brackets should be loaded. It is a bitmask. Available mask values are present in ProgressionSystem.h
-#        Default:     0 - None
-#                     > 0 - Specific brackets are loaded
-#					  E.g. 256 is Bracket 60 - Tier 2;
-#						   14 is: Bracket 10-19, 20-29 and 30-39
+#    ProgressionSystem.Bracket_X
+#        Description: Defines if the bracket should be loaded being 0 not loaded, 1 loaded.
+#        Default:     0 - Not loaded.
 #
 
-ProgressionSystem.Brackets = 0
+ProgressionSystem.Bracket_0 = 0
+ProgressionSystem.Bracket_1_19 = 0
+ProgressionSystem.Bracket_20_29 = 0
+ProgressionSystem.Bracket_30_39 = 0
+ProgressionSystem.Bracket_40_49 = 0
+ProgressionSystem.Bracket_50_59_1 = 0
+ProgressionSystem.Bracket_50_59_2 = 0
+ProgressionSystem.Bracket_60_1_1 = 0
+ProgressionSystem.Bracket_60_1_2 = 0
+ProgressionSystem.Bracket_60_2_1 = 0
+ProgressionSystem.Bracket_60_2_2 = 0
+ProgressionSystem.Bracket_60_3_1 = 0
+ProgressionSystem.Bracket_60_3_2 = 0
+ProgressionSystem.Bracket_60_3_3 = 0
+ProgressionSystem.Bracket_61_64 = 0
+ProgressionSystem.Bracket_65_69 = 0
+ProgressionSystem.Bracket_70_4 = 0
+ProgressionSystem.Bracket_70_5 = 0
+ProgressionSystem.Bracket_70_6_1 = 0
+ProgressionSystem.Bracket_70_6_2 = 0
+ProgressionSystem.Bracket_70_6_3 = 0
+ProgressionSystem.Bracket_71_74 = 0
+ProgressionSystem.Bracket_75_79 = 0
+ProgressionSystem.Bracket_80_7 = 0
+ProgressionSystem.Bracket_80_8 = 0
+ProgressionSystem.Bracket_80_9 = 0
+ProgressionSystem.Bracket_80_10_1 = 0
+ProgressionSystem.Bracket_80_10_2 = 0
+ProgressionSystem.Bracket_Custom = 0
 
 #
 #

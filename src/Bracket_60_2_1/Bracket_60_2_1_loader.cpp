@@ -12,7 +12,7 @@ void AddSC_boss_lord_kazzak_60_2();
 
 void AddBracket_60_2_Scripts()
 {
-    if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_60_TIER_2))
+    if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Bracket_60_2_1", false)))
         return;
 
     AddSC_quest_jail_break_60_2();

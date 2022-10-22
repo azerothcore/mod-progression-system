@@ -6,6 +6,6 @@
 
 void AddBracket_70_5_Scripts()
 {
-    if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_70_TIER_5))
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_5", false)))
         return;
 }
