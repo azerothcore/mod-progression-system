@@ -16,12 +16,14 @@ INSERT INTO `creature` (`guid`,`id1`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseM
 (209111,28602,1,0,1,1,1,1,-6121.34,-1258.46,-143.192,2.9147,120,0,0,1,0,0,0,0,0,'',0),
 (209112,28601,1,0,1,1,1,1,-6028.08,-1249.02,-146.764,3.05433,120,0,0,1,0,0,0,0,0,'',0);
 
-INSERT INTO `creature_addon` (`guid`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES (209102,286020,0,0,1,0,0,''),
+INSERT INTO `creature_addon` (`guid`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
+(209102,286020,0,0,1,0,0,''),
 (209103,286040,0,0,1,0,0,''),
 (209104,0,0,8,0,0,0,''),
 (209105,0,0,8,0,0,0,'');
 
-INSERT INTO `waypoint_data` (`id`,`point`,`position_x`,`position_y`,`position_z`,`orientation`,`delay`,`move_type`,`action`,`action_chance`,`wpguid`) VALUES (286020,1,-6167.85,-1249.36,-162.651,0,0,0,0,100,0),
+INSERT INTO `waypoint_data` (`id`,`point`,`position_x`,`position_y`,`position_z`,`orientation`,`delay`,`move_type`,`action`,`action_chance`,`wpguid`) VALUES
+(286020,1,-6167.85,-1249.36,-162.651,0,0,0,0,100,0),
 (286020,2,-6154.54,-1249.76,-155.479,0,0,0,0,100,0),
 (286020,3,-6141.45,-1249.3,-147.71,0,0,0,0,100,0),
 (286020,4,-6140.29,-1249.47,-147.229,0,0,0,0,100,0),
