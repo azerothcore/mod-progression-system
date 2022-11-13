@@ -16,7 +16,7 @@ INSERT INTO `creature` (`guid`,`id1`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseM
 (209111,28602,1,0,1,1,1,1,-6121.34,-1258.46,-143.192,2.9147,120,0,0,1,0,0,0,0,0,'',0),
 (209112,28601,1,0,1,1,1,1,-6028.08,-1249.02,-146.764,3.05433,120,0,0,1,0,0,0,0,0,'',0);
 
-INSERT INTO `creature_addon` (`guid`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visiblityDistanceType`,`auras`) VALUES (209102,286020,0,0,1,0,0,''),
+INSERT INTO `creature_addon` (`guid`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES (209102,286020,0,0,1,0,0,''),
 (209103,286040,0,0,1,0,0,''),
 (209104,0,0,8,0,0,0,''),
 (209105,0,0,8,0,0,0,'');
