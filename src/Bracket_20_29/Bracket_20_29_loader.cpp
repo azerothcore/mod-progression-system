@@ -6,6 +6,6 @@
 
 void AddBracket_20_29_Scripts()
 {
-    if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & PROGRESSION_BRACKET_20_29))
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_20_29", false)))
         return;
 }

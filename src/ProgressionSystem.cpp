@@ -10,15 +10,14 @@ inline std::vector<std::string> GetDatabaseDirectories(std::string const& folder
     std::vector<std::string> directories;
 
     std::string const path = "/modules/mod-progression-system/src/Bracket_";
-    for (uint8 i = 0; i < PROGRESSION_BRACKET_MAX; ++i)
+    for (std::string const& bracketName : ProgressionBracketsNames)
     {
-        uint32 bracketsMask = 1 << i;
-        if (!(sConfigMgr->GetOption<int>("ProgressionSystem.Brackets", 0) & bracketsMask))
+        if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_" + bracketName, false)))
         {
             continue;
         }
 
-        std::string bracketPath = path + ProgressionBracketsNames[i] + "/sql/" + folderName;
+        std::string bracketPath = path + bracketName + "/sql/" + folderName;
         directories.push_back(std::move(bracketPath));
     }
 

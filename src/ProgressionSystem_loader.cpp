@@ -33,6 +33,7 @@ void AddBracket_80_8_Scripts();
 void AddBracket_80_9_Scripts();
 void AddBracket_80_10_A_Scripts();
 void AddBracket_80_10_B_Scripts();
+void AddBracket_Custom_Scripts();
 
 void Addmod_progression_systemScripts()
 {
@@ -69,4 +70,5 @@ void Addmod_progression_systemScripts()
     AddBracket_80_9_Scripts();
     AddBracket_80_10_A_Scripts();
     AddBracket_80_10_B_Scripts();
+    AddBracket_Custom_Scripts();
 }
