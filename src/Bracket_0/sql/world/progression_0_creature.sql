@@ -1,19 +1,58 @@
 -- despawn world bosses
-DELETE FROM `creature` WHERE `id1` IN (6109, 12397, 14890, 14889, 14888, 14887);
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
+6109,  -- Azuregos
+12397, -- Lord Kazzak
+14890, -- Ysondre
+14889, -- Lethon
+14888, -- Emeriss
+14887  -- Taerar
+);
 
--- despawn karazhan npcs
-DELETE FROM `creature` where `guid` IN (3961, 3965, 3966, 3967, 3968, 3976, 3977, 3978, 3979, 3986, 3987, 3988, 3989, 4000, 4001, 4002, 4003, 4004, 4005, 4006, 4007, 4008, 4009, 4011, 4012, 4013, 4014, 4015, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4025, 4026, 4027, 4028, 4029, 4030, 4031, 4032, 4033, 4034, 4035, 4036, 4040, 4041, 4042, 4043, 4044, 4045, 4046, 4047, 4049, 4050, 4051, 4052, 4053, 4054, 4055, 4056, 4057, 4058, 4059, 4060);
+-- Hide Gangrenus which is accesible from exploits
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1`=29207 AND `guid`=125760;
 
--- despawn gangrenus which is accesible from exploits
-DELETE FROM `creature` WHERE `guid` = 125760;
-
--- Remove the 11 cultists from Un'Goro
-DELETE FROM `waypoint_data` WHERE `id` in (286020,286040);
-DELETE FROM `creature_addon` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
-DELETE FROM `creature` WHERE `guid` in (209102,209107,209111,209108,209110,209103,209109,209106,209104,209105,209112);
+-- Hide the 11 cultists in Un'Goro (Bracket 75-79)
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (28602, 28601) AND `guid` IN (209102,209103,209104,209105,209106,209107,209108,209109,209110,209111,209112);
 
 -- Hide Emalon, Koralon and Toravon at Vaulth of Archavon
-UPDATE `creature` SET `phaseMask` = 2 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
 33993, -- Emalon
 35013, -- Koralon
-38433); -- Toravon
+38433  -- Toravon
+); 
+
+-- Hide Karazhan NPCs
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN 
+(
+7370,  -- Restless Shade
+12377, -- Wailing Spectre
+12378, -- Damned Soul
+12379, -- Unliving Caretaker
+12380, -- Unliving Resident
+17613, -- Archmage Alturus
+18253, -- Archmage Lery
+18255  -- Apprentice Darius
+);
+
+-- Hide Silithus NPCs
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN 
+(
+15180, -- Baristolth of the Shifting Sands
+15181, -- Commander Mar'alith
+15182, -- Vish Kozus
+15183, -- Geologist Larksbane
+15191, -- Windcaller Proudhorn
+15194, -- Hermit Ortell
+15270, -- Huum Wildmane
+15293, -- Aendel Windspear
+15306, -- Bor Wildmane
+15500, -- Keyl Swiftclaw
+15540, -- Windcaller Kaldon
+15599, -- Elder Bladesing
+15609, -- Cenarion Scout Landion
+15610, -- Cenarion Scout Azenel
+15612, -- Krug Skullsplit
+15613, -- Merok Longstride
+15903, -- Sergeant Carnes
+16091  -- Dirk Thunderwood
+);
