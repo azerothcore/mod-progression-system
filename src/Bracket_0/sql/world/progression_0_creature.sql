@@ -33,26 +33,3 @@ UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN
 18253, -- Archmage Lery
 18255  -- Apprentice Darius
 );
-
--- Hide Silithus NPCs
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN 
-(
-15180, -- Baristolth of the Shifting Sands
-15181, -- Commander Mar'alith
-15182, -- Vish Kozus
-15183, -- Geologist Larksbane
-15191, -- Windcaller Proudhorn
-15194, -- Hermit Ortell
-15270, -- Huum Wildmane
-15293, -- Aendel Windspear
-15306, -- Bor Wildmane
-15500, -- Keyl Swiftclaw
-15540, -- Windcaller Kaldon
-15599, -- Elder Bladesing
-15609, -- Cenarion Scout Landion
-15610, -- Cenarion Scout Azenel
-15612, -- Krug Skullsplit
-15613, -- Merok Longstride
-15903, -- Sergeant Carnes
-16091  -- Dirk Thunderwood
-);
