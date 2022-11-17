@@ -14,6 +14,7 @@ DELETE FROM `creature_queststarter` WHERE `quest` IN (
 8381, -- Armaments of War
 8382, -- Armaments of War
 8507, -- Field Duty
+8556, -- Signet of Unyielding Strength
 8557, -- Drape of Unyielding Strength
 8689, -- Shroud of Infinite Wisdom
 8690, -- Cloak of the Gathering Storm
@@ -23,6 +24,14 @@ DELETE FROM `creature_queststarter` WHERE `quest` IN (
 8694, -- Shroud of Unspoken Names
 8695, -- Cape of Eternal Justice
 8696, -- Cloak of the Unseen Path
+8697, -- Ring of Infinite Wisdom
+8698, -- Ring of the Gathering Storm
+8699, -- Band of Vaulted Secrets
+8700, -- Band of Unending Life
+8701, -- Band of Veiled Shadows
+8702, -- Ring of Unspoken Names
+8703, -- Ring of Eternal Justice
+8704, -- Signet of the Unseen Path
 8719, -- Bladesing the Elder
 8731, -- Field Duty
 8732, -- Field Duty Papers
@@ -67,4 +76,4 @@ DELETE FROM `creature_queststarter` WHERE `quest` IN (
 8810  -- Bandages for the Field
 );
 
-DELETE FROM `creature_questender` WHERE `quest` IN (8286,8288,8301,8302,8303,8316,8376,8377,8378,8379,8380,8381,8382,8507,8557,8689,8690,8691,8692,8693,8694,8695,8696,8719,8731,8732,8800,9023,9338,8275,8276,8496,8498,8501,8502,8534,8535,8536,8537,8538,8539,8540,8541,8687,8737,8738,8739,8770,8771,8772,8773,8774,8775,8776,8777,8779,8782,8786,8787,8791,8805,8806,8807,8808,8810);
+DELETE FROM `creature_questender` WHERE `quest` IN (8286,8288,8301,8302,8303,8316,8376,8377,8378,8379,8380,8381,8382,8507,8557,8689,8690,8691,8692,8693,8694,8695,8696,8719,8731,8732,8800,9023,9338,8275,8276,8496,8498,8501,8502,8534,8535,8536,8537,8538,8539,8540,8541,8687,8737,8738,8739,8770,8771,8772,8773,8774,8775,8776,8777,8779,8782,8786,8787,8791,8805,8806,8807,8808,8810,8556,8697,8698,8699,8700,8701,8702,8703,8704);
