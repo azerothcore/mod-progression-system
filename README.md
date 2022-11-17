@@ -8,8 +8,6 @@ CONFIG
 
 [Here](https://github.com/azerothcore/mod-progression-system/blob/main/conf/progression_system.conf.dist#L40-L68) you can set which level brackets should be loaded. It's a bool configuration where 0 is deactivated and 1 is activated. You can add custom files to Bracket_Custom, they will be executed at the very last, meaning it will load all the previous brackets before loading the custom one. The naming convention for this sql file should be progression_custom_%%%% or it won't respect the apply order.
 
-E.g. If you set 64, it means that scripts/sql files from level 50-59 - Tier B will be loaded. If you set 127, then all level brackets up to level 60 Tier 1. 0 means nothing - none of the scripts/sqls will be loaded.
-
 </br>
 </br>
 <b>SQL FILES</b>
