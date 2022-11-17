@@ -1,5 +1,5 @@
--- Enable Karazhan NPCs
-UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN 
+-- Hide Karazhan NPCs
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN 
 (
 7370,  -- Restless Shade
 12377, -- Wailing Spectre
@@ -10,6 +10,3 @@ UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN
 18253, -- Archmage Lery
 18255  -- Apprentice Darius
 );
-
--- Enable Gangrenus which is accesible from exploits
-UPDATE `creature` SET `phasemask` = 1 WHERE `id1`=29207 AND `guid`=125760;
