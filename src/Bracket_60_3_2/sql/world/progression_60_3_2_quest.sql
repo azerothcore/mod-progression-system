@@ -41,7 +41,6 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (15498, 8703),
 (15498, 8704);
 
-
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (15191, 8275),
 (15191, 8276),
@@ -117,4 +116,3 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (15498, 8702),
 (15498, 8703),
 (15498, 8704);
-
