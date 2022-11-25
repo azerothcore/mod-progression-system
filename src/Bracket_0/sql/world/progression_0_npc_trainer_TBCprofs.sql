@@ -13,3 +13,6 @@ DELETE FROM `npc_trainer` WHERE `SpellID` IN (
 41320, -- Destruction Holo-gogs
 41321  -- Powerheal 4000 Lens
 );
+
+-- Remove Brilliant Glass until Sunwell
+DELETE FROM `npc_trainer` WHERE `SpellID`=47280;
