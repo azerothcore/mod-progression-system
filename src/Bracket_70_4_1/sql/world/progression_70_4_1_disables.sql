@@ -1,2 +1,2 @@
--- 70 level range - Tier 6 (Sunwell Plateu + Zul Aman)
-DELETE FROM `disables` WHERE `entry` IN (568, 580);
+-- TBC Phase 3 - Battle for Mount Hyjal
+DELETE FROM `disables` WHERE `entry` IN (534);

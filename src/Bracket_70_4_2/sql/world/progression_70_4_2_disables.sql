@@ -1,2 +1,2 @@
--- 70 level range - Tier 6 (Black Temple + Magister's Terrace)
-DELETE FROM `disables` WHERE `entry` IN (564, 585);
+-- TBC Phase 3 - Black Temple
+DELETE FROM `disables` WHERE `entry` IN (564);
