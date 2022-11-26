@@ -53,18 +53,26 @@ ProgressionSystem.Bracket_60_3_2 = 0
 ProgressionSystem.Bracket_60_3_3 = 0
 ProgressionSystem.Bracket_61_64 = 0
 ProgressionSystem.Bracket_65_69 = 0
-ProgressionSystem.Bracket_70_4 = 0
-ProgressionSystem.Bracket_70_5 = 0
-ProgressionSystem.Bracket_70_6_1 = 0
-ProgressionSystem.Bracket_70_6_2 = 0
-ProgressionSystem.Bracket_70_6_3 = 0
+ProgressionSystem.Bracket_70_1_1 = 0 # Level 70, Flying, Normal Dungeons
+ProgressionSystem.Bracket_70_1_2 = 0 # Level 70, Heroics
+ProgressionSystem.Bracket_70_2_1 = 0 # Gruul's Lair, Magtheridon's Lair, Arena Season 1
+ProgressionSystem.Bracket_70_2_2 = 0 # Karazhan
+ProgressionSystem.Bracket_70_3_1 = 0 # Serpentshrine Cavern
+ProgressionSystem.Bracket_70_3_2 = 0 # The Eye
+ProgressionSystem.Bracket_70_4_1 = 0 # Battle For Mount Hyjal, Arena Season 2
+ProgressionSystem.Bracket_70_4_2 = 0 # Black Temple
+ProgressionSystem.Bracket_70_5   = 0 # Zul'Aman, Arena Season 3
+ProgressionSystem.Bracket_70_6_1 = 0 # Isle of Quel'Danas, Magister's  Terrace
+ProgressionSystem.Bracket_70_6_2 = 0 # Sunwell Plateau
+
+
 ProgressionSystem.Bracket_71_74 = 0
 ProgressionSystem.Bracket_75_79 = 0
-ProgressionSystem.Bracket_80_7 = 0
-ProgressionSystem.Bracket_80_8 = 0
-ProgressionSystem.Bracket_80_9 = 0
-ProgressionSystem.Bracket_80_10_1 = 0
-ProgressionSystem.Bracket_80_10_2 = 0
+ProgressionSystem.Bracket_80_1 = 0
+ProgressionSystem.Bracket_80_2 = 0
+ProgressionSystem.Bracket_80_3 = 0
+ProgressionSystem.Bracket_80_4_1 = 0
+ProgressionSystem.Bracket_80_4_2 = 0
 ProgressionSystem.Bracket_Custom = 0
 
 #

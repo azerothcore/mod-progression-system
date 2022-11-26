@@ -1,2 +1,2 @@
--- 70 level range - Tier 5
-DELETE FROM `disables` WHERE `entry` IN (548, 550);
+-- 70 level range - Zul Aman
+DELETE FROM `disables` WHERE `entry` IN (568);
