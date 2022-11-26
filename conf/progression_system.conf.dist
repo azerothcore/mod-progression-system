@@ -37,43 +37,41 @@ ProgressionSystem.ReapplyUpdates = 0
 #        Default:     0 - Not loaded.
 #
 
-ProgressionSystem.Bracket_0 = 0
-ProgressionSystem.Bracket_1_19 = 0
-ProgressionSystem.Bracket_20_29 = 0
-ProgressionSystem.Bracket_30_39 = 0
-ProgressionSystem.Bracket_40_49 = 0
-ProgressionSystem.Bracket_50_59_1 = 0
-ProgressionSystem.Bracket_50_59_2 = 0
-ProgressionSystem.Bracket_60_1_1 = 0
-ProgressionSystem.Bracket_60_1_2 = 0
-ProgressionSystem.Bracket_60_2_1 = 0
-ProgressionSystem.Bracket_60_2_2 = 0
-ProgressionSystem.Bracket_60_3_1 = 0
-ProgressionSystem.Bracket_60_3_2 = 0
-ProgressionSystem.Bracket_60_3_3 = 0
-ProgressionSystem.Bracket_61_64 = 0
-ProgressionSystem.Bracket_65_69 = 0
-ProgressionSystem.Bracket_70_1_1 = 0 # Level 70, Flying, Normal Dungeons
-ProgressionSystem.Bracket_70_1_2 = 0 # Level 70, Heroics
-ProgressionSystem.Bracket_70_2_1 = 0 # Gruul's Lair, Magtheridon's Lair, Arena Season 1
-ProgressionSystem.Bracket_70_2_2 = 0 # Karazhan
-ProgressionSystem.Bracket_70_3_1 = 0 # Serpentshrine Cavern
-ProgressionSystem.Bracket_70_3_2 = 0 # The Eye
-ProgressionSystem.Bracket_70_4_1 = 0 # Battle For Mount Hyjal, Arena Season 2
-ProgressionSystem.Bracket_70_4_2 = 0 # Black Temple
-ProgressionSystem.Bracket_70_5   = 0 # Zul'Aman, Arena Season 3
-ProgressionSystem.Bracket_70_6_1 = 0 # Isle of Quel'Danas, Magister's  Terrace
-ProgressionSystem.Bracket_70_6_2 = 0 # Sunwell Plateau
-
-
-ProgressionSystem.Bracket_71_74 = 0
-ProgressionSystem.Bracket_75_79 = 0
-ProgressionSystem.Bracket_80_1 = 0
-ProgressionSystem.Bracket_80_2 = 0
-ProgressionSystem.Bracket_80_3 = 0
-ProgressionSystem.Bracket_80_4_1 = 0
-ProgressionSystem.Bracket_80_4_2 = 0
-ProgressionSystem.Bracket_Custom = 0
+ProgressionSystem.Bracket_0       = 0
+ProgressionSystem.Bracket_1_19    = 0 # Shadowfang Keep, Deadmines, Wailing Caverns, Blackfathom Deeps, Ragefire Chasm
+ProgressionSystem.Bracket_20_29   = 0 # Stormwind Stockades, Razorfen Kraul, Gnomeregan
+ProgressionSystem.Bracket_30_39   = 0 # Uldaman, Razorfen Downs, Scarlet Monastery
+ProgressionSystem.Bracket_40_49   = 0 # Sunken Temple, Zul'Farrak, Maraudon
+ProgressionSystem.Bracket_50_59_1 = 0 # Blackrock Depths, Dire Maul, Scholomance, Stratholme 
+ProgressionSystem.Bracket_50_59_2 = 0 # Blackrock Spire attunement requirement
+ProgressionSystem.Bracket_60_1_1  = 0 # Blackrock Spire
+ProgressionSystem.Bracket_60_1_2  = 0 # Molten Core
+ProgressionSystem.Bracket_60_2_1  = 0 # Onyxia's Lair
+ProgressionSystem.Bracket_60_2_2  = 0 # Blackwing Lair
+ProgressionSystem.Bracket_60_3_1  = 0 # Zul'Gurub
+ProgressionSystem.Bracket_60_3_2  = 0 # AQ20
+ProgressionSystem.Bracket_60_3_3  = 0 # AQ40
+ProgressionSystem.Bracket_61_64   = 0 # 61-64 Dungeons
+ProgressionSystem.Bracket_65_69   = 0 # 65-69 Dungeons
+ProgressionSystem.Bracket_70_1_1  = 0 # Level 70, Flying, Normal Dungeons
+ProgressionSystem.Bracket_70_1_2  = 0 # Level 70, Heroics
+ProgressionSystem.Bracket_70_2_1  = 0 # Gruul's Lair, Magtheridon's Lair, Arena Season 1
+ProgressionSystem.Bracket_70_2_2  = 0 # Karazhan
+ProgressionSystem.Bracket_70_3_1  = 0 # Serpentshrine Cavern
+ProgressionSystem.Bracket_70_3_2  = 0 # The Eye
+ProgressionSystem.Bracket_70_4_1  = 0 # Battle For Mount Hyjal, Arena Season 2
+ProgressionSystem.Bracket_70_4_2  = 0 # Black Temple
+ProgressionSystem.Bracket_70_5    = 0 # Zul'Aman, Arena Season 3
+ProgressionSystem.Bracket_70_6_1  = 0 # Isle of Quel'Danas, Magister's  Terrace
+ProgressionSystem.Bracket_70_6_2  = 0 # Sunwell Plateau
+ProgressionSystem.Bracket_71_74   = 0
+ProgressionSystem.Bracket_75_79   = 0
+ProgressionSystem.Bracket_80_1    = 0
+ProgressionSystem.Bracket_80_2    = 0
+ProgressionSystem.Bracket_80_3    = 0
+ProgressionSystem.Bracket_80_4_1  = 0
+ProgressionSystem.Bracket_80_4_2  = 0
+ProgressionSystem.Bracket_Custom  = 0
 
 #
 #
