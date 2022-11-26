@@ -26,6 +26,7 @@ void AddBracket_70_5_Scripts();
 void AddBracket_70_6_A_Scripts();
 void AddBracket_70_6_B_Scripts();
 void AddBracket_70_6_C_Scripts();
+void AddBracket_70_6_D_Scripts();
 void AddBracket_71_74_Scripts();
 void AddBracket_75_79_Scripts();
 void AddBracket_80_7_Scripts();
@@ -63,6 +64,7 @@ void Addmod_progression_systemScripts()
     AddBracket_70_6_A_Scripts();
     AddBracket_70_6_B_Scripts();
     AddBracket_70_6_C_Scripts();
+    AddBracket_70_6_D_Scripts();
     AddBracket_71_74_Scripts();
     AddBracket_75_79_Scripts();
     AddBracket_80_7_Scripts();
