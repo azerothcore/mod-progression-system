@@ -49,3 +49,10 @@ UPDATE `creature` SET `position_x`=-1850.318237, `position_y`=5487.258301, `posi
 UPDATE `creature` SET `position_x`=-1839.435181, `position_y`=5484.992676, `position_z`=-12.427303, `orientation`=4.23 WHERE `guid`=96660 AND `id1`=20331;
 UPDATE `creature` SET `position_x`=-1832.658813, `position_y`=5497.825195, `position_z`=-12.427303, `orientation`=3.76 WHERE `guid`=96661 AND `id1`=20331;
 UPDATE `creature` SET `position_x`=-1847.195190, `position_y`=5502.587402, `position_z`=-12.427303, `orientation`=5    WHERE `guid`=96662 AND `id1`=20331;
+
+-- Disable Quests
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11481, 11482, 11550);
+INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
+(1, 11481, 'Crisis at the Sunwell'),
+(1, 11482, 'Duty Calls'),
+(1, 11550, 'Enter, the Deceiver...');
