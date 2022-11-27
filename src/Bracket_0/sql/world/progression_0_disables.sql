@@ -96,24 +96,24 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (2, 585, 3, "", "", "Magisters' Terrace");
 
 -- 71-74 level range
-DELETE FROM `disables` WHERE `entry` IN (574, 576, 600, 601, 604, 608, 619);
+DELETE FROM `disables` WHERE `entry` IN (574, 576, 600, 601, 619);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 574, 3, "", "", "Utgarde Keep"),
 (2, 576, 3, "", "", "The Nexus"),
 (2, 600, 3, "", "", "Drak’Tharon Keep"),
 (2, 601, 3, "", "", "Azjol-Nerub"),
-(2, 604, 3, "", "", "Gundrak"),
-(2, 608, 3, "", "", "Violet Hold"),
 (2, 619, 3, "", "", "Ahn’kahet: The Old Kingdom");
 
 -- 75-79 level range
-DELETE FROM `disables` WHERE `entry` IN (575, 578, 595, 599, 602);
+DELETE FROM `disables` WHERE `entry` IN (575, 578, 595, 599, 602, 604, 608);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
 (2, 575, 3, "", "", "Utgarde Pinnacle"),
 (2, 578, 3, "", "", "The Oculus"),
 (2, 595, 3, "", "", "The Culling of Stratholme"),
 (2, 599, 3, "", "", "Halls of Stone"),
-(2, 602, 3, "", "", "Halls of Lighting");
+(2, 602, 3, "", "", "Halls of Lightning"),
+(2, 604, 3, "", "", "Gundrak"),
+(2, 608, 3, "", "", "Violet Hold");
 
 -- 80 level range
 DELETE FROM `disables` WHERE `entry` IN (249, 533, 603, 615, 616, 624, 631, 632, 649, 650, 658, 668, 724, 13276);

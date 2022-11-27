@@ -64,13 +64,13 @@ ProgressionSystem.Bracket_70_4_2  = 0 # Black Temple
 ProgressionSystem.Bracket_70_5    = 0 # Zul'Aman, Arena Season 3
 ProgressionSystem.Bracket_70_6_1  = 0 # Isle of Quel'Danas, Magister's  Terrace
 ProgressionSystem.Bracket_70_6_2  = 0 # Sunwell Plateau, Arena Season 4
-ProgressionSystem.Bracket_71_74   = 0
-ProgressionSystem.Bracket_75_79   = 0
-ProgressionSystem.Bracket_80_1    = 0
-ProgressionSystem.Bracket_80_2    = 0
-ProgressionSystem.Bracket_80_3    = 0
-ProgressionSystem.Bracket_80_4_1  = 0
-ProgressionSystem.Bracket_80_4_2  = 0
+ProgressionSystem.Bracket_71_74   = 0 # 71-74 Dungeons
+ProgressionSystem.Bracket_75_79   = 0 # 75-79 Dungeons
+ProgressionSystem.Bracket_80_1    = 0 # Heroic Dungeons, Naxxramas, Obsidian Sanctum, The Eye of Eternity, Vault of Archavon, Arena Season 5
+ProgressionSystem.Bracket_80_2    = 0 # Ulduar, Trial of the Champion, Arena Season 6
+ProgressionSystem.Bracket_80_3    = 0 # Onyxia's Lair, Trial of The Crusader, Arena Season 7
+ProgressionSystem.Bracket_80_4_1  = 0 # Icecrown Citadel, ICC Dungeons, Arena Season 8
+ProgressionSystem.Bracket_80_4_2  = 0 # Ruby Sanctum
 ProgressionSystem.Bracket_Custom  = 0
 
 #
