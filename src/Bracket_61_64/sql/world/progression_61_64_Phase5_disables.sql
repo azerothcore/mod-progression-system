@@ -53,9 +53,16 @@ UPDATE `creature` SET `position_x`=-1839.435181, `position_y`=5484.992676, `posi
 UPDATE `creature` SET `position_x`=-1832.658813, `position_y`=5497.825195, `position_z`=-12.427303, `orientation`=3.76 WHERE `guid`=96661 AND `id1`=20331;
 UPDATE `creature` SET `position_x`=-1847.195190, `position_y`=5502.587402, `position_z`=-12.427303, `orientation`=5    WHERE `guid`=96662 AND `id1`=20331;
 
--- Disable Quests
-DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11481, 11482, 11550);
+-- Disable breadcrumb quests and SSO dailies
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11481, 11482, 11550, 11513, 11514, 11515, 11516, 11875, 11877, 11880);
 INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 11481, 'Crisis at the Sunwell'),
 (1, 11482, 'Duty Calls'),
-(1, 11550, 'Enter, the Deceiver...');
+(1, 11550, 'Enter, the Deceiver...'),
+(1, 11513, 'Intercepting the Mana Cells'),
+(1, 11514, 'Maintaining the Sunwell Portal'),
+(1, 11515, 'Blood for Blood'),
+(1, 11516, 'Blast the Gateway'),
+(1, 11875, 'Gaining the Advantage'),
+(1, 11877, 'Sunfury Attack Plans'),
+(1, 11880, 'The Multiphase Survey');
