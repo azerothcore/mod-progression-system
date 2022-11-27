@@ -39,8 +39,11 @@ UPDATE `creature` SET `id1`=25153 WHERE `id1`=19142 AND `guid` IN (96643, 96644,
 -- Captain Dranarus (25138) to Seasoned Vindicator (19651)
 UPDATE `creature` SET `id1`=25138 WHERE `id1`=19651;
 
--- Restore Isle of Quel'Danas portal
-UPDATE `gameobject` SET `phasemask` = 1 WHERE `id`=187056;
+-- Restore gameobjects
+UPDATE `gameobject` SET `phasemask` = 1 WHERE `id` IN (
+187056, -- Isle of Quel'Danas Portal
+187345  -- Sunwell Plateau map below A'dal
+);
 
 -- Move G'eras back to their usual spot
 UPDATE `creature` SET `position_x`=-1841.98, `position_y`=5471.1, `position_z`=1.01826, `orientation`=4.39823 WHERE `guid`=96654 AND `id1`=18525;
