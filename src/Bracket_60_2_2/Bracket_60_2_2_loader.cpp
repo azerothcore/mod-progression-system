@@ -12,7 +12,7 @@ void AddBracket_60_2_A_Scripts()
         return;
 
     // Time Lapse: This ability used to permanently reduce threat, but does not do so as of patch 2.0.1
-    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_4", false)))
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_1_1", false)))
     {
         AddSC_boss_chromaggus_60_2_A();
     }
