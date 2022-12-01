@@ -4,8 +4,12 @@
 
 #include "ProgressionSystem.h"
 
+void AddSC_tbc_profession_spellcooldowns();
+
 void AddBracket_61_64_Scripts()
 {
     if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_61_64", false)))
         return;
+
+    AddSC_tbc_profession_spellcooldowns();
 }
