@@ -10,6 +10,6 @@ INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_typ
 (29, 2, 24490, (NULL), (NULL), 'Progression: Phase 1: Karazhan'),
 (46, 1, 10901, (NULL), 'You must complete the quest "The Cudgel of Kar\'desh" starting at "Skar\'this the Heretic" before entering the Serpentshrine Cavern.', 'Progression: Phase 2: Serpentshrine Cavern'),
 (47, 2, 31704, (NULL), (NULL), 'Progression: Phase 2: The Eye'),
-(32, 1, 10432, (NULL), 'You must complete the quest "The Vials of Eternity" before entering the Hyjal Summit.', 'Progression: Phase 3: Battle for Mount Hyjal'),
+(32, 1, 13432, (NULL), 'You must complete the quest "The Vials of Eternity" before entering the Hyjal Summit.', 'Progression: Phase 3: Battle for Mount Hyjal'),
 (64, 2, 32649, 0, (NULL), 'Progression: Phase 3: The Black Temple'),
 (64, 2, 32757, 1, (NULL), 'Progression: Phase 3: The Black Temple');
