@@ -1,3 +1,6 @@
+-- Re-add vendor flags to legacy weapons vendor
+UPDATE `creature_template` SET `npcflag`=`npcflag`|128 WHERE (`entry` IN (12784, 12794));
+
 -- Restore all Legacy PvP vendor inventories to original WotLK values
 DELETE FROM `npc_vendor` WHERE `entry` IN (
 12784, -- Lieutenant Jackspring <Legacy Weapon Quartermaster>
