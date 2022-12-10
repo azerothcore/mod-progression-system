@@ -5,6 +5,7 @@ DELETE FROM `spell_script_names` WHERE `spell_id` = 21056;
 DELETE FROM `creature_text` WHERE `CreatureID` = 12397;
 
 DELETE FROM `creature` WHERE `guid` = 156950 AND `id1` = 12397;
+DELETE FROM `creature_addon` WHERE (`guid` IN (156950));
 
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60000;
 
