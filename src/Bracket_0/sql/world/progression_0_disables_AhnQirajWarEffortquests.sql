@@ -1,5 +1,5 @@
 -- Disable War Effort and AQ Quests
-DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (8286,8288,8301,8302,8303,8316,8376,8377,8378,8379,8380,8381,8382,8507,8556,8557,8689,8690,8691,8692,8693,8694,8695,8696,8697,8698,8699,8700,8701,8702,8703,8704,8719,8731,8732,8800,9023,9338,8275,8276,8496,8498,8501,8502,8534,8535,8536,8537,8538,8539,8540,8541,8687,8737,8738,8739,8770,8771,8772,8773,8774,8775,8776,8777,8779,8782,8786,8787,8791,8805,8806,8807,8808,8810);
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (8286,8288,8301,8302,8303,8316,8376,8377,8378,8379,8380,8381,8382,8507,8556,8557,8689,8690,8691,8692,8693,8694,8695,8696,8697,8698,8699,8700,8701,8702,8703,8704,8719,8731,8732,8800,9023,9338,8275,8276,8496,8498,8501,8502,8534,8535,8536,8537,8538,8539,8540,8541,8548,8572,8573,8574,8687,8737,8738,8739,8770,8771,8772,8773,8774,8775,8776,8777,8779,8782,8786,8787,8791,8792,8793,8794,8795,8796,8797,8805,8806,8807,8808,8810,10500,10501);
 INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 8286, 'What Tomorrow Brings'),
 (1, 8288, 'Only One May Rise'),
@@ -53,6 +53,10 @@ INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 8539, 'Target: Hive\'Zora Hive Sisters'),
 (1, 8540, 'Boots for the Guard'),
 (1, 8541, 'Grinding Stones for the Guard'),
+(1, 8548, 'Volunteer\'s Battlegear'),
+(1, 8572, 'Veteran\'s Battlegear'),
+(1, 8573, 'Champion\'s Battlegear'),
+(1, 8574, 'Stalwart\'s Battlegear'),
 (1, 8687, 'Target: Hive\'Zora Tunnelers'),
 (1, 8737, 'Azure Templar'),
 (1, 8738, 'Hive\'Regal Scout Report'),
@@ -70,8 +74,16 @@ INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 8786, 'Arms for the Field'),
 (1, 8787, 'Armor Kits for the Field'),
 (1, 8791, 'The Fall of Ossirian'),
+(1, 8792, 'The Horde Needs Your Help!'),
+(1, 8793, 'The Horde Needs Your Help!'),
+(1, 8794, 'The Horde Needs Your Help!'),
+(1, 8795, 'The Alliance Needs Your Help!'),
+(1, 8796, 'The Alliance Needs Your Help!'),
+(1, 8797, 'The Alliance Needs Your Help!'),
 (1, 8805, 'Boots for the Guard'),
 (1, 8806, 'Grinding Stones for the Guard'),
 (1, 8807, 'Scrying Materials'),
 (1, 8808, 'Uniform Supplies'),
-(1, 8810, 'Bandages for the Field');
+(1, 8810, 'Bandages for the Field'),
+(1, 10500, 'The Horde Needs Your Help!'),
+(1, 10501, 'The Alliance Needs Your Help!');
