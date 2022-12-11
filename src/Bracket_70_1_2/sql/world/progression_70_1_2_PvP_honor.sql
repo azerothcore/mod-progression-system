@@ -11,13 +11,24 @@ SET @EXTENDED_COST_ARMOR_2 := 173; -- 12750 Honor - Hands, Shoulder
 SET @EXTENDED_COST_ARMOR_3 := 1006; -- 20000 Honor - Head, Legs
 SET @EXTENDED_COST_ARMOR_4 := 2428; -- 21000 Honor - Chest
 
-SET @NPC_ARMOR_ALLIANCE := X;
-SET @NPC_ACCESSORY_ALLIANCE := X;
-SET @NPC_WEAPON_ALLIANCE := X;
+SET @NPC_ARMOR_ALLIANCE := 12777; -- Captain Dirgehammer
+SET @NPC_ACCESSORY_ALLIANCE := 12805; -- Officer Areyn (already has inventory)
+SET @NPC_WEAPON_ALLIANCE := 12782; -- Captain O'Neal
 
-SET @NPC_ARMOR_HORDE := X;
-SET @NPC_ACCESSORY_HORDE := X;
-SET @NPC_WEAPON_HORDE := X;
+SET @NPC_ARMOR_HORDE := 24520; -- Doris Volanthius
+SET @NPC_ACCESSORY_HORDE := 12799; -- Sergeant Ba'sha (already has inventory)
+SET @NPC_WEAPON_HORDE := 14581; -- Sergeant Thunderhorn
+
+SET @GUID := 3000009;
+
+DELETE FROM `creature` WHERE (`id1` IN (@NPC_WEAPON_HORDE,@NPC_ACCESSORY_HORDE,@NPC_ARMOR_HORDE,@NPC_ARMOR_ALLIANCE,@NPC_WEAPON_ALLIANCE,@NPC_ACCESSORY_ALLIANCE)) AND (`guid` BETWEEN @GUID+0 AND @GUID+5);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(@GUID+0, @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID+1, @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID+2, @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
+(@GUID+3, @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
+(@GUID+4, @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID+5, @NPC_ACCESSORY_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8775.85, 423.96, 105.233, 5.73298, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0);
 
 -- Alliance Weapons
 DELETE FROM `npc_vendor` WHERE `entry`=@NPC_WEAPON_ALLIANCE AND `item` IN (28940,28941,28950,28942,28944,28945,28946,28960,28947,28948,28949,28951,28952,28953,28954,28955,28956,28957,28959,28943);
@@ -246,7 +257,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ARMOR_ALLIANCE, 28707, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
 (23, @NPC_ARMOR_ALLIANCE, 31624, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''); -- Priest
 
-DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_ALLIANCE AND `item` IN (25829,28247,28246,28244,28245,28234,28235,28236,28237,28238,30348,30349,30350,30351,38589,28380,28379,28378,28377,28363,28123,28362,28120,28119,28118);
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_ALLIANCE;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
 (@NPC_ACCESSORY_ALLIANCE, 25829, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Talisman of the Alliance
 (@NPC_ACCESSORY_ALLIANCE, 28247, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Dominance
@@ -512,7 +523,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ARMOR_HORDE, 28859, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
 (23, @NPC_ARMOR_HORDE, 31628, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''); -- Priest
 
-DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_HORDE AND `item` IN (24551,28247,28246,28244,28245,28240,28241,28242,28243,28239,30343,30346,30344,30345,38588,28380,28379,28378,28377,28363,28123,28362,28120,28119,28118);
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_HORDE;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
 (@NPC_ACCESSORY_HORDE, 24551, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Talisman of the Horde
 (@NPC_ACCESSORY_HORDE, 28247, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Dominance
