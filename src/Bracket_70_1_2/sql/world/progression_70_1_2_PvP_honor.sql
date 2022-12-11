@@ -20,42 +20,29 @@ SET @NPC_ACCESSORY_HORDE := X;
 SET @NPC_WEAPON_HORDE := X;
 
 -- Alliance Weapons
-'Grand Marshal\'s Barricade'
-,'Grand Marshal\'s Battletome'
-,'Grand Marshal\'s Bonecracker'
-,'Grand Marshal\'s Cleaver'
-,'Grand Marshal\'s Hacker'
-,'Grand Marshal\'s Left Ripper'
-,'Grand Marshal\'s Pummeler'
-,'Grand Marshal\'s Quickblade'
-,'Grand Marshal\'s Right Ripper'
-,'Grand Marshal\'s Shanker'
-,'Grand Marshal\'s Shiv'
-,'Grand Marshal\'s Slicer'
-,'Grand Marshal\'s Spellblade'
-,'Grand Marshal\'s Heavy Crossbow'
-,'Grand Marshal\'s Bonegrinder'
-,'Grand Marshal\'s Decapitator'
-,'Grand Marshal\'s Maul'
-,'Grand Marshal\'s Painsaw'
-,'Grand Marshal\'s War Staff'
-,'Grand Marshal\'s Warblade'
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_WEAPON_ALLIANCE;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_WEAPON_ALLIANCE, 28940, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Barricade
+(@NPC_WEAPON_ALLIANCE, 28941, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Battletome
+(@NPC_WEAPON_ALLIANCE, 28950, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Bonecracker
+(@NPC_WEAPON_ALLIANCE, 28942, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's Bonegrinder
+(@NPC_WEAPON_ALLIANCE, 28944, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Cleaver
+(@NPC_WEAPON_ALLIANCE, 28945, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's Decapitator
+(@NPC_WEAPON_ALLIANCE, 28946, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Hacker
+(@NPC_WEAPON_ALLIANCE, 28960, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's Heavy Crossbow
+(@NPC_WEAPON_ALLIANCE, 28947, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Left Ripper
+(@NPC_WEAPON_ALLIANCE, 28948, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's Maul
+(@NPC_WEAPON_ALLIANCE, 28949, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's Painsaw
+(@NPC_WEAPON_ALLIANCE, 28951, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Pummeler
+(@NPC_WEAPON_ALLIANCE, 28952, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Quickblade
+(@NPC_WEAPON_ALLIANCE, 28953, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Right Ripper
+(@NPC_WEAPON_ALLIANCE, 28954, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Shanker
+(@NPC_WEAPON_ALLIANCE, 28955, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Shiv
+(@NPC_WEAPON_ALLIANCE, 28956, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Slicer
+(@NPC_WEAPON_ALLIANCE, 28957, 0, 0, @EXTENDED_COST_WEAPON_1), -- Grand Marshal's Spellblade
+(@NPC_WEAPON_ALLIANCE, 28959, 0, 0, @EXTENDED_COST_WEAPON_2), -- Grand Marshal's War Staff
+(@NPC_WEAPON_ALLIANCE, 28943, 0, 0, @EXTENDED_COST_WEAPON_2); -- Grand Marshal's Warblade
 
--- Alliance Accessories
-'Pendant of Dominance'
-,'Pendant of Triumph'
-,'Sergeant\'s Heavy Cape'
-,'Sergeant\'s Heavy Cloak'
-,'Band of Dominance'
-,'Band of Triumph'
-,'Talisman of the Alliance'
-,'Bold Ornate Ruby'
-,'Gleaming Ornate Dawnstone'
-,'Inscribed Ornate Topaz'
-,'Potent Ornate Topaz'
-,'Runed Ornate Ruby'
-,'Smooth Ornate Dawnstone'
-,'Medallion of the Alliance'
 -- Armor
 DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ARMOR_ALLIANCE;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -259,30 +246,309 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ARMOR_ALLIANCE, 28707, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
 (23, @NPC_ARMOR_ALLIANCE, 31624, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''); -- Priest
 
-DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ARMOR_ALLIANCE;
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_ALLIANCE;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
-(@NPC_ACCESSORY_ALLIANCE, 28247, 0, 0, 386), -- Band of Dominance
-(@NPC_ACCESSORY_ALLIANCE, 28246, 0, 0, 386), -- Band of Triumph
-(@NPC_ACCESSORY_ALLIANCE, 25829, 0, 0, 98), -- Talisman of the Alliance
-(@NPC_ACCESSORY_ALLIANCE, 28244, 0, 0, 386), -- Pendant of Triumph
-(@NPC_ACCESSORY_ALLIANCE, 28245, 0, 0, 386), -- Pendant of Dominance
-(@NPC_ACCESSORY_ALLIANCE, 28234, 0, 0, 1442), -- Medallion of the Alliance (Rogue)
-(@NPC_ACCESSORY_ALLIANCE, 28235, 0, 0, 1442), -- Medallion of the Alliance (Druid)
-(@NPC_ACCESSORY_ALLIANCE, 28236, 0, 0, 1442), -- Medallion of the Alliance (Paladin)
-(@NPC_ACCESSORY_ALLIANCE, 28237, 0, 0, 1442), -- Medallion of the Alliance (Hunter)
-(@NPC_ACCESSORY_ALLIANCE, 28238, 0, 0, 1442), -- Medallion of the Alliance (Mage)
-(@NPC_ACCESSORY_ALLIANCE, 30348, 0, 0, 1442), -- Medallion of the Alliance (Warlock)
-(@NPC_ACCESSORY_ALLIANCE, 30349, 0, 0, 1442), -- Medallion of the Alliance (Priest)
-(@NPC_ACCESSORY_ALLIANCE, 30350, 0, 0, 1442), -- Medallion of the Alliance (Warrior)
-(@NPC_ACCESSORY_ALLIANCE, 30351, 0, 0, 1442), -- Medallion of the Alliance (Shaman)
-(@NPC_ACCESSORY_ALLIANCE, 38589, 0, 0, 1442), -- Medallion of the Alliance (DK)
-(@NPC_ACCESSORY_ALLIANCE, 28380, 0, 0, 202), -- Sergeant's Heavy Cloak
-(@NPC_ACCESSORY_ALLIANCE, 28379, 0, 0, 202), -- Sergeant's Heavy Cape
-(@NPC_ACCESSORY_ALLIANCE, 28378, 0, 0, 202), -- Sergeant's Heavy Cape
-(@NPC_ACCESSORY_ALLIANCE, 28377, 0, 0, 202), -- Sergeant's Heavy Cloak
-(@NPC_ACCESSORY_ALLIANCE, 28363, 0, 0, 202), -- Inscribed Ornate Topaz
-(@NPC_ACCESSORY_ALLIANCE, 28362, 0, 0, 202), -- Bold Ornate Ruby
-(@NPC_ACCESSORY_ALLIANCE, 28123, 0, 0, 202), -- Potent Ornate Topaz
-(@NPC_ACCESSORY_ALLIANCE, 28120, 0, 0, 202), -- Gleaming Ornate Dawnstone
-(@NPC_ACCESSORY_ALLIANCE, 28119, 0, 0, 202), -- Smooth Ornate Dawnstone
-(@NPC_ACCESSORY_ALLIANCE, 28118, 0, 0, 202), -- Runed Ornate Ruby
+(@NPC_ACCESSORY_ALLIANCE, 25829, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Talisman of the Alliance
+(@NPC_ACCESSORY_ALLIANCE, 28247, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Dominance
+(@NPC_ACCESSORY_ALLIANCE, 28246, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Triumph
+(@NPC_ACCESSORY_ALLIANCE, 28244, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Pendant of Triumph
+(@NPC_ACCESSORY_ALLIANCE, 28245, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Pendant of Dominance
+(@NPC_ACCESSORY_ALLIANCE, 28234, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Rogue)
+(@NPC_ACCESSORY_ALLIANCE, 28235, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Druid)
+(@NPC_ACCESSORY_ALLIANCE, 28236, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Paladin)
+(@NPC_ACCESSORY_ALLIANCE, 28237, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Hunter)
+(@NPC_ACCESSORY_ALLIANCE, 28238, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Mage)
+(@NPC_ACCESSORY_ALLIANCE, 30348, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Warlock)
+(@NPC_ACCESSORY_ALLIANCE, 30349, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Priest)
+(@NPC_ACCESSORY_ALLIANCE, 30350, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Warrior)
+(@NPC_ACCESSORY_ALLIANCE, 30351, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (Shaman)
+(@NPC_ACCESSORY_ALLIANCE, 38589, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Alliance (DK)
+(@NPC_ACCESSORY_ALLIANCE, 28380, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cloak
+(@NPC_ACCESSORY_ALLIANCE, 28379, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cape
+(@NPC_ACCESSORY_ALLIANCE, 28378, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cape
+(@NPC_ACCESSORY_ALLIANCE, 28377, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cloak
+(@NPC_ACCESSORY_ALLIANCE, 28363, 0, 0, @EXTENDED_COST_GEM_2), -- Inscribed Ornate Topaz
+(@NPC_ACCESSORY_ALLIANCE, 28123, 0, 0, @EXTENDED_COST_GEM_2), -- Potent Ornate Topaz
+(@NPC_ACCESSORY_ALLIANCE, 28362, 0, 0, @EXTENDED_COST_GEM_1), -- Bold Ornate Ruby
+(@NPC_ACCESSORY_ALLIANCE, 28120, 0, 0, @EXTENDED_COST_GEM_1), -- Gleaming Ornate Dawnstone
+(@NPC_ACCESSORY_ALLIANCE, 28119, 0, 0, @EXTENDED_COST_GEM_1), -- Smooth Ornate Dawnstone
+(@NPC_ACCESSORY_ALLIANCE, 28118, 0, 0, @EXTENDED_COST_GEM_1); -- Runed Ornate Ruby
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ACCESSORY_ALLIANCE) AND (`SourceEntry` IN (28234,28235,28236,28237,28238,30348,30349,30350,30351,38589));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_ACCESSORY_ALLIANCE, 28234, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Rogue)
+(23, @NPC_ACCESSORY_ALLIANCE, 28235, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Druid)
+(23, @NPC_ACCESSORY_ALLIANCE, 28236, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Paladin)
+(23, @NPC_ACCESSORY_ALLIANCE, 28237, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Hunter)
+(23, @NPC_ACCESSORY_ALLIANCE, 28238, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Mage)
+(23, @NPC_ACCESSORY_ALLIANCE, 30348, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Warlock)
+(23, @NPC_ACCESSORY_ALLIANCE, 30349, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Priest)
+(23, @NPC_ACCESSORY_ALLIANCE, 30350, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Warrior)
+(23, @NPC_ACCESSORY_ALLIANCE, 30351, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Alliance (Shaman)
+(23, @NPC_ACCESSORY_ALLIANCE, 38589, 0, 1, 15, 0, 32, 0, 0, 0, 0, 0, '', ''); -- Medallion of the Alliance (DK)
+
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_WEAPON_HORDE;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_WEAPON_HORDE, 28293, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's Claymore
+(@NPC_WEAPON_HORDE, 28917, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's Bonegrinder
+(@NPC_WEAPON_HORDE, 28918, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's Decapitator
+(@NPC_WEAPON_HORDE, 28919, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's Maul
+(@NPC_WEAPON_HORDE, 28923, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's Painsaw
+(@NPC_WEAPON_HORDE, 28935, 0, 0, @EXTENDED_COST_WEAPON_2), -- High Warlord's War Staff
+(@NPC_WEAPON_HORDE, 28920, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Cleaver
+(@NPC_WEAPON_HORDE, 28921, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Hacker
+(@NPC_WEAPON_HORDE, 28922, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Left Ripper
+(@NPC_WEAPON_HORDE, 28924, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Bonecracker
+(@NPC_WEAPON_HORDE, 28925, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Pummeler
+(@NPC_WEAPON_HORDE, 28926, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Quickblade
+(@NPC_WEAPON_HORDE, 28928, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Right Ripper
+(@NPC_WEAPON_HORDE, 28929, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Shanker
+(@NPC_WEAPON_HORDE, 28930, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Shiv
+(@NPC_WEAPON_HORDE, 28931, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Spellblade
+(@NPC_WEAPON_HORDE, 28937, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Slicer
+(@NPC_WEAPON_HORDE, 28938, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Battletome
+(@NPC_WEAPON_HORDE, 28939, 0, 0, @EXTENDED_COST_WEAPON_1), -- High Warlord's Barricade
+(@NPC_WEAPON_HORDE, 28933, 0, 0, @EXTENDED_COST_WEAPON_2); -- High Warlord's Heavy Crossbow
+
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ARMOR_HORDE;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_ARMOR_HORDE, 28381, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Plate Bracers
+(@NPC_ARMOR_HORDE, 28405, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Dreadweave Cuffs
+(@NPC_ARMOR_HORDE, 28411, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Silk Cuffs
+(@NPC_ARMOR_HORDE, 28424, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Leather Bracers
+(@NPC_ARMOR_HORDE, 28445, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Dragonhide Bracers
+(@NPC_ARMOR_HORDE, 28448, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Wyrmhide Bracers
+(@NPC_ARMOR_HORDE, 28451, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Chain Bracers
+(@NPC_ARMOR_HORDE, 28605, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Linked Bracers
+(@NPC_ARMOR_HORDE, 28638, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Mail Bracers
+(@NPC_ARMOR_HORDE, 28643, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Lamellar Bracers
+(@NPC_ARMOR_HORDE, 28646, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Scaled Bracers
+(@NPC_ARMOR_HORDE, 31598, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- General's Kodohide Bracers
+(@NPC_ARMOR_HORDE, 28383, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Plate Greaves
+(@NPC_ARMOR_HORDE, 28402, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Dreadweave Stalkers
+(@NPC_ARMOR_HORDE, 28410, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Silk Footguards
+(@NPC_ARMOR_HORDE, 28422, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Leather Boots
+(@NPC_ARMOR_HORDE, 28444, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Dragonhide Boots
+(@NPC_ARMOR_HORDE, 28447, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Wyrmhide Boots
+(@NPC_ARMOR_HORDE, 28449, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Chain Sabatons
+(@NPC_ARMOR_HORDE, 28630, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Linked Sabatons
+(@NPC_ARMOR_HORDE, 28640, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Mail Sabatons
+(@NPC_ARMOR_HORDE, 28642, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Lamellar Greaves
+(@NPC_ARMOR_HORDE, 28645, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Scaled Greaves
+(@NPC_ARMOR_HORDE, 31595, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Kodohide Boots
+(@NPC_ARMOR_HORDE, 28385, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Plate Belt
+(@NPC_ARMOR_HORDE, 28404, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Dreadweave Belt
+(@NPC_ARMOR_HORDE, 28409, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Silk Belt
+(@NPC_ARMOR_HORDE, 28423, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Leather Belt
+(@NPC_ARMOR_HORDE, 28443, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Dragonhide Belt
+(@NPC_ARMOR_HORDE, 28446, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Wyrmhide Belt
+(@NPC_ARMOR_HORDE, 28450, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Chain Girdle
+(@NPC_ARMOR_HORDE, 28629, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Linked Girdle
+(@NPC_ARMOR_HORDE, 28639, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Mail Girdle
+(@NPC_ARMOR_HORDE, 28641, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Lamellar Belt
+(@NPC_ARMOR_HORDE, 28644, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Scaled Belt
+(@NPC_ARMOR_HORDE, 31594, 0, 0, @EXTENDED_COST_ARMOR_1), -- General's Kodohide Belt
+(@NPC_ARMOR_HORDE, 28851, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Plate Chestpiece
+(@NPC_ARMOR_HORDE, 28852, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Plate Gauntlets
+(@NPC_ARMOR_HORDE, 28853, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Plate Helm
+(@NPC_ARMOR_HORDE, 28854, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Plate Legguards
+(@NPC_ARMOR_HORDE, 28855, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Plate Shoulders
+(@NPC_ARMOR_HORDE, 28831, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Lamellar Chestpiece
+(@NPC_ARMOR_HORDE, 28861, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Scaled Chestpiece
+(@NPC_ARMOR_HORDE, 31635, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Ornamented Chestplate
+(@NPC_ARMOR_HORDE, 28832, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Lamellar Gauntlets
+(@NPC_ARMOR_HORDE, 28862, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Scaled Gauntlets
+(@NPC_ARMOR_HORDE, 31636, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Ornamented Gloves
+(@NPC_ARMOR_HORDE, 28833, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Lamellar Helm
+(@NPC_ARMOR_HORDE, 28863, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Scaled Helm
+(@NPC_ARMOR_HORDE, 31637, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Ornamented Headguard
+(@NPC_ARMOR_HORDE, 28834, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Lamellar Legguards
+(@NPC_ARMOR_HORDE, 28864, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Scaled Legguards
+(@NPC_ARMOR_HORDE, 31638, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Ornamented Leggings
+(@NPC_ARMOR_HORDE, 28835, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Lamellar Shoulders
+(@NPC_ARMOR_HORDE, 28865, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Scaled Shoulders
+(@NPC_ARMOR_HORDE, 31639, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Ornamented Spaulders
+(@NPC_ARMOR_HORDE, 28805, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Chain Armor
+(@NPC_ARMOR_HORDE, 28806, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Chain Gauntlets
+(@NPC_ARMOR_HORDE, 28807, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Chain Helm
+(@NPC_ARMOR_HORDE, 28808, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Chain Leggings
+(@NPC_ARMOR_HORDE, 28809, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Chain Spaulders
+(@NPC_ARMOR_HORDE, 28840, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Leather Tunic
+(@NPC_ARMOR_HORDE, 28836, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Leather Gloves
+(@NPC_ARMOR_HORDE, 28837, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Leather Helm
+(@NPC_ARMOR_HORDE, 28838, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Leather Legguards
+(@NPC_ARMOR_HORDE, 28839, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Leather Spaulders
+(@NPC_ARMOR_HORDE, 28841, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Linked Armor
+(@NPC_ARMOR_HORDE, 28846, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Mail Armor
+(@NPC_ARMOR_HORDE, 31646, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Ringmail Chestguard
+(@NPC_ARMOR_HORDE, 28842, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Linked Gauntlets
+(@NPC_ARMOR_HORDE, 28847, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Mail Gauntlets
+(@NPC_ARMOR_HORDE, 31647, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Ringmail Gloves
+(@NPC_ARMOR_HORDE, 28843, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Linked Helm
+(@NPC_ARMOR_HORDE, 28848, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Mail Helm
+(@NPC_ARMOR_HORDE, 31648, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Ringmail Headpiece
+(@NPC_ARMOR_HORDE, 28844, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Linked Leggings
+(@NPC_ARMOR_HORDE, 28849, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Mail Leggings
+(@NPC_ARMOR_HORDE, 31649, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Ringmail Legguards
+(@NPC_ARMOR_HORDE, 28845, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Linked Spaulders
+(@NPC_ARMOR_HORDE, 28850, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Mail Spaulders
+(@NPC_ARMOR_HORDE, 31650, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Ringmail Shoulderpads
+(@NPC_ARMOR_HORDE, 28869, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Silk Raiment
+(@NPC_ARMOR_HORDE, 28868, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Silk Handguards
+(@NPC_ARMOR_HORDE, 28867, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Silk Cowl
+(@NPC_ARMOR_HORDE, 28870, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Silk Trousers
+(@NPC_ARMOR_HORDE, 28866, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Silk Amice
+(@NPC_ARMOR_HORDE, 28821, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Dreadweave Robe
+(@NPC_ARMOR_HORDE, 28817, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Dreadweave Gloves
+(@NPC_ARMOR_HORDE, 28818, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Dreadweave Hood
+(@NPC_ARMOR_HORDE, 28819, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Dreadweave Leggings
+(@NPC_ARMOR_HORDE, 28820, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Dreadweave Mantle
+(@NPC_ARMOR_HORDE, 28815, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Dragonhide Tunic
+(@NPC_ARMOR_HORDE, 28875, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Wyrmhide Tunic
+(@NPC_ARMOR_HORDE, 31588, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Kodohide Tunic
+(@NPC_ARMOR_HORDE, 28811, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Dragonhide Gloves
+(@NPC_ARMOR_HORDE, 28871, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Wyrmhide Gloves
+(@NPC_ARMOR_HORDE, 31584, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Kodohide Gloves
+(@NPC_ARMOR_HORDE, 28812, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Dragonhide Helm
+(@NPC_ARMOR_HORDE, 28872, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Wyrmhide Helm
+(@NPC_ARMOR_HORDE, 31585, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Kodohide Helm
+(@NPC_ARMOR_HORDE, 28813, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Dragonhide Legguards
+(@NPC_ARMOR_HORDE, 28873, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Wyrmhide Legguards
+(@NPC_ARMOR_HORDE, 31586, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Kodohide Legguards
+(@NPC_ARMOR_HORDE, 28814, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Dragonhide Spaulders
+(@NPC_ARMOR_HORDE, 28874, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Wyrmhide Spaulders
+(@NPC_ARMOR_HORDE, 31587, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Kodohide Spaulders
+(@NPC_ARMOR_HORDE, 28860, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Satin Robe
+(@NPC_ARMOR_HORDE, 31629, 0, 0, @EXTENDED_COST_ARMOR_4), -- High Warlord's Mooncloth Vestments
+(@NPC_ARMOR_HORDE, 28856, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Satin Gloves
+(@NPC_ARMOR_HORDE, 31621, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Mooncloth Mitts
+(@NPC_ARMOR_HORDE, 28857, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Satin Hood
+(@NPC_ARMOR_HORDE, 31626, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Mooncloth Cowl
+(@NPC_ARMOR_HORDE, 28858, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Satin Leggings
+(@NPC_ARMOR_HORDE, 31627, 0, 0, @EXTENDED_COST_ARMOR_3), -- High Warlord's Mooncloth Legguards
+(@NPC_ARMOR_HORDE, 28859, 0, 0, @EXTENDED_COST_ARMOR_2), -- High Warlord's Satin Mantle
+(@NPC_ARMOR_HORDE, 31628, 0, 0, @EXTENDED_COST_ARMOR_2); -- High Warlord's Mooncloth Shoulderpads
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ARMOR_HORDE) AND (`SourceEntry` IN (28851,28852,28853,28854,28855,28831,28861,31635,28832,28862,31636,28833,28863,31637,28834,28864,31638,28835,28865,31639,28805,28806,28807,28808,28809,28840,28836,28837,28838,28839,28841,28846,31646,28842,28847,31647,28843,28848,31648,28844,28849,31649,28845,28850,31650,28869,28868,28867,28870,28866,28821,28817,28818,28819,28820,28815,28875,31588,28811,28871,31584,28812,28872,31585,28813,28873,31586,28814,28874,31587,28860,31629,28856,31621,28857,31626,28858,31627,28859,31628));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_ARMOR_HORDE, 28851, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_ARMOR_HORDE, 28852, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_ARMOR_HORDE, 28853, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_ARMOR_HORDE, 28854, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_ARMOR_HORDE, 28855, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_ARMOR_HORDE, 28831, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28861, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 31635, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28832, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28862, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 31636, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28833, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28863, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 31637, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28834, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28864, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 31638, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28835, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28865, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 31639, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_ARMOR_HORDE, 28805, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_ARMOR_HORDE, 28806, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_ARMOR_HORDE, 28807, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_ARMOR_HORDE, 28808, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_ARMOR_HORDE, 28809, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_ARMOR_HORDE, 28840, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_ARMOR_HORDE, 28836, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_ARMOR_HORDE, 28837, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_ARMOR_HORDE, 28838, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_ARMOR_HORDE, 28839, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_ARMOR_HORDE, 28841, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28846, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 31646, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28842, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28847, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 31647, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28843, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28848, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 31648, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28844, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28849, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 31649, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28845, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28850, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 31650, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_ARMOR_HORDE, 28869, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_ARMOR_HORDE, 28868, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_ARMOR_HORDE, 28867, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_ARMOR_HORDE, 28870, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_ARMOR_HORDE, 28866, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_ARMOR_HORDE, 28821, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_ARMOR_HORDE, 28817, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_ARMOR_HORDE, 28818, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_ARMOR_HORDE, 28819, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_ARMOR_HORDE, 28820, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_ARMOR_HORDE, 28815, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28875, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 31588, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28811, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28871, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 31584, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28812, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28872, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 31585, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28813, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28873, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 31586, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28814, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28874, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 31587, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_ARMOR_HORDE, 28860, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 31629, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 28856, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 31621, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 28857, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 31626, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 28858, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 31627, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 28859, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_ARMOR_HORDE, 31628, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''); -- Priest
+
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_ACCESSORY_HORDE;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_ACCESSORY_HORDE, 24551, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Talisman of the Horde
+(@NPC_ACCESSORY_HORDE, 28247, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Dominance
+(@NPC_ACCESSORY_HORDE, 28246, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Band of Triumph
+(@NPC_ACCESSORY_HORDE, 28244, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Pendant of Triumph
+(@NPC_ACCESSORY_HORDE, 28245, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Pendant of Dominance
+(@NPC_ACCESSORY_HORDE, 28240, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Rogue)
+(@NPC_ACCESSORY_HORDE, 28241, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Druid)
+(@NPC_ACCESSORY_HORDE, 28242, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Paladin)
+(@NPC_ACCESSORY_HORDE, 28243, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Hunter)
+(@NPC_ACCESSORY_HORDE, 28239, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Mage)
+(@NPC_ACCESSORY_HORDE, 30343, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Warlock)
+(@NPC_ACCESSORY_HORDE, 30346, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Priest)
+(@NPC_ACCESSORY_HORDE, 30344, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Warrior)
+(@NPC_ACCESSORY_HORDE, 30345, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (Shaman)
+(@NPC_ACCESSORY_HORDE, 38588, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Medallion of the Horde (DK)
+(@NPC_ACCESSORY_HORDE, 28380, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cloak
+(@NPC_ACCESSORY_HORDE, 28379, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cape
+(@NPC_ACCESSORY_HORDE, 28378, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cape
+(@NPC_ACCESSORY_HORDE, 28377, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Sergeant's Heavy Cloak
+(@NPC_ACCESSORY_HORDE, 28363, 0, 0, @EXTENDED_COST_GEM_2), -- Inscribed Ornate Topaz
+(@NPC_ACCESSORY_HORDE, 28123, 0, 0, @EXTENDED_COST_GEM_2), -- Potent Ornate Topaz
+(@NPC_ACCESSORY_HORDE, 28362, 0, 0, @EXTENDED_COST_GEM_1), -- Bold Ornate Ruby
+(@NPC_ACCESSORY_HORDE, 28120, 0, 0, @EXTENDED_COST_GEM_1), -- Gleaming Ornate Dawnstone
+(@NPC_ACCESSORY_HORDE, 28119, 0, 0, @EXTENDED_COST_GEM_1), -- Smooth Ornate Dawnstone
+(@NPC_ACCESSORY_HORDE, 28118, 0, 0, @EXTENDED_COST_GEM_1); -- Runed Ornate Ruby
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ACCESSORY_HORDE) AND (`SourceEntry` IN (28240,28241,28242,28243,28239,30343,30346,30344,30345,38588));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_ACCESSORY_HORDE, 28240, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Rogue)
+(23, @NPC_ACCESSORY_HORDE, 28241, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Druid)
+(23, @NPC_ACCESSORY_HORDE, 28242, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Paladin)
+(23, @NPC_ACCESSORY_HORDE, 28243, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Hunter)
+(23, @NPC_ACCESSORY_HORDE, 28239, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Mage)
+(23, @NPC_ACCESSORY_HORDE, 30343, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Warlock)
+(23, @NPC_ACCESSORY_HORDE, 30346, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Priest)
+(23, @NPC_ACCESSORY_HORDE, 30344, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Warrior)
+(23, @NPC_ACCESSORY_HORDE, 30345, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Medallion of the Horde (Shaman)
+(23, @NPC_ACCESSORY_HORDE, 38588, 0, 1, 15, 0, 32, 0, 0, 0, 0, 0, '', ''); -- Medallion of the Horde (DK)
