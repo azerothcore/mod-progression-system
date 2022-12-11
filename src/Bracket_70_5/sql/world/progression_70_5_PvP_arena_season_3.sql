@@ -85,114 +85,114 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `Exte
 (@NPC_EVEE, 33661, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Vengeful Gladiator's Barrier
 (@NPC_EVEE, 33662, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Bonecracker
 (@NPC_EVEE, 33663, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's Bonegrinder
-(@NPC_EVEE, 33664, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Armor
-(@NPC_EVEE, 33665, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Chain Gauntlets
-(@NPC_EVEE, 33666, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Helm
-(@NPC_EVEE, 33667, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Leggings
-(@NPC_EVEE, 33668, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Chain Spaulders
+(@NPC_EVEE, 33664, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Armor
+(@NPC_EVEE, 33665, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Chain Gauntlets
+(@NPC_EVEE, 33666, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Helm
+(@NPC_EVEE, 33667, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Chain Leggings
+(@NPC_EVEE, 33668, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Chain Spaulders
 (@NPC_EVEE, 33669, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Vengeful Gladiator's Cleaver
 (@NPC_EVEE, 33670, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's Decapitator
-(@NPC_EVEE, 33671, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Dragonhide Gloves
-(@NPC_EVEE, 33672, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Helm
-(@NPC_EVEE, 33673, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Legguards
-(@NPC_EVEE, 33674, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Dragonhide Spaulders
-(@NPC_EVEE, 33675, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Tunic
-(@NPC_EVEE, 33676, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Dreadweave Gloves
-(@NPC_EVEE, 33677, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Hood
-(@NPC_EVEE, 33678, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Leggings
-(@NPC_EVEE, 33679, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Dreadweave Mantle
-(@NPC_EVEE, 33680, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Robe
+(@NPC_EVEE, 33671, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Dragonhide Gloves
+(@NPC_EVEE, 33672, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Helm
+(@NPC_EVEE, 33673, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Legguards
+(@NPC_EVEE, 33674, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Dragonhide Spaulders
+(@NPC_EVEE, 33675, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dragonhide Tunic
+(@NPC_EVEE, 33676, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Dreadweave Gloves
+(@NPC_EVEE, 33677, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Hood
+(@NPC_EVEE, 33678, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Leggings
+(@NPC_EVEE, 33679, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Dreadweave Mantle
+(@NPC_EVEE, 33680, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Dreadweave Robe
 (@NPC_EVEE, 33681, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Endgame
-(@NPC_EVEE, 33682, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Felweave Amice
-(@NPC_EVEE, 33683, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Cowl
-(@NPC_EVEE, 33684, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Felweave Handguards
-(@NPC_EVEE, 33685, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Raiment
-(@NPC_EVEE, 33686, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Trousers
+(@NPC_EVEE, 33682, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Felweave Amice
+(@NPC_EVEE, 33683, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Cowl
+(@NPC_EVEE, 33684, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Felweave Handguards
+(@NPC_EVEE, 33685, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Raiment
+(@NPC_EVEE, 33686, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Felweave Trousers
 (@NPC_EVEE, 33687, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Vengeful Gladiator's Gavel
 (@NPC_EVEE, 33688, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's Greatsword
 (@NPC_EVEE, 33689, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Hacker
-(@NPC_EVEE, 33690, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Kodohide Gloves
-(@NPC_EVEE, 33691, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Helm
-(@NPC_EVEE, 33692, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Legguards
-(@NPC_EVEE, 33693, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Kodohide Spaulders
-(@NPC_EVEE, 33694, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Tunic
-(@NPC_EVEE, 33695, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Chestpiece
-(@NPC_EVEE, 33696, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Lamellar Gauntlets
-(@NPC_EVEE, 33697, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Helm
-(@NPC_EVEE, 33698, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Legguards
-(@NPC_EVEE, 33699, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Lamellar Shoulders
-(@NPC_EVEE, 33700, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Leather Gloves
-(@NPC_EVEE, 33701, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Helm
-(@NPC_EVEE, 33702, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Legguards
-(@NPC_EVEE, 33703, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Leather Spaulders
-(@NPC_EVEE, 33704, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Tunic
+(@NPC_EVEE, 33690, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Kodohide Gloves
+(@NPC_EVEE, 33691, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Helm
+(@NPC_EVEE, 33692, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Legguards
+(@NPC_EVEE, 33693, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Kodohide Spaulders
+(@NPC_EVEE, 33694, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Kodohide Tunic
+(@NPC_EVEE, 33695, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Chestpiece
+(@NPC_EVEE, 33696, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Lamellar Gauntlets
+(@NPC_EVEE, 33697, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Helm
+(@NPC_EVEE, 33698, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Lamellar Legguards
+(@NPC_EVEE, 33699, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Lamellar Shoulders
+(@NPC_EVEE, 33700, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Leather Gloves
+(@NPC_EVEE, 33701, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Helm
+(@NPC_EVEE, 33702, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Legguards
+(@NPC_EVEE, 33703, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Leather Spaulders
+(@NPC_EVEE, 33704, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Leather Tunic
 (@NPC_EVEE, 33705, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Left Ripper
-(@NPC_EVEE, 33706, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Armor
-(@NPC_EVEE, 33707, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Linked Gauntlets
-(@NPC_EVEE, 33708, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Helm
-(@NPC_EVEE, 33709, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Leggings
-(@NPC_EVEE, 33710, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Linked Spaulders
-(@NPC_EVEE, 33711, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Armor
-(@NPC_EVEE, 33712, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Mail Gauntlets
-(@NPC_EVEE, 33713, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Helm
-(@NPC_EVEE, 33714, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Leggings
-(@NPC_EVEE, 33715, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Mail Spaulders
+(@NPC_EVEE, 33706, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Armor
+(@NPC_EVEE, 33707, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Linked Gauntlets
+(@NPC_EVEE, 33708, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Helm
+(@NPC_EVEE, 33709, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Linked Leggings
+(@NPC_EVEE, 33710, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Linked Spaulders
+(@NPC_EVEE, 33711, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Armor
+(@NPC_EVEE, 33712, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Mail Gauntlets
+(@NPC_EVEE, 33713, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Helm
+(@NPC_EVEE, 33714, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mail Leggings
+(@NPC_EVEE, 33715, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Mail Spaulders
 (@NPC_EVEE, 33716, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's Staff
-(@NPC_EVEE, 33717, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Mooncloth Gloves
-(@NPC_EVEE, 33718, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Hood
-(@NPC_EVEE, 33719, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Leggings
-(@NPC_EVEE, 33720, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Mooncloth Mantle
-(@NPC_EVEE, 33721, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Robe
-(@NPC_EVEE, 33722, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Chestguard
-(@NPC_EVEE, 33723, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Ornamented Gloves
-(@NPC_EVEE, 33724, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Headcover
-(@NPC_EVEE, 33725, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Legplates
-(@NPC_EVEE, 33726, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Ornamented Spaulders
+(@NPC_EVEE, 33717, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Mooncloth Gloves
+(@NPC_EVEE, 33718, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Hood
+(@NPC_EVEE, 33719, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Leggings
+(@NPC_EVEE, 33720, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Mooncloth Mantle
+(@NPC_EVEE, 33721, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Mooncloth Robe
+(@NPC_EVEE, 33722, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Chestguard
+(@NPC_EVEE, 33723, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Ornamented Gloves
+(@NPC_EVEE, 33724, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Headcover
+(@NPC_EVEE, 33725, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ornamented Legplates
+(@NPC_EVEE, 33726, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Ornamented Spaulders
 (@NPC_EVEE, 33727, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's Painsaw
-(@NPC_EVEE, 33728, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Chestpiece
-(@NPC_EVEE, 33729, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Plate Gauntlets
-(@NPC_EVEE, 33730, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Helm
-(@NPC_EVEE, 33731, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Legguards
-(@NPC_EVEE, 33732, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Plate Shoulders
+(@NPC_EVEE, 33728, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Chestpiece
+(@NPC_EVEE, 33729, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Plate Gauntlets
+(@NPC_EVEE, 33730, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Helm
+(@NPC_EVEE, 33731, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Plate Legguards
+(@NPC_EVEE, 33732, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Plate Shoulders
 (@NPC_EVEE, 33733, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Vengeful Gladiator's Pummeler
 (@NPC_EVEE, 33734, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Quickblade
 (@NPC_EVEE, 33735, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Vengeful Gladiator's Redoubt
 (@NPC_EVEE, 33736, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Reprieve
 (@NPC_EVEE, 33737, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Vengeful Gladiator's Right Ripper
-(@NPC_EVEE, 33738, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Armor
-(@NPC_EVEE, 33739, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Ringmail Gauntlets
-(@NPC_EVEE, 33740, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Helm
-(@NPC_EVEE, 33741, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Leggings
-(@NPC_EVEE, 33742, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Ringmail Spaulders
+(@NPC_EVEE, 33738, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Armor
+(@NPC_EVEE, 33739, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Ringmail Gauntlets
+(@NPC_EVEE, 33740, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Helm
+(@NPC_EVEE, 33741, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Ringmail Leggings
+(@NPC_EVEE, 33742, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Ringmail Spaulders
 (@NPC_EVEE, 33743, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Vengeful Gladiator's Salvation
-(@NPC_EVEE, 33744, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Satin Gloves
-(@NPC_EVEE, 33745, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Hood
-(@NPC_EVEE, 33746, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Leggings
-(@NPC_EVEE, 33747, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Satin Mantle
-(@NPC_EVEE, 33748, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Robe
-(@NPC_EVEE, 33749, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Chestpiece
-(@NPC_EVEE, 33750, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Scaled Gauntlets
-(@NPC_EVEE, 33751, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Helm
-(@NPC_EVEE, 33752, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Legguards
-(@NPC_EVEE, 33753, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Scaled Shoulders
+(@NPC_EVEE, 33744, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Satin Gloves
+(@NPC_EVEE, 33745, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Hood
+(@NPC_EVEE, 33746, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Leggings
+(@NPC_EVEE, 33747, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Satin Mantle
+(@NPC_EVEE, 33748, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Satin Robe
+(@NPC_EVEE, 33749, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Chestpiece
+(@NPC_EVEE, 33750, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Scaled Gauntlets
+(@NPC_EVEE, 33751, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Helm
+(@NPC_EVEE, 33752, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Scaled Legguards
+(@NPC_EVEE, 33753, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Scaled Shoulders
 (@NPC_EVEE, 33754, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Vengeful Gladiator's Shanker
 (@NPC_EVEE, 33755, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Vengeful Gladiator's Shield Wall
 (@NPC_EVEE, 33756, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Shiv
-(@NPC_EVEE, 33757, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Silk Amice
-(@NPC_EVEE, 33758, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Cowl
-(@NPC_EVEE, 33759, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Silk Handguards
-(@NPC_EVEE, 33760, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Raiment
-(@NPC_EVEE, 33761, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Trousers
+(@NPC_EVEE, 33757, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Silk Amice
+(@NPC_EVEE, 33758, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Cowl
+(@NPC_EVEE, 33759, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Silk Handguards
+(@NPC_EVEE, 33760, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Raiment
+(@NPC_EVEE, 33761, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Silk Trousers
 (@NPC_EVEE, 33762, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Vengeful Gladiator's Slicer
 (@NPC_EVEE, 33763, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Vengeful Gladiator's Spellblade
 (@NPC_EVEE, 33764, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Vengeful Gladiator's Touch of Defeat
 (@NPC_EVEE, 33765, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Vengeful Gladiator's War Edge
 (@NPC_EVEE, 33766, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Vengeful Gladiator's War Staff
-(@NPC_EVEE, 33767, 0, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Wyrmhide Gloves
-(@NPC_EVEE, 33768, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Helm
-(@NPC_EVEE, 33769, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Legguards
-(@NPC_EVEE, 33770, 0, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Wyrmhide Spaulders
-(@NPC_EVEE, 33771, 0, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Tunic
+(@NPC_EVEE, 33767, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Vengeful Gladiator's Wyrmhide Gloves
+(@NPC_EVEE, 33768, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Helm
+(@NPC_EVEE, 33769, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Legguards
+(@NPC_EVEE, 33770, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Vengeful Gladiator's Wyrmhide Spaulders
+(@NPC_EVEE, 33771, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Vengeful Gladiator's Wyrmhide Tunic
 (@NPC_EVEE, 33801, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Vengeful Gladiator's Mutilator
 (@NPC_EVEE, 33841, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Vengeful Gladiator's Idol of Tenacity
 (@NPC_EVEE, 33842, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Vengeful Gladiator's Libram of Justice
@@ -270,7 +270,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_EVEE, 33724, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
 (23, @NPC_EVEE, 33725, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
 (23, @NPC_EVEE, 33726, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
-(23, @NPC_EVEE, 33728, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warriore
+(23, @NPC_EVEE, 33728, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
 (23, @NPC_EVEE, 33729, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
 (23, @NPC_EVEE, 33730, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
 (23, @NPC_EVEE, 33731, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
