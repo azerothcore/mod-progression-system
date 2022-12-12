@@ -309,10 +309,10 @@ SET @GUID := 3000031;
 
 UPDATE `creature_template` SET `subname` = 'Accessories Vendor', `npcflag`=`npcflag`|128 WHERE (`entry` = @NPC_GREX);
 
-DELETE FROM `creature` WHERE (`id1` = @NPC_GREX) AND (`guid` BETWEEN @GUID+0 AND @GUID+3);
+DELETE FROM `creature` WHERE (`id1` = @NPC_GREX) AND `guid` IN (@GUID+0, @GUID+1);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(@GUID+0, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID+1, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, -2163.33, 6659.34, 0.1057, 6.17846, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0);
+(@GUID+0, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID+1, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, -1968.69, 5171.64, -38.3121, 0.424065, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0);
 
 DELETE FROM `game_event_creature` WHERE `eventEntry` IN (55, 56, 76) AND (`guid` IN (@GUID+0, @GUID+1));
 INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
@@ -330,7 +330,7 @@ SET @EXTENDED_COST_ACCESSORY_3 := 1923; -- 18000 Honor - Waist
 SET @EXTENDED_COST_ACCESSORY_4 := 1911; -- 18000 Honor - Feet
 SET @EXTENDED_COST_ACCESSORY_5 := 127 ; -- 16000 Honor - Pendant
 
-DELETE FROM `npc_vendor` WHERE `entry`=@NPC_GREX AND `item` IN (33056,33064,33057,32809,32797,32785,32786,32810,32799,32811,32787,32800,32788,32812,32801,32813,32789,32802,32790,32814,32816,32803,32791,32817,32804,32792,32979,32980,32981,32988,32989,32990,33067,33065,33068,33066,32805,32818,32793,32997,32998,32999,32806,32819,32794,32807,32820,32795,32808,32796,32821);
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_GREX;
 INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
 (@NPC_GREX, 33056, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Dominance
 (@NPC_GREX, 33064, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Salvation
