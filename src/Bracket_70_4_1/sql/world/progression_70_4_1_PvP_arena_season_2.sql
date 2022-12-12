@@ -302,3 +302,57 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ZOKK, 32058, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_ZOKK, 32059, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_ZOKK, 32060, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''); -- Druid
+
+-- Accessories
+
+(564, 33056, 0, 0, 2028, 0, 'Veteran\'s Band of Dominance');
+(564, 33064, 0, 0, 2028, 0, 'Veteran\'s Band of Salvation');
+(564, 33057, 0, 0, 2028, 0, 'Veteran\'s Band of Triumph');
+(564, 32809, 0, 0, 1935, 0, 'Veteran\'s Chain Bracers');
+(564, 32797, 0, 0, 1923, 0, 'Veteran\'s Chain Girdle');
+(564, 32785, 0, 0, 1911, 0, 'Veteran\'s Chain Sabatons');
+(564, 32786, 0, 0, 1911, 0, 'Veteran\'s Dragonhide Boots');
+(564, 32810, 0, 0, 1935, 0, 'Veteran\'s Dragonhide Bracers');
+(564, 32799, 0, 0, 1923, 0, 'Veteran\'s Dreadweave Belt');
+(564, 32811, 0, 0, 1935, 0, 'Veteran\'s Dreadweave Cuffs');
+(564, 32787, 0, 0, 1911, 0, 'Veteran\'s Dreadweave Stalkers');
+(564, 32800, 0, 0, 1923, 0, 'Veteran\'s Kodohide Belt');
+(564, 32788, 0, 0, 1911, 0, 'Veteran\'s Kodohide Boots');
+(564, 32812, 0, 0, 1935, 0, 'Veteran\'s Kodohide Bracers');
+(564, 32801, 0, 0, 1923, 0, 'Veteran\'s Lamellar Belt');
+(564, 32813, 0, 0, 1935, 0, 'Veteran\'s Lamellar Bracers');
+(564, 32789, 0, 0, 1911, 0, 'Veteran\'s Lamellar Greaves');
+(564, 32802, 0, 0, 1923, 0, 'Veteran\'s Leather Belt');
+(564, 32790, 0, 0, 1911, 0, 'Veteran\'s Leather Boots');
+(564, 32814, 0, 0, 1935, 0, 'Veteran\'s Leather Bracers');
+(564, 32816, 0, 0, 1935, 0, 'Veteran\'s Linked Bracers');
+(564, 32803, 0, 0, 1923, 0, 'Veteran\'s Linked Girdle');
+(564, 32791, 0, 0, 1911, 0, 'Veteran\'s Linked Sabatons');
+(564, 32817, 0, 0, 1935, 0, 'Veteran\'s Mail Bracers');
+(564, 32804, 0, 0, 1923, 0, 'Veteran\'s Mail Girdle');
+(564, 32792, 0, 0, 1911, 0, 'Veteran\'s Mail Sabatons');
+(564, 32979, 0, 0, 1923, 0, 'Veteran\'s Mooncloth Belt');
+(564, 32980, 0, 0, 1935, 0, 'Veteran\'s Mooncloth Cuffs');
+(564, 32981, 0, 0, 1911, 0, 'Veteran\'s Mooncloth Slippers');
+(564, 32988, 0, 0, 1923, 0, 'Veteran\'s Ornamented Belt');
+(564, 32989, 0, 0, 1935, 0, 'Veteran\'s Ornamented Bracers');
+(564, 32990, 0, 0, 1911, 0, 'Veteran\'s Ornamented Greaves');
+(564, 33067, 0, 0, 127 , 0, 'Veteran\'s Pendant of Conquest');
+(564, 33065, 0, 0, 127 , 0, 'Veteran\'s Pendant of Dominance');
+(564, 33068, 0, 0, 127 , 0, 'Veteran\'s Pendant of Salvation');
+(564, 33066, 0, 0, 127 , 0, 'Veteran\'s Pendant of Triumph');
+(564, 32805, 0, 0, 1923, 0, 'Veteran\'s Plate Belt');
+(564, 32818, 0, 0, 1935, 0, 'Veteran\'s Plate Bracers');
+(564, 32793, 0, 0, 1911, 0, 'Veteran\'s Plate Greaves');
+(564, 32997, 0, 0, 1935, 0, 'Veteran\'s Ringmail Bracers');
+(564, 32998, 0, 0, 1923, 0, 'Veteran\'s Ringmail Girdle');
+(564, 32999, 0, 0, 1911, 0, 'Veteran\'s Ringmail Sabatons');
+(564, 32806, 0, 0, 1923, 0, 'Veteran\'s Scaled Belt');
+(564, 32819, 0, 0, 1935, 0, 'Veteran\'s Scaled Bracers');
+(564, 32794, 0, 0, 1911, 0, 'Veteran\'s Scaled Greaves');
+(564, 32807, 0, 0, 1923, 0, 'Veteran\'s Silk Belt');
+(564, 32820, 0, 0, 1935, 0, 'Veteran\'s Silk Cuffs');
+(564, 32795, 0, 0, 1911, 0, 'Veteran\'s Silk Footguards');
+(564, 32808, 0, 0, 1923, 0, 'Veteran\'s Wyrmhide Belt');
+(564, 32796, 0, 0, 1911, 0, 'Veteran\'s Wyrmhide Boots');
+(564, 32821, 0, 0, 1935, 0, 'Veteran\'s Wyrmhide Bracers');
