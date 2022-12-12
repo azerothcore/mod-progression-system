@@ -312,67 +312,115 @@ SET @EXTENDED_COST_ACCESSORY_7 := 127; -- 16000 Honor - Vindicator's Pendant
 
 DELETE FROM `npc_vendor` WHERE `entry`=@NPC_GREX AND `item` IN (35327,34049,34576,34162,33832,34050,33056,33064,33057,33853,33918,35320,33919,33876,33877,33878,33879,33880,33881,33882,33883,33884,33885,33886,33887,33888,33889,33890,33891,33892,33893,33894,33895,33896,33897,33898,33899,33900,33901,33902,33903,33904,33905,33920,33921,35317,33922,35319,33923,33811,33813,33812,33906,33907,33908,33909,33910,33911,33912,33913,33914,33915,33916,33917);
 INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
-(@NPC_GREX, 35327, 0, 0, 0, 2289), -- Battlemaster's Alacrity
-(@NPC_GREX, 34049, 0, 0, 0, 2289), -- Battlemaster's Audacity
-(@NPC_GREX, 34576, 0, 0, 0, 2289), -- Battlemaster's Cruelty
-(@NPC_GREX, 34162, 0, 0, 0, 2289), -- Battlemaster's Depravity
-(@NPC_GREX, 33832, 0, 0, 0, 2289), -- Battlemaster's Determination
-(@NPC_GREX, 34050, 0, 0, 0, 2289), -- Battlemaster's Perseverance
-(@NPC_GREX, 33056, 0, 0, 0, 129 ), -- Veteran's Band of Dominance
-(@NPC_GREX, 33064, 0, 0, 0, 129 ), -- Veteran's Band of Salvation
-(@NPC_GREX, 33057, 0, 0, 0, 129 ), -- Veteran's Band of Triumph
-(@NPC_GREX, 33853, 0, 0, 0, 2028), -- Vindicator's Band of Dominance
-(@NPC_GREX, 33918, 0, 0, 0, 2028), -- Vindicator's Band of Salvation
-(@NPC_GREX, 35320, 0, 0, 0, 2028), -- Vindicator's Band of Subjugation
-(@NPC_GREX, 33919, 0, 0, 0, 2028), -- Vindicator's Band of Triumph
-(@NPC_GREX, 33876, 0, 0, 0, 2401), -- Vindicator's Chain Bracers
-(@NPC_GREX, 33877, 0, 0, 0, 1923), -- Vindicator's Chain Girdle
-(@NPC_GREX, 33878, 0, 0, 0, 2400), -- Vindicator's Chain Sabatons
-(@NPC_GREX, 33879, 0, 0, 0, 1923), -- Vindicator's Dragonhide Belt
-(@NPC_GREX, 33880, 0, 0, 0, 2400), -- Vindicator's Dragonhide Boots
-(@NPC_GREX, 33881, 0, 0, 0, 2401), -- Vindicator's Dragonhide Bracers
-(@NPC_GREX, 33882, 0, 0, 0, 1923), -- Vindicator's Dreadweave Belt
-(@NPC_GREX, 33883, 0, 0, 0, 2401), -- Vindicator's Dreadweave Cuffs
-(@NPC_GREX, 33884, 0, 0, 0, 2400), -- Vindicator's Dreadweave Stalkers
-(@NPC_GREX, 33885, 0, 0, 0, 1923), -- Vindicator's Kodohide Belt
-(@NPC_GREX, 33886, 0, 0, 0, 2400), -- Vindicator's Kodohide Boots
-(@NPC_GREX, 33887, 0, 0, 0, 2401), -- Vindicator's Kodohide Bracers
-(@NPC_GREX, 33888, 0, 0, 0, 1923), -- Vindicator's Lamellar Belt
-(@NPC_GREX, 33889, 0, 0, 0, 2401), -- Vindicator's Lamellar Bracers
-(@NPC_GREX, 33890, 0, 0, 0, 2400), -- Vindicator's Lamellar Greaves
-(@NPC_GREX, 33891, 0, 0, 0, 1923), -- Vindicator's Leather Belt
-(@NPC_GREX, 33892, 0, 0, 0, 2400), -- Vindicator's Leather Boots
-(@NPC_GREX, 33893, 0, 0, 0, 2401), -- Vindicator's Leather Bracers
-(@NPC_GREX, 33894, 0, 0, 0, 2401), -- Vindicator's Linked Bracers
-(@NPC_GREX, 33895, 0, 0, 0, 1923), -- Vindicator's Linked Girdle
-(@NPC_GREX, 33896, 0, 0, 0, 2400), -- Vindicator's Linked Sabatons
-(@NPC_GREX, 33897, 0, 0, 0, 2401), -- Vindicator's Mail Bracers
-(@NPC_GREX, 33898, 0, 0, 0, 1923), -- Vindicator's Mail Girdle
-(@NPC_GREX, 33899, 0, 0, 0, 2400), -- Vindicator's Mail Sabatons
-(@NPC_GREX, 33900, 0, 0, 0, 1923), -- Vindicator's Mooncloth Belt
-(@NPC_GREX, 33901, 0, 0, 0, 2401), -- Vindicator's Mooncloth Cuffs
-(@NPC_GREX, 33902, 0, 0, 0, 2400), -- Vindicator's Mooncloth Slippers
-(@NPC_GREX, 33903, 0, 0, 0, 1923), -- Vindicator's Ornamented Belt
-(@NPC_GREX, 33904, 0, 0, 0, 2401), -- Vindicator's Ornamented Bracers
-(@NPC_GREX, 33905, 0, 0, 0, 2400), -- Vindicator's Ornamented Greaves
-(@NPC_GREX, 33920, 0, 0, 0, 127 ), -- Vindicator's Pendant of Conquest
-(@NPC_GREX, 33921, 0, 0, 0, 127 ), -- Vindicator's Pendant of Dominance
-(@NPC_GREX, 35317, 0, 0, 0, 127 ), -- Vindicator's Pendant of Reprieve
-(@NPC_GREX, 33922, 0, 0, 0, 127 ), -- Vindicator's Pendant of Salvation
-(@NPC_GREX, 35319, 0, 0, 0, 127 ), -- Vindicator's Pendant of Subjugation
-(@NPC_GREX, 33923, 0, 0, 0, 127 ), -- Vindicator's Pendant of Triumph
-(@NPC_GREX, 33811, 0, 0, 0, 1923), -- Vindicator's Plate Belt
-(@NPC_GREX, 33813, 0, 0, 0, 2401), -- Vindicator's Plate Bracers
-(@NPC_GREX, 33812, 0, 0, 0, 2400), -- Vindicator's Plate Greaves
-(@NPC_GREX, 33906, 0, 0, 0, 2401), -- Vindicator's Ringmail Bracers
-(@NPC_GREX, 33907, 0, 0, 0, 1923), -- Vindicator's Ringmail Girdle
-(@NPC_GREX, 33908, 0, 0, 0, 2400), -- Vindicator's Ringmail Sabatons
-(@NPC_GREX, 33909, 0, 0, 0, 1923), -- Vindicator's Scaled Belt
-(@NPC_GREX, 33910, 0, 0, 0, 2401), -- Vindicator's Scaled Bracers
-(@NPC_GREX, 33911, 0, 0, 0, 2400), -- Vindicator's Scaled Greaves
-(@NPC_GREX, 33912, 0, 0, 0, 1923), -- Vindicator's Silk Belt
-(@NPC_GREX, 33913, 0, 0, 0, 2401), -- Vindicator's Silk Cuffs
-(@NPC_GREX, 33914, 0, 0, 0, 2400), -- Vindicator's Silk Footguards
-(@NPC_GREX, 33915, 0, 0, 0, 1923), -- Vindicator's Wyrmhide Belt
-(@NPC_GREX, 33916, 0, 0, 0, 2400), -- Vindicator's Wyrmhide Boots
-(@NPC_GREX, 33917, 0, 0, 0, 2401); -- Vindicator's Wyrmhide Bracers
+(@NPC_GREX, 35327, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Alacrity
+(@NPC_GREX, 34049, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Audacity
+(@NPC_GREX, 34576, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Cruelty
+(@NPC_GREX, 34162, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Depravity
+(@NPC_GREX, 33832, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Determination
+(@NPC_GREX, 34050, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1), -- Battlemaster's Perseverance
+(@NPC_GREX, 33056, 4, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Veteran's Band of Dominance
+(@NPC_GREX, 33064, 4, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Veteran's Band of Salvation
+(@NPC_GREX, 33057, 4, 0, 0, @EXTENDED_COST_ACCESSORY_2), -- Veteran's Band of Triumph
+(@NPC_GREX, 33853, 1, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Vindicator's Band of Dominance
+(@NPC_GREX, 33918, 1, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Vindicator's Band of Salvation
+(@NPC_GREX, 35320, 1, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Vindicator's Band of Subjugation
+(@NPC_GREX, 33919, 1, 0, 0, @EXTENDED_COST_ACCESSORY_3), -- Vindicator's Band of Triumph
+(@NPC_GREX, 33876, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Chain Bracers
+(@NPC_GREX, 33877, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Chain Girdle
+(@NPC_GREX, 33878, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Chain Sabatons
+(@NPC_GREX, 33879, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Dragonhide Belt
+(@NPC_GREX, 33880, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Dragonhide Boots
+(@NPC_GREX, 33881, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Dragonhide Bracers
+(@NPC_GREX, 33882, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Dreadweave Belt
+(@NPC_GREX, 33883, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Dreadweave Cuffs
+(@NPC_GREX, 33884, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Dreadweave Stalkers
+(@NPC_GREX, 33885, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Kodohide Belt
+(@NPC_GREX, 33886, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Kodohide Boots
+(@NPC_GREX, 33887, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Kodohide Bracers
+(@NPC_GREX, 33888, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Lamellar Belt
+(@NPC_GREX, 33889, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Lamellar Bracers
+(@NPC_GREX, 33890, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Lamellar Greaves
+(@NPC_GREX, 33891, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Leather Belt
+(@NPC_GREX, 33892, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Leather Boots
+(@NPC_GREX, 33893, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Leather Bracers
+(@NPC_GREX, 33894, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Linked Bracers
+(@NPC_GREX, 33895, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Linked Girdle
+(@NPC_GREX, 33896, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Linked Sabatons
+(@NPC_GREX, 33897, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Mail Bracers
+(@NPC_GREX, 33898, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Mail Girdle
+(@NPC_GREX, 33899, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Mail Sabatons
+(@NPC_GREX, 33900, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Mooncloth Belt
+(@NPC_GREX, 33901, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Mooncloth Cuffs
+(@NPC_GREX, 33902, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Mooncloth Slippers
+(@NPC_GREX, 33903, 3, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Ornamented Belt
+(@NPC_GREX, 33904, 3, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Ornamented Bracers
+(@NPC_GREX, 33905, 3, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Ornamented Greaves
+(@NPC_GREX, 33920, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Conquest
+(@NPC_GREX, 33921, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Dominance
+(@NPC_GREX, 35317, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Reprieve
+(@NPC_GREX, 33922, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Salvation
+(@NPC_GREX, 35319, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Subjugation
+(@NPC_GREX, 33923, 2, 0, 0, @EXTENDED_COST_ACCESSORY_7), -- Vindicator's Pendant of Triumph
+(@NPC_GREX, 33811, 4, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Plate Belt
+(@NPC_GREX, 33813, 4, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Plate Bracers
+(@NPC_GREX, 33812, 4, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Plate Greaves
+(@NPC_GREX, 33906, 4, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Ringmail Bracers
+(@NPC_GREX, 33907, 4, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Ringmail Girdle
+(@NPC_GREX, 33908, 4, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Ringmail Sabatons
+(@NPC_GREX, 33909, 4, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Scaled Belt
+(@NPC_GREX, 33910, 4, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Scaled Bracers
+(@NPC_GREX, 33911, 4, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Scaled Greaves
+(@NPC_GREX, 33912, 4, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Silk Belt
+(@NPC_GREX, 33913, 4, 0, 0, @EXTENDED_COST_ACCESSORY_4), -- Vindicator's Silk Cuffs
+(@NPC_GREX, 33914, 4, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Silk Footguards
+(@NPC_GREX, 33915, 4, 0, 0, @EXTENDED_COST_ACCESSORY_5), -- Vindicator's Wyrmhide Belt
+(@NPC_GREX, 33916, 4, 0, 0, @EXTENDED_COST_ACCESSORY_6), -- Vindicator's Wyrmhide Boots
+(@NPC_GREX, 33917, 4, 0, 0, @EXTENDED_COST_ACCESSORY_4); -- Vindicator's Wyrmhide Bracers
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_GREX) AND (`SourceEntry` IN (33882,33883,33884,33900,33901,33902,33912,33913,33914,33879,33880,33881,33885,33886,33887,33891,33892,33893,33915,33916,33917,33876,33877,33878,33894,33895,33896,33897,33898,33899,33906,33907,33908,33811,33812,33813,33888,33889,33890,33903,33904,33905,33909,33910,33911));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_GREX, 33882, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33883, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33884, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33900, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33901, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33902, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33912, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33913, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33914, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 33879, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33880, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33881, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33885, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33886, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33887, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33891, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33892, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33893, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33915, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33916, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33917, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 33876, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33877, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33878, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33894, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33895, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33896, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33897, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33898, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33899, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33906, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33907, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33908, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 33811, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33812, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33813, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33888, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33889, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33890, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33903, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33904, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33905, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33909, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33910, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 33911, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''); -- Plate

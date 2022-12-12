@@ -335,51 +335,98 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `Exte
 (@NPC_GREX, 33056, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Dominance
 (@NPC_GREX, 33064, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Salvation
 (@NPC_GREX, 33057, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Triumph
-(@NPC_GREX, 32809, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Chain Bracers
-(@NPC_GREX, 32797, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Chain Girdle
-(@NPC_GREX, 32785, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Chain Sabatons
-(@NPC_GREX, 32786, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dragonhide Boots
-(@NPC_GREX, 32810, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dragonhide Bracers
-(@NPC_GREX, 32799, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Dreadweave Belt
-(@NPC_GREX, 32811, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dreadweave Cuffs
-(@NPC_GREX, 32787, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dreadweave Stalkers
-(@NPC_GREX, 32800, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Kodohide Belt
-(@NPC_GREX, 32788, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Kodohide Boots
-(@NPC_GREX, 32812, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Kodohide Bracers
-(@NPC_GREX, 32801, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Lamellar Belt
-(@NPC_GREX, 32813, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Lamellar Bracers
-(@NPC_GREX, 32789, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Lamellar Greaves
-(@NPC_GREX, 32802, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Leather Belt
-(@NPC_GREX, 32790, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Leather Boots
-(@NPC_GREX, 32814, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Leather Bracers
-(@NPC_GREX, 32816, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Linked Bracers
-(@NPC_GREX, 32803, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Linked Girdle
-(@NPC_GREX, 32791, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Linked Sabatons
-(@NPC_GREX, 32817, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mail Bracers
-(@NPC_GREX, 32804, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mail Girdle
-(@NPC_GREX, 32792, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mail Sabatons
-(@NPC_GREX, 32979, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mooncloth Belt
-(@NPC_GREX, 32980, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mooncloth Cuffs
-(@NPC_GREX, 32981, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mooncloth Slippers
-(@NPC_GREX, 32988, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ornamented Belt
-(@NPC_GREX, 32989, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ornamented Bracers
-(@NPC_GREX, 32990, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ornamented Greaves
-(@NPC_GREX, 33067, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Conquest
-(@NPC_GREX, 33065, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Dominance
-(@NPC_GREX, 33068, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Salvation
-(@NPC_GREX, 33066, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Triumph
-(@NPC_GREX, 32805, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Plate Belt
-(@NPC_GREX, 32818, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Plate Bracers
-(@NPC_GREX, 32793, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Plate Greaves
-(@NPC_GREX, 32997, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ringmail Bracers
-(@NPC_GREX, 32998, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ringmail Girdle
-(@NPC_GREX, 32999, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ringmail Sabatons
-(@NPC_GREX, 32806, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Scaled Belt
-(@NPC_GREX, 32819, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Scaled Bracers
-(@NPC_GREX, 32794, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Scaled Greaves
-(@NPC_GREX, 32807, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Silk Belt
-(@NPC_GREX, 32820, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Silk Cuffs
-(@NPC_GREX, 32795, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Silk Footguards
-(@NPC_GREX, 32808, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Wyrmhide Belt
-(@NPC_GREX, 32796, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Wyrmhide Boots
-(@NPC_GREX, 32821, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2);  -- Veteran's Wyrmhide Bracers
+(@NPC_GREX, 32809, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Chain Bracers
+(@NPC_GREX, 32797, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Chain Girdle
+(@NPC_GREX, 32785, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Chain Sabatons
+(@NPC_GREX, 32786, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dragonhide Boots
+(@NPC_GREX, 32810, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dragonhide Bracers
+(@NPC_GREX, 32799, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Dreadweave Belt
+(@NPC_GREX, 32811, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dreadweave Cuffs
+(@NPC_GREX, 32787, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dreadweave Stalkers
+(@NPC_GREX, 32800, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Kodohide Belt
+(@NPC_GREX, 32788, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Kodohide Boots
+(@NPC_GREX, 32812, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Kodohide Bracers
+(@NPC_GREX, 32801, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Lamellar Belt
+(@NPC_GREX, 32813, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Lamellar Bracers
+(@NPC_GREX, 32789, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Lamellar Greaves
+(@NPC_GREX, 32802, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Leather Belt
+(@NPC_GREX, 32790, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Leather Boots
+(@NPC_GREX, 32814, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Leather Bracers
+(@NPC_GREX, 32816, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Linked Bracers
+(@NPC_GREX, 32803, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Linked Girdle
+(@NPC_GREX, 32791, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Linked Sabatons
+(@NPC_GREX, 32817, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mail Bracers
+(@NPC_GREX, 32804, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mail Girdle
+(@NPC_GREX, 32792, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mail Sabatons
+(@NPC_GREX, 32979, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mooncloth Belt
+(@NPC_GREX, 32980, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mooncloth Cuffs
+(@NPC_GREX, 32981, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mooncloth Slippers
+(@NPC_GREX, 32988, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ornamented Belt
+(@NPC_GREX, 32989, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ornamented Bracers
+(@NPC_GREX, 32990, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ornamented Greaves
+(@NPC_GREX, 33067, 1, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Conquest
+(@NPC_GREX, 33065, 1, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Dominance
+(@NPC_GREX, 33068, 1, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Salvation
+(@NPC_GREX, 33066, 1, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Triumph
+(@NPC_GREX, 32805, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Plate Belt
+(@NPC_GREX, 32818, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Plate Bracers
+(@NPC_GREX, 32793, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Plate Greaves
+(@NPC_GREX, 32997, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ringmail Bracers
+(@NPC_GREX, 32998, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ringmail Girdle
+(@NPC_GREX, 32999, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ringmail Sabatons
+(@NPC_GREX, 32806, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Scaled Belt
+(@NPC_GREX, 32819, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Scaled Bracers
+(@NPC_GREX, 32794, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Scaled Greaves
+(@NPC_GREX, 32807, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Silk Belt
+(@NPC_GREX, 32820, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Silk Cuffs
+(@NPC_GREX, 32795, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Silk Footguards
+(@NPC_GREX, 32808, 2, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Wyrmhide Belt
+(@NPC_GREX, 32796, 2, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Wyrmhide Boots
+(@NPC_GREX, 32821, 2, 0, 0, @EXTENDED_COST_ACCESSORY_2);  -- Veteran's Wyrmhide Bracers
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_GREX) AND (`SourceEntry` IN (32799,32811,32787,32979,32980,32981,32807,32820,32795,32786,32788,32790,32796,32800,32802,32808,32810,32812,32814,32821,32785,32791,32792,32797,32803,32804,32809,32816,32817,32997,32998,32999,32789,32793,32794,32801,32805,32806,32813,32818,32819,32988,32989,32990));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_GREX, 32799, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32811, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32787, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32979, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32980, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32981, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32807, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32820, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32795, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_GREX, 32786, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32788, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32790, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32796, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32800, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32802, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32808, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32810, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32812, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32814, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32821, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_GREX, 32785, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32791, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32792, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32797, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32803, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32804, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32809, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32816, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32817, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32997, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32998, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32999, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_GREX, 32789, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32793, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32794, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32801, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32805, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32806, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32813, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32818, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32819, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32988, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32989, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_GREX, 32990, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''); -- Plate
