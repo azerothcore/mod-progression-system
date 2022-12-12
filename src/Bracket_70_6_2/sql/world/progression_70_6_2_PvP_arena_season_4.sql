@@ -334,104 +334,117 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_KEZZIK, 35021, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''); -- Paladin
 
 -- Accessories
-(581, 35327, 0, 0, 2289, 'Battlemaster\'s Alacrity');
-(581, 34049, 0, 0, 2289, 'Battlemaster\'s Audacity');
-(581, 34576, 0, 0, 2289, 'Battlemaster\'s Cruelty');
-(581, 34162, 0, 0, 2289, 'Battlemaster\'s Depravity');
-(581, 33832, 0, 0, 2289, 'Battlemaster\'s Determination');
-(581, 34050, 0, 0, 2289, 'Battlemaster\'s Perseverance');
-(581, 35129, 0, 0, 2402, 'Guardian\'s Band of Dominance');
-(581, 35130, 0, 0, 2402, 'Guardian\'s Band of Salvation');
-(581, 37927, 0, 0, 2402, 'Guardian\'s Band of Subjugation');
-(581, 35131, 0, 0, 2402, 'Guardian\'s Band of Triumph');
-(581, 35166, 0, 0, 2401, 'Guardian\'s Chain Bracers');
-(581, 35151, 0, 0, 1923, 'Guardian\'s Chain Girdle');
-(581, 35136, 0, 0, 2400, 'Guardian\'s Chain Sabatons');
-(581, 35152, 0, 0, 1923, 'Guardian\'s Dragonhide Belt');
-(581, 35137, 0, 0, 2400, 'Guardian\'s Dragonhide Boots');
-(581, 35167, 0, 0, 2401, 'Guardian\'s Dragonhide Bracers');
-(581, 35153, 0, 0, 1923, 'Guardian\'s Dreadweave Belt');
-(581, 35168, 0, 0, 2401, 'Guardian\'s Dreadweave Cuffs');
-(581, 35138, 0, 0, 2400, 'Guardian\'s Dreadweave Stalkers');
-(581, 35154, 0, 0, 1923, 'Guardian\'s Kodohide Belt');
-(581, 35139, 0, 0, 2400, 'Guardian\'s Kodohide Boots');
-(581, 35169, 0, 0, 2401, 'Guardian\'s Kodohide Bracers');
-(581, 35155, 0, 0, 1923, 'Guardian\'s Lamellar Belt');
-(581, 35170, 0, 0, 2401, 'Guardian\'s Lamellar Bracers');
-(581, 35140, 0, 0, 2400, 'Guardian\'s Lamellar Greaves');
-(581, 35156, 0, 0, 1923, 'Guardian\'s Leather Belt');
-(581, 35141, 0, 0, 2400, 'Guardian\'s Leather Boots');
-(581, 35171, 0, 0, 2401, 'Guardian\'s Leather Bracers');
-(581, 35172, 0, 0, 2401, 'Guardian\'s Linked Bracers');
-(581, 35157, 0, 0, 1923, 'Guardian\'s Linked Girdle');
-(581, 35142, 0, 0, 2400, 'Guardian\'s Linked Sabatons');
-(581, 35173, 0, 0, 2401, 'Guardian\'s Mail Bracers');
-(581, 35158, 0, 0, 1923, 'Guardian\'s Mail Girdle');
-(581, 35143, 0, 0, 2400, 'Guardian\'s Mail Sabatons');
-(581, 35159, 0, 0, 1923, 'Guardian\'s Mooncloth Belt');
-(581, 35174, 0, 0, 2401, 'Guardian\'s Mooncloth Cuffs');
-(581, 35144, 0, 0, 2400, 'Guardian\'s Mooncloth Slippers');
-(581, 35160, 0, 0, 1923, 'Guardian\'s Ornamented Belt');
-(581, 35175, 0, 0, 2401, 'Guardian\'s Ornamented Bracers');
-(581, 35145, 0, 0, 2400, 'Guardian\'s Ornamented Greaves');
-(581, 35132, 0, 0, 127 , 'Guardian\'s Pendant of Conquest');
-(581, 35133, 0, 0, 127 , 'Guardian\'s Pendant of Dominance');
-(581, 37929, 0, 0, 127 , 'Guardian\'s Pendant of Reprieve');
-(581, 35134, 0, 0, 127 , 'Guardian\'s Pendant of Salvation');
-(581, 37928, 0, 0, 127 , 'Guardian\'s Pendant of Subjugation');
-(581, 35135, 0, 0, 127 , 'Guardian\'s Pendant of Triumph');
-(581, 35161, 0, 0, 1923, 'Guardian\'s Plate Belt');
-(581, 35176, 0, 0, 2401, 'Guardian\'s Plate Bracers');
-(581, 35146, 0, 0, 2400, 'Guardian\'s Plate Greaves');
-(581, 35177, 0, 0, 2401, 'Guardian\'s Ringmail Bracers');
-(581, 35162, 0, 0, 1923, 'Guardian\'s Ringmail Girdle');
-(581, 35147, 0, 0, 2400, 'Guardian\'s Ringmail Sabatons');
-(581, 35163, 0, 0, 1923, 'Guardian\'s Scaled Belt');
-(581, 35178, 0, 0, 2401, 'Guardian\'s Scaled Bracers');
-(581, 35148, 0, 0, 2400, 'Guardian\'s Scaled Greaves');
-(581, 35164, 0, 0, 1923, 'Guardian\'s Silk Belt');
-(581, 35179, 0, 0, 2401, 'Guardian\'s Silk Cuffs');
-(581, 35149, 0, 0, 2400, 'Guardian\'s Silk Footguards');
-(581, 35165, 0, 0, 1923, 'Guardian\'s Wyrmhide Belt');
-(581, 35150, 0, 0, 2400, 'Guardian\'s Wyrmhide Boots');
-(581, 35180, 0, 0, 2401, 'Guardian\'s Wyrmhide Bracers');
-(581, 33853, 0, 0, 129 , 'Vindicator\'s Band of Dominance');
-(581, 33918, 0, 0, 129 , 'Vindicator\'s Band of Salvation');
-(581, 35320, 0, 0, 129 , 'Vindicator\'s Band of Subjugation');
-(581, 33919, 0, 0, 129 , 'Vindicator\'s Band of Triumph');
-(581, 33876, 0, 0, 2405, 'Vindicator\'s Chain Bracers');
-(581, 33878, 0, 0, 2406, 'Vindicator\'s Chain Sabatons');
-(581, 33880, 0, 0, 2406, 'Vindicator\'s Dragonhide Boots');
-(581, 33881, 0, 0, 2405, 'Vindicator\'s Dragonhide Bracers');
-(581, 33883, 0, 0, 2405, 'Vindicator\'s Dreadweave Cuffs');
-(581, 33884, 0, 0, 2406, 'Vindicator\'s Dreadweave Stalkers');
-(581, 33886, 0, 0, 2406, 'Vindicator\'s Kodohide Boots');
-(581, 33887, 0, 0, 2405, 'Vindicator\'s Kodohide Bracers');
-(581, 33889, 0, 0, 2405, 'Vindicator\'s Lamellar Bracers');
-(581, 33890, 0, 0, 2406, 'Vindicator\'s Lamellar Greaves');
-(581, 33892, 0, 0, 2406, 'Vindicator\'s Leather Boots');
-(581, 33893, 0, 0, 2405, 'Vindicator\'s Leather Bracers');
-(581, 33894, 0, 0, 2405, 'Vindicator\'s Linked Bracers');
-(581, 33896, 0, 0, 2406, 'Vindicator\'s Linked Sabatons');
-(581, 33897, 0, 0, 2405, 'Vindicator\'s Mail Bracers');
-(581, 33899, 0, 0, 2406, 'Vindicator\'s Mail Sabatons');
-(581, 33901, 0, 0, 2405, 'Vindicator\'s Mooncloth Cuffs');
-(581, 33902, 0, 0, 2406, 'Vindicator\'s Mooncloth Slippers');
-(581, 33904, 0, 0, 2405, 'Vindicator\'s Ornamented Bracers');
-(581, 33905, 0, 0, 2406, 'Vindicator\'s Ornamented Greaves');
-(581, 33920, 0, 0, 2248, 'Vindicator\'s Pendant of Conquest');
-(581, 33921, 0, 0, 2248, 'Vindicator\'s Pendant of Dominance');
-(581, 35317, 0, 0, 2248, 'Vindicator\'s Pendant of Reprieve');
-(581, 33922, 0, 0, 2248, 'Vindicator\'s Pendant of Salvation');
-(581, 35319, 0, 0, 2248, 'Vindicator\'s Pendant of Subjugation');
-(581, 33923, 0, 0, 2248, 'Vindicator\'s Pendant of Triumph');
-(581, 33813, 0, 0, 2405, 'Vindicator\'s Plate Bracers');
-(581, 33812, 0, 0, 2406, 'Vindicator\'s Plate Greaves');
-(581, 33906, 0, 0, 2405, 'Vindicator\'s Ringmail Bracers');
-(581, 33908, 0, 0, 2406, 'Vindicator\'s Ringmail Sabatons');
-(581, 33910, 0, 0, 2405, 'Vindicator\'s Scaled Bracers');
-(581, 33911, 0, 0, 2406, 'Vindicator\'s Scaled Greaves');
-(581, 33913, 0, 0, 2405, 'Vindicator\'s Silk Cuffs');
-(581, 33914, 0, 0, 2406, 'Vindicator\'s Silk Footguards');
-(581, 33916, 0, 0, 2406, 'Vindicator\'s Wyrmhide Boots');
-(581, 33917, 0, 0, 2405, 'Vindicator\'s Wyrmhide Bracers');
+SET @EXTENDED_COST_ACCESSORY_1  := 2289; -- 31000 Honor - Battlemaster Trinkets
+SET @EXTENDED_COST_ACCESSORY_2  := 2402; -- 16000 Honor, 1650 Rating - Guardian Bands
+SET @EXTENDED_COST_ACCESSORY_3  := 2401; -- 13000 Honor, 1575 Rating - Guardian Wrist
+SET @EXTENDED_COST_ACCESSORY_4  := 1923; -- 18000 Honor - Guardian Waist
+SET @EXTENDED_COST_ACCESSORY_5  := 2400; -- 18000 Honor, 1700 Rating - Guardian Feet
+SET @EXTENDED_COST_ACCESSORY_6  := 127; -- 16000 Honor - Guardian Pendant
+SET @EXTENDED_COST_ACCESSORY_7  := 129; -- 12000 Honor - Vindicator Band
+SET @EXTENDED_COST_ACCESSORY_8  := 2405; -- 9200 Honor - Vindicator Wrist
+SET @EXTENDED_COST_ACCESSORY_9  := 2406; -- 15000 Honor - Vindicator Feet
+SET @EXTENDED_COST_ACCESSORY_10 := 2248; -- 12000 Honor - Vindicator Pendant
+
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_GREX AND `item` IN (35327,34049,34576,34162,33832,34050,35129,35130,37927,35131,35166,35151,35136,35152,35137,35167,35153,35168,35138,35154,35139,35169,35155,35170,35140,35156,35141,35171,35172,35157,35142,35173,35158,35143,35159,35174,35144,35160,35175,35145,35132,35133,37929,35134,37928,35135,35161,35176,35146,35177,35162,35147,35163,35178,35148,35164,35179,35149,35165,35150,35180,33853,33918,35320,33919,33876,33878,33880,33881,33883,33884,33886,33887,33889,33890,33892,33893,33894,33896,33897,33899,33901,33902,33904,33905,33920,33921,35317,33922,35319,33923,33813,33812,33906,33908,33910,33911,33913,33914,33916,33917);
+INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_GREX, 35327, 0, 0, 0, 2289), -- Battlemaster's Alacrity
+(@NPC_GREX, 34049, 0, 0, 0, 2289), -- Battlemaster's Audacity
+(@NPC_GREX, 34576, 0, 0, 0, 2289), -- Battlemaster's Cruelty
+(@NPC_GREX, 34162, 0, 0, 0, 2289), -- Battlemaster's Depravity
+(@NPC_GREX, 33832, 0, 0, 0, 2289), -- Battlemaster's Determination
+(@NPC_GREX, 34050, 0, 0, 0, 2289), -- Battlemaster's Perseverance
+(@NPC_GREX, 35129, 0, 0, 0, 2402), -- Guardian's Band of Dominance
+(@NPC_GREX, 35130, 0, 0, 0, 2402), -- Guardian's Band of Salvation
+(@NPC_GREX, 37927, 0, 0, 0, 2402), -- Guardian's Band of Subjugation
+(@NPC_GREX, 35131, 0, 0, 0, 2402), -- Guardian's Band of Triumph
+(@NPC_GREX, 35166, 0, 0, 0, 2401), -- Guardian's Chain Bracers
+(@NPC_GREX, 35151, 0, 0, 0, 1923), -- Guardian's Chain Girdle
+(@NPC_GREX, 35136, 0, 0, 0, 2400), -- Guardian's Chain Sabatons
+(@NPC_GREX, 35152, 0, 0, 0, 1923), -- Guardian's Dragonhide Belt
+(@NPC_GREX, 35137, 0, 0, 0, 2400), -- Guardian's Dragonhide Boots
+(@NPC_GREX, 35167, 0, 0, 0, 2401), -- Guardian's Dragonhide Bracers
+(@NPC_GREX, 35153, 0, 0, 0, 1923), -- Guardian's Dreadweave Belt
+(@NPC_GREX, 35168, 0, 0, 0, 2401), -- Guardian's Dreadweave Cuffs
+(@NPC_GREX, 35138, 0, 0, 0, 2400), -- Guardian's Dreadweave Stalkers
+(@NPC_GREX, 35154, 0, 0, 0, 1923), -- Guardian's Kodohide Belt
+(@NPC_GREX, 35139, 0, 0, 0, 2400), -- Guardian's Kodohide Boots
+(@NPC_GREX, 35169, 0, 0, 0, 2401), -- Guardian's Kodohide Bracers
+(@NPC_GREX, 35155, 0, 0, 0, 1923), -- Guardian's Lamellar Belt
+(@NPC_GREX, 35170, 0, 0, 0, 2401), -- Guardian's Lamellar Bracers
+(@NPC_GREX, 35140, 0, 0, 0, 2400), -- Guardian's Lamellar Greaves
+(@NPC_GREX, 35156, 0, 0, 0, 1923), -- Guardian's Leather Belt
+(@NPC_GREX, 35141, 0, 0, 0, 2400), -- Guardian's Leather Boots
+(@NPC_GREX, 35171, 0, 0, 0, 2401), -- Guardian's Leather Bracers
+(@NPC_GREX, 35172, 0, 0, 0, 2401), -- Guardian's Linked Bracers
+(@NPC_GREX, 35157, 0, 0, 0, 1923), -- Guardian's Linked Girdle
+(@NPC_GREX, 35142, 0, 0, 0, 2400), -- Guardian's Linked Sabatons
+(@NPC_GREX, 35173, 0, 0, 0, 2401), -- Guardian's Mail Bracers
+(@NPC_GREX, 35158, 0, 0, 0, 1923), -- Guardian's Mail Girdle
+(@NPC_GREX, 35143, 0, 0, 0, 2400), -- Guardian's Mail Sabatons
+(@NPC_GREX, 35159, 0, 0, 0, 1923), -- Guardian's Mooncloth Belt
+(@NPC_GREX, 35174, 0, 0, 0, 2401), -- Guardian's Mooncloth Cuffs
+(@NPC_GREX, 35144, 0, 0, 0, 2400), -- Guardian's Mooncloth Slippers
+(@NPC_GREX, 35160, 0, 0, 0, 1923), -- Guardian's Ornamented Belt
+(@NPC_GREX, 35175, 0, 0, 0, 2401), -- Guardian's Ornamented Bracers
+(@NPC_GREX, 35145, 0, 0, 0, 2400), -- Guardian's Ornamented Greaves
+(@NPC_GREX, 35132, 0, 0, 0, 127 ), -- Guardian's Pendant of Conquest
+(@NPC_GREX, 35133, 0, 0, 0, 127 ), -- Guardian's Pendant of Dominance
+(@NPC_GREX, 37929, 0, 0, 0, 127 ), -- Guardian's Pendant of Reprieve
+(@NPC_GREX, 35134, 0, 0, 0, 127 ), -- Guardian's Pendant of Salvation
+(@NPC_GREX, 37928, 0, 0, 0, 127 ), -- Guardian's Pendant of Subjugation
+(@NPC_GREX, 35135, 0, 0, 0, 127 ), -- Guardian's Pendant of Triumph
+(@NPC_GREX, 35161, 0, 0, 0, 1923), -- Guardian's Plate Belt
+(@NPC_GREX, 35176, 0, 0, 0, 2401), -- Guardian's Plate Bracers
+(@NPC_GREX, 35146, 0, 0, 0, 2400), -- Guardian's Plate Greaves
+(@NPC_GREX, 35177, 0, 0, 0, 2401), -- Guardian's Ringmail Bracers
+(@NPC_GREX, 35162, 0, 0, 0, 1923), -- Guardian's Ringmail Girdle
+(@NPC_GREX, 35147, 0, 0, 0, 2400), -- Guardian's Ringmail Sabatons
+(@NPC_GREX, 35163, 0, 0, 0, 1923), -- Guardian's Scaled Belt
+(@NPC_GREX, 35178, 0, 0, 0, 2401), -- Guardian's Scaled Bracers
+(@NPC_GREX, 35148, 0, 0, 0, 2400), -- Guardian's Scaled Greaves
+(@NPC_GREX, 35164, 0, 0, 0, 1923), -- Guardian's Silk Belt
+(@NPC_GREX, 35179, 0, 0, 0, 2401), -- Guardian's Silk Cuffs
+(@NPC_GREX, 35149, 0, 0, 0, 2400), -- Guardian's Silk Footguards
+(@NPC_GREX, 35165, 0, 0, 0, 1923), -- Guardian's Wyrmhide Belt
+(@NPC_GREX, 35150, 0, 0, 0, 2400), -- Guardian's Wyrmhide Boots
+(@NPC_GREX, 35180, 0, 0, 0, 2401), -- Guardian's Wyrmhide Bracers
+(@NPC_GREX, 33853, 0, 0, 0, 129 ), -- Vindicator's Band of Dominance
+(@NPC_GREX, 33918, 0, 0, 0, 129 ), -- Vindicator's Band of Salvation
+(@NPC_GREX, 35320, 0, 0, 0, 129 ), -- Vindicator's Band of Subjugation
+(@NPC_GREX, 33919, 0, 0, 0, 129 ), -- Vindicator's Band of Triumph
+(@NPC_GREX, 33876, 0, 0, 0, 2405), -- Vindicator's Chain Bracers
+(@NPC_GREX, 33878, 0, 0, 0, 2406), -- Vindicator's Chain Sabatons
+(@NPC_GREX, 33880, 0, 0, 0, 2406), -- Vindicator's Dragonhide Boots
+(@NPC_GREX, 33881, 0, 0, 0, 2405), -- Vindicator's Dragonhide Bracers
+(@NPC_GREX, 33883, 0, 0, 0, 2405), -- Vindicator's Dreadweave Cuffs
+(@NPC_GREX, 33884, 0, 0, 0, 2406), -- Vindicator's Dreadweave Stalkers
+(@NPC_GREX, 33886, 0, 0, 0, 2406), -- Vindicator's Kodohide Boots
+(@NPC_GREX, 33887, 0, 0, 0, 2405), -- Vindicator's Kodohide Bracers
+(@NPC_GREX, 33889, 0, 0, 0, 2405), -- Vindicator's Lamellar Bracers
+(@NPC_GREX, 33890, 0, 0, 0, 2406), -- Vindicator's Lamellar Greaves
+(@NPC_GREX, 33892, 0, 0, 0, 2406), -- Vindicator's Leather Boots
+(@NPC_GREX, 33893, 0, 0, 0, 2405), -- Vindicator's Leather Bracers
+(@NPC_GREX, 33894, 0, 0, 0, 2405), -- Vindicator's Linked Bracers
+(@NPC_GREX, 33896, 0, 0, 0, 2406), -- Vindicator's Linked Sabatons
+(@NPC_GREX, 33897, 0, 0, 0, 2405), -- Vindicator's Mail Bracers
+(@NPC_GREX, 33899, 0, 0, 0, 2406), -- Vindicator's Mail Sabatons
+(@NPC_GREX, 33901, 0, 0, 0, 2405), -- Vindicator's Mooncloth Cuffs
+(@NPC_GREX, 33902, 0, 0, 0, 2406), -- Vindicator's Mooncloth Slippers
+(@NPC_GREX, 33904, 0, 0, 0, 2405), -- Vindicator's Ornamented Bracers
+(@NPC_GREX, 33905, 0, 0, 0, 2406), -- Vindicator's Ornamented Greaves
+(@NPC_GREX, 33920, 0, 0, 0, 2248), -- Vindicator's Pendant of Conquest
+(@NPC_GREX, 33921, 0, 0, 0, 2248), -- Vindicator's Pendant of Dominance
+(@NPC_GREX, 35317, 0, 0, 0, 2248), -- Vindicator's Pendant of Reprieve
+(@NPC_GREX, 33922, 0, 0, 0, 2248), -- Vindicator's Pendant of Salvation
+(@NPC_GREX, 35319, 0, 0, 0, 2248), -- Vindicator's Pendant of Subjugation
+(@NPC_GREX, 33923, 0, 0, 0, 2248), -- Vindicator's Pendant of Triumph
+(@NPC_GREX, 33813, 0, 0, 0, 2405), -- Vindicator's Plate Bracers
+(@NPC_GREX, 33812, 0, 0, 0, 2406), -- Vindicator's Plate Greaves
+(@NPC_GREX, 33906, 0, 0, 0, 2405), -- Vindicator's Ringmail Bracers
+(@NPC_GREX, 33908, 0, 0, 0, 2406), -- Vindicator's Ringmail Sabatons
+(@NPC_GREX, 33910, 0, 0, 0, 2405), -- Vindicator's Scaled Bracers
+(@NPC_GREX, 33911, 0, 0, 0, 2406), -- Vindicator's Scaled Greaves
+(@NPC_GREX, 33913, 0, 0, 0, 2405), -- Vindicator's Silk Cuffs
+(@NPC_GREX, 33914, 0, 0, 0, 2406), -- Vindicator's Silk Footguards
+(@NPC_GREX, 33916, 0, 0, 0, 2406), -- Vindicator's Wyrmhide Boots
+(@NPC_GREX, 33917, 0, 0, 0, 2405); -- Vindicator's Wyrmhide Bracers

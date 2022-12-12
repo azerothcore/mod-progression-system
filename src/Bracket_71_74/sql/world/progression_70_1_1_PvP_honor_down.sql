@@ -65,3 +65,4 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 UPDATE `creature_template` SET `subname` = 'Arena Vendor' WHERE (`entry` = 26352);
 UPDATE `creature_template` SET `subname` = 'Arena Vendor' WHERE (`entry` = 26378);
 UPDATE `creature_template` SET `subname` = 'Veteran Arena Vendor' WHERE (`entry` = 40207);
+UPDATE `creature_template` SET `subname` = 'Exceptional Arena Weaponry' WHERE (`entry` = 40209);

@@ -303,56 +303,83 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ZOKK, 32059, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_ZOKK, 32060, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''); -- Druid
 
--- Accessories
+-- Create Accessory NPC
+SET @NPC_GREX := 40209;
+SET @GUID := 3000031;
 
-(564, 33056, 0, 0, 2028, 0, 'Veteran\'s Band of Dominance');
-(564, 33064, 0, 0, 2028, 0, 'Veteran\'s Band of Salvation');
-(564, 33057, 0, 0, 2028, 0, 'Veteran\'s Band of Triumph');
-(564, 32809, 0, 0, 1935, 0, 'Veteran\'s Chain Bracers');
-(564, 32797, 0, 0, 1923, 0, 'Veteran\'s Chain Girdle');
-(564, 32785, 0, 0, 1911, 0, 'Veteran\'s Chain Sabatons');
-(564, 32786, 0, 0, 1911, 0, 'Veteran\'s Dragonhide Boots');
-(564, 32810, 0, 0, 1935, 0, 'Veteran\'s Dragonhide Bracers');
-(564, 32799, 0, 0, 1923, 0, 'Veteran\'s Dreadweave Belt');
-(564, 32811, 0, 0, 1935, 0, 'Veteran\'s Dreadweave Cuffs');
-(564, 32787, 0, 0, 1911, 0, 'Veteran\'s Dreadweave Stalkers');
-(564, 32800, 0, 0, 1923, 0, 'Veteran\'s Kodohide Belt');
-(564, 32788, 0, 0, 1911, 0, 'Veteran\'s Kodohide Boots');
-(564, 32812, 0, 0, 1935, 0, 'Veteran\'s Kodohide Bracers');
-(564, 32801, 0, 0, 1923, 0, 'Veteran\'s Lamellar Belt');
-(564, 32813, 0, 0, 1935, 0, 'Veteran\'s Lamellar Bracers');
-(564, 32789, 0, 0, 1911, 0, 'Veteran\'s Lamellar Greaves');
-(564, 32802, 0, 0, 1923, 0, 'Veteran\'s Leather Belt');
-(564, 32790, 0, 0, 1911, 0, 'Veteran\'s Leather Boots');
-(564, 32814, 0, 0, 1935, 0, 'Veteran\'s Leather Bracers');
-(564, 32816, 0, 0, 1935, 0, 'Veteran\'s Linked Bracers');
-(564, 32803, 0, 0, 1923, 0, 'Veteran\'s Linked Girdle');
-(564, 32791, 0, 0, 1911, 0, 'Veteran\'s Linked Sabatons');
-(564, 32817, 0, 0, 1935, 0, 'Veteran\'s Mail Bracers');
-(564, 32804, 0, 0, 1923, 0, 'Veteran\'s Mail Girdle');
-(564, 32792, 0, 0, 1911, 0, 'Veteran\'s Mail Sabatons');
-(564, 32979, 0, 0, 1923, 0, 'Veteran\'s Mooncloth Belt');
-(564, 32980, 0, 0, 1935, 0, 'Veteran\'s Mooncloth Cuffs');
-(564, 32981, 0, 0, 1911, 0, 'Veteran\'s Mooncloth Slippers');
-(564, 32988, 0, 0, 1923, 0, 'Veteran\'s Ornamented Belt');
-(564, 32989, 0, 0, 1935, 0, 'Veteran\'s Ornamented Bracers');
-(564, 32990, 0, 0, 1911, 0, 'Veteran\'s Ornamented Greaves');
-(564, 33067, 0, 0, 127 , 0, 'Veteran\'s Pendant of Conquest');
-(564, 33065, 0, 0, 127 , 0, 'Veteran\'s Pendant of Dominance');
-(564, 33068, 0, 0, 127 , 0, 'Veteran\'s Pendant of Salvation');
-(564, 33066, 0, 0, 127 , 0, 'Veteran\'s Pendant of Triumph');
-(564, 32805, 0, 0, 1923, 0, 'Veteran\'s Plate Belt');
-(564, 32818, 0, 0, 1935, 0, 'Veteran\'s Plate Bracers');
-(564, 32793, 0, 0, 1911, 0, 'Veteran\'s Plate Greaves');
-(564, 32997, 0, 0, 1935, 0, 'Veteran\'s Ringmail Bracers');
-(564, 32998, 0, 0, 1923, 0, 'Veteran\'s Ringmail Girdle');
-(564, 32999, 0, 0, 1911, 0, 'Veteran\'s Ringmail Sabatons');
-(564, 32806, 0, 0, 1923, 0, 'Veteran\'s Scaled Belt');
-(564, 32819, 0, 0, 1935, 0, 'Veteran\'s Scaled Bracers');
-(564, 32794, 0, 0, 1911, 0, 'Veteran\'s Scaled Greaves');
-(564, 32807, 0, 0, 1923, 0, 'Veteran\'s Silk Belt');
-(564, 32820, 0, 0, 1935, 0, 'Veteran\'s Silk Cuffs');
-(564, 32795, 0, 0, 1911, 0, 'Veteran\'s Silk Footguards');
-(564, 32808, 0, 0, 1923, 0, 'Veteran\'s Wyrmhide Belt');
-(564, 32796, 0, 0, 1911, 0, 'Veteran\'s Wyrmhide Boots');
-(564, 32821, 0, 0, 1935, 0, 'Veteran\'s Wyrmhide Bracers');
+UPDATE `creature_template` SET `subname` = 'Accessories Vendor', `npcflag`=`npcflag`|128 WHERE (`entry` = @NPC_GREX);
+
+DELETE FROM `creature` WHERE (`id1` = @NPC_GREX) AND (`guid` BETWEEN @GUID+0 AND @GUID+3);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(@GUID+0, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID+1, @NPC_GREX, 0, 0, 530, 0, 0, 1, 1, 0, -2163.33, 6659.34, 0.1057, 6.17846, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0);
+
+DELETE FROM `game_event_creature` WHERE `eventEntry` IN (55, 56, 76) AND (`guid` IN (@GUID+0, @GUID+1));
+INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
+(76, @GUID+0),
+(55, @GUID+0),
+(56, @GUID+0),
+(76, @GUID+1),
+(55, @GUID+1),
+(56, @GUID+1);
+
+-- Accessories
+SET @EXTENDED_COST_ACCESSORY_1 := 2028; -- 16000 Honor - Veteran's Bands
+SET @EXTENDED_COST_ACCESSORY_2 := 1935; -- 13000 Honor - Wrist
+SET @EXTENDED_COST_ACCESSORY_3 := 1923; -- 18000 Honor - Waist
+SET @EXTENDED_COST_ACCESSORY_4 := 1911; -- 18000 Honor - Feet
+SET @EXTENDED_COST_ACCESSORY_5 := 127 ; -- 16000 Honor - Pendant
+
+DELETE FROM `npc_vendor` WHERE `entry`=@NPC_GREX AND `item` IN (33056,33064,33057,32809,32797,32785,32786,32810,32799,32811,32787,32800,32788,32812,32801,32813,32789,32802,32790,32814,32816,32803,32791,32817,32804,32792,32979,32980,32981,32988,32989,32990,33067,33065,33068,33066,32805,32818,32793,32997,32998,32999,32806,32819,32794,32807,32820,32795,32808,32796,32821);
+INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(@NPC_GREX, 33056, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Dominance
+(@NPC_GREX, 33064, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Salvation
+(@NPC_GREX, 33057, 0, 0, 0, @EXTENDED_COST_ACCESSORY_1),  -- Veteran's Band of Triumph
+(@NPC_GREX, 32809, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Chain Bracers
+(@NPC_GREX, 32797, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Chain Girdle
+(@NPC_GREX, 32785, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Chain Sabatons
+(@NPC_GREX, 32786, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dragonhide Boots
+(@NPC_GREX, 32810, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dragonhide Bracers
+(@NPC_GREX, 32799, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Dreadweave Belt
+(@NPC_GREX, 32811, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Dreadweave Cuffs
+(@NPC_GREX, 32787, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Dreadweave Stalkers
+(@NPC_GREX, 32800, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Kodohide Belt
+(@NPC_GREX, 32788, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Kodohide Boots
+(@NPC_GREX, 32812, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Kodohide Bracers
+(@NPC_GREX, 32801, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Lamellar Belt
+(@NPC_GREX, 32813, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Lamellar Bracers
+(@NPC_GREX, 32789, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Lamellar Greaves
+(@NPC_GREX, 32802, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Leather Belt
+(@NPC_GREX, 32790, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Leather Boots
+(@NPC_GREX, 32814, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Leather Bracers
+(@NPC_GREX, 32816, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Linked Bracers
+(@NPC_GREX, 32803, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Linked Girdle
+(@NPC_GREX, 32791, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Linked Sabatons
+(@NPC_GREX, 32817, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mail Bracers
+(@NPC_GREX, 32804, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mail Girdle
+(@NPC_GREX, 32792, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mail Sabatons
+(@NPC_GREX, 32979, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Mooncloth Belt
+(@NPC_GREX, 32980, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Mooncloth Cuffs
+(@NPC_GREX, 32981, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Mooncloth Slippers
+(@NPC_GREX, 32988, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ornamented Belt
+(@NPC_GREX, 32989, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ornamented Bracers
+(@NPC_GREX, 32990, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ornamented Greaves
+(@NPC_GREX, 33067, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Conquest
+(@NPC_GREX, 33065, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Dominance
+(@NPC_GREX, 33068, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Salvation
+(@NPC_GREX, 33066, 0, 0, 0, @EXTENDED_COST_ACCESSORY_5),  -- Veteran's Pendant of Triumph
+(@NPC_GREX, 32805, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Plate Belt
+(@NPC_GREX, 32818, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Plate Bracers
+(@NPC_GREX, 32793, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Plate Greaves
+(@NPC_GREX, 32997, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Ringmail Bracers
+(@NPC_GREX, 32998, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Ringmail Girdle
+(@NPC_GREX, 32999, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Ringmail Sabatons
+(@NPC_GREX, 32806, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Scaled Belt
+(@NPC_GREX, 32819, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Scaled Bracers
+(@NPC_GREX, 32794, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Scaled Greaves
+(@NPC_GREX, 32807, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Silk Belt
+(@NPC_GREX, 32820, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2),  -- Veteran's Silk Cuffs
+(@NPC_GREX, 32795, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Silk Footguards
+(@NPC_GREX, 32808, 0, 0, 0, @EXTENDED_COST_ACCESSORY_3),  -- Veteran's Wyrmhide Belt
+(@NPC_GREX, 32796, 0, 0, 0, @EXTENDED_COST_ACCESSORY_4),  -- Veteran's Wyrmhide Boots
+(@NPC_GREX, 32821, 0, 0, 0, @EXTENDED_COST_ACCESSORY_2);  -- Veteran's Wyrmhide Bracers
