@@ -68,15 +68,18 @@ UPDATE `npc_vendor` SET `ExtendedCost`=@EXTENDED_COST_ARMOR_1  WHERE `entry`=@NP
 UPDATE `npc_vendor` SET `ExtendedCost`=@EXTENDED_COST_ARMOR_2  WHERE `entry`=@NPC_EVEE AND `item` IN (33665,33671,33676,33684,33690,33696,33700,33707,33712,33717,33723,33729,33739,33744,33750,33759,33767);
 
 -- Add Arena Season 4
-SET @EXTENDED_COST_SHOULDER := 1435; -- 1500 Arena, 2000 Rating - Shoulders
-SET @EXTENDED_COST_WEAPON_1 := 2282; -- 3750 Arena, 1850 Rating - Two-handed and Ranged
-SET @EXTENDED_COST_WEAPON_2 := 1757; -- 3150 Arena, 1850 Rating - MH (Spellpower)
-SET @EXTENDED_COST_WEAPON_3 := 1670; -- 2625 Arena, 1850 Rating - MH (Melee)
-SET @EXTENDED_COST_WEAPON_4 := 1431; -- 1875 Arena, 1850 Rating - Shield
-SET @EXTENDED_COST_WEAPON_5 := 1432; -- 1125 Arena, 1850 Rating - OH
-SET @EXTENDED_COST_WEAPON_6 := 2627; -- 1066 Arena, 1850 Rating - Relics, Thrown, Wand
-SET @EXTENDED_COST_ARMOR_1 := 2285; -- 1875 Arena - Chest, Legs, Head
-SET @EXTENDED_COST_ARMOR_2 := 2283; -- 1125 Arena - Hands
+SET @EXTENDED_COST_SHOULDER := 2359; -- 1500 Arena, 2200 Rating - Shoulders
+SET @EXTENDED_COST_WEAPON_1 := 2360; -- 3750 Arena, 2050 Rating - Two-handed and Ranged
+SET @EXTENDED_COST_WEAPON_2 := 2361; -- 3150 Arena, 2050 Rating - MH (Spellpower)
+SET @EXTENDED_COST_WEAPON_3 := 2362; -- 2625 Arena, 2050 Rating - MH (Melee)
+SET @EXTENDED_COST_WEAPON_4 := 2364; -- 1875 Arena, 2050 Rating - Shield
+SET @EXTENDED_COST_WEAPON_5 := 2363; -- 1125 Arena, 2050 Rating - OH
+SET @EXTENDED_COST_WEAPON_6 := 2339; -- 1000 Arena, 1750 Rating - Relics, Thrown, Wand
+SET @EXTENDED_COST_WEAPON_7 := 2375; -- 650 Arena, 2050 Rating - 2 OH Weapons
+SET @EXTENDED_COST_ARMOR_1 := 2337; -- 1875 Arena, 1600 Rating - Chest
+SET @EXTENDED_COST_ARMOR_2 := 2342; -- 1125 Arena - Hands
+SET @EXTENDED_COST_ARMOR_3 := 2365; -- 1875 Arena, 1700 Rating - Head
+SET @EXTENDED_COST_ARMOR_4 := 2366; -- 1875 Arena, 1550 Rating - Legs
 
 SET @NPC_KEZZIK := 40207;
 SET @GUID := 3000027;
@@ -100,138 +103,138 @@ INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
 
 DELETE FROM `npc_vendor` WHERE `entry`=@NPC_KEZZIK AND `item` IN (34985,34986,34987,34988,34989,34990,34991,34992,34993,34994,34995,34996,34997,34998,34999,35000,35001,35002,35003,35004,35005,35006,35007,35008,35009,35010,35011,35012,35013,35014,35015,35016,35017,35018,35019,35020,35021,35022,35023,35024,35025,35026,35027,35028,35029,35030,35031,35032,35033,35034,35035,35036,35037,35038,35039,35040,35041,35042,35043,35044,35045,35046,35047,35048,35049,35050,35051,35052,35053,35054,35055,35056,35057,35058,35059,35060,35061,35062,35063,35064,35065,35066,35067,35068,35069,35070,35071,35072,35073,35074,35075,35076,35077,35078,35079,35080,35081,35082,35083,35084,35085,35086,35087,35088,35089,35090,35091,35092,35093,35094,35095,35096,35097,35098,35099,35100,35101,35102,35103,35104,35105,35106,35107,35108,35109,35110,35111,35112,35113,35114,35115,36737);
 INSERT INTO `npc_vendor` (`entry`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
-(@NPC_KEZZIK, 34985, 0, 0, 0, 2339), -- Brutal Gladiator's Baton of Light
-(@NPC_KEZZIK, 34986, 0, 0, 0, 2364), -- Brutal Gladiator's Barrier
-(@NPC_KEZZIK, 34987, 0, 0, 0, 2360), -- Brutal Gladiator's Battle Staff
-(@NPC_KEZZIK, 34988, 0, 0, 0, 2363), -- Brutal Gladiator's Bonecracker
-(@NPC_KEZZIK, 34989, 0, 0, 0, 2360), -- Brutal Gladiator's Bonegrinder
-(@NPC_KEZZIK, 34990, 1, 0, 0, 2337), -- Brutal Gladiator's Chain Armor
-(@NPC_KEZZIK, 34991, 1, 0, 0, 2342), -- Brutal Gladiator's Chain Gauntlets
-(@NPC_KEZZIK, 34992, 1, 0, 0, 2365), -- Brutal Gladiator's Chain Helm
-(@NPC_KEZZIK, 34993, 1, 0, 0, 2366), -- Brutal Gladiator's Chain Leggings
-(@NPC_KEZZIK, 34994, 1, 0, 0, 2359), -- Brutal Gladiator's Chain Spaulders
-(@NPC_KEZZIK, 34995, 0, 0, 0, 2363), -- Brutal Gladiator's Chopper
-(@NPC_KEZZIK, 34996, 0, 0, 0, 2362), -- Brutal Gladiator's Cleaver
-(@NPC_KEZZIK, 34997, 0, 0, 0, 2360), -- Brutal Gladiator's Decapitator
-(@NPC_KEZZIK, 34998, 1, 0, 0, 2342), -- Brutal Gladiator's Dragonhide Gloves
-(@NPC_KEZZIK, 34999, 1, 0, 0, 2365), -- Brutal Gladiator's Dragonhide Helm
-(@NPC_KEZZIK, 35000, 1, 0, 0, 2366), -- Brutal Gladiator's Dragonhide Legguards
-(@NPC_KEZZIK, 35001, 1, 0, 0, 2359), -- Brutal Gladiator's Dragonhide Spaulders
-(@NPC_KEZZIK, 35002, 1, 0, 0, 2337), -- Brutal Gladiator's Dragonhide Tunic
-(@NPC_KEZZIK, 35003, 1, 0, 0, 2342), -- Brutal Gladiator's Dreadweave Gloves
-(@NPC_KEZZIK, 35004, 1, 0, 0, 2365), -- Brutal Gladiator's Dreadweave Hood
-(@NPC_KEZZIK, 35005, 1, 0, 0, 2366), -- Brutal Gladiator's Dreadweave Leggings
-(@NPC_KEZZIK, 35006, 1, 0, 0, 2359), -- Brutal Gladiator's Dreadweave Mantle
-(@NPC_KEZZIK, 35007, 1, 0, 0, 2337), -- Brutal Gladiator's Dreadweave Robe
-(@NPC_KEZZIK, 35008, 0, 0, 0, 2363), -- Brutal Gladiator's Endgame
-(@NPC_KEZZIK, 35009, 2, 0, 0, 2359), -- Brutal Gladiator's Felweave Amice
-(@NPC_KEZZIK, 35010, 2, 0, 0, 2365), -- Brutal Gladiator's Felweave Cowl
-(@NPC_KEZZIK, 35011, 2, 0, 0, 2342), -- Brutal Gladiator's Felweave Handguards
-(@NPC_KEZZIK, 35012, 2, 0, 0, 2337), -- Brutal Gladiator's Felweave Raiment
-(@NPC_KEZZIK, 35013, 2, 0, 0, 2366), -- Brutal Gladiator's Felweave Trousers
-(@NPC_KEZZIK, 35014, 0, 0, 0, 2361), -- Brutal Gladiator's Gavel
-(@NPC_KEZZIK, 35015, 0, 0, 0, 2360), -- Brutal Gladiator's Greatsword
-(@NPC_KEZZIK, 35016, 0, 0, 0, 2363), -- Brutal Gladiator's Grimoire
-(@NPC_KEZZIK, 35017, 0, 0, 0, 2363), -- Brutal Gladiator's Hacker
-(@NPC_KEZZIK, 35018, 0, 0, 0, 2360), -- Brutal Gladiator's Heavy Crossbow
-(@NPC_KEZZIK, 35019, 0, 0, 0, 2339), -- Brutal Gladiator's Idol of Resolve
-(@NPC_KEZZIK, 35020, 0, 0, 0, 2339), -- Brutal Gladiator's Idol of Steadfastness
-(@NPC_KEZZIK, 35021, 0, 0, 0, 2339), -- Brutal Gladiator's Idol of Tenacity
-(@NPC_KEZZIK, 35022, 2, 0, 0, 2342), -- Brutal Gladiator's Kodohide Gloves
-(@NPC_KEZZIK, 35023, 2, 0, 0, 2365), -- Brutal Gladiator's Kodohide Helm
-(@NPC_KEZZIK, 35024, 2, 0, 0, 2366), -- Brutal Gladiator's Kodohide Legguards
-(@NPC_KEZZIK, 35025, 2, 0, 0, 2359), -- Brutal Gladiator's Kodohide Spaulders
-(@NPC_KEZZIK, 35026, 2, 0, 0, 2337), -- Brutal Gladiator's Kodohide Tunic
-(@NPC_KEZZIK, 35027, 1, 0, 0, 2337), -- Brutal Gladiator's Lamellar Chestpiece
-(@NPC_KEZZIK, 35028, 1, 0, 0, 2342), -- Brutal Gladiator's Lamellar Gauntlets
-(@NPC_KEZZIK, 35029, 1, 0, 0, 2365), -- Brutal Gladiator's Lamellar Helm
-(@NPC_KEZZIK, 35030, 1, 0, 0, 2366), -- Brutal Gladiator's Lamellar Legguards
-(@NPC_KEZZIK, 35031, 1, 0, 0, 2359), -- Brutal Gladiator's Lamellar Shoulders
-(@NPC_KEZZIK, 35032, 1, 0, 0, 2342), -- Brutal Gladiator's Leather Gloves
-(@NPC_KEZZIK, 35033, 1, 0, 0, 2365), -- Brutal Gladiator's Leather Helm
-(@NPC_KEZZIK, 35034, 1, 0, 0, 2366), -- Brutal Gladiator's Leather Legguards
-(@NPC_KEZZIK, 35035, 1, 0, 0, 2359), -- Brutal Gladiator's Leather Spaulders
-(@NPC_KEZZIK, 35036, 1, 0, 0, 2337), -- Brutal Gladiator's Leather Tunic
-(@NPC_KEZZIK, 35037, 0, 0, 0, 2363), -- Brutal Gladiator's Left Render
-(@NPC_KEZZIK, 35038, 0, 0, 0, 2363), -- Brutal Gladiator's Left Ripper
-(@NPC_KEZZIK, 35039, 0, 0, 0, 2339), -- Brutal Gladiator's Libram of Fortitude
-(@NPC_KEZZIK, 35040, 0, 0, 0, 2339), -- Brutal Gladiator's Libram of Justice
-(@NPC_KEZZIK, 35041, 0, 0, 0, 2339), -- Brutal Gladiator's Libram of Vengeance
-(@NPC_KEZZIK, 35042, 1, 0, 0, 2337), -- Brutal Gladiator's Linked Armor
-(@NPC_KEZZIK, 35043, 1, 0, 0, 2342), -- Brutal Gladiator's Linked Gauntlets
-(@NPC_KEZZIK, 35044, 1, 0, 0, 2365), -- Brutal Gladiator's Linked Helm
-(@NPC_KEZZIK, 35045, 1, 0, 0, 2366), -- Brutal Gladiator's Linked Leggings
-(@NPC_KEZZIK, 35046, 1, 0, 0, 2359), -- Brutal Gladiator's Linked Spaulders
-(@NPC_KEZZIK, 35047, 0, 0, 0, 2360), -- Brutal Gladiator's Longbow
-(@NPC_KEZZIK, 35048, 2, 0, 0, 2337), -- Brutal Gladiator's Mail Armor
-(@NPC_KEZZIK, 35049, 2, 0, 0, 2342), -- Brutal Gladiator's Mail Gauntlets
-(@NPC_KEZZIK, 35050, 2, 0, 0, 2365), -- Brutal Gladiator's Mail Helm
-(@NPC_KEZZIK, 35051, 2, 0, 0, 2366), -- Brutal Gladiator's Mail Leggings
-(@NPC_KEZZIK, 35052, 2, 0, 0, 2359), -- Brutal Gladiator's Mail Spaulders
-(@NPC_KEZZIK, 35053, 1, 0, 0, 2342), -- Brutal Gladiator's Mooncloth Gloves
-(@NPC_KEZZIK, 35054, 1, 0, 0, 2365), -- Brutal Gladiator's Mooncloth Hood
-(@NPC_KEZZIK, 35055, 1, 0, 0, 2366), -- Brutal Gladiator's Mooncloth Leggings
-(@NPC_KEZZIK, 35056, 1, 0, 0, 2359), -- Brutal Gladiator's Mooncloth Mantle
-(@NPC_KEZZIK, 35057, 1, 0, 0, 2337), -- Brutal Gladiator's Mooncloth Robe
-(@NPC_KEZZIK, 35058, 0, 0, 0, 2363), -- Brutal Gladiator's Mutilator
-(@NPC_KEZZIK, 35059, 2, 0, 0, 2337), -- Brutal Gladiator's Ornamented Chestguard
-(@NPC_KEZZIK, 35060, 2, 0, 0, 2342), -- Brutal Gladiator's Ornamented Gloves
-(@NPC_KEZZIK, 35061, 2, 0, 0, 2365), -- Brutal Gladiator's Ornamented Headcover
-(@NPC_KEZZIK, 35062, 2, 0, 0, 2366), -- Brutal Gladiator's Ornamented Legplates
-(@NPC_KEZZIK, 35063, 2, 0, 0, 2359), -- Brutal Gladiator's Ornamented Spaulders
-(@NPC_KEZZIK, 35064, 0, 0, 0, 2360), -- Brutal Gladiator's Painsaw
-(@NPC_KEZZIK, 35065, 0, 0, 0, 2339), -- Brutal Gladiator's Piercing Touch
-(@NPC_KEZZIK, 35066, 1, 0, 0, 2337), -- Brutal Gladiator's Plate Chestpiece
-(@NPC_KEZZIK, 35067, 1, 0, 0, 2342), -- Brutal Gladiator's Plate Gauntlets
-(@NPC_KEZZIK, 35068, 1, 0, 0, 2365), -- Brutal Gladiator's Plate Helm
-(@NPC_KEZZIK, 35069, 1, 0, 0, 2366), -- Brutal Gladiator's Plate Legguards
-(@NPC_KEZZIK, 35070, 1, 0, 0, 2359), -- Brutal Gladiator's Plate Shoulders
-(@NPC_KEZZIK, 35071, 0, 0, 0, 2362), -- Brutal Gladiator's Pummeler
-(@NPC_KEZZIK, 35072, 0, 0, 0, 2363), -- Brutal Gladiator's Quickblade
-(@NPC_KEZZIK, 35073, 0, 0, 0, 2364), -- Brutal Gladiator's Redoubt
-(@NPC_KEZZIK, 35074, 0, 0, 0, 2363), -- Brutal Gladiator's Reprieve
-(@NPC_KEZZIK, 35075, 0, 0, 0, 2360), -- Brutal Gladiator's Rifle
-(@NPC_KEZZIK, 35076, 0, 0, 0, 2362), -- Brutal Gladiator's Right Ripper
-(@NPC_KEZZIK, 35077, 3, 0, 0, 2337), -- Brutal Gladiator's Ringmail Armor
-(@NPC_KEZZIK, 35078, 3, 0, 0, 2342), -- Brutal Gladiator's Ringmail Gauntlets
-(@NPC_KEZZIK, 35079, 3, 0, 0, 2365), -- Brutal Gladiator's Ringmail Helm
-(@NPC_KEZZIK, 35080, 3, 0, 0, 2366), -- Brutal Gladiator's Ringmail Leggings
-(@NPC_KEZZIK, 35081, 3, 0, 0, 2359), -- Brutal Gladiator's Ringmail Spaulders
-(@NPC_KEZZIK, 35082, 0, 0, 0, 2361), -- Brutal Gladiator's Salvation
-(@NPC_KEZZIK, 35083, 2, 0, 0, 2342), -- Brutal Gladiator's Satin Gloves
-(@NPC_KEZZIK, 35084, 2, 0, 0, 2365), -- Brutal Gladiator's Satin Hood
-(@NPC_KEZZIK, 35085, 2, 0, 0, 2366), -- Brutal Gladiator's Satin Leggings
-(@NPC_KEZZIK, 35086, 2, 0, 0, 2359), -- Brutal Gladiator's Satin Mantle
-(@NPC_KEZZIK, 35087, 2, 0, 0, 2337), -- Brutal Gladiator's Satin Robe
-(@NPC_KEZZIK, 35088, 3, 0, 0, 2337), -- Brutal Gladiator's Scaled Chestpiece
-(@NPC_KEZZIK, 35089, 3, 0, 0, 2342), -- Brutal Gladiator's Scaled Gauntlets
-(@NPC_KEZZIK, 35090, 3, 0, 0, 2365), -- Brutal Gladiator's Scaled Helm
-(@NPC_KEZZIK, 35091, 3, 0, 0, 2366), -- Brutal Gladiator's Scaled Legguards
-(@NPC_KEZZIK, 35092, 3, 0, 0, 2359), -- Brutal Gladiator's Scaled Shoulders
-(@NPC_KEZZIK, 35093, 0, 0, 0, 2362), -- Brutal Gladiator's Shanker
-(@NPC_KEZZIK, 35094, 0, 0, 0, 2364), -- Brutal Gladiator's Shield Wall
-(@NPC_KEZZIK, 35095, 0, 0, 0, 2363), -- Brutal Gladiator's Shiv
-(@NPC_KEZZIK, 35096, 1, 0, 0, 2359), -- Brutal Gladiator's Silk Amice
-(@NPC_KEZZIK, 35097, 1, 0, 0, 2365), -- Brutal Gladiator's Silk Cowl
-(@NPC_KEZZIK, 35098, 1, 0, 0, 2342), -- Brutal Gladiator's Silk Handguards
-(@NPC_KEZZIK, 35099, 1, 0, 0, 2337), -- Brutal Gladiator's Silk Raiment
-(@NPC_KEZZIK, 35100, 1, 0, 0, 2366), -- Brutal Gladiator's Silk Trousers
-(@NPC_KEZZIK, 35101, 0, 0, 0, 2362), -- Brutal Gladiator's Slicer
-(@NPC_KEZZIK, 35102, 0, 0, 0, 2361), -- Brutal Gladiator's Spellblade
-(@NPC_KEZZIK, 35103, 0, 0, 0, 2360), -- Brutal Gladiator's Staff
-(@NPC_KEZZIK, 35104, 0, 0, 0, 2339), -- Brutal Gladiator's Totem of Indomitability
-(@NPC_KEZZIK, 35105, 0, 0, 0, 2339), -- Brutal Gladiator's Totem of Survival
-(@NPC_KEZZIK, 35106, 0, 0, 0, 2339), -- Brutal Gladiator's Totem of the Third Wind
-(@NPC_KEZZIK, 35107, 0, 0, 0, 2339), -- Brutal Gladiator's Touch of Defeat
-(@NPC_KEZZIK, 35108, 0, 0, 0, 2339), -- Brutal Gladiator's War Edge
-(@NPC_KEZZIK, 35109, 0, 0, 0, 2360), -- Brutal Gladiator's War Staff
-(@NPC_KEZZIK, 35110, 0, 0, 0, 2375), -- Brutal Gladiator's Waraxe
-(@NPC_KEZZIK, 35111, 3, 0, 0, 2342), -- Brutal Gladiator's Wyrmhide Gloves
-(@NPC_KEZZIK, 35112, 3, 0, 0, 2365), -- Brutal Gladiator's Wyrmhide Helm
-(@NPC_KEZZIK, 35113, 3, 0, 0, 2366), -- Brutal Gladiator's Wyrmhide Legguards
-(@NPC_KEZZIK, 35114, 3, 0, 0, 2359), -- Brutal Gladiator's Wyrmhide Spaulders
-(@NPC_KEZZIK, 35115, 3, 0, 0, 2337), -- Brutal Gladiator's Wyrmhide Tunic
-(@NPC_KEZZIK, 36737, 0, 0, 0, 2375); -- Brutal Gladiator's Hatchet
+(@NPC_KEZZIK, 34985, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Baton of Light
+(@NPC_KEZZIK, 34986, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Brutal Gladiator's Barrier
+(@NPC_KEZZIK, 34987, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Battle Staff
+(@NPC_KEZZIK, 34988, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Bonecracker
+(@NPC_KEZZIK, 34989, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Bonegrinder
+(@NPC_KEZZIK, 34990, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Chain Armor
+(@NPC_KEZZIK, 34991, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Chain Gauntlets
+(@NPC_KEZZIK, 34992, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Chain Helm
+(@NPC_KEZZIK, 34993, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Chain Leggings
+(@NPC_KEZZIK, 34994, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Chain Spaulders
+(@NPC_KEZZIK, 34995, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Chopper
+(@NPC_KEZZIK, 34996, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Brutal Gladiator's Cleaver
+(@NPC_KEZZIK, 34997, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Decapitator
+(@NPC_KEZZIK, 34998, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Dragonhide Gloves
+(@NPC_KEZZIK, 34999, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Dragonhide Helm
+(@NPC_KEZZIK, 35000, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Dragonhide Legguards
+(@NPC_KEZZIK, 35001, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Dragonhide Spaulders
+(@NPC_KEZZIK, 35002, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Dragonhide Tunic
+(@NPC_KEZZIK, 35003, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Dreadweave Gloves
+(@NPC_KEZZIK, 35004, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Dreadweave Hood
+(@NPC_KEZZIK, 35005, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Dreadweave Leggings
+(@NPC_KEZZIK, 35006, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Dreadweave Mantle
+(@NPC_KEZZIK, 35007, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Dreadweave Robe
+(@NPC_KEZZIK, 35008, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Endgame
+(@NPC_KEZZIK, 35009, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Felweave Amice
+(@NPC_KEZZIK, 35010, 2, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Felweave Cowl
+(@NPC_KEZZIK, 35011, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Felweave Handguards
+(@NPC_KEZZIK, 35012, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Felweave Raiment
+(@NPC_KEZZIK, 35013, 2, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Felweave Trousers
+(@NPC_KEZZIK, 35014, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Brutal Gladiator's Gavel
+(@NPC_KEZZIK, 35015, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Greatsword
+(@NPC_KEZZIK, 35016, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Grimoire
+(@NPC_KEZZIK, 35017, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Hacker
+(@NPC_KEZZIK, 35018, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Heavy Crossbow
+(@NPC_KEZZIK, 35019, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Idol of Resolve
+(@NPC_KEZZIK, 35020, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Idol of Steadfastness
+(@NPC_KEZZIK, 35021, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Idol of Tenacity
+(@NPC_KEZZIK, 35022, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Kodohide Gloves
+(@NPC_KEZZIK, 35023, 2, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Kodohide Helm
+(@NPC_KEZZIK, 35024, 2, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Kodohide Legguards
+(@NPC_KEZZIK, 35025, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Kodohide Spaulders
+(@NPC_KEZZIK, 35026, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Kodohide Tunic
+(@NPC_KEZZIK, 35027, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Lamellar Chestpiece
+(@NPC_KEZZIK, 35028, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Lamellar Gauntlets
+(@NPC_KEZZIK, 35029, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Lamellar Helm
+(@NPC_KEZZIK, 35030, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Lamellar Legguards
+(@NPC_KEZZIK, 35031, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Lamellar Shoulders
+(@NPC_KEZZIK, 35032, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Leather Gloves
+(@NPC_KEZZIK, 35033, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Leather Helm
+(@NPC_KEZZIK, 35034, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Leather Legguards
+(@NPC_KEZZIK, 35035, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Leather Spaulders
+(@NPC_KEZZIK, 35036, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Leather Tunic
+(@NPC_KEZZIK, 35037, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Left Render
+(@NPC_KEZZIK, 35038, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Left Ripper
+(@NPC_KEZZIK, 35039, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Libram of Fortitude
+(@NPC_KEZZIK, 35040, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Libram of Justice
+(@NPC_KEZZIK, 35041, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Libram of Vengeance
+(@NPC_KEZZIK, 35042, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Linked Armor
+(@NPC_KEZZIK, 35043, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Linked Gauntlets
+(@NPC_KEZZIK, 35044, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Linked Helm
+(@NPC_KEZZIK, 35045, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Linked Leggings
+(@NPC_KEZZIK, 35046, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Linked Spaulders
+(@NPC_KEZZIK, 35047, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Longbow
+(@NPC_KEZZIK, 35048, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Mail Armor
+(@NPC_KEZZIK, 35049, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Mail Gauntlets
+(@NPC_KEZZIK, 35050, 2, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Mail Helm
+(@NPC_KEZZIK, 35051, 2, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Mail Leggings
+(@NPC_KEZZIK, 35052, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Mail Spaulders
+(@NPC_KEZZIK, 35053, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Mooncloth Gloves
+(@NPC_KEZZIK, 35054, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Mooncloth Hood
+(@NPC_KEZZIK, 35055, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Mooncloth Leggings
+(@NPC_KEZZIK, 35056, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Mooncloth Mantle
+(@NPC_KEZZIK, 35057, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Mooncloth Robe
+(@NPC_KEZZIK, 35058, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Mutilator
+(@NPC_KEZZIK, 35059, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Ornamented Chestguard
+(@NPC_KEZZIK, 35060, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Ornamented Gloves
+(@NPC_KEZZIK, 35061, 2, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Ornamented Headcover
+(@NPC_KEZZIK, 35062, 2, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Ornamented Legplates
+(@NPC_KEZZIK, 35063, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Ornamented Spaulders
+(@NPC_KEZZIK, 35064, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Painsaw
+(@NPC_KEZZIK, 35065, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Piercing Touch
+(@NPC_KEZZIK, 35066, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Plate Chestpiece
+(@NPC_KEZZIK, 35067, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Plate Gauntlets
+(@NPC_KEZZIK, 35068, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Plate Helm
+(@NPC_KEZZIK, 35069, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Plate Legguards
+(@NPC_KEZZIK, 35070, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Plate Shoulders
+(@NPC_KEZZIK, 35071, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Brutal Gladiator's Pummeler
+(@NPC_KEZZIK, 35072, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Quickblade
+(@NPC_KEZZIK, 35073, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Brutal Gladiator's Redoubt
+(@NPC_KEZZIK, 35074, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Reprieve
+(@NPC_KEZZIK, 35075, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Rifle
+(@NPC_KEZZIK, 35076, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Brutal Gladiator's Right Ripper
+(@NPC_KEZZIK, 35077, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Ringmail Armor
+(@NPC_KEZZIK, 35078, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Ringmail Gauntlets
+(@NPC_KEZZIK, 35079, 3, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Ringmail Helm
+(@NPC_KEZZIK, 35080, 3, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Ringmail Leggings
+(@NPC_KEZZIK, 35081, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Ringmail Spaulders
+(@NPC_KEZZIK, 35082, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Brutal Gladiator's Salvation
+(@NPC_KEZZIK, 35083, 2, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Satin Gloves
+(@NPC_KEZZIK, 35084, 2, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Satin Hood
+(@NPC_KEZZIK, 35085, 2, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Satin Leggings
+(@NPC_KEZZIK, 35086, 2, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Satin Mantle
+(@NPC_KEZZIK, 35087, 2, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Satin Robe
+(@NPC_KEZZIK, 35088, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Scaled Chestpiece
+(@NPC_KEZZIK, 35089, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Scaled Gauntlets
+(@NPC_KEZZIK, 35090, 3, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Scaled Helm
+(@NPC_KEZZIK, 35091, 3, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Scaled Legguards
+(@NPC_KEZZIK, 35092, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Scaled Shoulders
+(@NPC_KEZZIK, 35093, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Brutal Gladiator's Shanker
+(@NPC_KEZZIK, 35094, 0, 0, 0, @EXTENDED_COST_WEAPON_4), -- Brutal Gladiator's Shield Wall
+(@NPC_KEZZIK, 35095, 0, 0, 0, @EXTENDED_COST_WEAPON_5), -- Brutal Gladiator's Shiv
+(@NPC_KEZZIK, 35096, 1, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Silk Amice
+(@NPC_KEZZIK, 35097, 1, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Silk Cowl
+(@NPC_KEZZIK, 35098, 1, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Silk Handguards
+(@NPC_KEZZIK, 35099, 1, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Silk Raiment
+(@NPC_KEZZIK, 35100, 1, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Silk Trousers
+(@NPC_KEZZIK, 35101, 0, 0, 0, @EXTENDED_COST_WEAPON_3), -- Brutal Gladiator's Slicer
+(@NPC_KEZZIK, 35102, 0, 0, 0, @EXTENDED_COST_WEAPON_2), -- Brutal Gladiator's Spellblade
+(@NPC_KEZZIK, 35103, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's Staff
+(@NPC_KEZZIK, 35104, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Totem of Indomitability
+(@NPC_KEZZIK, 35105, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Totem of Survival
+(@NPC_KEZZIK, 35106, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Totem of the Third Wind
+(@NPC_KEZZIK, 35107, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's Touch of Defeat
+(@NPC_KEZZIK, 35108, 0, 0, 0, @EXTENDED_COST_WEAPON_6), -- Brutal Gladiator's War Edge
+(@NPC_KEZZIK, 35109, 0, 0, 0, @EXTENDED_COST_WEAPON_1), -- Brutal Gladiator's War Staff
+(@NPC_KEZZIK, 35110, 0, 0, 0, @EXTENDED_COST_WEAPON_7), -- Brutal Gladiator's Waraxe
+(@NPC_KEZZIK, 35111, 3, 0, 0, @EXTENDED_COST_ARMOR_2), -- Brutal Gladiator's Wyrmhide Gloves
+(@NPC_KEZZIK, 35112, 3, 0, 0, @EXTENDED_COST_ARMOR_3), -- Brutal Gladiator's Wyrmhide Helm
+(@NPC_KEZZIK, 35113, 3, 0, 0, @EXTENDED_COST_ARMOR_4), -- Brutal Gladiator's Wyrmhide Legguards
+(@NPC_KEZZIK, 35114, 3, 0, 0, @EXTENDED_COST_SHOULDER), -- Brutal Gladiator's Wyrmhide Spaulders
+(@NPC_KEZZIK, 35115, 3, 0, 0, @EXTENDED_COST_ARMOR_1), -- Brutal Gladiator's Wyrmhide Tunic
+(@NPC_KEZZIK, 36737, 0, 0, 0, @EXTENDED_COST_WEAPON_7); -- Brutal Gladiator's Hatchet
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_KEZZIK) AND (`SourceEntry` IN (34990,34991,34992,34993,34994,34998,34999,35000,35001,35002,35003,35004,35005,35006,35007,35009,35010,35011,35012,35013,35022,35023,35024,35025,35026,35027,35028,35029,35030,35031,35032,35033,35034,35035,35036,35042,35043,35044,35045,35046,35048,35049,35050,35051,35052,35053,35054,35055,35056,35057,35059,35060,35061,35062,35063,35066,35067,35068,35069,35070,35077,35078,35079,35080,35081,35083,35084,35085,35086,35087,35088,35089,35090,35091,35092,35096,35097,35098,35099,35100,35111,35112,35113,35114,35115,35104,35105,35106,35039,35040,35041,35019,35020,35021));
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
