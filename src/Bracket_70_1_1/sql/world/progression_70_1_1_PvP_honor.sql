@@ -386,7 +386,7 @@ SET @EXT_WEP_SEASON_THREE_05_3 := 1432; -- Season 3: 1125 Arena, 1850 Rating - O
 SET @EXT_WEP_SEASON_THREE_06_3 := 1431; -- Season 3: 1875 Arena, 1850 Rating - Shield
 SET @EXT_WEP_SEASON_THREE_07_3 := 1758; -- Season 3: 1000 Arena - Relic, Thrown, Wand
 SET @EXT_WEP_SEASON_THREE_08_3 := 2282; -- Season 3: 3750 Arena, 1850 Rating - Ranged Weapon
-SET @EXT_WEP_SEASON_THREE_09_3 := 1758; -- Season 3: 1000 Arena - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_WEP_SEASON_THREE_09_3 := 1758; -- Season 3: 1000 Arena - Hunter/DK 2-Handed Melee Weapon (Waraxe)
 SET @EXT_ARM_SEASON_THREE_01_3 := 2285; -- Season 3: 1875 Arena - Head
 SET @EXT_ARM_SEASON_THREE_02_3 := 1435; -- Season 3: 1500 Arena, 1800 Rating - Shoulders
 SET @EXT_ARM_SEASON_THREE_03_3 := 2285; -- Season 3: 1875 Arena - Chest
@@ -401,7 +401,7 @@ SET @EXT_WEP_SEASON_THREE_05_4 := 2390; -- Season 4: 900 Arena, 1800 Rating - OH
 SET @EXT_WEP_SEASON_THREE_06_4 := 2391; -- Season 4: 1500 Arena, 1800 Rating - Shield
 SET @EXT_WEP_SEASON_THREE_07_4 := 2388; -- Season 4: 800 Arena - Relic, Thrown, Wand
 SET @EXT_WEP_SEASON_THREE_08_4 := 2386; -- Season 4: 3000 Arena, 1800 Rating - Ranged Weapon
-SET @EXT_WEP_SEASON_THREE_09_4 := 2388; -- Season 4: 800 Arena - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_WEP_SEASON_THREE_09_4 := 2388; -- Season 4: 800 Arena - Hunter/DK 2-Handed Melee Weapon (Waraxe)
 SET @EXT_ARM_SEASON_THREE_01_4 := 2288; -- Season 4: 1500 Arena - Head
 SET @EXT_ARM_SEASON_THREE_02_4 := 2392; -- Season 4: 1200 Arena, 1950 Rating - Shoulders
 SET @EXT_ARM_SEASON_THREE_03_4 := 2288; -- Season 4: 1500 Arena - Chest
@@ -421,7 +421,7 @@ SET @EXT_WEP_SEASON_FOUR_05_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH
 SET @EXT_WEP_SEASON_FOUR_06_4 := 2364; -- Season 4: 1875 Arena, 2050 Rating - Shield
 SET @EXT_WEP_SEASON_FOUR_07_4 := 2339; -- Season 4: 1000 Arena, 1750 Rating - Relic, Thrown, Wand
 SET @EXT_WEP_SEASON_FOUR_08_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Ranged Weapon
-SET @EXT_WEP_SEASON_FOUR_09_4 := 2375; -- Season 4: 650 Arena, 2050 Rating - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_WEP_SEASON_FOUR_09_4 := 2375; -- Season 4: 650 Arena, 2050 Rating - Hunter 1-Handed Melee Weapons (Hatchet, Waraxe)
 SET @EXT_ARM_SEASON_FOUR_01_4 := 2365; -- Season 4: 1875 Arena, 1700 Rating - Head
 SET @EXT_ARM_SEASON_FOUR_02_4 := 2359; -- Season 4: 1500 Arena, 2200 Rating - Shoulders
 SET @EXT_ARM_SEASON_FOUR_03_4 := 2337; -- Season 4: 1875 Arena, 1600 Rating - Chest
@@ -433,6 +433,35 @@ SET @EXT_ARM_SEASON_FOUR_05_4 := 2342; -- Season 4: 1125 Arena - Hands
 	Arena Accessory Vendor
 		Present in 3 seasons, from 2nd to 4th
 */
+/*-------------------------------SEASON 2---------------------------------*/
+SET @EXT_ACC_ACCESSORY_01_2 := 2028; -- Season 2: 16000 Honor - Veteran's Bands
+SET @EXT_ACC_ACCESSORY_02_2 := 1935; -- Season 2: 13000 Honor - Wrist
+SET @EXT_ACC_ACCESSORY_03_2 := 1923; -- Season 2: 18000 Honor - Waist
+SET @EXT_ACC_ACCESSORY_04_2 := 1911; -- Season 2: 18000 Honor - Feet
+SET @EXT_ACC_ACCESSORY_05_2 := 127 ; -- Season 2: 16000 Honor - Veteran's Pendant
+-- SET @EXT_GEM_ACCESSORY_01_2 := 2388; -- Season 2: 800 Arena - Gems
+/*-------------------------------SEASON 3---------------------------------*/
+SET @EXT_ACC_ACCESSORY_01_3 := 2289; -- Season 3: 31000 Honor - Battlemaster Trinkets
+SET @EXT_ACC_ACCESSORY_02_3 := 129 ; -- Season 3: 12000 Honor - Veteran's Band
+SET @EXT_ACC_ACCESSORY_03_3 := 2028; -- Season 3: 16000 Honor - Vindicator's Band
+SET @EXT_ACC_ACCESSORY_04_3 := 1935; -- Season 3: 13000 Honor - Wrist
+SET @EXT_ACC_ACCESSORY_05_3 := 1923; -- Season 3: 18000 Honor - Waist
+SET @EXT_ACC_ACCESSORY_06_3 := 1923; -- Season 3: 18000 Honor - Feet
+SET @EXT_ACC_ACCESSORY_07_3 := 127 ; -- Season 3: 16000 Honor - Vindicator's Pendant
+-- SET @EXT_GEM_ACCESSORY_01_3 := 2388; -- Season 3: 800 Arena - Gems
+/*-------------------------------SEASON 4---------------------------------*/
+SET @EXT_ACC_ACCESSORY_01_4  := 2289; -- Season 4: 31000 Honor - Battlemaster Trinkets
+SET @EXT_ACC_ACCESSORY_02_4  := 2402; -- Season 4: 16000 Honor, 1650 Rating - Guardian Bands
+SET @EXT_ACC_ACCESSORY_03_4  := 2401; -- Season 4: 13000 Honor, 1575 Rating - Guardian Wrist
+SET @EXT_ACC_ACCESSORY_04_4  := 1923; -- Season 4: 18000 Honor - Guardian Waist
+SET @EXT_ACC_ACCESSORY_05_4  := 2400; -- Season 4: 18000 Honor, 1700 Rating - Guardian Feet
+SET @EXT_ACC_ACCESSORY_06_4  := 127 ; -- Season 4: 16000 Honor - Guardian Pendant
+SET @EXT_ACC_ACCESSORY_07_4  := 129 ; -- Season 4: 12000 Honor - Vindicator Band
+SET @EXT_ACC_ACCESSORY_08_4  := 2405; -- Season 4: 9200 Honor - Vindicator Wrist
+SET @EXT_ACC_ACCESSORY_09_4  := 2406; -- Season 4: 15000 Honor - Vindicator Feet
+SET @EXT_ACC_ACCESSORY_10_4  := 2248; -- Season 4: 12000 Honor - Vindicator Pendant
+SET @EXT_GEM_ACCESSORY_01_4  := 2388; -- Season 4: 800 Arena - Gems
+/*------------------------------------------------------------------------*/
 
 DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` IN (75, 76, 55, 56) AND `guid` IN (@GUID_WEAPON_HORDE_1,@GUID_WEAPON_HORDE_2,@GUID_WEAPON_HORDE_3,@GUID_WEAPON_HORDE_4,@GUID_ACCESSORY_HORDE_1,@GUID_ACCESSORY_HORDE_2,@GUID_ACCESSORY_HORDE_3,@GUID_ACCESSORY_HORDE_4,@GUID_ARMOR_HORDE_1,@GUID_ARMOR_HORDE_2,@GUID_ARMOR_HORDE_3,@GUID_ARMOR_HORDE_4,@GUID_ARMOR_ALLIANCE_1,@GUID_ARMOR_ALLIANCE_2,@GUID_ARMOR_ALLIANCE_3,@GUID_ARMOR_ALLIANCE_4,@GUID_WEAPON_ALLIANCE_1,@GUID_WEAPON_ALLIANCE_2,@GUID_WEAPON_ALLIANCE_3,@GUID_WEAPON_ALLIANCE_4,@GUID_ACCESSORY_ALLIANCE_1,@GUID_ACCESSORY_ALLIANCE_2,@GUID_ACCESSORY_ALLIANCE_3,@GUID_ACCESSORY_ALLIANCE_4,@GUID_SEASON_ONE_1,@GUID_SEASON_ONE_2,@GUID_SEASON_ONE_3,@GUID_SEASON_ONE_4,@GUID_SEASON_TWO_2,@GUID_SEASON_TWO_3,@GUID_SEASON_TWO_4,@GUID_ARENA_ACCESSORY_2,@GUID_ARENA_ACCESSORY_3,@GUID_ARENA_ACCESSORY_4,@GUID_SEASON_THREE_3,@GUID_SEASON_THREE_4,@GUID_SEASON_FOUR_4);
 INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -3040,7 +3069,247 @@ INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxc
 -- (56, @GUID_SEASON_FOUR_4, 38548, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Potent Ornate Topaz
 -- (56, @GUID_SEASON_FOUR_4, 38549, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Runed Ornate Ruby
 -- (56, @GUID_SEASON_FOUR_4, 38550, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Smooth Ornate Dawnstone
-
+/*
+	Arena Accessory Vendor
+		Present in 3 seasons, from 2nd to 4th
+*/
+-- Season 2
+-- (76, @GUID_ARENA_ACCESSORY_2, 38545, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Bold Ornate Ruby
+-- (76, @GUID_ARENA_ACCESSORY_2, 38546, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Gleaming Ornate Dawnstone
+-- (76, @GUID_ARENA_ACCESSORY_2, 38547, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Inscribed Ornate Topaz
+-- (76, @GUID_ARENA_ACCESSORY_2, 38548, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Potent Ornate Topaz
+-- (76, @GUID_ARENA_ACCESSORY_2, 38549, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Runed Ornate Ruby
+-- (76, @GUID_ARENA_ACCESSORY_2, 38550, 4, 0, 0, @EXT_GEM_ACCESSORY_01_2), -- Smooth Ornate Dawnstone
+(76, @GUID_ARENA_ACCESSORY_2, 33056, 0, 0, 0, @EXT_ACC_ACCESSORY_01_2),  -- Veteran's Band of Dominance
+(76, @GUID_ARENA_ACCESSORY_2, 33064, 0, 0, 0, @EXT_ACC_ACCESSORY_01_2),  -- Veteran's Band of Salvation
+(76, @GUID_ARENA_ACCESSORY_2, 33057, 0, 0, 0, @EXT_ACC_ACCESSORY_01_2),  -- Veteran's Band of Triumph
+(76, @GUID_ARENA_ACCESSORY_2, 32809, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Chain Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32797, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Chain Girdle
+(76, @GUID_ARENA_ACCESSORY_2, 32785, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Chain Sabatons
+(76, @GUID_ARENA_ACCESSORY_2, 32786, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Dragonhide Boots
+(76, @GUID_ARENA_ACCESSORY_2, 32810, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Dragonhide Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32799, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Dreadweave Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32811, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Dreadweave Cuffs
+(76, @GUID_ARENA_ACCESSORY_2, 32787, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Dreadweave Stalkers
+(76, @GUID_ARENA_ACCESSORY_2, 32800, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Kodohide Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32788, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Kodohide Boots
+(76, @GUID_ARENA_ACCESSORY_2, 32812, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Kodohide Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32801, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Lamellar Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32813, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Lamellar Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32789, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Lamellar Greaves
+(76, @GUID_ARENA_ACCESSORY_2, 32802, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Leather Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32790, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Leather Boots
+(76, @GUID_ARENA_ACCESSORY_2, 32814, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Leather Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32816, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Linked Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32803, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Linked Girdle
+(76, @GUID_ARENA_ACCESSORY_2, 32791, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Linked Sabatons
+(76, @GUID_ARENA_ACCESSORY_2, 32817, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Mail Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32804, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Mail Girdle
+(76, @GUID_ARENA_ACCESSORY_2, 32792, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Mail Sabatons
+(76, @GUID_ARENA_ACCESSORY_2, 32979, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Mooncloth Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32980, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Mooncloth Cuffs
+(76, @GUID_ARENA_ACCESSORY_2, 32981, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Mooncloth Slippers
+(76, @GUID_ARENA_ACCESSORY_2, 32988, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Ornamented Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32989, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Ornamented Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32990, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Ornamented Greaves
+(76, @GUID_ARENA_ACCESSORY_2, 33067, 1, 0, 0, @EXT_ACC_ACCESSORY_05_2),  -- Veteran's Pendant of Conquest
+(76, @GUID_ARENA_ACCESSORY_2, 33065, 1, 0, 0, @EXT_ACC_ACCESSORY_05_2),  -- Veteran's Pendant of Dominance
+(76, @GUID_ARENA_ACCESSORY_2, 33068, 1, 0, 0, @EXT_ACC_ACCESSORY_05_2),  -- Veteran's Pendant of Salvation
+(76, @GUID_ARENA_ACCESSORY_2, 33066, 1, 0, 0, @EXT_ACC_ACCESSORY_05_2),  -- Veteran's Pendant of Triumph
+(76, @GUID_ARENA_ACCESSORY_2, 32805, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Plate Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32818, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Plate Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32793, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Plate Greaves
+(76, @GUID_ARENA_ACCESSORY_2, 32997, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Ringmail Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32998, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Ringmail Girdle
+(76, @GUID_ARENA_ACCESSORY_2, 32999, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Ringmail Sabatons
+(76, @GUID_ARENA_ACCESSORY_2, 32806, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Scaled Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32819, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Scaled Bracers
+(76, @GUID_ARENA_ACCESSORY_2, 32794, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Scaled Greaves
+(76, @GUID_ARENA_ACCESSORY_2, 32807, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Silk Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32820, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Silk Cuffs
+(76, @GUID_ARENA_ACCESSORY_2, 32795, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Silk Footguards
+(76, @GUID_ARENA_ACCESSORY_2, 32808, 2, 0, 0, @EXT_ACC_ACCESSORY_03_2),  -- Veteran's Wyrmhide Belt
+(76, @GUID_ARENA_ACCESSORY_2, 32796, 2, 0, 0, @EXT_ACC_ACCESSORY_04_2),  -- Veteran's Wyrmhide Boots
+(76, @GUID_ARENA_ACCESSORY_2, 32821, 2, 0, 0, @EXT_ACC_ACCESSORY_02_2),  -- Veteran's Wyrmhide Bracers
+-- Season 3
+-- (55, @GUID_ARENA_ACCESSORY_3, 38545, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Bold Ornate Ruby
+-- (55, @GUID_ARENA_ACCESSORY_3, 38546, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Gleaming Ornate Dawnstone
+-- (55, @GUID_ARENA_ACCESSORY_3, 38547, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Inscribed Ornate Topaz
+-- (55, @GUID_ARENA_ACCESSORY_3, 38548, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Potent Ornate Topaz
+-- (55, @GUID_ARENA_ACCESSORY_3, 38549, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Runed Ornate Ruby
+-- (55, @GUID_ARENA_ACCESSORY_3, 38550, 4, 0, 0, @EXT_GEM_ACCESSORY_01_3), -- Smooth Ornate Dawnstone
+(55, @GUID_ARENA_ACCESSORY_3, 35327, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Alacrity
+(55, @GUID_ARENA_ACCESSORY_3, 34049, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Audacity
+(55, @GUID_ARENA_ACCESSORY_3, 34576, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Cruelty
+(55, @GUID_ARENA_ACCESSORY_3, 34162, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Depravity
+(55, @GUID_ARENA_ACCESSORY_3, 33832, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Determination
+(55, @GUID_ARENA_ACCESSORY_3, 34050, 0, 0, 0, @EXT_ACC_ACCESSORY_01_3), -- Battlemaster's Perseverance
+(55, @GUID_ARENA_ACCESSORY_3, 33056, 4, 0, 0, @EXT_ACC_ACCESSORY_02_3), -- Veteran's Band of Dominance
+(55, @GUID_ARENA_ACCESSORY_3, 33064, 4, 0, 0, @EXT_ACC_ACCESSORY_02_3), -- Veteran's Band of Salvation
+(55, @GUID_ARENA_ACCESSORY_3, 33057, 4, 0, 0, @EXT_ACC_ACCESSORY_02_3), -- Veteran's Band of Triumph
+(55, @GUID_ARENA_ACCESSORY_3, 33853, 1, 0, 0, @EXT_ACC_ACCESSORY_03_3), -- Vindicator's Band of Dominance
+(55, @GUID_ARENA_ACCESSORY_3, 33918, 1, 0, 0, @EXT_ACC_ACCESSORY_03_3), -- Vindicator's Band of Salvation
+(55, @GUID_ARENA_ACCESSORY_3, 35320, 1, 0, 0, @EXT_ACC_ACCESSORY_03_3), -- Vindicator's Band of Subjugation
+(55, @GUID_ARENA_ACCESSORY_3, 33919, 1, 0, 0, @EXT_ACC_ACCESSORY_03_3), -- Vindicator's Band of Triumph
+(55, @GUID_ARENA_ACCESSORY_3, 33876, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Chain Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33877, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Chain Girdle
+(55, @GUID_ARENA_ACCESSORY_3, 33878, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Chain Sabatons
+(55, @GUID_ARENA_ACCESSORY_3, 33879, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Dragonhide Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33880, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Dragonhide Boots
+(55, @GUID_ARENA_ACCESSORY_3, 33881, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Dragonhide Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33882, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Dreadweave Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33883, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Dreadweave Cuffs
+(55, @GUID_ARENA_ACCESSORY_3, 33884, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Dreadweave Stalkers
+(55, @GUID_ARENA_ACCESSORY_3, 33885, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Kodohide Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33886, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Kodohide Boots
+(55, @GUID_ARENA_ACCESSORY_3, 33887, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Kodohide Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33888, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Lamellar Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33889, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Lamellar Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33890, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Lamellar Greaves
+(55, @GUID_ARENA_ACCESSORY_3, 33891, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Leather Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33892, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Leather Boots
+(55, @GUID_ARENA_ACCESSORY_3, 33893, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Leather Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33894, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Linked Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33895, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Linked Girdle
+(55, @GUID_ARENA_ACCESSORY_3, 33896, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Linked Sabatons
+(55, @GUID_ARENA_ACCESSORY_3, 33897, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Mail Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33898, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Mail Girdle
+(55, @GUID_ARENA_ACCESSORY_3, 33899, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Mail Sabatons
+(55, @GUID_ARENA_ACCESSORY_3, 33900, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Mooncloth Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33901, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Mooncloth Cuffs
+(55, @GUID_ARENA_ACCESSORY_3, 33902, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Mooncloth Slippers
+(55, @GUID_ARENA_ACCESSORY_3, 33903, 3, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Ornamented Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33904, 3, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Ornamented Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33905, 3, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Ornamented Greaves
+(55, @GUID_ARENA_ACCESSORY_3, 33920, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Conquest
+(55, @GUID_ARENA_ACCESSORY_3, 33921, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Dominance
+(55, @GUID_ARENA_ACCESSORY_3, 35317, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Reprieve
+(55, @GUID_ARENA_ACCESSORY_3, 33922, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Salvation
+(55, @GUID_ARENA_ACCESSORY_3, 35319, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Subjugation
+(55, @GUID_ARENA_ACCESSORY_3, 33923, 2, 0, 0, @EXT_ACC_ACCESSORY_07_3), -- Vindicator's Pendant of Triumph
+(55, @GUID_ARENA_ACCESSORY_3, 33811, 4, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Plate Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33813, 4, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Plate Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33812, 4, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Plate Greaves
+(55, @GUID_ARENA_ACCESSORY_3, 33906, 4, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Ringmail Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33907, 4, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Ringmail Girdle
+(55, @GUID_ARENA_ACCESSORY_3, 33908, 4, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Ringmail Sabatons
+(55, @GUID_ARENA_ACCESSORY_3, 33909, 4, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Scaled Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33910, 4, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Scaled Bracers
+(55, @GUID_ARENA_ACCESSORY_3, 33911, 4, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Scaled Greaves
+(55, @GUID_ARENA_ACCESSORY_3, 33912, 4, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Silk Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33913, 4, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Silk Cuffs
+(55, @GUID_ARENA_ACCESSORY_3, 33914, 4, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Silk Footguards
+(55, @GUID_ARENA_ACCESSORY_3, 33915, 4, 0, 0, @EXT_ACC_ACCESSORY_05_3), -- Vindicator's Wyrmhide Belt
+(55, @GUID_ARENA_ACCESSORY_3, 33916, 4, 0, 0, @EXT_ACC_ACCESSORY_06_3), -- Vindicator's Wyrmhide Boots
+(55, @GUID_ARENA_ACCESSORY_3, 33917, 4, 0, 0, @EXT_ACC_ACCESSORY_04_3), -- Vindicator's Wyrmhide Bracers
+-- Season 4
+(56, @GUID_ARENA_ACCESSORY_4, 38545, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Bold Ornate Ruby
+(56, @GUID_ARENA_ACCESSORY_4, 38546, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Gleaming Ornate Dawnstone
+(56, @GUID_ARENA_ACCESSORY_4, 38547, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Inscribed Ornate Topaz
+(56, @GUID_ARENA_ACCESSORY_4, 38548, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Potent Ornate Topaz
+(56, @GUID_ARENA_ACCESSORY_4, 38549, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Runed Ornate Ruby
+(56, @GUID_ARENA_ACCESSORY_4, 38550, 4, 0, 0, @EXT_GEM_ACCESSORY_01_4), -- Smooth Ornate Dawnstone
+(56, @GUID_ARENA_ACCESSORY_4, 35327, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Alacrity
+(56, @GUID_ARENA_ACCESSORY_4, 34049, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Audacity
+(56, @GUID_ARENA_ACCESSORY_4, 34576, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Cruelty
+(56, @GUID_ARENA_ACCESSORY_4, 34162, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Depravity
+(56, @GUID_ARENA_ACCESSORY_4, 33832, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Determination
+(56, @GUID_ARENA_ACCESSORY_4, 34050, 0, 0, 0, @EXT_ACC_ACCESSORY_01_4), -- Battlemaster's Perseverance
+(56, @GUID_ARENA_ACCESSORY_4, 35129, 1, 0, 0, @EXT_ACC_ACCESSORY_02_4), -- Guardian's Band of Dominance
+(56, @GUID_ARENA_ACCESSORY_4, 35130, 1, 0, 0, @EXT_ACC_ACCESSORY_02_4), -- Guardian's Band of Salvation
+(56, @GUID_ARENA_ACCESSORY_4, 37927, 1, 0, 0, @EXT_ACC_ACCESSORY_02_4), -- Guardian's Band of Subjugation
+(56, @GUID_ARENA_ACCESSORY_4, 35131, 1, 0, 0, @EXT_ACC_ACCESSORY_02_4), -- Guardian's Band of Triumph
+(56, @GUID_ARENA_ACCESSORY_4, 35166, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Chain Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35151, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Chain Girdle
+(56, @GUID_ARENA_ACCESSORY_4, 35136, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Chain Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 35152, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Dragonhide Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35137, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Dragonhide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 35167, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Dragonhide Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35153, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Dreadweave Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35168, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Dreadweave Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 35138, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Dreadweave Stalkers
+(56, @GUID_ARENA_ACCESSORY_4, 35154, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Kodohide Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35139, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Kodohide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 35169, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Kodohide Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35155, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Lamellar Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35170, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Lamellar Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35140, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Lamellar Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 35156, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Leather Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35141, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Leather Boots
+(56, @GUID_ARENA_ACCESSORY_4, 35171, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Leather Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35172, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Linked Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35157, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Linked Girdle
+(56, @GUID_ARENA_ACCESSORY_4, 35142, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Linked Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 35173, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Mail Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35158, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Mail Girdle
+(56, @GUID_ARENA_ACCESSORY_4, 35143, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Mail Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 35159, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Mooncloth Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35174, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Mooncloth Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 35144, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Mooncloth Slippers
+(56, @GUID_ARENA_ACCESSORY_4, 35160, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Ornamented Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35175, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Ornamented Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35145, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Ornamented Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 35132, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Conquest
+(56, @GUID_ARENA_ACCESSORY_4, 35133, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Dominance
+(56, @GUID_ARENA_ACCESSORY_4, 37929, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Reprieve
+(56, @GUID_ARENA_ACCESSORY_4, 35134, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Salvation
+(56, @GUID_ARENA_ACCESSORY_4, 37928, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Subjugation
+(56, @GUID_ARENA_ACCESSORY_4, 35135, 2, 0, 0, @EXT_ACC_ACCESSORY_06_4), -- Guardian's Pendant of Triumph
+(56, @GUID_ARENA_ACCESSORY_4, 35161, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Plate Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35176, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Plate Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35146, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Plate Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 35177, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Ringmail Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35162, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Ringmail Girdle
+(56, @GUID_ARENA_ACCESSORY_4, 35147, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Ringmail Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 35163, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Scaled Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35178, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Scaled Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 35148, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Scaled Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 35164, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Silk Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35179, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Silk Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 35149, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Silk Footguards
+(56, @GUID_ARENA_ACCESSORY_4, 35165, 3, 0, 0, @EXT_ACC_ACCESSORY_04_4), -- Guardian's Wyrmhide Belt
+(56, @GUID_ARENA_ACCESSORY_4, 35150, 3, 0, 0, @EXT_ACC_ACCESSORY_05_4), -- Guardian's Wyrmhide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 35180, 3, 0, 0, @EXT_ACC_ACCESSORY_03_4), -- Guardian's Wyrmhide Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33853, 4, 0, 0, @EXT_ACC_ACCESSORY_07_4), -- Vindicator's Band of Dominance
+(56, @GUID_ARENA_ACCESSORY_4, 33918, 4, 0, 0, @EXT_ACC_ACCESSORY_07_4), -- Vindicator's Band of Salvation
+(56, @GUID_ARENA_ACCESSORY_4, 35320, 4, 0, 0, @EXT_ACC_ACCESSORY_07_4), -- Vindicator's Band of Subjugation
+(56, @GUID_ARENA_ACCESSORY_4, 33919, 4, 0, 0, @EXT_ACC_ACCESSORY_07_4), -- Vindicator's Band of Triumph
+(56, @GUID_ARENA_ACCESSORY_4, 33876, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Chain Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33878, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Chain Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 33880, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Dragonhide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 33881, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Dragonhide Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33883, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Dreadweave Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 33884, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Dreadweave Stalkers
+(56, @GUID_ARENA_ACCESSORY_4, 33886, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Kodohide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 33887, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Kodohide Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33889, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Lamellar Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33890, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Lamellar Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 33892, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Leather Boots
+(56, @GUID_ARENA_ACCESSORY_4, 33893, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Leather Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33894, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Linked Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33896, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Linked Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 33897, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Mail Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33899, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Mail Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 33901, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Mooncloth Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 33902, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Mooncloth Slippers
+(56, @GUID_ARENA_ACCESSORY_4, 33904, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Ornamented Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33905, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Ornamented Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 33920, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Conquest
+(56, @GUID_ARENA_ACCESSORY_4, 33921, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Dominance
+(56, @GUID_ARENA_ACCESSORY_4, 35317, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Reprieve
+(56, @GUID_ARENA_ACCESSORY_4, 33922, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Salvation
+(56, @GUID_ARENA_ACCESSORY_4, 35319, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Subjugation
+(56, @GUID_ARENA_ACCESSORY_4, 33923, 5, 0, 0, @EXT_ACC_ACCESSORY_10_4), -- Vindicator's Pendant of Triumph
+(56, @GUID_ARENA_ACCESSORY_4, 33813, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Plate Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33812, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Plate Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 33906, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Ringmail Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33908, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Ringmail Sabatons
+(56, @GUID_ARENA_ACCESSORY_4, 33910, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Scaled Bracers
+(56, @GUID_ARENA_ACCESSORY_4, 33911, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Scaled Greaves
+(56, @GUID_ARENA_ACCESSORY_4, 33913, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4), -- Vindicator's Silk Cuffs
+(56, @GUID_ARENA_ACCESSORY_4, 33914, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Silk Footguards
+(56, @GUID_ARENA_ACCESSORY_4, 33916, 6, 0, 0, @EXT_ACC_ACCESSORY_09_4), -- Vindicator's Wyrmhide Boots
+(56, @GUID_ARENA_ACCESSORY_4, 33917, 6, 0, 0, @EXT_ACC_ACCESSORY_08_4); -- Vindicator's Wyrmhide Bracers
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ACCESSORY_ALLIANCE) AND (`SourceEntry` IN (28234,28235,28236,28237,28238,30348,30349,30350,30351,38589));
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
@@ -3592,7 +3861,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_SEASON_THREE, 33843, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
 (23, @NPC_SEASON_THREE, 34014, 0, 1, 15, 0, 36, 0, 0, 0, 0, 0, '', ''); -- Hunter/DK
 
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_FOUR) AND (`SourceEntry` IN (34990,34991,34992,34993,34994,34998,34999,35000,35001,35002,35003,35004,35005,35006,35007,35009,35010,35011,35012,35013,35022,35023,35024,35025,35026,35027,35028,35029,35030,35031,35032,35033,35034,35035,35036,35042,35043,35044,35045,35046,35048,35049,35050,35051,35052,35053,35054,35055,35056,35057,35059,35060,35061,35062,35063,35066,35067,35068,35069,35070,35077,35078,35079,35080,35081,35083,35084,35085,35086,35087,35088,35089,35090,35091,35092,35096,35097,35098,35099,35100,35111,35112,35113,35114,35115,35104,35105,35106,35039,35040,35041,35019,35020,35021,35019,35020,35021,35039,35040,35041,35104,35105,35106,35110,36737));
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_FOUR) AND (`SourceEntry` IN (34990,34991,34992,34993,34994,34998,34999,35000,35001,35002,35003,35004,35005,35006,35007,35009,35010,35011,35012,35013,35022,35023,35024,35025,35026,35027,35028,35029,35030,35031,35032,35033,35034,35035,35036,35042,35043,35044,35045,35046,35048,35049,35050,35051,35052,35053,35054,35055,35056,35057,35059,35060,35061,35062,35063,35066,35067,35068,35069,35070,35077,35078,35079,35080,35081,35083,35084,35085,35086,35087,35088,35089,35090,35091,35092,35096,35097,35098,35099,35100,35111,35112,35113,35114,35115,35019,35020,35021,35039,35040,35041,35104,35105,35106,35110,36737));
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (23, @NPC_SEASON_FOUR, 34990, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
 (23, @NPC_SEASON_FOUR, 34991, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
@@ -3679,15 +3948,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_SEASON_FOUR, 35113, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_SEASON_FOUR, 35114, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_SEASON_FOUR, 35115, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
-(23, @NPC_SEASON_FOUR, 35104, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
-(23, @NPC_SEASON_FOUR, 35105, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
-(23, @NPC_SEASON_FOUR, 35106, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
-(23, @NPC_SEASON_FOUR, 35039, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
-(23, @NPC_SEASON_FOUR, 35040, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
-(23, @NPC_SEASON_FOUR, 35041, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
-(23, @NPC_SEASON_FOUR, 35019, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
-(23, @NPC_SEASON_FOUR, 35020, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
-(23, @NPC_SEASON_FOUR, 35021, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
 (23, @NPC_SEASON_FOUR, 35019, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_SEASON_FOUR, 35020, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_SEASON_FOUR, 35021, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
@@ -3699,3 +3959,140 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_SEASON_FOUR, 35106, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
 (23, @NPC_SEASON_FOUR, 35110, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
 (23, @NPC_SEASON_FOUR, 36737, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''); -- Hunter
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ARENA_ACCESSORY) AND (`SourceEntry` IN (32799,32811,32787,32979,32980,32981,32807,32820,32795,32786,32788,32790,32796,32800,32802,32808,32810,32812,32814,32821,32785,32791,32792,32797,32803,32804,32809,32816,32817,32997,32998,32999,32789,32793,32794,32801,32805,32806,32813,32818,32819,32988,32989,32990,33882,33883,33884,33900,33901,33902,33912,33913,33914,33879,33880,33881,33885,33886,33887,33891,33892,33893,33915,33916,33917,33877,33894,33895,33896,33897,33898,33899,33906,33907,33908,33811,33812,33813,33888,33889,33890,33903,33904,33905,33909,33910,33911,35138,35144,35149,35153,35159,35164,35168,35174,35179,35137,35139,35141,35150,35152,35154,35156,35165,35167,35169,35171,35180,33876,33878,35136,35142,35143,35147,35151,35157,35158,35162,35166,35172,35173,35177,35140,35145,35146,35148,35155,35160,35161,35163,35170,35175,35176,35178));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_ARENA_ACCESSORY, 32799, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32811, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32787, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32979, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32980, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32981, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32807, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32820, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32795, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 32786, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32788, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32790, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32796, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32800, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32802, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32808, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32810, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32812, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32814, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32821, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 32785, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32791, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32792, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32797, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32803, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32804, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32809, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32816, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32817, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32997, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32998, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32999, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 32789, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32793, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32794, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32801, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32805, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32806, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32813, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32818, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32819, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32988, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32989, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 32990, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33882, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33883, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33884, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33900, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33901, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33902, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33912, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33913, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33914, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 33879, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33880, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33881, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33885, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33886, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33887, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33891, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33892, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33893, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33915, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33916, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33917, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33877, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33894, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33895, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33896, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33897, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33898, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33899, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33906, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33907, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33908, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33811, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33812, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33813, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33888, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33889, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33890, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33903, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33904, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33905, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33909, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33910, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 33911, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35138, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35144, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35149, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35153, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35159, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35164, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35168, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35174, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35179, 0, 1, 15, 0, 400, 0, 0, 0, 0, 0, '', ''), -- Cloth
+(23, @NPC_ARENA_ACCESSORY, 35137, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35139, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35141, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35150, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35152, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35154, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35156, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35165, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35167, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35169, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35171, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 35180, 0, 1, 15, 0, 1032, 0, 0, 0, 0, 0, '', ''), -- Leather
+(23, @NPC_ARENA_ACCESSORY, 33876, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 33878, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35136, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35142, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35143, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35147, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35151, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35157, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35158, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35162, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35166, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35172, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35173, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35177, 0, 1, 15, 0, 68, 0, 0, 0, 0, 0, '', ''), -- Mail
+(23, @NPC_ARENA_ACCESSORY, 35140, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35145, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35146, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35148, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35155, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35160, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35161, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35163, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35170, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35175, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35176, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''), -- Plate
+(23, @NPC_ARENA_ACCESSORY, 35178, 0, 1, 15, 0, 35, 0, 0, 0, 0, 0, '', ''); -- Plate
