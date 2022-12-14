@@ -413,6 +413,26 @@ SET @EXT_ARM_SEASON_THREE_05_4 := 2387; -- Season 4: 900 Arena - Hands
 		Present in 1 season
 */
 /*-------------------------------SEASON 4---------------------------------*/
+SET @EXT_WEP_SEASON_FOUR_01_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Two-Handed
+SET @EXT_WEP_SEASON_FOUR_02_4 := 2361; -- Season 4: 3150 Arena, 2050 Rating - MH (Spellpower)
+SET @EXT_WEP_SEASON_FOUR_03_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Spellpower)
+SET @EXT_WEP_SEASON_FOUR_04_4 := 2362; -- Season 4: 2625 Arena, 2050 Rating - MH (Melee)
+SET @EXT_WEP_SEASON_FOUR_05_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Melee)
+SET @EXT_WEP_SEASON_FOUR_06_4 := 2364; -- Season 4: 1875 Arena, 2050 Rating - Shield
+SET @EXT_WEP_SEASON_FOUR_07_4 := 2339; -- Season 4: 1000 Arena, 1750 Rating - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_FOUR_08_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Ranged Weapon
+SET @EXT_WEP_SEASON_FOUR_09_4 := 2375; -- Season 4: 650 Arena, 2050 Rating - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_FOUR_01_4 := 2365; -- Season 4: 1875 Arena, 1700 Rating - Head
+SET @EXT_ARM_SEASON_FOUR_02_4 := 2359; -- Season 4: 1500 Arena, 2200 Rating - Shoulders
+SET @EXT_ARM_SEASON_FOUR_03_4 := 2337; -- Season 4: 1875 Arena, 1600 Rating - Chest
+SET @EXT_ARM_SEASON_FOUR_04_4 := 2366; -- Season 4: 1875 Arena, 1550 Rating - Legs
+SET @EXT_ARM_SEASON_FOUR_05_4 := 2342; -- Season 4: 1125 Arena - Hands
+-- SET @EXT_GEM_SEASON_FOUR_01_4 := 2388; -- Season 4: 800 Arena
+/*------------------------------------------------------------------------*/
+/*
+	Arena Accessory Vendor
+		Present in 3 seasons, from 2nd to 4th
+*/
 
 DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` IN (75, 76, 55, 56) AND `guid` IN (@GUID_WEAPON_HORDE_1,@GUID_WEAPON_HORDE_2,@GUID_WEAPON_HORDE_3,@GUID_WEAPON_HORDE_4,@GUID_ACCESSORY_HORDE_1,@GUID_ACCESSORY_HORDE_2,@GUID_ACCESSORY_HORDE_3,@GUID_ACCESSORY_HORDE_4,@GUID_ARMOR_HORDE_1,@GUID_ARMOR_HORDE_2,@GUID_ARMOR_HORDE_3,@GUID_ARMOR_HORDE_4,@GUID_ARMOR_ALLIANCE_1,@GUID_ARMOR_ALLIANCE_2,@GUID_ARMOR_ALLIANCE_3,@GUID_ARMOR_ALLIANCE_4,@GUID_WEAPON_ALLIANCE_1,@GUID_WEAPON_ALLIANCE_2,@GUID_WEAPON_ALLIANCE_3,@GUID_WEAPON_ALLIANCE_4,@GUID_ACCESSORY_ALLIANCE_1,@GUID_ACCESSORY_ALLIANCE_2,@GUID_ACCESSORY_ALLIANCE_3,@GUID_ACCESSORY_ALLIANCE_4,@GUID_SEASON_ONE_1,@GUID_SEASON_ONE_2,@GUID_SEASON_ONE_3,@GUID_SEASON_ONE_4,@GUID_SEASON_TWO_2,@GUID_SEASON_TWO_3,@GUID_SEASON_TWO_4,@GUID_ARENA_ACCESSORY_2,@GUID_ARENA_ACCESSORY_3,@GUID_ARENA_ACCESSORY_4,@GUID_SEASON_THREE_3,@GUID_SEASON_THREE_4,@GUID_SEASON_FOUR_4);
 INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -2882,21 +2902,6 @@ INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxc
 		Present in 1 season
 */
 -- Season 4
-SET @EXT_WEP_SEASON_FOUR_01_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Two-Handed
-SET @EXT_WEP_SEASON_FOUR_02_4 := 2361; -- Season 4: 3150 Arena, 2050 Rating - MH (Spellpower)
-SET @EXT_WEP_SEASON_FOUR_03_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Spellpower)
-SET @EXT_WEP_SEASON_FOUR_04_4 := 2362; -- Season 4: 2625 Arena, 2050 Rating - MH (Melee)
-SET @EXT_WEP_SEASON_FOUR_05_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Melee)
-SET @EXT_WEP_SEASON_FOUR_06_4 := 2364; -- Season 4: 1875 Arena, 2050 Rating - Shield
-SET @EXT_WEP_SEASON_FOUR_07_4 := 2339; -- Season 4: 1000 Arena, 1750 Rating - Relic, Thrown, Wand
-SET @EXT_WEP_SEASON_FOUR_08_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Ranged Weapon
-SET @EXT_WEP_SEASON_FOUR_09_4 := 2375; -- Season 4: 650 Arena, 2050 Rating - Hunter Melee Weapons (Hatchet, Waraxe)
-SET @EXT_ARM_SEASON_FOUR_01_4 := 2365; -- Season 4: 1875 Arena, 1700 Rating - Head
-SET @EXT_ARM_SEASON_FOUR_02_4 := 2359; -- Season 4: 1500 Arena, 2200 Rating - Shoulders
-SET @EXT_ARM_SEASON_FOUR_03_4 := 2337; -- Season 4: 1875 Arena, 1600 Rating - Chest
-SET @EXT_ARM_SEASON_FOUR_04_4 := 2366; -- Season 4: 1875 Arena, 1550 Rating - Legs
-SET @EXT_ARM_SEASON_FOUR_05_4 := 2342; -- Season 4: 1125 Arena - Hands
--- SET @EXT_GEM_SEASON_FOUR_01_4 := 2388; -- Season 4: 800 Arena
 (56, @GUID_SEASON_FOUR_4, 34985, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Baton of Light
 (56, @GUID_SEASON_FOUR_4, 35065, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Piercing Touch
 (56, @GUID_SEASON_FOUR_4, 35107, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Touch of Defeat
@@ -3029,12 +3034,12 @@ SET @EXT_ARM_SEASON_FOUR_05_4 := 2342; -- Season 4: 1125 Arena - Hands
 (56, @GUID_SEASON_FOUR_4, 35113, 3, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Wyrmhide Legguards
 (56, @GUID_SEASON_FOUR_4, 35114, 3, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Wyrmhide Spaulders
 (56, @GUID_SEASON_FOUR_4, 35115, 3, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Wyrmhide Tunic
-(56, @GUID_SEASON_FOUR_4, 38545, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Bold Ornate Ruby
-(56, @GUID_SEASON_FOUR_4, 38546, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Gleaming Ornate Dawnstone
-(56, @GUID_SEASON_FOUR_4, 38547, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Inscribed Ornate Topaz
-(56, @GUID_SEASON_FOUR_4, 38548, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Potent Ornate Topaz
-(56, @GUID_SEASON_FOUR_4, 38549, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Runed Ornate Ruby
-(56, @GUID_SEASON_FOUR_4, 38550, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Smooth Ornate Dawnstone
+-- (56, @GUID_SEASON_FOUR_4, 38545, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Bold Ornate Ruby
+-- (56, @GUID_SEASON_FOUR_4, 38546, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Gleaming Ornate Dawnstone
+-- (56, @GUID_SEASON_FOUR_4, 38547, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Inscribed Ornate Topaz
+-- (56, @GUID_SEASON_FOUR_4, 38548, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Potent Ornate Topaz
+-- (56, @GUID_SEASON_FOUR_4, 38549, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Runed Ornate Ruby
+-- (56, @GUID_SEASON_FOUR_4, 38550, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Smooth Ornate Dawnstone
 
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ACCESSORY_ALLIANCE) AND (`SourceEntry` IN (28234,28235,28236,28237,28238,30348,30349,30350,30351,38589));
