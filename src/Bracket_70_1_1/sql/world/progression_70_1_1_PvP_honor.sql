@@ -1,3 +1,5 @@
+-- To disable a vendor for a given season just comment out the creature and game_event_creature lines.
+-- Prices are set further down.
 -- IDs
 SET @NPC_ARMOR_ALLIANCE      := 12777; -- Captain Dirgehammer
 SET @NPC_ACCESSORY_ALLIANCE  := 12805; -- Officer Areyn (already has inventory)
@@ -16,9 +18,10 @@ UPDATE `creature_template` SET `subname` = 'Brutal Arena Vendor', `npcflag`=`npc
 SET @NPC_ARENA_ACCESSORY     := 40209; -- Grex Brainboiler
 UPDATE `creature_template` SET `subname` = 'Accessories Vendor', `npcflag`=`npcflag`|128 WHERE (`entry` = @NPC_ARENA_ACCESSORY);
 
--- GUID_ROLE_SEASON
+-- GUIDs
+-- The ending _1 _2 represents the season this NPC is linked to
 -- game_event_npc_vendor does not accept duplicate GUIDs
-SET @GUID := 3000009;
+SET @GUID := 3000009; -- Needs 37 free GUIDs
 
 SET @GUID_ARMOR_ALLIANCE_1     := @GUID+0 ;
 SET @GUID_ARMOR_ALLIANCE_2     := @GUID+1 ;
@@ -60,43 +63,43 @@ SET @GUID_SEASON_FOUR_4        := @GUID+36;
 
 DELETE FROM `creature` WHERE (`id1` IN (@NPC_ARMOR_ALLIANCE,@NPC_ACCESSORY_ALLIANCE,@NPC_WEAPON_ALLIANCE,@NPC_ARMOR_HORDE,@NPC_ACCESSORY_HORDE,@NPC_WEAPON_HORDE,@NPC_SEASON_ONE,@NPC_SEASON_TWO,@NPC_SEASON_THREE,@NPC_SEASON_FOUR,@NPC_ARENA_ACCESSORY)) AND (`guid` IN (@GUID_ARMOR_ALLIANCE_1,@GUID_ARMOR_ALLIANCE_2,@GUID_ARMOR_ALLIANCE_3,@GUID_ARMOR_ALLIANCE_4,@GUID_ACCESSORY_ALLIANCE_1,@GUID_ACCESSORY_ALLIANCE_2,@GUID_ACCESSORY_ALLIANCE_3,@GUID_ACCESSORY_ALLIANCE_4,@GUID_WEAPON_ALLIANCE_1,@GUID_WEAPON_ALLIANCE_2,@GUID_WEAPON_ALLIANCE_3,@GUID_WEAPON_ALLIANCE_4,@GUID_ARMOR_HORDE_1,@GUID_ARMOR_HORDE_2,@GUID_ARMOR_HORDE_3,@GUID_ARMOR_HORDE_4,@GUID_ACCESSORY_HORDE_1,@GUID_ACCESSORY_HORDE_2,@GUID_ACCESSORY_HORDE_3,@GUID_ACCESSORY_HORDE_4,@GUID_WEAPON_HORDE_1,@GUID_WEAPON_HORDE_2,@GUID_WEAPON_HORDE_3,@GUID_WEAPON_HORDE_4,@GUID_SEASON_ONE_1,@GUID_SEASON_ONE_2,@GUID_SEASON_ONE_3,@GUID_SEASON_ONE_4,@GUID_SEASON_TWO_2,@GUID_SEASON_TWO_3,@GUID_SEASON_TWO_4,@GUID_ARENA_ACCESSORY_2,@GUID_ARENA_ACCESSORY_3,@GUID_ARENA_ACCESSORY_4,@GUID_SEASON_THREE_3,@GUID_SEASON_THREE_4,@GUID_SEASON_FOUR_4));
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(@GUID_WEAPON_HORDE_1, @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_HORDE_2, @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_HORDE_3, @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_HORDE_4, @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ACCESSORY_HORDE_1, @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ACCESSORY_HORDE_2, @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ACCESSORY_HORDE_3, @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ACCESSORY_HORDE_4, @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_HORDE_1, @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_HORDE_2, @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_HORDE_3, @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_HORDE_4, @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_ALLIANCE_1, @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_ALLIANCE_2, @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_ALLIANCE_3, @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARMOR_ALLIANCE_4, @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_ALLIANCE_1, @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_ALLIANCE_2, @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_ALLIANCE_3, @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_WEAPON_ALLIANCE_4, @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_HORDE_1      , @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_HORDE_2      , @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_HORDE_3      , @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_HORDE_4      , @NPC_WEAPON_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1669.09, -4196.78, 56.3827, 4.10416, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ACCESSORY_HORDE_1   , @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ACCESSORY_HORDE_2   , @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ACCESSORY_HORDE_3   , @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ACCESSORY_HORDE_4   , @NPC_ACCESSORY_HORDE, 0, 0, 1, 0, 0, 1, 1, 1, 1674.48, -4211.93, 56.3825, 3.03786, 25, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_HORDE_1       , @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_HORDE_2       , @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_HORDE_3       , @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_HORDE_4       , @NPC_ARMOR_HORDE, 0, 0, 1, 0, 0, 1, 1, 0, 1673.07, -4201.89, 56.3826, 3.62927, 25, 0, 0, 55888, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_ALLIANCE_1    , @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_ALLIANCE_2    , @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_ALLIANCE_3    , @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARMOR_ALLIANCE_4    , @NPC_ARMOR_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8781.18, 419.883, 105.233, 6.18459, 180, 0, 0, 7048, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_ALLIANCE_1   , @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_ALLIANCE_2   , @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_ALLIANCE_3   , @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
+(@GUID_WEAPON_ALLIANCE_4   , @NPC_WEAPON_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
 (@GUID_ACCESSORY_ALLIANCE_1, @NPC_ACCESSORY_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8775.85, 423.96, 105.233, 5.73298, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
 (@GUID_ACCESSORY_ALLIANCE_2, @NPC_ACCESSORY_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8775.85, 423.96, 105.233, 5.73298, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
 (@GUID_ACCESSORY_ALLIANCE_3, @NPC_ACCESSORY_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8775.85, 423.96, 105.233, 5.73298, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
 (@GUID_ACCESSORY_ALLIANCE_4, @NPC_ACCESSORY_ALLIANCE, 0, 0, 0, 0, 0, 1, 1, 1, -8775.85, 423.96, 105.233, 5.73298, 180, 0, 0, 11828, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_ONE_1, @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_ONE_2, @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_ONE_3, @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_ONE_4, @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_TWO_2, @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_TWO_3, @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_TWO_4, @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARENA_ACCESSORY_2, @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARENA_ACCESSORY_3, @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_ARENA_ACCESSORY_4, @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_THREE_3, @NPC_SEASON_THREE, 0, 0, 530, 0, 0, 1, 1, 0, 3078.46, 3636.98, 145.385, 3.12999, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_THREE_4, @NPC_SEASON_THREE, 0, 0, 530, 0, 0, 1, 1, 0, 3078.46, 3636.98, 145.385, 3.12999, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
-(@GUID_SEASON_FOUR_4, @NPC_SEASON_FOUR, 0, 0, 530, 0, 0, 1, 1, 0, 3066.45, 3638.87, 145.218, 0.875901, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0);
+(@GUID_SEASON_ONE_1        , @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_ONE_2        , @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_ONE_3        , @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_ONE_4        , @NPC_SEASON_ONE, 0, 0, 530, 0, 0, 1, 1, 0, 3070.16, 3635.11, 143.864, 0.750492, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0), -- Token Exchange by default
+(@GUID_SEASON_TWO_2        , @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_TWO_3        , @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_TWO_4        , @NPC_SEASON_TWO, 0, 0, 530, 0, 0, 1, 1, 0, 3073.99, 3633.34, 143.779, 2.09012, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARENA_ACCESSORY_2   , @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARENA_ACCESSORY_3   , @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_ARENA_ACCESSORY_4   , @NPC_ARENA_ACCESSORY, 0, 0, 530, 0, 0, 1, 1, 0, 3073.259766, 3642.980469, 143.780502, 4.354409, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_THREE_3      , @NPC_SEASON_THREE, 0, 0, 530, 0, 0, 1, 1, 0, 3078.46, 3636.98, 145.385, 3.12999, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_THREE_4      , @NPC_SEASON_THREE, 0, 0, 530, 0, 0, 1, 1, 0, 3078.46, 3636.98, 145.385, 3.12999, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0),
+(@GUID_SEASON_FOUR_4       , @NPC_SEASON_FOUR, 0, 0, 530, 0, 0, 1, 1, 0, 3066.45, 3638.87, 145.218, 0.875901, 180, 0, 0, 42, 0, 0, 0, 0, 0, '', 0);
 
 DELETE FROM `game_event_creature` WHERE (`eventEntry` IN (75, 76, 55, 56)) AND (`guid` IN (@GUID_ARMOR_ALLIANCE_1,@GUID_ARMOR_ALLIANCE_2,@GUID_ARMOR_ALLIANCE_3,@GUID_ARMOR_ALLIANCE_4,@GUID_ACCESSORY_ALLIANCE_1,@GUID_ACCESSORY_ALLIANCE_2,@GUID_ACCESSORY_ALLIANCE_3,@GUID_ACCESSORY_ALLIANCE_4,@GUID_WEAPON_ALLIANCE_1,@GUID_WEAPON_ALLIANCE_2,@GUID_WEAPON_ALLIANCE_3,@GUID_WEAPON_ALLIANCE_4,@GUID_ARMOR_HORDE_1,@GUID_ARMOR_HORDE_2,@GUID_ARMOR_HORDE_3,@GUID_ARMOR_HORDE_4,@GUID_ACCESSORY_HORDE_1,@GUID_ACCESSORY_HORDE_2,@GUID_ACCESSORY_HORDE_3,@GUID_ACCESSORY_HORDE_4,@GUID_WEAPON_HORDE_1,@GUID_WEAPON_HORDE_2,@GUID_WEAPON_HORDE_3,@GUID_WEAPON_HORDE_4,@GUID_SEASON_ONE_1,@GUID_SEASON_ONE_2,@GUID_SEASON_ONE_3,@GUID_SEASON_ONE_4,@GUID_SEASON_TWO_2,@GUID_SEASON_TWO_3,@GUID_SEASON_TWO_4,@GUID_ARENA_ACCESSORY_2,@GUID_ARENA_ACCESSORY_3,@GUID_ARENA_ACCESSORY_4,@GUID_SEASON_THREE_3,@GUID_SEASON_THREE_4,@GUID_SEASON_FOUR_4));
 INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
@@ -127,7 +130,7 @@ INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
 (75, @GUID_SEASON_ONE_1),
 (76, @GUID_SEASON_ONE_2),
 (55, @GUID_SEASON_ONE_3),
-(56, @GUID_SEASON_ONE_4),
+(56, @GUID_SEASON_ONE_4), -- Token Exchange by default
 (76, @GUID_SEASON_TWO_2),
 (55, @GUID_SEASON_TWO_3),
 (56, @GUID_SEASON_TWO_4),
@@ -142,11 +145,11 @@ INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
 	Faction Capital Honor Vendors
 		Present in all 4 seasons
 */
-
+/*-------------------------------SEASON 1---------------------------------*/
 SET @EXT_WEP_HONOR_01_1  := 131 ; -- Season 1: 31000 Honor - 2H Weapon
 SET @EXT_WEP_HONOR_02_1  := 348 ; -- Season 1: 16000 Honor - 1H Weapon
 SET @EXT_WEP_HONOR_03_1  := 2271; -- Season 1: 17000 Honor - Ranged Weapon
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ARM_HONOR_01_1  := 2259; -- Season 1: 15000 Honor - Chest
 SET @EXT_ARM_HONOR_02_1  := 2261; -- Season 1: 9000 Honor - Hands
 SET @EXT_ARM_HONOR_03_1  := 2263; -- Season 1: 14000 Honor - Head
@@ -155,7 +158,7 @@ SET @EXT_ARM_HONOR_05_1  := 2267; -- Season 1: 9000 Honor - Shoulders
 SET @EXT_ARM_HONOR_06_1  := 169 ;  -- Season 1: 10000 Honor - Wrist
 SET @EXT_ARM_HONOR_07_1  := 172 ;  -- Season 1: 15000 Honor - Waist
 SET @EXT_ARM_HONOR_08_1  := 171 ;  -- Season 1: 15000 Honor - Feet
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ACC_HONOR_01_1  := 95  ;    -- Season 1: 6885 Honor - Gems
 SET @EXT_ACC_HONOR_02_1  := 99  ;    -- Season 1: 8500 Honor - Orange Gems
 SET @EXT_ACC_HONOR_03_1  := 125 ;   -- Season 1: 23000 Honor - Talisman
@@ -170,11 +173,11 @@ SET @EXT_ACC_HONOR_11_1  := 1653;  -- Season 1: 200 Honor - Major Potion
 SET @EXT_ACC_HONOR_12_1  := 2403;  -- Season 1: 40000 Honor - Medallion (45 Resilience)
 SET @EXT_ACC_HONOR_13_1  := 2404;  -- Season 1: 8000 Honor - Medallion (20 Resilience)
 SET @EXT_ACC_HONOR_14_1  := 129 ;   -- Season 1: 12000 Honor - Finger
-
+/*-------------------------------SEASON 2---------------------------------*/
 SET @EXT_WEP_HONOR_01_2  := 131 ; -- Season 2: 31000 Honor - 2H Weapon
 SET @EXT_WEP_HONOR_02_2  := 348 ; -- Season 2: 16000 Honor - 1H Weapon
 SET @EXT_WEP_HONOR_03_2  := 2271; -- Season 2: 17000 Honor - Ranged Weapon
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ARM_HONOR_01_2  := 2259; -- Season 2: 15000 Honor - Chest
 SET @EXT_ARM_HONOR_02_2  := 2261; -- Season 2: 9000 Honor - Hands
 SET @EXT_ARM_HONOR_03_2  := 2263; -- Season 2: 14000 Honor - Head
@@ -183,7 +186,7 @@ SET @EXT_ARM_HONOR_05_2  := 2267; -- Season 2: 9000 Honor - Shoulders
 SET @EXT_ARM_HONOR_06_2  := 169 ;  -- Season 2: 10000 Honor - Wrist
 SET @EXT_ARM_HONOR_07_2  := 172 ;  -- Season 2: 15000 Honor - Waist
 SET @EXT_ARM_HONOR_08_2  := 171 ;  -- Season 2: 15000 Honor - Feet
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ACC_HONOR_01_2  := 95  ;    -- Season 2: 6885 Honor - Gems
 SET @EXT_ACC_HONOR_02_2  := 99  ;    -- Season 2: 8500 Honor - Orange Gems
 SET @EXT_ACC_HONOR_03_2  := 125 ;   -- Season 2: 23000 Honor - Talisman
@@ -198,11 +201,11 @@ SET @EXT_ACC_HONOR_11_2  := 1653;  -- Season 2: 200 Honor - Major Potion
 SET @EXT_ACC_HONOR_12_2  := 2403;  -- Season 2: 40000 Honor - Medallion (45 Resilience)
 SET @EXT_ACC_HONOR_13_2  := 2404;  -- Season 2: 8000 Honor - Medallion (20 Resilience)
 SET @EXT_ACC_HONOR_14_2  := 129 ;   -- Season 2: 12000 Honor - Finger
-
+/*-------------------------------SEASON 3---------------------------------*/
 SET @EXT_WEP_HONOR_01_3  := 131 ; -- Season 3: 31000 Honor - 2H Weapon
 SET @EXT_WEP_HONOR_02_3  := 348 ; -- Season 3: 16000 Honor - 1H Weapon
 SET @EXT_WEP_HONOR_03_3  := 2271; -- Season 3: 17000 Honor - Ranged Weapon
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ARM_HONOR_01_3  := 2259; -- Season 3: 15000 Honor - Chest
 SET @EXT_ARM_HONOR_02_3  := 2261; -- Season 3: 9000 Honor - Hands
 SET @EXT_ARM_HONOR_03_3  := 2263; -- Season 3: 14000 Honor - Head
@@ -211,7 +214,7 @@ SET @EXT_ARM_HONOR_05_3  := 2267; -- Season 3: 9000 Honor - Shoulders
 SET @EXT_ARM_HONOR_06_3  := 169 ;  -- Season 3: 10000 Honor - Wrist
 SET @EXT_ARM_HONOR_07_3  := 172 ;  -- Season 3: 15000 Honor - Waist
 SET @EXT_ARM_HONOR_08_3  := 171 ;  -- Season 3: 15000 Honor - Feet
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ACC_HONOR_01_3  := 95  ;    -- Season 3: 6885 Honor - Gems
 SET @EXT_ACC_HONOR_02_3  := 99  ;    -- Season 3: 8500 Honor - Orange Gems
 SET @EXT_ACC_HONOR_03_3  := 125 ;   -- Season 3: 23000 Honor - Talisman
@@ -226,11 +229,11 @@ SET @EXT_ACC_HONOR_11_3  := 1653;  -- Season 3: 200 Honor - Major Potion
 SET @EXT_ACC_HONOR_12_3  := 2403;  -- Season 3: 40000 Honor - Medallion (45 Resilience)
 SET @EXT_ACC_HONOR_13_3  := 2404;  -- Season 3: 8000 Honor - Medallion (20 Resilience)
 SET @EXT_ACC_HONOR_14_3  := 129 ;   -- Season 3: 12000 Honor - Finger
-
+/*-------------------------------SEASON 4---------------------------------*/
 SET @EXT_WEP_HONOR_01_4  := 131 ; -- Season 4: 31000 Honor - 2H Weapon
 SET @EXT_WEP_HONOR_02_4  := 348 ; -- Season 4: 16000 Honor - 1H Weapon
 SET @EXT_WEP_HONOR_03_4  := 2271; -- Season 4: 17000 Honor - Ranged Weapon
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ARM_HONOR_01_4  := 2259; -- Season 4: 15000 Honor - Chest
 SET @EXT_ARM_HONOR_02_4  := 2261; -- Season 4: 9000 Honor - Hands
 SET @EXT_ARM_HONOR_03_4  := 2263; -- Season 4: 14000 Honor - Head
@@ -239,7 +242,7 @@ SET @EXT_ARM_HONOR_05_4  := 2267; -- Season 4: 9000 Honor - Shoulders
 SET @EXT_ARM_HONOR_06_4  := 169 ;  -- Season 4: 10000 Honor - Wrist
 SET @EXT_ARM_HONOR_07_4  := 172 ;  -- Season 4: 15000 Honor - Waist
 SET @EXT_ARM_HONOR_08_4  := 171 ;  -- Season 4: 15000 Honor - Feet
-
+/*------------------------------------------------------------------------*/
 SET @EXT_ACC_HONOR_01_4  := 95  ;    -- Season 4: 6885 Honor - Gems
 SET @EXT_ACC_HONOR_02_4  := 99  ;    -- Season 4: 8500 Honor - Orange Gems
 SET @EXT_ACC_HONOR_03_4  := 125 ;   -- Season 4: 23000 Honor - Talisman
@@ -254,6 +257,162 @@ SET @EXT_ACC_HONOR_11_4  := 1653;  -- Season 4: 200 Honor - Major Potion
 SET @EXT_ACC_HONOR_12_4  := 2403;  -- Season 4: 40000 Honor - Medallion (45 Resilience)
 SET @EXT_ACC_HONOR_13_4  := 2404;  -- Season 4: 8000 Honor - Medallion (20 Resilience)
 SET @EXT_ACC_HONOR_14_4  := 129 ;   -- Season 4: 12000 Honor - Finger
+/*------------------------------------------------------------------------*/
+/*
+	Season One Arena Vendor
+		Present in all 4 seasons
+*/
+/*-------------------------------SEASON 1---------------------------------*/
+SET @EXT_WEP_SEASON_ONE_01_1 := 1664; -- Season 1: 3750 Arena - Two-Handed
+SET @EXT_WEP_SEASON_ONE_02_1 := 2284; -- Season 1: 3150 Arena - MH (Spellpower)
+SET @EXT_WEP_SEASON_ONE_03_1 := 2285; -- Season 1: 1875 Arena - OH (Spellpower)
+SET @EXT_WEP_SEASON_ONE_04_1 := 2285; -- Season 1: 1875 Arena - MH (Melee)
+SET @EXT_WEP_SEASON_ONE_05_1 := 2285; -- Season 1: 1875 Arena - OH (Melee)
+SET @EXT_WEP_SEASON_ONE_06_1 := 2285; -- Season 1: 1875 Arena - Shield
+SET @EXT_WEP_SEASON_ONE_07_1 := 2285; -- Season 1: 1875 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_ONE_08_1 := 1664; -- Season 1: 3750 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_ONE_09_1 :=  ; -- Season 1: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_ONE_01_1 := 2285; -- Season 1: 1875 Arena - Head
+SET @EXT_ARM_SEASON_ONE_02_1 := 2288; -- Season 1: 1500 Arena - Shoulders
+SET @EXT_ARM_SEASON_ONE_03_1 := 2285; -- Season 1: 1875 Arena - Chest
+SET @EXT_ARM_SEASON_ONE_04_1 := 2285; -- Season 1: 1875 Arena - Legs
+SET @EXT_ARM_SEASON_ONE_05_1 := 2286; -- Season 1: 1125 Arena - Hands
+/*-------------------------------SEASON 2---------------------------------*/
+SET @EXT_WEP_SEASON_ONE_01_2 := 26 ; -- Season 2: 3261 Arena - Two-Handed
+SET @EXT_WEP_SEASON_ONE_02_2 := 148; -- Season 2: 2739 Arena - MH (Spellpower)
+SET @EXT_WEP_SEASON_ONE_03_2 := 21 ; -- Season 2: 978 Arena - OH (Spellpower)
+SET @EXT_WEP_SEASON_ONE_04_2 := 22 ; -- Season 2: 1630 Arena - MH (Melee)
+SET @EXT_WEP_SEASON_ONE_05_2 := 21 ; -- Season 2: 978 Arena - OH (Melee)
+SET @EXT_WEP_SEASON_ONE_06_2 := 22 ; -- Season 2: 1630 Arena - Shield
+SET @EXT_WEP_SEASON_ONE_07_2 := 146; -- Season 2: 870 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_ONE_08_2 := 26 ; -- Season 2: 3261 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_ONE_09_2 := ; -- Season 2: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_ONE_01_2 := 22 ; -- Season 2: 1630 Arena - Head
+SET @EXT_ARM_SEASON_ONE_02_2 := 24 ; -- Season 2: 1304 Arena - Shoulders
+SET @EXT_ARM_SEASON_ONE_03_2 := 22 ; -- Season 2: 1630 Arena - Chest
+SET @EXT_ARM_SEASON_ONE_04_2 := 22 ; -- Season 2: 1630 Arena - Legs
+SET @EXT_ARM_SEASON_ONE_05_2 := 21 ; -- Season 2: 978 Arena - Hands
+/*-------------------------------SEASON 3---------------------------------*/
+-- SET @EXT_WEP_SEASON_ONE_01_3 := 26 ; -- Season 3: 3261 Arena - Two-Handed
+-- SET @EXT_WEP_SEASON_ONE_02_3 := 148; -- Season 3: 2739 Arena - MH (Spellpower)
+-- SET @EXT_WEP_SEASON_ONE_03_3 := 21 ; -- Season 3: 978 Arena - OH (Spellpower)
+-- SET @EXT_WEP_SEASON_ONE_04_3 := 22 ; -- Season 3: 1630 Arena - MH (Melee)
+-- SET @EXT_WEP_SEASON_ONE_05_3 := 21 ; -- Season 3: 978 Arena - OH (Melee)
+-- SET @EXT_WEP_SEASON_ONE_06_3 := 22 ; -- Season 3: 1630 Arena - Shield
+-- SET @EXT_WEP_SEASON_ONE_07_3 := 146; -- Season 3: 870 Arena - Relic, Thrown, Wand
+-- SET @EXT_WEP_SEASON_ONE_08_3 := 26 ; -- Season 3: 3261 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_ONE_09_3 :=    ; -- Season 3: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_ONE_01_3 := 2280; -- Season 3: 15000 Honor - Head
+SET @EXT_ARM_SEASON_ONE_02_3 := 2278; -- Season 3: 13000 Honor - Shoulders
+SET @EXT_ARM_SEASON_ONE_03_3 := 2279; -- Season 3: 15000 Honor - Chest
+SET @EXT_ARM_SEASON_ONE_04_3 := 2281; -- Season 3: 15000 Honor - Legs
+SET @EXT_ARM_SEASON_ONE_05_3 := 2277; -- Season 3: 12000 Honor - Hands
+/*-------------------------------SEASON 4---------------------------------*/
+-- SET @EXT_WEP_SEASON_ONE_01_4 := 26 ; -- Season 4: 3261 Arena - Two-Handed
+-- SET @EXT_WEP_SEASON_ONE_02_4 := 148; -- Season 4: 2739 Arena - MH (Spellpower)
+-- SET @EXT_WEP_SEASON_ONE_03_4 := 21 ; -- Season 4: 978 Arena - OH (Spellpower)
+-- SET @EXT_WEP_SEASON_ONE_04_4 := 22 ; -- Season 4: 1630 Arena - MH (Melee)
+-- SET @EXT_WEP_SEASON_ONE_05_4 := 21 ; -- Season 4: 978 Arena - OH (Melee)
+-- SET @EXT_WEP_SEASON_ONE_06_4 := 22 ; -- Season 4: 1630 Arena - Shield
+-- SET @EXT_WEP_SEASON_ONE_07_4 := 146; -- Season 4: 870 Arena - Relic, Thrown, Wand
+-- SET @EXT_WEP_SEASON_ONE_08_4 := 26 ; -- Season 4: 3261 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_ONE_09_4 :=    ; -- Season 4: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_ONE_01_4 := 2280; -- Season 4: 15000 Honor - Head
+SET @EXT_ARM_SEASON_ONE_02_4 := 2278; -- Season 4: 13000 Honor - Shoulders
+SET @EXT_ARM_SEASON_ONE_03_4 := 2279; -- Season 4: 15000 Honor - Chest
+SET @EXT_ARM_SEASON_ONE_04_4 := 2281; -- Season 4: 15000 Honor - Legs
+SET @EXT_ARM_SEASON_ONE_05_4 := 2277; -- Season 4: 12000 Honor - Hands
+/*------------------------------------------------------------------------*/
+/*
+	Season Two Arena Vendor
+		Present in 3 seasons
+*/
+/*-------------------------------SEASON 2---------------------------------*/
+SET @EXT_WEP_SEASON_TWO_01_2 := 1664; -- Season 2: 3750 Arena - Two-Handed
+SET @EXT_WEP_SEASON_TWO_02_2 := 2284; -- Season 2: 3150 Arena - MH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_03_2 := 2283; -- Season 2: 1125 Arena - OH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_04_2 := 2287; -- Season 2: 2625 Arena - MH (Melee)
+SET @EXT_WEP_SEASON_TWO_05_2 := 2286; -- Season 2: 1125 Arena - OH (Melee)
+SET @EXT_WEP_SEASON_TWO_06_2 := 2285; -- Season 2: 1875 Arena - Shield
+SET @EXT_WEP_SEASON_TWO_07_2 := 1758; -- Season 2: 1000 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_TWO_08_2 := 1664; -- Season 2: 3750 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_TWO_09_2 :=  ; -- Season 2: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_TWO_01_2 := 2285; -- Season 2: 1875 Arena - Head
+SET @EXT_ARM_SEASON_TWO_02_2 := 2288; -- Season 2: 1500 Arena - Shoulders
+SET @EXT_ARM_SEASON_TWO_03_2 := 2285; -- Season 2: 1875 Arena - Chest
+SET @EXT_ARM_SEASON_TWO_04_2 := 2285; -- Season 2: 1875 Arena - Legs
+SET @EXT_ARM_SEASON_TWO_05_2 := 2283; -- Season 2: 1125 Arena - Hands
+/*-------------------------------SEASON 3---------------------------------*/
+SET @EXT_WEP_SEASON_TWO_01_3 := 26  ; -- Season 3: 3261 Arena - Two-Handed
+SET @EXT_WEP_SEASON_TWO_02_3 := 148 ; -- Season 3: 2739 Arena - MH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_03_3 := 21  ; -- Season 3: 978 Arena - OH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_04_3 := 133 ; -- Season 3: 2283 Arena - MH (Melee)
+SET @EXT_WEP_SEASON_TWO_05_3 := 21  ; -- Season 3: 978 Arena - OH (Melee)
+SET @EXT_WEP_SEASON_TWO_06_3 := 22  ; -- Season 3: 1630 Arena - Shield
+SET @EXT_WEP_SEASON_TWO_07_3 := 146 ; -- Season 3: 870 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_TWO_08_3 := 26  ; -- Season 3: 3261 Arena - Ranged Weapon
+-- SET @EXT_WEP_SEASON_TWO_09_3 :=  ; -- Season 3: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_TWO_01_3 := 22  ; -- Season 3: 1630 Arena - Head
+SET @EXT_ARM_SEASON_TWO_02_3 := 24  ; -- Season 3: 1304 Arena - Shoulders
+SET @EXT_ARM_SEASON_TWO_03_3 := 22  ; -- Season 3: 1630 Arena - Chest
+SET @EXT_ARM_SEASON_TWO_04_3 := 22  ; -- Season 3: 1630 Arena - Legs
+SET @EXT_ARM_SEASON_TWO_05_3 := 21  ; -- Season 3: 978 Arena - Hands
+/*-------------------------------SEASON 4---------------------------------*/
+SET @EXT_WEP_SEASON_TWO_01_4 := 2237; -- Season 4: 28000 Honor - Two-Handed
+SET @EXT_WEP_SEASON_TWO_02_4 := 2238; -- Season 4: 26000 Honor - MH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_03_4 := 2240; -- Season 4: 9100 Honor - OH (Spellpower)
+SET @EXT_WEP_SEASON_TWO_04_4 := 2239; -- Season 4: 19000 Honor - MH (Melee)
+SET @EXT_WEP_SEASON_TWO_05_4 := 2240; -- Season 4: 9100 Honor - OH (Melee)
+SET @EXT_WEP_SEASON_TWO_06_4 := 2242; -- Season 4: 15000 Honor - Shield
+SET @EXT_WEP_SEASON_TWO_07_4 := 2241; -- Season 4: 9000 Honor - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_TWO_08_4 := 2237; -- Season 4: 28000 Honor - Ranged Weapon
+-- SET @EXT_WEP_SEASON_TWO_09_4 :=  ; -- Season 4: - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_TWO_01_4 := 2280; -- Season 4: 15000 Honor - Head
+SET @EXT_ARM_SEASON_TWO_02_4 := 2278; -- Season 4: 13000 Honor - Shoulders
+SET @EXT_ARM_SEASON_TWO_03_4 := 2279; -- Season 4: 15000 Honor - Chest
+SET @EXT_ARM_SEASON_TWO_04_4 := 2281; -- Season 4: 15000 Honor - Legs
+SET @EXT_ARM_SEASON_TWO_05_4 := 2277; -- Season 4: 12000 Honor - Hands
+/*------------------------------------------------------------------------*/
+/*
+	Season Three Arena Vendor
+		Present in 2 seasons
+*/
+/*-------------------------------SEASON 3---------------------------------*/
+SET @EXT_WEP_SEASON_THREE_01_3 := 2282; -- Season 3: 3750 Arena, 1850 Rating - Two-Handed
+SET @EXT_WEP_SEASON_THREE_02_3 := 1757; -- Season 3: 3150 Arena, 1850 Rating - MH (Spellpower)
+SET @EXT_WEP_SEASON_THREE_03_3 := 1432; -- Season 3: 1125 Arena, 1850 Rating - OH (Spellpower)
+SET @EXT_WEP_SEASON_THREE_04_3 := 1670; -- Season 3: 2625 Arena, 1850 Rating - MH (Melee)
+SET @EXT_WEP_SEASON_THREE_05_3 := 1432; -- Season 3: 1125 Arena, 1850 Rating - OH (Melee)
+SET @EXT_WEP_SEASON_THREE_06_3 := 1431; -- Season 3: 1875 Arena, 1850 Rating - Shield
+SET @EXT_WEP_SEASON_THREE_07_3 := 1758; -- Season 3: 1000 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_THREE_08_3 := 2282; -- Season 3: 3750 Arena, 1850 Rating - Ranged Weapon
+SET @EXT_WEP_SEASON_THREE_09_3 := 1758; -- Season 3: 1000 Arena - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_THREE_01_3 := 2285; -- Season 3: 1875 Arena - Head
+SET @EXT_ARM_SEASON_THREE_02_3 := 1435; -- Season 3: 1500 Arena, 1800 Rating - Shoulders
+SET @EXT_ARM_SEASON_THREE_03_3 := 2285; -- Season 3: 1875 Arena - Chest
+SET @EXT_ARM_SEASON_THREE_04_3 := 2285; -- Season 3: 1875 Arena - Legs
+SET @EXT_ARM_SEASON_THREE_05_3 := 2286; -- Season 3: 1125 Arena - Hands
+/*-------------------------------SEASON 4---------------------------------*/
+SET @EXT_WEP_SEASON_THREE_01_4 := 2386; -- Season 4: 3000 Arena, 1800 Rating - Two-Handed
+SET @EXT_WEP_SEASON_THREE_02_4 := 2385; -- Season 4: 2520 Arena, 1800 Rating - MH (Spellpower)
+SET @EXT_WEP_SEASON_THREE_03_4 := 2390; -- Season 4: 900 Arena, 1800 Rating - OH (Spellpower)
+SET @EXT_WEP_SEASON_THREE_04_4 := 2389; -- Season 4: 2100 Arena, 1800 Rating - MH (Melee)
+SET @EXT_WEP_SEASON_THREE_05_4 := 2390; -- Season 4: 900 Arena, 1800 Rating - OH (Melee)
+SET @EXT_WEP_SEASON_THREE_06_4 := 2391; -- Season 4: 1500 Arena, 1800 Rating - Shield
+SET @EXT_WEP_SEASON_THREE_07_4 := 2388; -- Season 4: 800 Arena - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_THREE_08_4 := 2386; -- Season 4: 3000 Arena, 1800 Rating - Ranged Weapon
+SET @EXT_WEP_SEASON_THREE_09_4 := 2388; -- Season 4: 800 Arena - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_THREE_01_4 := 2288; -- Season 4: 1500 Arena - Head
+SET @EXT_ARM_SEASON_THREE_02_4 := 2392; -- Season 4: 1200 Arena, 1950 Rating - Shoulders
+SET @EXT_ARM_SEASON_THREE_03_4 := 2288; -- Season 4: 1500 Arena - Chest
+SET @EXT_ARM_SEASON_THREE_04_4 := 2288; -- Season 4: 1500 Arena - Legs
+SET @EXT_ARM_SEASON_THREE_05_4 := 2387; -- Season 4: 900 Arena - Hands
+/*------------------------------------------------------------------------*/
+/*
+	Season Four Arena Vendor
+		Present in 1 season
+*/
+/*-------------------------------SEASON 4---------------------------------*/
 
 DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` IN (75, 76, 55, 56) AND `guid` IN (@GUID_WEAPON_HORDE_1,@GUID_WEAPON_HORDE_2,@GUID_WEAPON_HORDE_3,@GUID_WEAPON_HORDE_4,@GUID_ACCESSORY_HORDE_1,@GUID_ACCESSORY_HORDE_2,@GUID_ACCESSORY_HORDE_3,@GUID_ACCESSORY_HORDE_4,@GUID_ARMOR_HORDE_1,@GUID_ARMOR_HORDE_2,@GUID_ARMOR_HORDE_3,@GUID_ARMOR_HORDE_4,@GUID_ARMOR_ALLIANCE_1,@GUID_ARMOR_ALLIANCE_2,@GUID_ARMOR_ALLIANCE_3,@GUID_ARMOR_ALLIANCE_4,@GUID_WEAPON_ALLIANCE_1,@GUID_WEAPON_ALLIANCE_2,@GUID_WEAPON_ALLIANCE_3,@GUID_WEAPON_ALLIANCE_4,@GUID_ACCESSORY_ALLIANCE_1,@GUID_ACCESSORY_ALLIANCE_2,@GUID_ACCESSORY_ALLIANCE_3,@GUID_ACCESSORY_ALLIANCE_4,@GUID_SEASON_ONE_1,@GUID_SEASON_ONE_2,@GUID_SEASON_ONE_3,@GUID_SEASON_ONE_4,@GUID_SEASON_TWO_2,@GUID_SEASON_TWO_3,@GUID_SEASON_TWO_4,@GUID_ARENA_ACCESSORY_2,@GUID_ARENA_ACCESSORY_3,@GUID_ARENA_ACCESSORY_4,@GUID_SEASON_THREE_3,@GUID_SEASON_THREE_4,@GUID_SEASON_FOUR_4);
 INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -1619,7 +1778,1264 @@ INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `item`, `slot`, `maxc
 (56, @GUID_ACCESSORY_HORDE_4   , 30344, 5, 0, 0, @EXT_ACC_HONOR_13_4), -- Medallion of the Horde
 (56, @GUID_ACCESSORY_HORDE_4   , 30345, 5, 0, 0, @EXT_ACC_HONOR_13_4), -- Medallion of the Horde
 (56, @GUID_ACCESSORY_HORDE_4   , 30346, 5, 0, 0, @EXT_ACC_HONOR_13_4), -- Medallion of the Horde
-(56, @GUID_ACCESSORY_HORDE_4   , 38588, 5, 0, 0, @EXT_ACC_HONOR_13_4); -- Medallion of the Horde
+(56, @GUID_ACCESSORY_HORDE_4   , 38588, 5, 0, 0, @EXT_ACC_HONOR_13_4), -- Medallion of the Horde
+/*
+	Season One Arena Vendor
+		Present in all 4 seasons
+*/
+-- Season 1
+(75, @GUID_SEASON_ONE_1, 24550, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's Greatsword
+(75, @GUID_SEASON_ONE_1, 24557, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's War Staff
+(75, @GUID_SEASON_ONE_1, 28294, 0, 0, 0, @EXT_WEP_SEASON_ONE_08_1), -- Gladiator's Heavy Crossbow
+(75, @GUID_SEASON_ONE_1, 28298, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's Decapitator
+(75, @GUID_SEASON_ONE_1, 28299, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's Bonegrinder
+(75, @GUID_SEASON_ONE_1, 28300, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's Painsaw
+(75, @GUID_SEASON_ONE_1, 28476, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_1), -- Gladiator's Maul
+(75, @GUID_SEASON_ONE_1, 28297, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_1), -- Gladiator's Spellblade
+(75, @GUID_SEASON_ONE_1, 32450, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_1), -- Gladiator's Gavel
+(75, @GUID_SEASON_ONE_1, 32451, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_1), -- Gladiator's Salvation
+(75, @GUID_SEASON_ONE_1, 28295, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_1), -- Gladiator's Slicer
+(75, @GUID_SEASON_ONE_1, 28302, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_1), -- Gladiator's Bonecracker
+(75, @GUID_SEASON_ONE_1, 28305, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_1), -- Gladiator's Pummeler
+(75, @GUID_SEASON_ONE_1, 28307, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_1), -- Gladiator's Quickblade
+(75, @GUID_SEASON_ONE_1, 28308, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_1), -- Gladiator's Cleaver
+(75, @GUID_SEASON_ONE_1, 28309, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_1), -- Gladiator's Hacker
+(75, @GUID_SEASON_ONE_1, 28310, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_1), -- Gladiator's Shiv
+(75, @GUID_SEASON_ONE_1, 28312, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_1), -- Gladiator's Shanker
+(75, @GUID_SEASON_ONE_1, 28313, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_1), -- Gladiator's Right Ripper
+(75, @GUID_SEASON_ONE_1, 28314, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_1), -- Gladiator's Left Ripper
+(75, @GUID_SEASON_ONE_1, 28319, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_1), -- Gladiator's War Edge
+(75, @GUID_SEASON_ONE_1, 28320, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_1), -- Gladiator's Touch of Defeat
+(75, @GUID_SEASON_ONE_1, 28346, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_1), -- Gladiator's Endgame
+(75, @GUID_SEASON_ONE_1, 28355, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_1), -- Gladiator's Idol of Tenacity
+(75, @GUID_SEASON_ONE_1, 28356, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_1), -- Gladiator's Libram of Justice
+(75, @GUID_SEASON_ONE_1, 32452, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_1), -- Gladiator's Reprieve
+(75, @GUID_SEASON_ONE_1, 28358, 0, 0, 0, @EXT_WEP_SEASON_ONE_06_1), -- Gladiator's Shield Wall
+(75, @GUID_SEASON_ONE_1, 28357, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_1), -- Gladiator's Totem of the Third Wind
+(75, @GUID_SEASON_ONE_1, 28334, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Chain Armor
+(75, @GUID_SEASON_ONE_1, 28335, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Chain Gauntlets
+(75, @GUID_SEASON_ONE_1, 28331, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Chain Helm
+(75, @GUID_SEASON_ONE_1, 28332, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Chain Leggings
+(75, @GUID_SEASON_ONE_1, 28333, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Chain Spaulders
+(75, @GUID_SEASON_ONE_1, 28126, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Dragonhide Gloves
+(75, @GUID_SEASON_ONE_1, 28127, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Dragonhide Helm
+(75, @GUID_SEASON_ONE_1, 28128, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Dragonhide Legguards
+(75, @GUID_SEASON_ONE_1, 28129, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Dragonhide Spaulders
+(75, @GUID_SEASON_ONE_1, 28130, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Dragonhide Tunic
+(75, @GUID_SEASON_ONE_1, 24556, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Dreadweave Gloves
+(75, @GUID_SEASON_ONE_1, 24553, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Dreadweave Hood
+(75, @GUID_SEASON_ONE_1, 24555, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Dreadweave Leggings
+(75, @GUID_SEASON_ONE_1, 24554, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Dreadweave Mantle
+(75, @GUID_SEASON_ONE_1, 24552, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Dreadweave Robe
+(75, @GUID_SEASON_ONE_1, 30186, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Felweave Amice
+(75, @GUID_SEASON_ONE_1, 30187, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Felweave Cowl
+(75, @GUID_SEASON_ONE_1, 30188, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Felweave Handguards
+(75, @GUID_SEASON_ONE_1, 30200, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Felweave Raiment
+(75, @GUID_SEASON_ONE_1, 30201, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Felweave Trousers
+(75, @GUID_SEASON_ONE_1, 31375, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Kodohide Gloves
+(75, @GUID_SEASON_ONE_1, 31376, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Kodohide Helm
+(75, @GUID_SEASON_ONE_1, 31377, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Kodohide Legguards
+(75, @GUID_SEASON_ONE_1, 31378, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Kodohide Spaulders
+(75, @GUID_SEASON_ONE_1, 31379, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Kodohide Tunic
+(75, @GUID_SEASON_ONE_1, 27702, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Lamellar Chestpiece
+(75, @GUID_SEASON_ONE_1, 27703, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Lamellar Gauntlets
+(75, @GUID_SEASON_ONE_1, 27704, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Lamellar Helm
+(75, @GUID_SEASON_ONE_1, 27705, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Lamellar Legguards
+(75, @GUID_SEASON_ONE_1, 27706, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Lamellar Shoulders
+(75, @GUID_SEASON_ONE_1, 25834, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Leather Gloves
+(75, @GUID_SEASON_ONE_1, 25830, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Leather Helm
+(75, @GUID_SEASON_ONE_1, 25833, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Leather Legguards
+(75, @GUID_SEASON_ONE_1, 25832, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Leather Spaulders
+(75, @GUID_SEASON_ONE_1, 25831, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Leather Tunic
+(75, @GUID_SEASON_ONE_1, 25997, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Linked Armor
+(75, @GUID_SEASON_ONE_1, 26000, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Linked Gauntlets
+(75, @GUID_SEASON_ONE_1, 25998, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Linked Helm
+(75, @GUID_SEASON_ONE_1, 26001, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Linked Leggings
+(75, @GUID_SEASON_ONE_1, 25999, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Linked Spaulders
+(75, @GUID_SEASON_ONE_1, 27469, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Mail Armor
+(75, @GUID_SEASON_ONE_1, 27470, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Mail Gauntlets
+(75, @GUID_SEASON_ONE_1, 27471, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Mail Helm
+(75, @GUID_SEASON_ONE_1, 27472, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Mail Leggings
+(75, @GUID_SEASON_ONE_1, 27473, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Mail Spaulders
+(75, @GUID_SEASON_ONE_1, 31409, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Mooncloth Gloves
+(75, @GUID_SEASON_ONE_1, 31410, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Mooncloth Hood
+(75, @GUID_SEASON_ONE_1, 31411, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Mooncloth Leggings
+(75, @GUID_SEASON_ONE_1, 31412, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Mooncloth Mantle
+(75, @GUID_SEASON_ONE_1, 31413, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Mooncloth Robe
+(75, @GUID_SEASON_ONE_1, 31613, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Ornamented Chestguard
+(75, @GUID_SEASON_ONE_1, 31614, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Ornamented Gloves
+(75, @GUID_SEASON_ONE_1, 31616, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Ornamented Headcover
+(75, @GUID_SEASON_ONE_1, 31618, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Ornamented Legplates
+(75, @GUID_SEASON_ONE_1, 31619, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Ornamented Spaulders
+(75, @GUID_SEASON_ONE_1, 24544, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Plate Chestpiece
+(75, @GUID_SEASON_ONE_1, 24549, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Plate Gauntlets
+(75, @GUID_SEASON_ONE_1, 24545, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Plate Helm
+(75, @GUID_SEASON_ONE_1, 24547, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Plate Legguards
+(75, @GUID_SEASON_ONE_1, 24546, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Plate Shoulders
+(75, @GUID_SEASON_ONE_1, 31396, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Ringmail Armor
+(75, @GUID_SEASON_ONE_1, 31397, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Ringmail Gauntlets
+(75, @GUID_SEASON_ONE_1, 31400, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Ringmail Helm
+(75, @GUID_SEASON_ONE_1, 31406, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Ringmail Leggings
+(75, @GUID_SEASON_ONE_1, 31407, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Ringmail Spaulders
+(75, @GUID_SEASON_ONE_1, 27707, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Satin Gloves
+(75, @GUID_SEASON_ONE_1, 27708, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Satin Hood
+(75, @GUID_SEASON_ONE_1, 27709, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Satin Leggings
+(75, @GUID_SEASON_ONE_1, 27710, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Satin Mantle
+(75, @GUID_SEASON_ONE_1, 27711, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Satin Robe
+(75, @GUID_SEASON_ONE_1, 27879, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Scaled Chestpiece
+(75, @GUID_SEASON_ONE_1, 27880, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Scaled Gauntlets
+(75, @GUID_SEASON_ONE_1, 27881, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Scaled Helm
+(75, @GUID_SEASON_ONE_1, 27882, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Scaled Legguards
+(75, @GUID_SEASON_ONE_1, 27883, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Scaled Shoulders
+(75, @GUID_SEASON_ONE_1, 25854, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Silk Amice
+(75, @GUID_SEASON_ONE_1, 25855, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Silk Cowl
+(75, @GUID_SEASON_ONE_1, 25857, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Silk Handguards
+(75, @GUID_SEASON_ONE_1, 25856, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Silk Raiment
+(75, @GUID_SEASON_ONE_1, 25858, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Silk Trousers
+(75, @GUID_SEASON_ONE_1, 28136, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_1), -- Gladiator's Wyrmhide Gloves
+(75, @GUID_SEASON_ONE_1, 28137, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_1), -- Gladiator's Wyrmhide Helm
+(75, @GUID_SEASON_ONE_1, 28138, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_1), -- Gladiator's Wyrmhide Legguards
+(75, @GUID_SEASON_ONE_1, 28139, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_1), -- Gladiator's Wyrmhide Spaulders
+(75, @GUID_SEASON_ONE_1, 28140, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_1), -- Gladiator's Wyrmhide Tunic
+-- Season 2
+(76, @GUID_SEASON_ONE_2, 24550, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's Greatsword
+(76, @GUID_SEASON_ONE_2, 24557, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's War Staff
+(76, @GUID_SEASON_ONE_2, 28294, 0, 0, 0, @EXT_WEP_SEASON_ONE_08_2), -- Gladiator's Heavy Crossbow
+(76, @GUID_SEASON_ONE_2, 28298, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's Decapitator
+(76, @GUID_SEASON_ONE_2, 28299, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's Bonegrinder
+(76, @GUID_SEASON_ONE_2, 28300, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's Painsaw
+(76, @GUID_SEASON_ONE_2, 28476, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_2), -- Gladiator's Maul
+(76, @GUID_SEASON_ONE_2, 28297, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_2), -- Gladiator's Spellblade
+(76, @GUID_SEASON_ONE_2, 32450, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_2), -- Gladiator's Gavel
+(76, @GUID_SEASON_ONE_2, 32451, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_2), -- Gladiator's Salvation
+(76, @GUID_SEASON_ONE_2, 28295, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_2), -- Gladiator's Slicer
+(76, @GUID_SEASON_ONE_2, 28302, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_2), -- Gladiator's Bonecracker
+(76, @GUID_SEASON_ONE_2, 28305, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_2), -- Gladiator's Pummeler
+(76, @GUID_SEASON_ONE_2, 28307, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_2), -- Gladiator's Quickblade
+(76, @GUID_SEASON_ONE_2, 28308, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_2), -- Gladiator's Cleaver
+(76, @GUID_SEASON_ONE_2, 28309, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_2), -- Gladiator's Hacker
+(76, @GUID_SEASON_ONE_2, 28310, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_2), -- Gladiator's Shiv
+(76, @GUID_SEASON_ONE_2, 28312, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_2), -- Gladiator's Shanker
+(76, @GUID_SEASON_ONE_2, 28313, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_2), -- Gladiator's Right Ripper
+(76, @GUID_SEASON_ONE_2, 28314, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_2), -- Gladiator's Left Ripper
+(76, @GUID_SEASON_ONE_2, 28319, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_2), -- Gladiator's War Edge
+(76, @GUID_SEASON_ONE_2, 28320, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_2), -- Gladiator's Touch of Defeat
+(76, @GUID_SEASON_ONE_2, 28346, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_2), -- Gladiator's Endgame
+(76, @GUID_SEASON_ONE_2, 28355, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_2), -- Gladiator's Idol of Tenacity
+(76, @GUID_SEASON_ONE_2, 28356, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_2), -- Gladiator's Libram of Justice
+(76, @GUID_SEASON_ONE_2, 32452, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_2), -- Gladiator's Reprieve
+(76, @GUID_SEASON_ONE_2, 28358, 0, 0, 0, @EXT_WEP_SEASON_ONE_06_2), -- Gladiator's Shield Wall
+(76, @GUID_SEASON_ONE_2, 28357, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_2), -- Gladiator's Totem of the Third Wind
+(76, @GUID_SEASON_ONE_2, 28334, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Chain Armor
+(76, @GUID_SEASON_ONE_2, 28335, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Chain Gauntlets
+(76, @GUID_SEASON_ONE_2, 28331, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Chain Helm
+(76, @GUID_SEASON_ONE_2, 28332, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Chain Leggings
+(76, @GUID_SEASON_ONE_2, 28333, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Chain Spaulders
+(76, @GUID_SEASON_ONE_2, 28126, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Dragonhide Gloves
+(76, @GUID_SEASON_ONE_2, 28127, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Dragonhide Helm
+(76, @GUID_SEASON_ONE_2, 28128, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Dragonhide Legguards
+(76, @GUID_SEASON_ONE_2, 28129, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Dragonhide Spaulders
+(76, @GUID_SEASON_ONE_2, 28130, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Dragonhide Tunic
+(76, @GUID_SEASON_ONE_2, 24556, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Dreadweave Gloves
+(76, @GUID_SEASON_ONE_2, 24553, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Dreadweave Hood
+(76, @GUID_SEASON_ONE_2, 24555, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Dreadweave Leggings
+(76, @GUID_SEASON_ONE_2, 24554, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Dreadweave Mantle
+(76, @GUID_SEASON_ONE_2, 24552, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Dreadweave Robe
+(76, @GUID_SEASON_ONE_2, 30186, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Felweave Amice
+(76, @GUID_SEASON_ONE_2, 30187, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Felweave Cowl
+(76, @GUID_SEASON_ONE_2, 30188, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Felweave Handguards
+(76, @GUID_SEASON_ONE_2, 30200, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Felweave Raiment
+(76, @GUID_SEASON_ONE_2, 30201, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Felweave Trousers
+(76, @GUID_SEASON_ONE_2, 31375, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Kodohide Gloves
+(76, @GUID_SEASON_ONE_2, 31376, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Kodohide Helm
+(76, @GUID_SEASON_ONE_2, 31377, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Kodohide Legguards
+(76, @GUID_SEASON_ONE_2, 31378, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Kodohide Spaulders
+(76, @GUID_SEASON_ONE_2, 31379, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Kodohide Tunic
+(76, @GUID_SEASON_ONE_2, 27702, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Lamellar Chestpiece
+(76, @GUID_SEASON_ONE_2, 27703, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Lamellar Gauntlets
+(76, @GUID_SEASON_ONE_2, 27704, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Lamellar Helm
+(76, @GUID_SEASON_ONE_2, 27705, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Lamellar Legguards
+(76, @GUID_SEASON_ONE_2, 27706, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Lamellar Shoulders
+(76, @GUID_SEASON_ONE_2, 25834, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Leather Gloves
+(76, @GUID_SEASON_ONE_2, 25830, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Leather Helm
+(76, @GUID_SEASON_ONE_2, 25833, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Leather Legguards
+(76, @GUID_SEASON_ONE_2, 25832, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Leather Spaulders
+(76, @GUID_SEASON_ONE_2, 25831, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Leather Tunic
+(76, @GUID_SEASON_ONE_2, 25997, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Linked Armor
+(76, @GUID_SEASON_ONE_2, 26000, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Linked Gauntlets
+(76, @GUID_SEASON_ONE_2, 25998, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Linked Helm
+(76, @GUID_SEASON_ONE_2, 26001, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Linked Leggings
+(76, @GUID_SEASON_ONE_2, 25999, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Linked Spaulders
+(76, @GUID_SEASON_ONE_2, 27469, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Mail Armor
+(76, @GUID_SEASON_ONE_2, 27470, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Mail Gauntlets
+(76, @GUID_SEASON_ONE_2, 27471, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Mail Helm
+(76, @GUID_SEASON_ONE_2, 27472, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Mail Leggings
+(76, @GUID_SEASON_ONE_2, 27473, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Mail Spaulders
+(76, @GUID_SEASON_ONE_2, 31409, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Mooncloth Gloves
+(76, @GUID_SEASON_ONE_2, 31410, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Mooncloth Hood
+(76, @GUID_SEASON_ONE_2, 31411, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Mooncloth Leggings
+(76, @GUID_SEASON_ONE_2, 31412, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Mooncloth Mantle
+(76, @GUID_SEASON_ONE_2, 31413, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Mooncloth Robe
+(76, @GUID_SEASON_ONE_2, 31613, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Ornamented Chestguard
+(76, @GUID_SEASON_ONE_2, 31614, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Ornamented Gloves
+(76, @GUID_SEASON_ONE_2, 31616, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Ornamented Headcover
+(76, @GUID_SEASON_ONE_2, 31618, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Ornamented Legplates
+(76, @GUID_SEASON_ONE_2, 31619, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Ornamented Spaulders
+(76, @GUID_SEASON_ONE_2, 24544, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Plate Chestpiece
+(76, @GUID_SEASON_ONE_2, 24549, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Plate Gauntlets
+(76, @GUID_SEASON_ONE_2, 24545, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Plate Helm
+(76, @GUID_SEASON_ONE_2, 24547, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Plate Legguards
+(76, @GUID_SEASON_ONE_2, 24546, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Plate Shoulders
+(76, @GUID_SEASON_ONE_2, 31396, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Ringmail Armor
+(76, @GUID_SEASON_ONE_2, 31397, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Ringmail Gauntlets
+(76, @GUID_SEASON_ONE_2, 31400, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Ringmail Helm
+(76, @GUID_SEASON_ONE_2, 31406, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Ringmail Leggings
+(76, @GUID_SEASON_ONE_2, 31407, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Ringmail Spaulders
+(76, @GUID_SEASON_ONE_2, 27707, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Satin Gloves
+(76, @GUID_SEASON_ONE_2, 27708, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Satin Hood
+(76, @GUID_SEASON_ONE_2, 27709, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Satin Leggings
+(76, @GUID_SEASON_ONE_2, 27710, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Satin Mantle
+(76, @GUID_SEASON_ONE_2, 27711, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Satin Robe
+(76, @GUID_SEASON_ONE_2, 27879, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Scaled Chestpiece
+(76, @GUID_SEASON_ONE_2, 27880, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Scaled Gauntlets
+(76, @GUID_SEASON_ONE_2, 27881, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Scaled Helm
+(76, @GUID_SEASON_ONE_2, 27882, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Scaled Legguards
+(76, @GUID_SEASON_ONE_2, 27883, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Scaled Shoulders
+(76, @GUID_SEASON_ONE_2, 25854, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Silk Amice
+(76, @GUID_SEASON_ONE_2, 25855, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Silk Cowl
+(76, @GUID_SEASON_ONE_2, 25857, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Silk Handguards
+(76, @GUID_SEASON_ONE_2, 25856, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Silk Raiment
+(76, @GUID_SEASON_ONE_2, 25858, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Silk Trousers
+(76, @GUID_SEASON_ONE_2, 28136, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_2), -- Gladiator's Wyrmhide Gloves
+(76, @GUID_SEASON_ONE_2, 28137, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_2), -- Gladiator's Wyrmhide Helm
+(76, @GUID_SEASON_ONE_2, 28138, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_2), -- Gladiator's Wyrmhide Legguards
+(76, @GUID_SEASON_ONE_2, 28139, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_2), -- Gladiator's Wyrmhide Spaulders
+(76, @GUID_SEASON_ONE_2, 28140, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_2), -- Gladiator's Wyrmhide Tunic
+-- Season 3
+-- (55, @GUID_SEASON_ONE_3, 24550, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's Greatsword
+-- (55, @GUID_SEASON_ONE_3, 24557, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's War Staff
+-- (55, @GUID_SEASON_ONE_3, 28294, 0, 0, 0, @EXT_WEP_SEASON_ONE_08_3), -- Gladiator's Heavy Crossbow
+-- (55, @GUID_SEASON_ONE_3, 28298, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's Decapitator
+-- (55, @GUID_SEASON_ONE_3, 28299, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's Bonegrinder
+-- (55, @GUID_SEASON_ONE_3, 28300, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's Painsaw
+-- (55, @GUID_SEASON_ONE_3, 28476, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_3), -- Gladiator's Maul
+-- (55, @GUID_SEASON_ONE_3, 28297, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_3), -- Gladiator's Spellblade
+-- (55, @GUID_SEASON_ONE_3, 32450, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_3), -- Gladiator's Gavel
+-- (55, @GUID_SEASON_ONE_3, 32451, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_3), -- Gladiator's Salvation
+-- (55, @GUID_SEASON_ONE_3, 28295, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_3), -- Gladiator's Slicer
+-- (55, @GUID_SEASON_ONE_3, 28302, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_3), -- Gladiator's Bonecracker
+-- (55, @GUID_SEASON_ONE_3, 28305, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_3), -- Gladiator's Pummeler
+-- (55, @GUID_SEASON_ONE_3, 28307, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_3), -- Gladiator's Quickblade
+-- (55, @GUID_SEASON_ONE_3, 28308, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_3), -- Gladiator's Cleaver
+-- (55, @GUID_SEASON_ONE_3, 28309, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_3), -- Gladiator's Hacker
+-- (55, @GUID_SEASON_ONE_3, 28310, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_3), -- Gladiator's Shiv
+-- (55, @GUID_SEASON_ONE_3, 28312, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_3), -- Gladiator's Shanker
+-- (55, @GUID_SEASON_ONE_3, 28313, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_3), -- Gladiator's Right Ripper
+-- (55, @GUID_SEASON_ONE_3, 28314, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_3), -- Gladiator's Left Ripper
+-- (55, @GUID_SEASON_ONE_3, 28319, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_3), -- Gladiator's War Edge
+-- (55, @GUID_SEASON_ONE_3, 28320, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_3), -- Gladiator's Touch of Defeat
+-- (55, @GUID_SEASON_ONE_3, 28346, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_3), -- Gladiator's Endgame
+-- (55, @GUID_SEASON_ONE_3, 28355, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_3), -- Gladiator's Idol of Tenacity
+-- (55, @GUID_SEASON_ONE_3, 28356, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_3), -- Gladiator's Libram of Justice
+-- (55, @GUID_SEASON_ONE_3, 32452, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_3), -- Gladiator's Reprieve
+-- (55, @GUID_SEASON_ONE_3, 28358, 0, 0, 0, @EXT_WEP_SEASON_ONE_06_3), -- Gladiator's Shield Wall
+-- (55, @GUID_SEASON_ONE_3, 28357, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_3), -- Gladiator's Totem of the Third Wind
+(55, @GUID_SEASON_ONE_3, 28334, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Chain Armor
+(55, @GUID_SEASON_ONE_3, 28335, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Chain Gauntlets
+(55, @GUID_SEASON_ONE_3, 28331, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Chain Helm
+(55, @GUID_SEASON_ONE_3, 28332, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Chain Leggings
+(55, @GUID_SEASON_ONE_3, 28333, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Chain Spaulders
+(55, @GUID_SEASON_ONE_3, 28126, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Dragonhide Gloves
+(55, @GUID_SEASON_ONE_3, 28127, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Dragonhide Helm
+(55, @GUID_SEASON_ONE_3, 28128, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Dragonhide Legguards
+(55, @GUID_SEASON_ONE_3, 28129, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Dragonhide Spaulders
+(55, @GUID_SEASON_ONE_3, 28130, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Dragonhide Tunic
+(55, @GUID_SEASON_ONE_3, 24556, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Dreadweave Gloves
+(55, @GUID_SEASON_ONE_3, 24553, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Dreadweave Hood
+(55, @GUID_SEASON_ONE_3, 24555, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Dreadweave Leggings
+(55, @GUID_SEASON_ONE_3, 24554, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Dreadweave Mantle
+(55, @GUID_SEASON_ONE_3, 24552, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Dreadweave Robe
+(55, @GUID_SEASON_ONE_3, 30186, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Felweave Amice
+(55, @GUID_SEASON_ONE_3, 30187, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Felweave Cowl
+(55, @GUID_SEASON_ONE_3, 30188, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Felweave Handguards
+(55, @GUID_SEASON_ONE_3, 30200, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Felweave Raiment
+(55, @GUID_SEASON_ONE_3, 30201, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Felweave Trousers
+(55, @GUID_SEASON_ONE_3, 31375, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Kodohide Gloves
+(55, @GUID_SEASON_ONE_3, 31376, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Kodohide Helm
+(55, @GUID_SEASON_ONE_3, 31377, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Kodohide Legguards
+(55, @GUID_SEASON_ONE_3, 31378, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Kodohide Spaulders
+(55, @GUID_SEASON_ONE_3, 31379, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Kodohide Tunic
+(55, @GUID_SEASON_ONE_3, 27702, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Lamellar Chestpiece
+(55, @GUID_SEASON_ONE_3, 27703, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Lamellar Gauntlets
+(55, @GUID_SEASON_ONE_3, 27704, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Lamellar Helm
+(55, @GUID_SEASON_ONE_3, 27705, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Lamellar Legguards
+(55, @GUID_SEASON_ONE_3, 27706, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Lamellar Shoulders
+(55, @GUID_SEASON_ONE_3, 25834, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Leather Gloves
+(55, @GUID_SEASON_ONE_3, 25830, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Leather Helm
+(55, @GUID_SEASON_ONE_3, 25833, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Leather Legguards
+(55, @GUID_SEASON_ONE_3, 25832, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Leather Spaulders
+(55, @GUID_SEASON_ONE_3, 25831, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Leather Tunic
+(55, @GUID_SEASON_ONE_3, 25997, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Linked Armor
+(55, @GUID_SEASON_ONE_3, 26000, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Linked Gauntlets
+(55, @GUID_SEASON_ONE_3, 25998, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Linked Helm
+(55, @GUID_SEASON_ONE_3, 26001, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Linked Leggings
+(55, @GUID_SEASON_ONE_3, 25999, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Linked Spaulders
+(55, @GUID_SEASON_ONE_3, 27469, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Mail Armor
+(55, @GUID_SEASON_ONE_3, 27470, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Mail Gauntlets
+(55, @GUID_SEASON_ONE_3, 27471, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Mail Helm
+(55, @GUID_SEASON_ONE_3, 27472, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Mail Leggings
+(55, @GUID_SEASON_ONE_3, 27473, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Mail Spaulders
+(55, @GUID_SEASON_ONE_3, 31409, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Mooncloth Gloves
+(55, @GUID_SEASON_ONE_3, 31410, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Mooncloth Hood
+(55, @GUID_SEASON_ONE_3, 31411, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Mooncloth Leggings
+(55, @GUID_SEASON_ONE_3, 31412, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Mooncloth Mantle
+(55, @GUID_SEASON_ONE_3, 31413, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Mooncloth Robe
+(55, @GUID_SEASON_ONE_3, 31613, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Ornamented Chestguard
+(55, @GUID_SEASON_ONE_3, 31614, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Ornamented Gloves
+(55, @GUID_SEASON_ONE_3, 31616, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Ornamented Headcover
+(55, @GUID_SEASON_ONE_3, 31618, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Ornamented Legplates
+(55, @GUID_SEASON_ONE_3, 31619, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Ornamented Spaulders
+(55, @GUID_SEASON_ONE_3, 24544, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Plate Chestpiece
+(55, @GUID_SEASON_ONE_3, 24549, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Plate Gauntlets
+(55, @GUID_SEASON_ONE_3, 24545, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Plate Helm
+(55, @GUID_SEASON_ONE_3, 24547, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Plate Legguards
+(55, @GUID_SEASON_ONE_3, 24546, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Plate Shoulders
+(55, @GUID_SEASON_ONE_3, 31396, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Ringmail Armor
+(55, @GUID_SEASON_ONE_3, 31397, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Ringmail Gauntlets
+(55, @GUID_SEASON_ONE_3, 31400, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Ringmail Helm
+(55, @GUID_SEASON_ONE_3, 31406, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Ringmail Leggings
+(55, @GUID_SEASON_ONE_3, 31407, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Ringmail Spaulders
+(55, @GUID_SEASON_ONE_3, 27707, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Satin Gloves
+(55, @GUID_SEASON_ONE_3, 27708, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Satin Hood
+(55, @GUID_SEASON_ONE_3, 27709, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Satin Leggings
+(55, @GUID_SEASON_ONE_3, 27710, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Satin Mantle
+(55, @GUID_SEASON_ONE_3, 27711, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Satin Robe
+(55, @GUID_SEASON_ONE_3, 27879, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Scaled Chestpiece
+(55, @GUID_SEASON_ONE_3, 27880, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Scaled Gauntlets
+(55, @GUID_SEASON_ONE_3, 27881, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Scaled Helm
+(55, @GUID_SEASON_ONE_3, 27882, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Scaled Legguards
+(55, @GUID_SEASON_ONE_3, 27883, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Scaled Shoulders
+(55, @GUID_SEASON_ONE_3, 25854, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Silk Amice
+(55, @GUID_SEASON_ONE_3, 25855, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Silk Cowl
+(55, @GUID_SEASON_ONE_3, 25857, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Silk Handguards
+(55, @GUID_SEASON_ONE_3, 25856, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Silk Raiment
+(55, @GUID_SEASON_ONE_3, 25858, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Silk Trousers
+(55, @GUID_SEASON_ONE_3, 28136, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_3), -- Gladiator's Wyrmhide Gloves
+(55, @GUID_SEASON_ONE_3, 28137, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_3), -- Gladiator's Wyrmhide Helm
+(55, @GUID_SEASON_ONE_3, 28138, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_3), -- Gladiator's Wyrmhide Legguards
+(55, @GUID_SEASON_ONE_3, 28139, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_3), -- Gladiator's Wyrmhide Spaulders
+(55, @GUID_SEASON_ONE_3, 28140, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_3), -- Gladiator's Wyrmhide Tunic
+-- Season 4
+-- (56, @GUID_SEASON_ONE_4, 24550, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's Greatsword
+-- (56, @GUID_SEASON_ONE_4, 24557, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's War Staff
+-- (56, @GUID_SEASON_ONE_4, 28294, 0, 0, 0, @EXT_WEP_SEASON_ONE_08_4), -- Gladiator's Heavy Crossbow
+-- (56, @GUID_SEASON_ONE_4, 28298, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's Decapitator
+-- (56, @GUID_SEASON_ONE_4, 28299, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's Bonegrinder
+-- (56, @GUID_SEASON_ONE_4, 28300, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's Painsaw
+-- (56, @GUID_SEASON_ONE_4, 28476, 0, 0, 0, @EXT_WEP_SEASON_ONE_01_4), -- Gladiator's Maul
+-- (56, @GUID_SEASON_ONE_4, 28297, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_4), -- Gladiator's Spellblade
+-- (56, @GUID_SEASON_ONE_4, 32450, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_4), -- Gladiator's Gavel
+-- (56, @GUID_SEASON_ONE_4, 32451, 0, 0, 0, @EXT_WEP_SEASON_ONE_02_4), -- Gladiator's Salvation
+-- (56, @GUID_SEASON_ONE_4, 28295, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_4), -- Gladiator's Slicer
+-- (56, @GUID_SEASON_ONE_4, 28302, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_4), -- Gladiator's Bonecracker
+-- (56, @GUID_SEASON_ONE_4, 28305, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_4), -- Gladiator's Pummeler
+-- (56, @GUID_SEASON_ONE_4, 28307, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_4), -- Gladiator's Quickblade
+-- (56, @GUID_SEASON_ONE_4, 28308, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_4), -- Gladiator's Cleaver
+-- (56, @GUID_SEASON_ONE_4, 28309, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_4), -- Gladiator's Hacker
+-- (56, @GUID_SEASON_ONE_4, 28310, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_4), -- Gladiator's Shiv
+-- (56, @GUID_SEASON_ONE_4, 28312, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_4), -- Gladiator's Shanker
+-- (56, @GUID_SEASON_ONE_4, 28313, 0, 0, 0, @EXT_WEP_SEASON_ONE_04_4), -- Gladiator's Right Ripper
+-- (56, @GUID_SEASON_ONE_4, 28314, 0, 0, 0, @EXT_WEP_SEASON_ONE_05_4), -- Gladiator's Left Ripper
+-- (56, @GUID_SEASON_ONE_4, 28319, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_4), -- Gladiator's War Edge
+-- (56, @GUID_SEASON_ONE_4, 28320, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_4), -- Gladiator's Touch of Defeat
+-- (56, @GUID_SEASON_ONE_4, 28346, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_4), -- Gladiator's Endgame
+-- (56, @GUID_SEASON_ONE_4, 28355, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_4), -- Gladiator's Idol of Tenacity
+-- (56, @GUID_SEASON_ONE_4, 28356, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_4), -- Gladiator's Libram of Justice
+-- (56, @GUID_SEASON_ONE_4, 32452, 0, 0, 0, @EXT_WEP_SEASON_ONE_03_4), -- Gladiator's Reprieve
+-- (56, @GUID_SEASON_ONE_4, 28358, 0, 0, 0, @EXT_WEP_SEASON_ONE_06_4), -- Gladiator's Shield Wall
+-- (56, @GUID_SEASON_ONE_4, 28357, 0, 0, 0, @EXT_WEP_SEASON_ONE_07_4), -- Gladiator's Totem of the Third Wind
+(56, @GUID_SEASON_ONE_4, 28334, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Chain Armor
+(56, @GUID_SEASON_ONE_4, 28335, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Chain Gauntlets
+(56, @GUID_SEASON_ONE_4, 28331, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Chain Helm
+(56, @GUID_SEASON_ONE_4, 28332, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Chain Leggings
+(56, @GUID_SEASON_ONE_4, 28333, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Chain Spaulders
+(56, @GUID_SEASON_ONE_4, 28126, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Dragonhide Gloves
+(56, @GUID_SEASON_ONE_4, 28127, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Dragonhide Helm
+(56, @GUID_SEASON_ONE_4, 28128, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Dragonhide Legguards
+(56, @GUID_SEASON_ONE_4, 28129, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Dragonhide Spaulders
+(56, @GUID_SEASON_ONE_4, 28130, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Dragonhide Tunic
+(56, @GUID_SEASON_ONE_4, 24556, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Dreadweave Gloves
+(56, @GUID_SEASON_ONE_4, 24553, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Dreadweave Hood
+(56, @GUID_SEASON_ONE_4, 24555, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Dreadweave Leggings
+(56, @GUID_SEASON_ONE_4, 24554, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Dreadweave Mantle
+(56, @GUID_SEASON_ONE_4, 24552, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Dreadweave Robe
+(56, @GUID_SEASON_ONE_4, 30186, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Felweave Amice
+(56, @GUID_SEASON_ONE_4, 30187, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Felweave Cowl
+(56, @GUID_SEASON_ONE_4, 30188, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Felweave Handguards
+(56, @GUID_SEASON_ONE_4, 30200, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Felweave Raiment
+(56, @GUID_SEASON_ONE_4, 30201, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Felweave Trousers
+(56, @GUID_SEASON_ONE_4, 31375, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Kodohide Gloves
+(56, @GUID_SEASON_ONE_4, 31376, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Kodohide Helm
+(56, @GUID_SEASON_ONE_4, 31377, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Kodohide Legguards
+(56, @GUID_SEASON_ONE_4, 31378, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Kodohide Spaulders
+(56, @GUID_SEASON_ONE_4, 31379, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Kodohide Tunic
+(56, @GUID_SEASON_ONE_4, 27702, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Lamellar Chestpiece
+(56, @GUID_SEASON_ONE_4, 27703, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Lamellar Gauntlets
+(56, @GUID_SEASON_ONE_4, 27704, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Lamellar Helm
+(56, @GUID_SEASON_ONE_4, 27705, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Lamellar Legguards
+(56, @GUID_SEASON_ONE_4, 27706, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Lamellar Shoulders
+(56, @GUID_SEASON_ONE_4, 25834, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Leather Gloves
+(56, @GUID_SEASON_ONE_4, 25830, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Leather Helm
+(56, @GUID_SEASON_ONE_4, 25833, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Leather Legguards
+(56, @GUID_SEASON_ONE_4, 25832, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Leather Spaulders
+(56, @GUID_SEASON_ONE_4, 25831, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Leather Tunic
+(56, @GUID_SEASON_ONE_4, 25997, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Linked Armor
+(56, @GUID_SEASON_ONE_4, 26000, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Linked Gauntlets
+(56, @GUID_SEASON_ONE_4, 25998, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Linked Helm
+(56, @GUID_SEASON_ONE_4, 26001, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Linked Leggings
+(56, @GUID_SEASON_ONE_4, 25999, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Linked Spaulders
+(56, @GUID_SEASON_ONE_4, 27469, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Mail Armor
+(56, @GUID_SEASON_ONE_4, 27470, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Mail Gauntlets
+(56, @GUID_SEASON_ONE_4, 27471, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Mail Helm
+(56, @GUID_SEASON_ONE_4, 27472, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Mail Leggings
+(56, @GUID_SEASON_ONE_4, 27473, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Mail Spaulders
+(56, @GUID_SEASON_ONE_4, 31409, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Mooncloth Gloves
+(56, @GUID_SEASON_ONE_4, 31410, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Mooncloth Hood
+(56, @GUID_SEASON_ONE_4, 31411, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Mooncloth Leggings
+(56, @GUID_SEASON_ONE_4, 31412, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Mooncloth Mantle
+(56, @GUID_SEASON_ONE_4, 31413, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Mooncloth Robe
+(56, @GUID_SEASON_ONE_4, 31613, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Ornamented Chestguard
+(56, @GUID_SEASON_ONE_4, 31614, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Ornamented Gloves
+(56, @GUID_SEASON_ONE_4, 31616, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Ornamented Headcover
+(56, @GUID_SEASON_ONE_4, 31618, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Ornamented Legplates
+(56, @GUID_SEASON_ONE_4, 31619, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Ornamented Spaulders
+(56, @GUID_SEASON_ONE_4, 24544, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Plate Chestpiece
+(56, @GUID_SEASON_ONE_4, 24549, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Plate Gauntlets
+(56, @GUID_SEASON_ONE_4, 24545, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Plate Helm
+(56, @GUID_SEASON_ONE_4, 24547, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Plate Legguards
+(56, @GUID_SEASON_ONE_4, 24546, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Plate Shoulders
+(56, @GUID_SEASON_ONE_4, 31396, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Ringmail Armor
+(56, @GUID_SEASON_ONE_4, 31397, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Ringmail Gauntlets
+(56, @GUID_SEASON_ONE_4, 31400, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Ringmail Helm
+(56, @GUID_SEASON_ONE_4, 31406, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Ringmail Leggings
+(56, @GUID_SEASON_ONE_4, 31407, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Ringmail Spaulders
+(56, @GUID_SEASON_ONE_4, 27707, 2, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Satin Gloves
+(56, @GUID_SEASON_ONE_4, 27708, 2, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Satin Hood
+(56, @GUID_SEASON_ONE_4, 27709, 2, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Satin Leggings
+(56, @GUID_SEASON_ONE_4, 27710, 2, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Satin Mantle
+(56, @GUID_SEASON_ONE_4, 27711, 2, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Satin Robe
+(56, @GUID_SEASON_ONE_4, 27879, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Scaled Chestpiece
+(56, @GUID_SEASON_ONE_4, 27880, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Scaled Gauntlets
+(56, @GUID_SEASON_ONE_4, 27881, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Scaled Helm
+(56, @GUID_SEASON_ONE_4, 27882, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Scaled Legguards
+(56, @GUID_SEASON_ONE_4, 27883, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Scaled Shoulders
+(56, @GUID_SEASON_ONE_4, 25854, 1, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Silk Amice
+(56, @GUID_SEASON_ONE_4, 25855, 1, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Silk Cowl
+(56, @GUID_SEASON_ONE_4, 25857, 1, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Silk Handguards
+(56, @GUID_SEASON_ONE_4, 25856, 1, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Silk Raiment
+(56, @GUID_SEASON_ONE_4, 25858, 1, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Silk Trousers
+(56, @GUID_SEASON_ONE_4, 28136, 3, 0, 0, @EXT_ARM_SEASON_ONE_05_4), -- Gladiator's Wyrmhide Gloves
+(56, @GUID_SEASON_ONE_4, 28137, 3, 0, 0, @EXT_ARM_SEASON_ONE_01_4), -- Gladiator's Wyrmhide Helm
+(56, @GUID_SEASON_ONE_4, 28138, 3, 0, 0, @EXT_ARM_SEASON_ONE_04_4), -- Gladiator's Wyrmhide Legguards
+(56, @GUID_SEASON_ONE_4, 28139, 3, 0, 0, @EXT_ARM_SEASON_ONE_02_4), -- Gladiator's Wyrmhide Spaulders
+(56, @GUID_SEASON_ONE_4, 28140, 3, 0, 0, @EXT_ARM_SEASON_ONE_03_4), -- Gladiator's Wyrmhide Tunic
+/*
+	Season Two Arena Vendor
+		Present in 3 seasons
+*/
+-- Season 2
+(76, @GUID_SEASON_TWO_2, 31959, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's Bonegrinder
+(76, @GUID_SEASON_TWO_2, 31986, 0, 0, 0, @EXT_WEP_SEASON_TWO_08_2), -- Merciless Gladiator's Crossbow of the Phoenix
+(76, @GUID_SEASON_TWO_2, 31966, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's Decapitator
+(76, @GUID_SEASON_TWO_2, 31984, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's Greatsword
+(76, @GUID_SEASON_TWO_2, 32014, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's Maul
+(76, @GUID_SEASON_TWO_2, 32025, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's Painsaw
+(76, @GUID_SEASON_TWO_2, 32055, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_2), -- Merciless Gladiator's War Staff
+(76, @GUID_SEASON_TWO_2, 32962, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Touch of Defeat
+(76, @GUID_SEASON_TWO_2, 32054, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's War Edge
+(76, @GUID_SEASON_TWO_2, 32963, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_2), -- Merciless Gladiator's Gavel
+(76, @GUID_SEASON_TWO_2, 32964, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_2), -- Merciless Gladiator's Salvation
+(76, @GUID_SEASON_TWO_2, 32053, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_2), -- Merciless Gladiator's Spellblade
+(76, @GUID_SEASON_TWO_2, 31958, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_2), -- Merciless Gladiator's Bonecracker
+(76, @GUID_SEASON_TWO_2, 31985, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_2), -- Merciless Gladiator's Hacker
+(76, @GUID_SEASON_TWO_2, 32003, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_2), -- Merciless Gladiator's Left Ripper
+(76, @GUID_SEASON_TWO_2, 32027, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_2), -- Merciless Gladiator's Quickblade
+(76, @GUID_SEASON_TWO_2, 32046, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_2), -- Merciless Gladiator's Shiv
+(76, @GUID_SEASON_TWO_2, 31965, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_2), -- Merciless Gladiator's Cleaver
+(76, @GUID_SEASON_TWO_2, 32026, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_2), -- Merciless Gladiator's Pummeler
+(76, @GUID_SEASON_TWO_2, 32028, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_2), -- Merciless Gladiator's Right Ripper
+(76, @GUID_SEASON_TWO_2, 32044, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_2), -- Merciless Gladiator's Shanker
+(76, @GUID_SEASON_TWO_2, 32052, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_2), -- Merciless Gladiator's Slicer
+(76, @GUID_SEASON_TWO_2, 31978, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_2), -- Merciless Gladiator's Endgame
+(76, @GUID_SEASON_TWO_2, 32961, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_2), -- Merciless Gladiator's Reprieve
+(76, @GUID_SEASON_TWO_2, 33946, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Idol of Resolve
+(76, @GUID_SEASON_TWO_2, 33943, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Idol of Steadfastness
+(76, @GUID_SEASON_TWO_2, 33076, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Idol of Tenacity
+(76, @GUID_SEASON_TWO_2, 33937, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Libram of Fortitude
+(76, @GUID_SEASON_TWO_2, 33077, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Libram of Justice
+(76, @GUID_SEASON_TWO_2, 33949, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Libram of Vengeance
+(76, @GUID_SEASON_TWO_2, 33940, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Totem of Indomitability
+(76, @GUID_SEASON_TWO_2, 33952, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Totem of Survival
+(76, @GUID_SEASON_TWO_2, 33078, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_2), -- Merciless Gladiator's Totem of the Third Wind
+(76, @GUID_SEASON_TWO_2, 32045, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_2), -- Merciless Gladiator's Shield Wall
+(76, @GUID_SEASON_TWO_2, 33309, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_2), -- Merciless Gladiator's Redoubt
+(76, @GUID_SEASON_TWO_2, 33313, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_2), -- Merciless Gladiator's Barrier
+(76, @GUID_SEASON_TWO_2, 31960, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Chain Armor
+(76, @GUID_SEASON_TWO_2, 31961, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Chain Gauntlets
+(76, @GUID_SEASON_TWO_2, 31962, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Chain Helm
+(76, @GUID_SEASON_TWO_2, 31963, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Chain Leggings
+(76, @GUID_SEASON_TWO_2, 31964, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Chain Spaulders
+(76, @GUID_SEASON_TWO_2, 31967, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Dragonhide Gloves
+(76, @GUID_SEASON_TWO_2, 31968, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Dragonhide Helm
+(76, @GUID_SEASON_TWO_2, 31969, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Dragonhide Legguards
+(76, @GUID_SEASON_TWO_2, 31971, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Dragonhide Spaulders
+(76, @GUID_SEASON_TWO_2, 31972, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Dragonhide Tunic
+(76, @GUID_SEASON_TWO_2, 31973, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Dreadweave Gloves
+(76, @GUID_SEASON_TWO_2, 31974, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Dreadweave Hood
+(76, @GUID_SEASON_TWO_2, 31975, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Dreadweave Leggings
+(76, @GUID_SEASON_TWO_2, 31976, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Dreadweave Mantle
+(76, @GUID_SEASON_TWO_2, 31977, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Dreadweave Robe
+(76, @GUID_SEASON_TWO_2, 31979, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Felweave Amice
+(76, @GUID_SEASON_TWO_2, 31980, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Felweave Cowl
+(76, @GUID_SEASON_TWO_2, 31981, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Felweave Handguards
+(76, @GUID_SEASON_TWO_2, 31982, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Felweave Raiment
+(76, @GUID_SEASON_TWO_2, 31983, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Felweave Trousers
+(76, @GUID_SEASON_TWO_2, 31987, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Kodohide Gloves
+(76, @GUID_SEASON_TWO_2, 31988, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Kodohide Helm
+(76, @GUID_SEASON_TWO_2, 31989, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Kodohide Legguards
+(76, @GUID_SEASON_TWO_2, 31990, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Kodohide Spaulders
+(76, @GUID_SEASON_TWO_2, 31991, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Kodohide Tunic
+(76, @GUID_SEASON_TWO_2, 31992, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Lamellar Chestpiece
+(76, @GUID_SEASON_TWO_2, 31993, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Lamellar Gauntlets
+(76, @GUID_SEASON_TWO_2, 31997, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Lamellar Helm
+(76, @GUID_SEASON_TWO_2, 31995, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Lamellar Legguards
+(76, @GUID_SEASON_TWO_2, 31996, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Lamellar Shoulders
+(76, @GUID_SEASON_TWO_2, 31998, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Leather Gloves
+(76, @GUID_SEASON_TWO_2, 31999, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Leather Helm
+(76, @GUID_SEASON_TWO_2, 32000, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Leather Legguards
+(76, @GUID_SEASON_TWO_2, 32001, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Leather Spaulders
+(76, @GUID_SEASON_TWO_2, 32002, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Leather Tunic
+(76, @GUID_SEASON_TWO_2, 32004, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Linked Armor
+(76, @GUID_SEASON_TWO_2, 32005, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Linked Gauntlets
+(76, @GUID_SEASON_TWO_2, 32006, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Linked Helm
+(76, @GUID_SEASON_TWO_2, 32007, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Linked Leggings
+(76, @GUID_SEASON_TWO_2, 32008, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Linked Spaulders
+(76, @GUID_SEASON_TWO_2, 32009, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Mail Armor
+(76, @GUID_SEASON_TWO_2, 32010, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Mail Gauntlets
+(76, @GUID_SEASON_TWO_2, 32011, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Mail Helm
+(76, @GUID_SEASON_TWO_2, 32012, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Mail Leggings
+(76, @GUID_SEASON_TWO_2, 32013, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Mail Spaulders
+(76, @GUID_SEASON_TWO_2, 32015, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Mooncloth Gloves
+(76, @GUID_SEASON_TWO_2, 32016, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Mooncloth Hood
+(76, @GUID_SEASON_TWO_2, 32017, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Mooncloth Leggings
+(76, @GUID_SEASON_TWO_2, 32018, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Mooncloth Mantle
+(76, @GUID_SEASON_TWO_2, 32019, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Mooncloth Robe
+(76, @GUID_SEASON_TWO_2, 32020, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Ornamented Chestguard
+(76, @GUID_SEASON_TWO_2, 32021, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Ornamented Gloves
+(76, @GUID_SEASON_TWO_2, 32022, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Ornamented Headcover
+(76, @GUID_SEASON_TWO_2, 32023, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Ornamented Legplates
+(76, @GUID_SEASON_TWO_2, 32024, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Ornamented Spaulders
+(76, @GUID_SEASON_TWO_2, 30486, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Plate Chestpiece
+(76, @GUID_SEASON_TWO_2, 30487, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Plate Gauntlets
+(76, @GUID_SEASON_TWO_2, 30488, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Plate Helm
+(76, @GUID_SEASON_TWO_2, 30489, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Plate Legguards
+(76, @GUID_SEASON_TWO_2, 30490, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Plate Shoulders
+(76, @GUID_SEASON_TWO_2, 32029, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Ringmail Armor
+(76, @GUID_SEASON_TWO_2, 32030, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Ringmail Gauntlets
+(76, @GUID_SEASON_TWO_2, 32031, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Ringmail Helm
+(76, @GUID_SEASON_TWO_2, 32032, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Ringmail Leggings
+(76, @GUID_SEASON_TWO_2, 32033, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Ringmail Spaulders
+(76, @GUID_SEASON_TWO_2, 32034, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Satin Gloves
+(76, @GUID_SEASON_TWO_2, 32035, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Satin Hood
+(76, @GUID_SEASON_TWO_2, 32036, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Satin Leggings
+(76, @GUID_SEASON_TWO_2, 32037, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Satin Mantle
+(76, @GUID_SEASON_TWO_2, 32038, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Satin Robe
+(76, @GUID_SEASON_TWO_2, 32039, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Scaled Chestpiece
+(76, @GUID_SEASON_TWO_2, 32040, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Scaled Gauntlets
+(76, @GUID_SEASON_TWO_2, 32041, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Scaled Helm
+(76, @GUID_SEASON_TWO_2, 32042, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Scaled Legguards
+(76, @GUID_SEASON_TWO_2, 32043, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Scaled Shoulders
+(76, @GUID_SEASON_TWO_2, 32047, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Silk Amice
+(76, @GUID_SEASON_TWO_2, 32048, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Silk Cowl
+(76, @GUID_SEASON_TWO_2, 32049, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Silk Handguards
+(76, @GUID_SEASON_TWO_2, 32050, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Silk Raiment
+(76, @GUID_SEASON_TWO_2, 32051, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Silk Trousers
+(76, @GUID_SEASON_TWO_2, 32056, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_2), -- Merciless Gladiator's Wyrmhide Gloves
+(76, @GUID_SEASON_TWO_2, 32057, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_2), -- Merciless Gladiator's Wyrmhide Helm
+(76, @GUID_SEASON_TWO_2, 32058, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_2), -- Merciless Gladiator's Wyrmhide Legguards
+(76, @GUID_SEASON_TWO_2, 32059, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_2), -- Merciless Gladiator's Wyrmhide Spaulders
+(76, @GUID_SEASON_TWO_2, 32060, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_2), -- Merciless Gladiator's Wyrmhide Tunic
+-- Season 3
+(55, @GUID_SEASON_TWO_3, 31959, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's Bonegrinder
+(55, @GUID_SEASON_TWO_3, 31986, 0, 0, 0, @EXT_WEP_SEASON_TWO_08_3), -- Merciless Gladiator's Crossbow of the Phoenix
+(55, @GUID_SEASON_TWO_3, 31966, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's Decapitator
+(55, @GUID_SEASON_TWO_3, 31984, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's Greatsword
+(55, @GUID_SEASON_TWO_3, 32014, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's Maul
+(55, @GUID_SEASON_TWO_3, 32025, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's Painsaw
+(55, @GUID_SEASON_TWO_3, 32055, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_3), -- Merciless Gladiator's War Staff
+(55, @GUID_SEASON_TWO_3, 32962, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Touch of Defeat
+(55, @GUID_SEASON_TWO_3, 32054, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's War Edge
+(55, @GUID_SEASON_TWO_3, 32963, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_3), -- Merciless Gladiator's Gavel
+(55, @GUID_SEASON_TWO_3, 32964, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_3), -- Merciless Gladiator's Salvation
+(55, @GUID_SEASON_TWO_3, 32053, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_3), -- Merciless Gladiator's Spellblade
+(55, @GUID_SEASON_TWO_3, 31958, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_3), -- Merciless Gladiator's Bonecracker
+(55, @GUID_SEASON_TWO_3, 31985, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_3), -- Merciless Gladiator's Hacker
+(55, @GUID_SEASON_TWO_3, 32003, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_3), -- Merciless Gladiator's Left Ripper
+(55, @GUID_SEASON_TWO_3, 32027, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_3), -- Merciless Gladiator's Quickblade
+(55, @GUID_SEASON_TWO_3, 32046, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_3), -- Merciless Gladiator's Shiv
+(55, @GUID_SEASON_TWO_3, 31965, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_3), -- Merciless Gladiator's Cleaver
+(55, @GUID_SEASON_TWO_3, 32026, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_3), -- Merciless Gladiator's Pummeler
+(55, @GUID_SEASON_TWO_3, 32028, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_3), -- Merciless Gladiator's Right Ripper
+(55, @GUID_SEASON_TWO_3, 32044, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_3), -- Merciless Gladiator's Shanker
+(55, @GUID_SEASON_TWO_3, 32052, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_3), -- Merciless Gladiator's Slicer
+(55, @GUID_SEASON_TWO_3, 31978, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_3), -- Merciless Gladiator's Endgame
+(55, @GUID_SEASON_TWO_3, 32961, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_3), -- Merciless Gladiator's Reprieve
+(55, @GUID_SEASON_TWO_3, 33946, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Idol of Resolve
+(55, @GUID_SEASON_TWO_3, 33943, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Idol of Steadfastness
+(55, @GUID_SEASON_TWO_3, 33076, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Idol of Tenacity
+(55, @GUID_SEASON_TWO_3, 33937, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Libram of Fortitude
+(55, @GUID_SEASON_TWO_3, 33077, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Libram of Justice
+(55, @GUID_SEASON_TWO_3, 33949, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Libram of Vengeance
+(55, @GUID_SEASON_TWO_3, 33940, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Totem of Indomitability
+(55, @GUID_SEASON_TWO_3, 33952, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Totem of Survival
+(55, @GUID_SEASON_TWO_3, 33078, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_3), -- Merciless Gladiator's Totem of the Third Wind
+(55, @GUID_SEASON_TWO_3, 32045, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_3), -- Merciless Gladiator's Shield Wall
+(55, @GUID_SEASON_TWO_3, 33309, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_3), -- Merciless Gladiator's Redoubt
+(55, @GUID_SEASON_TWO_3, 33313, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_3), -- Merciless Gladiator's Barrier
+(55, @GUID_SEASON_TWO_3, 31960, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Chain Armor
+(55, @GUID_SEASON_TWO_3, 31961, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Chain Gauntlets
+(55, @GUID_SEASON_TWO_3, 31962, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Chain Helm
+(55, @GUID_SEASON_TWO_3, 31963, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Chain Leggings
+(55, @GUID_SEASON_TWO_3, 31964, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Chain Spaulders
+(55, @GUID_SEASON_TWO_3, 31967, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Dragonhide Gloves
+(55, @GUID_SEASON_TWO_3, 31968, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Dragonhide Helm
+(55, @GUID_SEASON_TWO_3, 31969, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Dragonhide Legguards
+(55, @GUID_SEASON_TWO_3, 31971, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Dragonhide Spaulders
+(55, @GUID_SEASON_TWO_3, 31972, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Dragonhide Tunic
+(55, @GUID_SEASON_TWO_3, 31973, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Dreadweave Gloves
+(55, @GUID_SEASON_TWO_3, 31974, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Dreadweave Hood
+(55, @GUID_SEASON_TWO_3, 31975, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Dreadweave Leggings
+(55, @GUID_SEASON_TWO_3, 31976, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Dreadweave Mantle
+(55, @GUID_SEASON_TWO_3, 31977, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Dreadweave Robe
+(55, @GUID_SEASON_TWO_3, 31979, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Felweave Amice
+(55, @GUID_SEASON_TWO_3, 31980, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Felweave Cowl
+(55, @GUID_SEASON_TWO_3, 31981, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Felweave Handguards
+(55, @GUID_SEASON_TWO_3, 31982, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Felweave Raiment
+(55, @GUID_SEASON_TWO_3, 31983, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Felweave Trousers
+(55, @GUID_SEASON_TWO_3, 31987, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Kodohide Gloves
+(55, @GUID_SEASON_TWO_3, 31988, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Kodohide Helm
+(55, @GUID_SEASON_TWO_3, 31989, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Kodohide Legguards
+(55, @GUID_SEASON_TWO_3, 31990, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Kodohide Spaulders
+(55, @GUID_SEASON_TWO_3, 31991, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Kodohide Tunic
+(55, @GUID_SEASON_TWO_3, 31992, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Lamellar Chestpiece
+(55, @GUID_SEASON_TWO_3, 31993, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Lamellar Gauntlets
+(55, @GUID_SEASON_TWO_3, 31997, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Lamellar Helm
+(55, @GUID_SEASON_TWO_3, 31995, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Lamellar Legguards
+(55, @GUID_SEASON_TWO_3, 31996, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Lamellar Shoulders
+(55, @GUID_SEASON_TWO_3, 31998, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Leather Gloves
+(55, @GUID_SEASON_TWO_3, 31999, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Leather Helm
+(55, @GUID_SEASON_TWO_3, 32000, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Leather Legguards
+(55, @GUID_SEASON_TWO_3, 32001, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Leather Spaulders
+(55, @GUID_SEASON_TWO_3, 32002, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Leather Tunic
+(55, @GUID_SEASON_TWO_3, 32004, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Linked Armor
+(55, @GUID_SEASON_TWO_3, 32005, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Linked Gauntlets
+(55, @GUID_SEASON_TWO_3, 32006, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Linked Helm
+(55, @GUID_SEASON_TWO_3, 32007, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Linked Leggings
+(55, @GUID_SEASON_TWO_3, 32008, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Linked Spaulders
+(55, @GUID_SEASON_TWO_3, 32009, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Mail Armor
+(55, @GUID_SEASON_TWO_3, 32010, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Mail Gauntlets
+(55, @GUID_SEASON_TWO_3, 32011, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Mail Helm
+(55, @GUID_SEASON_TWO_3, 32012, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Mail Leggings
+(55, @GUID_SEASON_TWO_3, 32013, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Mail Spaulders
+(55, @GUID_SEASON_TWO_3, 32015, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Mooncloth Gloves
+(55, @GUID_SEASON_TWO_3, 32016, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Mooncloth Hood
+(55, @GUID_SEASON_TWO_3, 32017, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Mooncloth Leggings
+(55, @GUID_SEASON_TWO_3, 32018, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Mooncloth Mantle
+(55, @GUID_SEASON_TWO_3, 32019, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Mooncloth Robe
+(55, @GUID_SEASON_TWO_3, 32020, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Ornamented Chestguard
+(55, @GUID_SEASON_TWO_3, 32021, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Ornamented Gloves
+(55, @GUID_SEASON_TWO_3, 32022, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Ornamented Headcover
+(55, @GUID_SEASON_TWO_3, 32023, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Ornamented Legplates
+(55, @GUID_SEASON_TWO_3, 32024, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Ornamented Spaulders
+(55, @GUID_SEASON_TWO_3, 30486, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Plate Chestpiece
+(55, @GUID_SEASON_TWO_3, 30487, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Plate Gauntlets
+(55, @GUID_SEASON_TWO_3, 30488, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Plate Helm
+(55, @GUID_SEASON_TWO_3, 30489, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Plate Legguards
+(55, @GUID_SEASON_TWO_3, 30490, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Plate Shoulders
+(55, @GUID_SEASON_TWO_3, 32029, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Ringmail Armor
+(55, @GUID_SEASON_TWO_3, 32030, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Ringmail Gauntlets
+(55, @GUID_SEASON_TWO_3, 32031, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Ringmail Helm
+(55, @GUID_SEASON_TWO_3, 32032, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Ringmail Leggings
+(55, @GUID_SEASON_TWO_3, 32033, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Ringmail Spaulders
+(55, @GUID_SEASON_TWO_3, 32034, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Satin Gloves
+(55, @GUID_SEASON_TWO_3, 32035, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Satin Hood
+(55, @GUID_SEASON_TWO_3, 32036, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Satin Leggings
+(55, @GUID_SEASON_TWO_3, 32037, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Satin Mantle
+(55, @GUID_SEASON_TWO_3, 32038, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Satin Robe
+(55, @GUID_SEASON_TWO_3, 32039, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Scaled Chestpiece
+(55, @GUID_SEASON_TWO_3, 32040, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Scaled Gauntlets
+(55, @GUID_SEASON_TWO_3, 32041, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Scaled Helm
+(55, @GUID_SEASON_TWO_3, 32042, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Scaled Legguards
+(55, @GUID_SEASON_TWO_3, 32043, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Scaled Shoulders
+(55, @GUID_SEASON_TWO_3, 32047, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Silk Amice
+(55, @GUID_SEASON_TWO_3, 32048, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Silk Cowl
+(55, @GUID_SEASON_TWO_3, 32049, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Silk Handguards
+(55, @GUID_SEASON_TWO_3, 32050, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Silk Raiment
+(55, @GUID_SEASON_TWO_3, 32051, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Silk Trousers
+(55, @GUID_SEASON_TWO_3, 32056, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_3), -- Merciless Gladiator's Wyrmhide Gloves
+(55, @GUID_SEASON_TWO_3, 32057, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_3), -- Merciless Gladiator's Wyrmhide Helm
+(55, @GUID_SEASON_TWO_3, 32058, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_3), -- Merciless Gladiator's Wyrmhide Legguards
+(55, @GUID_SEASON_TWO_3, 32059, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_3), -- Merciless Gladiator's Wyrmhide Spaulders
+(55, @GUID_SEASON_TWO_3, 32060, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_3), -- Merciless Gladiator's Wyrmhide Tunic
+-- Season 4
+(56, @GUID_SEASON_TWO_4, 31959, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's Bonegrinder
+(56, @GUID_SEASON_TWO_4, 31986, 0, 0, 0, @EXT_WEP_SEASON_TWO_08_4), -- Merciless Gladiator's Crossbow of the Phoenix
+(56, @GUID_SEASON_TWO_4, 31966, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's Decapitator
+(56, @GUID_SEASON_TWO_4, 31984, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's Greatsword
+(56, @GUID_SEASON_TWO_4, 32014, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's Maul
+(56, @GUID_SEASON_TWO_4, 32025, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's Painsaw
+(56, @GUID_SEASON_TWO_4, 32055, 0, 0, 0, @EXT_WEP_SEASON_TWO_01_4), -- Merciless Gladiator's War Staff
+(56, @GUID_SEASON_TWO_4, 32962, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Touch of Defeat
+(56, @GUID_SEASON_TWO_4, 32054, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's War Edge
+(56, @GUID_SEASON_TWO_4, 32963, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_4), -- Merciless Gladiator's Gavel
+(56, @GUID_SEASON_TWO_4, 32964, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_4), -- Merciless Gladiator's Salvation
+(56, @GUID_SEASON_TWO_4, 32053, 0, 0, 0, @EXT_WEP_SEASON_TWO_02_4), -- Merciless Gladiator's Spellblade
+(56, @GUID_SEASON_TWO_4, 31958, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_4), -- Merciless Gladiator's Bonecracker
+(56, @GUID_SEASON_TWO_4, 31985, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_4), -- Merciless Gladiator's Hacker
+(56, @GUID_SEASON_TWO_4, 32003, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_4), -- Merciless Gladiator's Left Ripper
+(56, @GUID_SEASON_TWO_4, 32027, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_4), -- Merciless Gladiator's Quickblade
+(56, @GUID_SEASON_TWO_4, 32046, 0, 0, 0, @EXT_WEP_SEASON_TWO_05_4), -- Merciless Gladiator's Shiv
+(56, @GUID_SEASON_TWO_4, 31965, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_4), -- Merciless Gladiator's Cleaver
+(56, @GUID_SEASON_TWO_4, 32026, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_4), -- Merciless Gladiator's Pummeler
+(56, @GUID_SEASON_TWO_4, 32028, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_4), -- Merciless Gladiator's Right Ripper
+(56, @GUID_SEASON_TWO_4, 32044, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_4), -- Merciless Gladiator's Shanker
+(56, @GUID_SEASON_TWO_4, 32052, 0, 0, 0, @EXT_WEP_SEASON_TWO_04_4), -- Merciless Gladiator's Slicer
+(56, @GUID_SEASON_TWO_4, 31978, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_4), -- Merciless Gladiator's Endgame
+(56, @GUID_SEASON_TWO_4, 32961, 0, 0, 0, @EXT_WEP_SEASON_TWO_03_4), -- Merciless Gladiator's Reprieve
+(56, @GUID_SEASON_TWO_4, 33946, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Idol of Resolve
+(56, @GUID_SEASON_TWO_4, 33943, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Idol of Steadfastness
+(56, @GUID_SEASON_TWO_4, 33076, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Idol of Tenacity
+(56, @GUID_SEASON_TWO_4, 33937, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Libram of Fortitude
+(56, @GUID_SEASON_TWO_4, 33077, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Libram of Justice
+(56, @GUID_SEASON_TWO_4, 33949, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Libram of Vengeance
+(56, @GUID_SEASON_TWO_4, 33940, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Totem of Indomitability
+(56, @GUID_SEASON_TWO_4, 33952, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Totem of Survival
+(56, @GUID_SEASON_TWO_4, 33078, 0, 0, 0, @EXT_WEP_SEASON_TWO_07_4), -- Merciless Gladiator's Totem of the Third Wind
+(56, @GUID_SEASON_TWO_4, 32045, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_4), -- Merciless Gladiator's Shield Wall
+(56, @GUID_SEASON_TWO_4, 33309, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_4), -- Merciless Gladiator's Redoubt
+(56, @GUID_SEASON_TWO_4, 33313, 0, 0, 0, @EXT_WEP_SEASON_TWO_06_4), -- Merciless Gladiator's Barrier
+(56, @GUID_SEASON_TWO_4, 31960, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Chain Armor
+(56, @GUID_SEASON_TWO_4, 31961, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Chain Gauntlets
+(56, @GUID_SEASON_TWO_4, 31962, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Chain Helm
+(56, @GUID_SEASON_TWO_4, 31963, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Chain Leggings
+(56, @GUID_SEASON_TWO_4, 31964, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Chain Spaulders
+(56, @GUID_SEASON_TWO_4, 31967, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Dragonhide Gloves
+(56, @GUID_SEASON_TWO_4, 31968, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Dragonhide Helm
+(56, @GUID_SEASON_TWO_4, 31969, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Dragonhide Legguards
+(56, @GUID_SEASON_TWO_4, 31971, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Dragonhide Spaulders
+(56, @GUID_SEASON_TWO_4, 31972, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Dragonhide Tunic
+(56, @GUID_SEASON_TWO_4, 31973, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Dreadweave Gloves
+(56, @GUID_SEASON_TWO_4, 31974, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Dreadweave Hood
+(56, @GUID_SEASON_TWO_4, 31975, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Dreadweave Leggings
+(56, @GUID_SEASON_TWO_4, 31976, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Dreadweave Mantle
+(56, @GUID_SEASON_TWO_4, 31977, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Dreadweave Robe
+(56, @GUID_SEASON_TWO_4, 31979, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Felweave Amice
+(56, @GUID_SEASON_TWO_4, 31980, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Felweave Cowl
+(56, @GUID_SEASON_TWO_4, 31981, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Felweave Handguards
+(56, @GUID_SEASON_TWO_4, 31982, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Felweave Raiment
+(56, @GUID_SEASON_TWO_4, 31983, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Felweave Trousers
+(56, @GUID_SEASON_TWO_4, 31987, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Kodohide Gloves
+(56, @GUID_SEASON_TWO_4, 31988, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Kodohide Helm
+(56, @GUID_SEASON_TWO_4, 31989, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Kodohide Legguards
+(56, @GUID_SEASON_TWO_4, 31990, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Kodohide Spaulders
+(56, @GUID_SEASON_TWO_4, 31991, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Kodohide Tunic
+(56, @GUID_SEASON_TWO_4, 31992, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Lamellar Chestpiece
+(56, @GUID_SEASON_TWO_4, 31993, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Lamellar Gauntlets
+(56, @GUID_SEASON_TWO_4, 31997, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Lamellar Helm
+(56, @GUID_SEASON_TWO_4, 31995, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Lamellar Legguards
+(56, @GUID_SEASON_TWO_4, 31996, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Lamellar Shoulders
+(56, @GUID_SEASON_TWO_4, 31998, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Leather Gloves
+(56, @GUID_SEASON_TWO_4, 31999, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Leather Helm
+(56, @GUID_SEASON_TWO_4, 32000, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Leather Legguards
+(56, @GUID_SEASON_TWO_4, 32001, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Leather Spaulders
+(56, @GUID_SEASON_TWO_4, 32002, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Leather Tunic
+(56, @GUID_SEASON_TWO_4, 32004, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Linked Armor
+(56, @GUID_SEASON_TWO_4, 32005, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Linked Gauntlets
+(56, @GUID_SEASON_TWO_4, 32006, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Linked Helm
+(56, @GUID_SEASON_TWO_4, 32007, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Linked Leggings
+(56, @GUID_SEASON_TWO_4, 32008, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Linked Spaulders
+(56, @GUID_SEASON_TWO_4, 32009, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Mail Armor
+(56, @GUID_SEASON_TWO_4, 32010, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Mail Gauntlets
+(56, @GUID_SEASON_TWO_4, 32011, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Mail Helm
+(56, @GUID_SEASON_TWO_4, 32012, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Mail Leggings
+(56, @GUID_SEASON_TWO_4, 32013, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Mail Spaulders
+(56, @GUID_SEASON_TWO_4, 32015, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Mooncloth Gloves
+(56, @GUID_SEASON_TWO_4, 32016, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Mooncloth Hood
+(56, @GUID_SEASON_TWO_4, 32017, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Mooncloth Leggings
+(56, @GUID_SEASON_TWO_4, 32018, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Mooncloth Mantle
+(56, @GUID_SEASON_TWO_4, 32019, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Mooncloth Robe
+(56, @GUID_SEASON_TWO_4, 32020, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Ornamented Chestguard
+(56, @GUID_SEASON_TWO_4, 32021, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Ornamented Gloves
+(56, @GUID_SEASON_TWO_4, 32022, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Ornamented Headcover
+(56, @GUID_SEASON_TWO_4, 32023, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Ornamented Legplates
+(56, @GUID_SEASON_TWO_4, 32024, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Ornamented Spaulders
+(56, @GUID_SEASON_TWO_4, 30486, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Plate Chestpiece
+(56, @GUID_SEASON_TWO_4, 30487, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Plate Gauntlets
+(56, @GUID_SEASON_TWO_4, 30488, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Plate Helm
+(56, @GUID_SEASON_TWO_4, 30489, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Plate Legguards
+(56, @GUID_SEASON_TWO_4, 30490, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Plate Shoulders
+(56, @GUID_SEASON_TWO_4, 32029, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Ringmail Armor
+(56, @GUID_SEASON_TWO_4, 32030, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Ringmail Gauntlets
+(56, @GUID_SEASON_TWO_4, 32031, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Ringmail Helm
+(56, @GUID_SEASON_TWO_4, 32032, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Ringmail Leggings
+(56, @GUID_SEASON_TWO_4, 32033, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Ringmail Spaulders
+(56, @GUID_SEASON_TWO_4, 32034, 2, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Satin Gloves
+(56, @GUID_SEASON_TWO_4, 32035, 2, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Satin Hood
+(56, @GUID_SEASON_TWO_4, 32036, 2, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Satin Leggings
+(56, @GUID_SEASON_TWO_4, 32037, 2, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Satin Mantle
+(56, @GUID_SEASON_TWO_4, 32038, 2, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Satin Robe
+(56, @GUID_SEASON_TWO_4, 32039, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Scaled Chestpiece
+(56, @GUID_SEASON_TWO_4, 32040, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Scaled Gauntlets
+(56, @GUID_SEASON_TWO_4, 32041, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Scaled Helm
+(56, @GUID_SEASON_TWO_4, 32042, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Scaled Legguards
+(56, @GUID_SEASON_TWO_4, 32043, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Scaled Shoulders
+(56, @GUID_SEASON_TWO_4, 32047, 1, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Silk Amice
+(56, @GUID_SEASON_TWO_4, 32048, 1, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Silk Cowl
+(56, @GUID_SEASON_TWO_4, 32049, 1, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Silk Handguards
+(56, @GUID_SEASON_TWO_4, 32050, 1, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Silk Raiment
+(56, @GUID_SEASON_TWO_4, 32051, 1, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Silk Trousers
+(56, @GUID_SEASON_TWO_4, 32056, 3, 0, 0, @EXT_ARM_SEASON_TWO_05_4), -- Merciless Gladiator's Wyrmhide Gloves
+(56, @GUID_SEASON_TWO_4, 32057, 3, 0, 0, @EXT_ARM_SEASON_TWO_01_4), -- Merciless Gladiator's Wyrmhide Helm
+(56, @GUID_SEASON_TWO_4, 32058, 3, 0, 0, @EXT_ARM_SEASON_TWO_04_4), -- Merciless Gladiator's Wyrmhide Legguards
+(56, @GUID_SEASON_TWO_4, 32059, 3, 0, 0, @EXT_ARM_SEASON_TWO_02_4), -- Merciless Gladiator's Wyrmhide Spaulders
+(56, @GUID_SEASON_TWO_4, 32060, 3, 0, 0, @EXT_ARM_SEASON_TWO_03_4), -- Merciless Gladiator's Wyrmhide Tunic
+/*
+	Season Three Arena Vendor
+		Present in 2 seasons
+*/
+-- Season 3
+(55, @GUID_SEASON_THREE_3, 33662, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Bonecracker
+(55, @GUID_SEASON_THREE_3, 33689, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Hacker
+(55, @GUID_SEASON_THREE_3, 33705, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Left Ripper
+(55, @GUID_SEASON_THREE_3, 33734, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Quickblade
+(55, @GUID_SEASON_THREE_3, 33756, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Shiv
+(55, @GUID_SEASON_THREE_3, 33801, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Mutilator
+(55, @GUID_SEASON_THREE_3, 34015, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Chopper
+(55, @GUID_SEASON_THREE_3, 34016, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_3), -- Vengeful Gladiator's Left Render
+(55, @GUID_SEASON_THREE_3, 33669, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_3), -- Vengeful Gladiator's Cleaver
+(55, @GUID_SEASON_THREE_3, 33733, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_3), -- Vengeful Gladiator's Pummeler
+(55, @GUID_SEASON_THREE_3, 33737, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_3), -- Vengeful Gladiator's Right Ripper
+(55, @GUID_SEASON_THREE_3, 33754, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_3), -- Vengeful Gladiator's Shanker
+(55, @GUID_SEASON_THREE_3, 33762, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_3), -- Vengeful Gladiator's Slicer
+(55, @GUID_SEASON_THREE_3, 33687, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_3), -- Vengeful Gladiator's Gavel
+(55, @GUID_SEASON_THREE_3, 33743, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_3), -- Vengeful Gladiator's Salvation
+(55, @GUID_SEASON_THREE_3, 33763, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_3), -- Vengeful Gladiator's Spellblade
+(55, @GUID_SEASON_THREE_3, 33765, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's War Edge
+(55, @GUID_SEASON_THREE_3, 34014, 0, 0, 0, @EXT_WEP_SEASON_THREE_09_3), -- Vengeful Gladiator's Waraxe
+(55, @GUID_SEASON_THREE_3, 34059, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Baton of Light
+(55, @GUID_SEASON_THREE_3, 34066, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Piercing Touch
+(55, @GUID_SEASON_THREE_3, 33006, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_3), -- Vengeful Gladiator's Heavy Crossbow
+(55, @GUID_SEASON_THREE_3, 33663, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Bonegrinder
+(55, @GUID_SEASON_THREE_3, 33670, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Decapitator
+(55, @GUID_SEASON_THREE_3, 33688, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Greatsword
+(55, @GUID_SEASON_THREE_3, 33716, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Staff
+(55, @GUID_SEASON_THREE_3, 33727, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Painsaw
+(55, @GUID_SEASON_THREE_3, 33766, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's War Staff
+(55, @GUID_SEASON_THREE_3, 34529, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_3), -- Vengeful Gladiator's Longbow
+(55, @GUID_SEASON_THREE_3, 34530, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_3), -- Vengeful Gladiator's Rifle
+(55, @GUID_SEASON_THREE_3, 34540, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_3), -- Vengeful Gladiator's Battle Staff
+(55, @GUID_SEASON_THREE_3, 33764, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Touch of Defeat
+(55, @GUID_SEASON_THREE_3, 33661, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_3), -- Vengeful Gladiator's Barrier
+(55, @GUID_SEASON_THREE_3, 33681, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_3), -- Vengeful Gladiator's Endgame
+(55, @GUID_SEASON_THREE_3, 34033, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_3), -- Vengeful Gladiator's Grimoire
+(55, @GUID_SEASON_THREE_3, 33947, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Idol of Resolve
+(55, @GUID_SEASON_THREE_3, 33944, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Idol of Steadfastness
+(55, @GUID_SEASON_THREE_3, 33841, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Idol of Tenacity
+(55, @GUID_SEASON_THREE_3, 33938, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Libram of Fortitude
+(55, @GUID_SEASON_THREE_3, 33842, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Libram of Justice
+(55, @GUID_SEASON_THREE_3, 33950, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Libram of Vengeance
+(55, @GUID_SEASON_THREE_3, 33735, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_3), -- Vengeful Gladiator's Redoubt
+(55, @GUID_SEASON_THREE_3, 33736, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_3), -- Vengeful Gladiator's Reprieve
+(55, @GUID_SEASON_THREE_3, 33755, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_3), -- Vengeful Gladiator's Shield Wall
+(55, @GUID_SEASON_THREE_3, 33941, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Totem of Indomitability
+(55, @GUID_SEASON_THREE_3, 33953, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Totem of Survival
+(55, @GUID_SEASON_THREE_3, 33843, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_3), -- Vengeful Gladiator's Totem of the Third Wind
+(55, @GUID_SEASON_THREE_3, 33664, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Chain Armor
+(55, @GUID_SEASON_THREE_3, 33665, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Chain Gauntlets
+(55, @GUID_SEASON_THREE_3, 33666, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Chain Helm
+(55, @GUID_SEASON_THREE_3, 33667, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Chain Leggings
+(55, @GUID_SEASON_THREE_3, 33668, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Chain Spaulders
+(55, @GUID_SEASON_THREE_3, 33671, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Dragonhide Gloves
+(55, @GUID_SEASON_THREE_3, 33672, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Dragonhide Helm
+(55, @GUID_SEASON_THREE_3, 33673, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Dragonhide Legguards
+(55, @GUID_SEASON_THREE_3, 33674, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Dragonhide Spaulders
+(55, @GUID_SEASON_THREE_3, 33675, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Dragonhide Tunic
+(55, @GUID_SEASON_THREE_3, 33676, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Dreadweave Gloves
+(55, @GUID_SEASON_THREE_3, 33677, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Dreadweave Hood
+(55, @GUID_SEASON_THREE_3, 33678, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Dreadweave Leggings
+(55, @GUID_SEASON_THREE_3, 33679, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Dreadweave Mantle
+(55, @GUID_SEASON_THREE_3, 33680, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Dreadweave Robe
+(55, @GUID_SEASON_THREE_3, 33682, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Felweave Amice
+(55, @GUID_SEASON_THREE_3, 33683, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Felweave Cowl
+(55, @GUID_SEASON_THREE_3, 33684, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Felweave Handguards
+(55, @GUID_SEASON_THREE_3, 33685, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Felweave Raiment
+(55, @GUID_SEASON_THREE_3, 33686, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Felweave Trousers
+(55, @GUID_SEASON_THREE_3, 33690, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Kodohide Gloves
+(55, @GUID_SEASON_THREE_3, 33691, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Kodohide Helm
+(55, @GUID_SEASON_THREE_3, 33692, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Kodohide Legguards
+(55, @GUID_SEASON_THREE_3, 33693, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Kodohide Spaulders
+(55, @GUID_SEASON_THREE_3, 33694, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Kodohide Tunic
+(55, @GUID_SEASON_THREE_3, 33695, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Lamellar Chestpiece
+(55, @GUID_SEASON_THREE_3, 33696, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Lamellar Gauntlets
+(55, @GUID_SEASON_THREE_3, 33697, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Lamellar Helm
+(55, @GUID_SEASON_THREE_3, 33698, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Lamellar Legguards
+(55, @GUID_SEASON_THREE_3, 33699, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Lamellar Shoulders
+(55, @GUID_SEASON_THREE_3, 33700, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Leather Gloves
+(55, @GUID_SEASON_THREE_3, 33701, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Leather Helm
+(55, @GUID_SEASON_THREE_3, 33702, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Leather Legguards
+(55, @GUID_SEASON_THREE_3, 33703, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Leather Spaulders
+(55, @GUID_SEASON_THREE_3, 33704, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Leather Tunic
+(55, @GUID_SEASON_THREE_3, 33706, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Linked Armor
+(55, @GUID_SEASON_THREE_3, 33707, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Linked Gauntlets
+(55, @GUID_SEASON_THREE_3, 33708, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Linked Helm
+(55, @GUID_SEASON_THREE_3, 33709, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Linked Leggings
+(55, @GUID_SEASON_THREE_3, 33710, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Linked Spaulders
+(55, @GUID_SEASON_THREE_3, 33711, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Mail Armor
+(55, @GUID_SEASON_THREE_3, 33712, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Mail Gauntlets
+(55, @GUID_SEASON_THREE_3, 33713, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Mail Helm
+(55, @GUID_SEASON_THREE_3, 33714, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Mail Leggings
+(55, @GUID_SEASON_THREE_3, 33715, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Mail Spaulders
+(55, @GUID_SEASON_THREE_3, 33717, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Mooncloth Gloves
+(55, @GUID_SEASON_THREE_3, 33718, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Mooncloth Hood
+(55, @GUID_SEASON_THREE_3, 33719, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Mooncloth Leggings
+(55, @GUID_SEASON_THREE_3, 33720, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Mooncloth Mantle
+(55, @GUID_SEASON_THREE_3, 33721, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Mooncloth Robe
+(55, @GUID_SEASON_THREE_3, 33722, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Ornamented Chestguard
+(55, @GUID_SEASON_THREE_3, 33723, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Ornamented Gloves
+(55, @GUID_SEASON_THREE_3, 33724, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Ornamented Headcover
+(55, @GUID_SEASON_THREE_3, 33725, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Ornamented Legplates
+(55, @GUID_SEASON_THREE_3, 33726, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Ornamented Spaulders
+(55, @GUID_SEASON_THREE_3, 33728, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Plate Chestpiece
+(55, @GUID_SEASON_THREE_3, 33729, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Plate Gauntlets
+(55, @GUID_SEASON_THREE_3, 33730, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Plate Helm
+(55, @GUID_SEASON_THREE_3, 33731, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Plate Legguards
+(55, @GUID_SEASON_THREE_3, 33732, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Plate Shoulders
+(55, @GUID_SEASON_THREE_3, 33738, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Ringmail Armor
+(55, @GUID_SEASON_THREE_3, 33739, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Ringmail Gauntlets
+(55, @GUID_SEASON_THREE_3, 33740, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Ringmail Helm
+(55, @GUID_SEASON_THREE_3, 33741, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Ringmail Leggings
+(55, @GUID_SEASON_THREE_3, 33742, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Ringmail Spaulders
+(55, @GUID_SEASON_THREE_3, 33744, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Satin Gloves
+(55, @GUID_SEASON_THREE_3, 33745, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Satin Hood
+(55, @GUID_SEASON_THREE_3, 33746, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Satin Leggings
+(55, @GUID_SEASON_THREE_3, 33747, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Satin Mantle
+(55, @GUID_SEASON_THREE_3, 33748, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Satin Robe
+(55, @GUID_SEASON_THREE_3, 33749, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Scaled Chestpiece
+(55, @GUID_SEASON_THREE_3, 33750, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Scaled Gauntlets
+(55, @GUID_SEASON_THREE_3, 33751, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Scaled Helm
+(55, @GUID_SEASON_THREE_3, 33752, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Scaled Legguards
+(55, @GUID_SEASON_THREE_3, 33753, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Scaled Shoulders
+(55, @GUID_SEASON_THREE_3, 33757, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Silk Amice
+(55, @GUID_SEASON_THREE_3, 33758, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Silk Cowl
+(55, @GUID_SEASON_THREE_3, 33759, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Silk Handguards
+(55, @GUID_SEASON_THREE_3, 33760, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Silk Raiment
+(55, @GUID_SEASON_THREE_3, 33761, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Silk Trousers
+(55, @GUID_SEASON_THREE_3, 33767, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_3), -- Vengeful Gladiator's Wyrmhide Gloves
+(55, @GUID_SEASON_THREE_3, 33768, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_3), -- Vengeful Gladiator's Wyrmhide Helm
+(55, @GUID_SEASON_THREE_3, 33769, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_3), -- Vengeful Gladiator's Wyrmhide Legguards
+(55, @GUID_SEASON_THREE_3, 33770, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_3), -- Vengeful Gladiator's Wyrmhide Spaulders
+(55, @GUID_SEASON_THREE_3, 33771, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_3), -- Vengeful Gladiator's Wyrmhide Tunic
+-- Season 4
+(56, @GUID_SEASON_THREE_4, 33662, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Bonecracker
+(56, @GUID_SEASON_THREE_4, 33689, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Hacker
+(56, @GUID_SEASON_THREE_4, 33705, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Left Ripper
+(56, @GUID_SEASON_THREE_4, 33734, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Quickblade
+(56, @GUID_SEASON_THREE_4, 33756, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Shiv
+(56, @GUID_SEASON_THREE_4, 33801, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Mutilator
+(56, @GUID_SEASON_THREE_4, 34015, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Chopper
+(56, @GUID_SEASON_THREE_4, 34016, 0, 0, 0, @EXT_WEP_SEASON_THREE_05_4), -- Vengeful Gladiator's Left Render
+(56, @GUID_SEASON_THREE_4, 33669, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_4), -- Vengeful Gladiator's Cleaver
+(56, @GUID_SEASON_THREE_4, 33733, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_4), -- Vengeful Gladiator's Pummeler
+(56, @GUID_SEASON_THREE_4, 33737, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_4), -- Vengeful Gladiator's Right Ripper
+(56, @GUID_SEASON_THREE_4, 33754, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_4), -- Vengeful Gladiator's Shanker
+(56, @GUID_SEASON_THREE_4, 33762, 0, 0, 0, @EXT_WEP_SEASON_THREE_04_4), -- Vengeful Gladiator's Slicer
+(56, @GUID_SEASON_THREE_4, 33687, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_4), -- Vengeful Gladiator's Gavel
+(56, @GUID_SEASON_THREE_4, 33743, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_4), -- Vengeful Gladiator's Salvation
+(56, @GUID_SEASON_THREE_4, 33763, 0, 0, 0, @EXT_WEP_SEASON_THREE_02_4), -- Vengeful Gladiator's Spellblade
+(56, @GUID_SEASON_THREE_4, 33765, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's War Edge
+(56, @GUID_SEASON_THREE_4, 34014, 0, 0, 0, @EXT_WEP_SEASON_THREE_09_4), -- Vengeful Gladiator's Waraxe
+(56, @GUID_SEASON_THREE_4, 34059, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Baton of Light
+(56, @GUID_SEASON_THREE_4, 34066, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Piercing Touch
+(56, @GUID_SEASON_THREE_4, 33006, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_4), -- Vengeful Gladiator's Heavy Crossbow
+(56, @GUID_SEASON_THREE_4, 33663, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Bonegrinder
+(56, @GUID_SEASON_THREE_4, 33670, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Decapitator
+(56, @GUID_SEASON_THREE_4, 33688, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Greatsword
+(56, @GUID_SEASON_THREE_4, 33716, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Staff
+(56, @GUID_SEASON_THREE_4, 33727, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Painsaw
+(56, @GUID_SEASON_THREE_4, 33766, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's War Staff
+(56, @GUID_SEASON_THREE_4, 34529, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_4), -- Vengeful Gladiator's Longbow
+(56, @GUID_SEASON_THREE_4, 34530, 0, 0, 0, @EXT_WEP_SEASON_THREE_08_4), -- Vengeful Gladiator's Rifle
+(56, @GUID_SEASON_THREE_4, 34540, 0, 0, 0, @EXT_WEP_SEASON_THREE_01_4), -- Vengeful Gladiator's Battle Staff
+(56, @GUID_SEASON_THREE_4, 33764, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Touch of Defeat
+(56, @GUID_SEASON_THREE_4, 33661, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_4), -- Vengeful Gladiator's Barrier
+(56, @GUID_SEASON_THREE_4, 33681, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_4), -- Vengeful Gladiator's Endgame
+(56, @GUID_SEASON_THREE_4, 34033, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_4), -- Vengeful Gladiator's Grimoire
+(56, @GUID_SEASON_THREE_4, 33947, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Idol of Resolve
+(56, @GUID_SEASON_THREE_4, 33944, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Idol of Steadfastness
+(56, @GUID_SEASON_THREE_4, 33841, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Idol of Tenacity
+(56, @GUID_SEASON_THREE_4, 33938, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Libram of Fortitude
+(56, @GUID_SEASON_THREE_4, 33842, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Libram of Justice
+(56, @GUID_SEASON_THREE_4, 33950, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Libram of Vengeance
+(56, @GUID_SEASON_THREE_4, 33735, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_4), -- Vengeful Gladiator's Redoubt
+(56, @GUID_SEASON_THREE_4, 33736, 0, 0, 0, @EXT_WEP_SEASON_THREE_03_4), -- Vengeful Gladiator's Reprieve
+(56, @GUID_SEASON_THREE_4, 33755, 0, 0, 0, @EXT_WEP_SEASON_THREE_06_4), -- Vengeful Gladiator's Shield Wall
+(56, @GUID_SEASON_THREE_4, 33941, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Totem of Indomitability
+(56, @GUID_SEASON_THREE_4, 33953, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Totem of Survival
+(56, @GUID_SEASON_THREE_4, 33843, 0, 0, 0, @EXT_WEP_SEASON_THREE_07_4), -- Vengeful Gladiator's Totem of the Third Wind
+(56, @GUID_SEASON_THREE_4, 33664, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Chain Armor
+(56, @GUID_SEASON_THREE_4, 33665, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Chain Gauntlets
+(56, @GUID_SEASON_THREE_4, 33666, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Chain Helm
+(56, @GUID_SEASON_THREE_4, 33667, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Chain Leggings
+(56, @GUID_SEASON_THREE_4, 33668, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Chain Spaulders
+(56, @GUID_SEASON_THREE_4, 33671, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Dragonhide Gloves
+(56, @GUID_SEASON_THREE_4, 33672, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Dragonhide Helm
+(56, @GUID_SEASON_THREE_4, 33673, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Dragonhide Legguards
+(56, @GUID_SEASON_THREE_4, 33674, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Dragonhide Spaulders
+(56, @GUID_SEASON_THREE_4, 33675, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Dragonhide Tunic
+(56, @GUID_SEASON_THREE_4, 33676, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Dreadweave Gloves
+(56, @GUID_SEASON_THREE_4, 33677, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Dreadweave Hood
+(56, @GUID_SEASON_THREE_4, 33678, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Dreadweave Leggings
+(56, @GUID_SEASON_THREE_4, 33679, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Dreadweave Mantle
+(56, @GUID_SEASON_THREE_4, 33680, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Dreadweave Robe
+(56, @GUID_SEASON_THREE_4, 33682, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Felweave Amice
+(56, @GUID_SEASON_THREE_4, 33683, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Felweave Cowl
+(56, @GUID_SEASON_THREE_4, 33684, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Felweave Handguards
+(56, @GUID_SEASON_THREE_4, 33685, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Felweave Raiment
+(56, @GUID_SEASON_THREE_4, 33686, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Felweave Trousers
+(56, @GUID_SEASON_THREE_4, 33690, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Kodohide Gloves
+(56, @GUID_SEASON_THREE_4, 33691, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Kodohide Helm
+(56, @GUID_SEASON_THREE_4, 33692, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Kodohide Legguards
+(56, @GUID_SEASON_THREE_4, 33693, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Kodohide Spaulders
+(56, @GUID_SEASON_THREE_4, 33694, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Kodohide Tunic
+(56, @GUID_SEASON_THREE_4, 33695, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Lamellar Chestpiece
+(56, @GUID_SEASON_THREE_4, 33696, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Lamellar Gauntlets
+(56, @GUID_SEASON_THREE_4, 33697, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Lamellar Helm
+(56, @GUID_SEASON_THREE_4, 33698, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Lamellar Legguards
+(56, @GUID_SEASON_THREE_4, 33699, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Lamellar Shoulders
+(56, @GUID_SEASON_THREE_4, 33700, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Leather Gloves
+(56, @GUID_SEASON_THREE_4, 33701, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Leather Helm
+(56, @GUID_SEASON_THREE_4, 33702, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Leather Legguards
+(56, @GUID_SEASON_THREE_4, 33703, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Leather Spaulders
+(56, @GUID_SEASON_THREE_4, 33704, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Leather Tunic
+(56, @GUID_SEASON_THREE_4, 33706, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Linked Armor
+(56, @GUID_SEASON_THREE_4, 33707, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Linked Gauntlets
+(56, @GUID_SEASON_THREE_4, 33708, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Linked Helm
+(56, @GUID_SEASON_THREE_4, 33709, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Linked Leggings
+(56, @GUID_SEASON_THREE_4, 33710, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Linked Spaulders
+(56, @GUID_SEASON_THREE_4, 33711, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Mail Armor
+(56, @GUID_SEASON_THREE_4, 33712, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Mail Gauntlets
+(56, @GUID_SEASON_THREE_4, 33713, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Mail Helm
+(56, @GUID_SEASON_THREE_4, 33714, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Mail Leggings
+(56, @GUID_SEASON_THREE_4, 33715, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Mail Spaulders
+(56, @GUID_SEASON_THREE_4, 33717, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Mooncloth Gloves
+(56, @GUID_SEASON_THREE_4, 33718, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Mooncloth Hood
+(56, @GUID_SEASON_THREE_4, 33719, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Mooncloth Leggings
+(56, @GUID_SEASON_THREE_4, 33720, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Mooncloth Mantle
+(56, @GUID_SEASON_THREE_4, 33721, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Mooncloth Robe
+(56, @GUID_SEASON_THREE_4, 33722, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Ornamented Chestguard
+(56, @GUID_SEASON_THREE_4, 33723, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Ornamented Gloves
+(56, @GUID_SEASON_THREE_4, 33724, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Ornamented Headcover
+(56, @GUID_SEASON_THREE_4, 33725, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Ornamented Legplates
+(56, @GUID_SEASON_THREE_4, 33726, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Ornamented Spaulders
+(56, @GUID_SEASON_THREE_4, 33728, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Plate Chestpiece
+(56, @GUID_SEASON_THREE_4, 33729, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Plate Gauntlets
+(56, @GUID_SEASON_THREE_4, 33730, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Plate Helm
+(56, @GUID_SEASON_THREE_4, 33731, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Plate Legguards
+(56, @GUID_SEASON_THREE_4, 33732, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Plate Shoulders
+(56, @GUID_SEASON_THREE_4, 33738, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Ringmail Armor
+(56, @GUID_SEASON_THREE_4, 33739, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Ringmail Gauntlets
+(56, @GUID_SEASON_THREE_4, 33740, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Ringmail Helm
+(56, @GUID_SEASON_THREE_4, 33741, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Ringmail Leggings
+(56, @GUID_SEASON_THREE_4, 33742, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Ringmail Spaulders
+(56, @GUID_SEASON_THREE_4, 33744, 2, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Satin Gloves
+(56, @GUID_SEASON_THREE_4, 33745, 2, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Satin Hood
+(56, @GUID_SEASON_THREE_4, 33746, 2, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Satin Leggings
+(56, @GUID_SEASON_THREE_4, 33747, 2, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Satin Mantle
+(56, @GUID_SEASON_THREE_4, 33748, 2, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Satin Robe
+(56, @GUID_SEASON_THREE_4, 33749, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Scaled Chestpiece
+(56, @GUID_SEASON_THREE_4, 33750, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Scaled Gauntlets
+(56, @GUID_SEASON_THREE_4, 33751, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Scaled Helm
+(56, @GUID_SEASON_THREE_4, 33752, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Scaled Legguards
+(56, @GUID_SEASON_THREE_4, 33753, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Scaled Shoulders
+(56, @GUID_SEASON_THREE_4, 33757, 1, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Silk Amice
+(56, @GUID_SEASON_THREE_4, 33758, 1, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Silk Cowl
+(56, @GUID_SEASON_THREE_4, 33759, 1, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Silk Handguards
+(56, @GUID_SEASON_THREE_4, 33760, 1, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Silk Raiment
+(56, @GUID_SEASON_THREE_4, 33761, 1, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Silk Trousers
+(56, @GUID_SEASON_THREE_4, 33767, 3, 0, 0, @EXT_ARM_SEASON_THREE_05_4), -- Vengeful Gladiator's Wyrmhide Gloves
+(56, @GUID_SEASON_THREE_4, 33768, 3, 0, 0, @EXT_ARM_SEASON_THREE_01_4), -- Vengeful Gladiator's Wyrmhide Helm
+(56, @GUID_SEASON_THREE_4, 33769, 3, 0, 0, @EXT_ARM_SEASON_THREE_04_4), -- Vengeful Gladiator's Wyrmhide Legguards
+(56, @GUID_SEASON_THREE_4, 33770, 3, 0, 0, @EXT_ARM_SEASON_THREE_02_4), -- Vengeful Gladiator's Wyrmhide Spaulders
+(56, @GUID_SEASON_THREE_4, 33771, 3, 0, 0, @EXT_ARM_SEASON_THREE_03_4), -- Vengeful Gladiator's Wyrmhide Tunic
+/*
+	Season Four Arena Vendor
+		Present in 1 season
+*/
+-- Season 4
+SET @EXT_WEP_SEASON_FOUR_01_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Two-Handed
+SET @EXT_WEP_SEASON_FOUR_02_4 := 2361; -- Season 4: 3150 Arena, 2050 Rating - MH (Spellpower)
+SET @EXT_WEP_SEASON_FOUR_03_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Spellpower)
+SET @EXT_WEP_SEASON_FOUR_04_4 := 2362; -- Season 4: 2625 Arena, 2050 Rating - MH (Melee)
+SET @EXT_WEP_SEASON_FOUR_05_4 := 2363; -- Season 4: 1125 Arena, 2050 Rating - OH (Melee)
+SET @EXT_WEP_SEASON_FOUR_06_4 := 2364; -- Season 4: 1875 Arena, 2050 Rating - Shield
+SET @EXT_WEP_SEASON_FOUR_07_4 := 2339; -- Season 4: 1000 Arena, 1750 Rating - Relic, Thrown, Wand
+SET @EXT_WEP_SEASON_FOUR_08_4 := 2360; -- Season 4: 3750 Arena, 2050 Rating - Ranged Weapon
+SET @EXT_WEP_SEASON_FOUR_09_4 := 2375; -- Season 4: 650 Arena, 2050 Rating - Hunter Melee Weapons (Hatchet, Waraxe)
+SET @EXT_ARM_SEASON_FOUR_01_4 := 2365; -- Season 4: 1875 Arena, 1700 Rating - Head
+SET @EXT_ARM_SEASON_FOUR_02_4 := 2359; -- Season 4: 1500 Arena, 2200 Rating - Shoulders
+SET @EXT_ARM_SEASON_FOUR_03_4 := 2337; -- Season 4: 1875 Arena, 1600 Rating - Chest
+SET @EXT_ARM_SEASON_FOUR_04_4 := 2366; -- Season 4: 1875 Arena, 1550 Rating - Legs
+SET @EXT_ARM_SEASON_FOUR_05_4 := 2342; -- Season 4: 1125 Arena - Hands
+-- SET @EXT_GEM_SEASON_FOUR_01_4 := 2388; -- Season 4: 800 Arena
+(56, @GUID_SEASON_FOUR_4, 34985, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Baton of Light
+(56, @GUID_SEASON_FOUR_4, 35065, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Piercing Touch
+(56, @GUID_SEASON_FOUR_4, 35107, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Touch of Defeat
+(56, @GUID_SEASON_FOUR_4, 35108, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's War Edge
+(56, @GUID_SEASON_FOUR_4, 34987, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Battle Staff
+(56, @GUID_SEASON_FOUR_4, 34989, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Bonegrinder
+(56, @GUID_SEASON_FOUR_4, 34997, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Decapitator
+(56, @GUID_SEASON_FOUR_4, 35015, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Greatsword
+(56, @GUID_SEASON_FOUR_4, 35018, 0, 0, 0, @EXT_WEP_SEASON_FOUR_08_4), -- Brutal Gladiator's Heavy Crossbow
+(56, @GUID_SEASON_FOUR_4, 35047, 0, 0, 0, @EXT_WEP_SEASON_FOUR_08_4), -- Brutal Gladiator's Longbow
+(56, @GUID_SEASON_FOUR_4, 35064, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Painsaw
+(56, @GUID_SEASON_FOUR_4, 35075, 0, 0, 0, @EXT_WEP_SEASON_FOUR_08_4), -- Brutal Gladiator's Rifle
+(56, @GUID_SEASON_FOUR_4, 35103, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's Staff
+(56, @GUID_SEASON_FOUR_4, 35109, 0, 0, 0, @EXT_WEP_SEASON_FOUR_01_4), -- Brutal Gladiator's War Staff
+(56, @GUID_SEASON_FOUR_4, 35014, 0, 0, 0, @EXT_WEP_SEASON_FOUR_02_4), -- Brutal Gladiator's Gavel
+(56, @GUID_SEASON_FOUR_4, 35082, 0, 0, 0, @EXT_WEP_SEASON_FOUR_02_4), -- Brutal Gladiator's Salvation
+(56, @GUID_SEASON_FOUR_4, 35102, 0, 0, 0, @EXT_WEP_SEASON_FOUR_02_4), -- Brutal Gladiator's Spellblade
+(56, @GUID_SEASON_FOUR_4, 34996, 0, 0, 0, @EXT_WEP_SEASON_FOUR_04_4), -- Brutal Gladiator's Cleaver
+(56, @GUID_SEASON_FOUR_4, 35071, 0, 0, 0, @EXT_WEP_SEASON_FOUR_04_4), -- Brutal Gladiator's Pummeler
+(56, @GUID_SEASON_FOUR_4, 35076, 0, 0, 0, @EXT_WEP_SEASON_FOUR_04_4), -- Brutal Gladiator's Right Ripper
+(56, @GUID_SEASON_FOUR_4, 35093, 0, 0, 0, @EXT_WEP_SEASON_FOUR_04_4), -- Brutal Gladiator's Shanker
+(56, @GUID_SEASON_FOUR_4, 35101, 0, 0, 0, @EXT_WEP_SEASON_FOUR_04_4), -- Brutal Gladiator's Slicer
+(56, @GUID_SEASON_FOUR_4, 34988, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Bonecracker
+(56, @GUID_SEASON_FOUR_4, 34995, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Chopper
+(56, @GUID_SEASON_FOUR_4, 35017, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Hacker
+(56, @GUID_SEASON_FOUR_4, 35037, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Left Render
+(56, @GUID_SEASON_FOUR_4, 35038, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Left Ripper
+(56, @GUID_SEASON_FOUR_4, 35058, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Mutilator
+(56, @GUID_SEASON_FOUR_4, 35072, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Quickblade
+(56, @GUID_SEASON_FOUR_4, 35095, 0, 0, 0, @EXT_WEP_SEASON_FOUR_05_4), -- Brutal Gladiator's Shiv
+(56, @GUID_SEASON_FOUR_4, 35110, 0, 0, 0, @EXT_WEP_SEASON_FOUR_09_4), -- Brutal Gladiator's Waraxe
+(56, @GUID_SEASON_FOUR_4, 36737, 0, 0, 0, @EXT_WEP_SEASON_FOUR_09_4), -- Brutal Gladiator's Hatchet
+(56, @GUID_SEASON_FOUR_4, 34986, 0, 0, 0, @EXT_WEP_SEASON_FOUR_06_4), -- Brutal Gladiator's Barrier
+(56, @GUID_SEASON_FOUR_4, 35008, 0, 0, 0, @EXT_WEP_SEASON_FOUR_03_4), -- Brutal Gladiator's Endgame
+(56, @GUID_SEASON_FOUR_4, 35016, 0, 0, 0, @EXT_WEP_SEASON_FOUR_03_4), -- Brutal Gladiator's Grimoire
+(56, @GUID_SEASON_FOUR_4, 35019, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Idol of Resolve
+(56, @GUID_SEASON_FOUR_4, 35020, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Idol of Steadfastness
+(56, @GUID_SEASON_FOUR_4, 35021, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Idol of Tenacity
+(56, @GUID_SEASON_FOUR_4, 35039, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Libram of Fortitude
+(56, @GUID_SEASON_FOUR_4, 35040, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Libram of Justice
+(56, @GUID_SEASON_FOUR_4, 35041, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Libram of Vengeance
+(56, @GUID_SEASON_FOUR_4, 35073, 0, 0, 0, @EXT_WEP_SEASON_FOUR_06_4), -- Brutal Gladiator's Redoubt
+(56, @GUID_SEASON_FOUR_4, 35074, 0, 0, 0, @EXT_WEP_SEASON_FOUR_03_4), -- Brutal Gladiator's Reprieve
+(56, @GUID_SEASON_FOUR_4, 35094, 0, 0, 0, @EXT_WEP_SEASON_FOUR_06_4), -- Brutal Gladiator's Shield Wall
+(56, @GUID_SEASON_FOUR_4, 35104, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Totem of Indomitability
+(56, @GUID_SEASON_FOUR_4, 35105, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Totem of Survival
+(56, @GUID_SEASON_FOUR_4, 35106, 0, 0, 0, @EXT_WEP_SEASON_FOUR_07_4), -- Brutal Gladiator's Totem of the Third Wind
+(56, @GUID_SEASON_FOUR_4, 34990, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Chain Armor
+(56, @GUID_SEASON_FOUR_4, 34991, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Chain Gauntlets
+(56, @GUID_SEASON_FOUR_4, 34992, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Chain Helm
+(56, @GUID_SEASON_FOUR_4, 34993, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Chain Leggings
+(56, @GUID_SEASON_FOUR_4, 34994, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Chain Spaulders
+(56, @GUID_SEASON_FOUR_4, 34998, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Dragonhide Gloves
+(56, @GUID_SEASON_FOUR_4, 34999, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Dragonhide Helm
+(56, @GUID_SEASON_FOUR_4, 35000, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Dragonhide Legguards
+(56, @GUID_SEASON_FOUR_4, 35001, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Dragonhide Spaulders
+(56, @GUID_SEASON_FOUR_4, 35002, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Dragonhide Tunic
+(56, @GUID_SEASON_FOUR_4, 35003, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Dreadweave Gloves
+(56, @GUID_SEASON_FOUR_4, 35004, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Dreadweave Hood
+(56, @GUID_SEASON_FOUR_4, 35005, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Dreadweave Leggings
+(56, @GUID_SEASON_FOUR_4, 35006, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Dreadweave Mantle
+(56, @GUID_SEASON_FOUR_4, 35007, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Dreadweave Robe
+(56, @GUID_SEASON_FOUR_4, 35009, 2, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Felweave Amice
+(56, @GUID_SEASON_FOUR_4, 35010, 2, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Felweave Cowl
+(56, @GUID_SEASON_FOUR_4, 35011, 2, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Felweave Handguards
+(56, @GUID_SEASON_FOUR_4, 35012, 2, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Felweave Raiment
+(56, @GUID_SEASON_FOUR_4, 35013, 2, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Felweave Trousers
+(56, @GUID_SEASON_FOUR_4, 35022, 2, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Kodohide Gloves
+(56, @GUID_SEASON_FOUR_4, 35023, 2, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Kodohide Helm
+(56, @GUID_SEASON_FOUR_4, 35024, 2, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Kodohide Legguards
+(56, @GUID_SEASON_FOUR_4, 35025, 2, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Kodohide Spaulders
+(56, @GUID_SEASON_FOUR_4, 35026, 2, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Kodohide Tunic
+(56, @GUID_SEASON_FOUR_4, 35027, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Lamellar Chestpiece
+(56, @GUID_SEASON_FOUR_4, 35028, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Lamellar Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35029, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Lamellar Helm
+(56, @GUID_SEASON_FOUR_4, 35030, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Lamellar Legguards
+(56, @GUID_SEASON_FOUR_4, 35031, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Lamellar Shoulders
+(56, @GUID_SEASON_FOUR_4, 35032, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Leather Gloves
+(56, @GUID_SEASON_FOUR_4, 35033, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Leather Helm
+(56, @GUID_SEASON_FOUR_4, 35034, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Leather Legguards
+(56, @GUID_SEASON_FOUR_4, 35035, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Leather Spaulders
+(56, @GUID_SEASON_FOUR_4, 35036, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Leather Tunic
+(56, @GUID_SEASON_FOUR_4, 35042, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Linked Armor
+(56, @GUID_SEASON_FOUR_4, 35043, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Linked Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35044, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Linked Helm
+(56, @GUID_SEASON_FOUR_4, 35045, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Linked Leggings
+(56, @GUID_SEASON_FOUR_4, 35046, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Linked Spaulders
+(56, @GUID_SEASON_FOUR_4, 35048, 2, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Mail Armor
+(56, @GUID_SEASON_FOUR_4, 35049, 2, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Mail Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35050, 2, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Mail Helm
+(56, @GUID_SEASON_FOUR_4, 35051, 2, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Mail Leggings
+(56, @GUID_SEASON_FOUR_4, 35052, 2, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Mail Spaulders
+(56, @GUID_SEASON_FOUR_4, 35053, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Mooncloth Gloves
+(56, @GUID_SEASON_FOUR_4, 35054, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Mooncloth Hood
+(56, @GUID_SEASON_FOUR_4, 35055, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Mooncloth Leggings
+(56, @GUID_SEASON_FOUR_4, 35056, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Mooncloth Mantle
+(56, @GUID_SEASON_FOUR_4, 35057, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Mooncloth Robe
+(56, @GUID_SEASON_FOUR_4, 35059, 2, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Ornamented Chestguard
+(56, @GUID_SEASON_FOUR_4, 35060, 2, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Ornamented Gloves
+(56, @GUID_SEASON_FOUR_4, 35061, 2, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Ornamented Headcover
+(56, @GUID_SEASON_FOUR_4, 35062, 2, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Ornamented Legplates
+(56, @GUID_SEASON_FOUR_4, 35063, 2, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Ornamented Spaulders
+(56, @GUID_SEASON_FOUR_4, 35066, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Plate Chestpiece
+(56, @GUID_SEASON_FOUR_4, 35067, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Plate Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35068, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Plate Helm
+(56, @GUID_SEASON_FOUR_4, 35069, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Plate Legguards
+(56, @GUID_SEASON_FOUR_4, 35070, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Plate Shoulders
+(56, @GUID_SEASON_FOUR_4, 35077, 3, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Ringmail Armor
+(56, @GUID_SEASON_FOUR_4, 35078, 3, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Ringmail Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35079, 3, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Ringmail Helm
+(56, @GUID_SEASON_FOUR_4, 35080, 3, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Ringmail Leggings
+(56, @GUID_SEASON_FOUR_4, 35081, 3, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Ringmail Spaulders
+(56, @GUID_SEASON_FOUR_4, 35083, 2, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Satin Gloves
+(56, @GUID_SEASON_FOUR_4, 35084, 2, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Satin Hood
+(56, @GUID_SEASON_FOUR_4, 35085, 2, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Satin Leggings
+(56, @GUID_SEASON_FOUR_4, 35086, 2, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Satin Mantle
+(56, @GUID_SEASON_FOUR_4, 35087, 2, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Satin Robe
+(56, @GUID_SEASON_FOUR_4, 35088, 3, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Scaled Chestpiece
+(56, @GUID_SEASON_FOUR_4, 35089, 3, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Scaled Gauntlets
+(56, @GUID_SEASON_FOUR_4, 35090, 3, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Scaled Helm
+(56, @GUID_SEASON_FOUR_4, 35091, 3, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Scaled Legguards
+(56, @GUID_SEASON_FOUR_4, 35092, 3, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Scaled Shoulders
+(56, @GUID_SEASON_FOUR_4, 35096, 1, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Silk Amice
+(56, @GUID_SEASON_FOUR_4, 35097, 1, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Silk Cowl
+(56, @GUID_SEASON_FOUR_4, 35098, 1, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Silk Handguards
+(56, @GUID_SEASON_FOUR_4, 35099, 1, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Silk Raiment
+(56, @GUID_SEASON_FOUR_4, 35100, 1, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Silk Trousers
+(56, @GUID_SEASON_FOUR_4, 35111, 3, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Brutal Gladiator's Wyrmhide Gloves
+(56, @GUID_SEASON_FOUR_4, 35112, 3, 0, 0, @EXT_ARM_SEASON_FOUR_01_4), -- Brutal Gladiator's Wyrmhide Helm
+(56, @GUID_SEASON_FOUR_4, 35113, 3, 0, 0, @EXT_ARM_SEASON_FOUR_04_4), -- Brutal Gladiator's Wyrmhide Legguards
+(56, @GUID_SEASON_FOUR_4, 35114, 3, 0, 0, @EXT_ARM_SEASON_FOUR_02_4), -- Brutal Gladiator's Wyrmhide Spaulders
+(56, @GUID_SEASON_FOUR_4, 35115, 3, 0, 0, @EXT_ARM_SEASON_FOUR_03_4), -- Brutal Gladiator's Wyrmhide Tunic
+(56, @GUID_SEASON_FOUR_4, 38545, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Bold Ornate Ruby
+(56, @GUID_SEASON_FOUR_4, 38546, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Gleaming Ornate Dawnstone
+(56, @GUID_SEASON_FOUR_4, 38547, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Inscribed Ornate Topaz
+(56, @GUID_SEASON_FOUR_4, 38548, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Potent Ornate Topaz
+(56, @GUID_SEASON_FOUR_4, 38549, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Runed Ornate Ruby
+(56, @GUID_SEASON_FOUR_4, 38550, 4, 0, 0, @EXT_ARM_SEASON_FOUR_05_4), -- Smooth Ornate Dawnstone
+
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_ACCESSORY_ALLIANCE) AND (`SourceEntry` IN (28234,28235,28236,28237,28238,30348,30349,30350,30351,38589));
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
@@ -1884,3 +3300,397 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @NPC_ARMOR_HORDE, 28873, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_ARMOR_HORDE, 28874, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
 (23, @NPC_ARMOR_HORDE, 28875, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''); -- Druid
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_ONE) AND (`SourceEntry` IN (24544,24545,24546,24547,24549,24552,24553,24554,24555,24556,25830,25831,25832,25833,25834,25854,25855,25856,25857,25858,25997,25998,25999,26000,26001,27469,27470,27471,27472,27473,27702,27703,27704,27705,27706,27707,27708,27709,27710,27711,27879,27880,27881,27882,27883,28126,28127,28128,28129,28130,28136,28137,28138,28139,28140,28331,28332,28333,28334,28335,30186,30187,30188,30200,30201,31375,31376,31377,31378,31379,28355,31396,31397,31400,31406,31407,28357,31409,31410,31411,31412,31413,31613,31614,31616,31618,28356,31619));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_SEASON_ONE, 24544, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_ONE, 24545, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_ONE, 24546, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_ONE, 24547, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_ONE, 24549, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_ONE, 24552, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 24553, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 24554, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 24555, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 24556, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 25830, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_ONE, 25831, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_ONE, 25832, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_ONE, 25833, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_ONE, 25834, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_ONE, 25854, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_ONE, 25855, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_ONE, 25856, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_ONE, 25857, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_ONE, 25858, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_ONE, 25997, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 25998, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 25999, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 26000, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 26001, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27469, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27470, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27471, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27472, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27473, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 27702, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27703, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27704, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27705, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27706, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27707, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 27708, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 27709, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 27710, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 27711, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 27879, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27880, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27881, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27882, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 27883, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 28126, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28127, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28128, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28129, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28130, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28136, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28137, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28138, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28139, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28140, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28331, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_ONE, 28332, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_ONE, 28333, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_ONE, 28334, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_ONE, 28335, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_ONE, 30186, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 30187, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 30188, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 30200, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 30201, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_ONE, 31375, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 31376, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 31377, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 31378, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 31379, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 28355, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_ONE, 31396, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 31397, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 31400, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 31406, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 31407, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 28357, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_ONE, 31409, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 31410, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 31411, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 31412, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 31413, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_ONE, 31613, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 31614, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 31616, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 31618, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 28356, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_ONE, 31619, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''); -- Paladin
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_TWO) AND (`SourceEntry` IN (30486,30487,30488,30489,30490,31960,31961,31962,31963,31964,31967,31968,31969,31971,31972,31973,31974,31975,31976,31977,31979,31980,31981,31982,31983,31987,31988,31989,31990,31991,31992,31993,31995,31996,31997,31998,31999,32000,32001,32002,32004,32005,32006,32007,32008,32009,32010,32011,32012,32013,32015,32016,32017,32018,32019,32020,32021,32022,32023,32024,32029,32030,32031,32032,32033,32034,32035,32036,32037,32038,32039,32040,32041,32042,32043,32047,32048,32049,32050,32051,32056,32057,32058,32059,32060,33946,33943,33076,33937,33077,33949,33940,33952,33078));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_SEASON_TWO, 30486, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_TWO, 30487, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_TWO, 30488, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_TWO, 30489, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_TWO, 30490, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_TWO, 31960, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_TWO, 31961, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_TWO, 31962, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_TWO, 31963, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_TWO, 31964, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_TWO, 31967, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31968, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31969, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31971, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31972, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31973, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31974, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31975, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31976, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31977, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31979, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31980, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31981, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31982, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31983, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_TWO, 31987, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31988, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31989, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31990, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31991, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 31992, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 31993, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 31995, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 31996, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 31997, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 31998, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_TWO, 31999, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_TWO, 32000, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_TWO, 32001, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_TWO, 32002, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_TWO, 32004, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32005, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32006, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32007, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32008, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32009, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32010, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32011, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32012, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32013, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32015, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32016, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32017, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32018, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32019, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32020, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32021, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32022, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32023, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32024, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32029, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32030, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32031, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32032, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32033, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 32034, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32035, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32036, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32037, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32038, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_TWO, 32039, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32040, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32041, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32042, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32043, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 32047, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_TWO, 32048, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_TWO, 32049, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_TWO, 32050, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_TWO, 32051, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_TWO, 32056, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 32057, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 32058, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 32059, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 32060, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 33946, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 33943, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 33076, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_TWO, 33937, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 33077, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 33949, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_TWO, 33940, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 33952, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_TWO, 33078, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''); -- Shaman
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_THREE) AND (`SourceEntry` IN (33664,33665,33666,33667,33668,33671,33672,33673,33674,33675,33676,33677,33678,33679,33680,33682,33683,33684,33685,33686,33690,33691,33692,33693,33694,33695,33696,33697,33698,33699,33700,33701,33702,33703,33704,33706,33707,33708,33709,33710,33711,33712,33713,33714,33715,33717,33718,33719,33720,33721,33722,33723,33724,33725,33726,33728,33729,33730,33731,33732,33738,33739,33740,33741,33742,33744,33745,33746,33747,33748,33749,33750,33751,33752,33753,33757,33758,33759,33760,33761,33767,33768,33769,33770,33771,33947,33944,33841,33938,33842,33950,33941,33953,33843,34014));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_SEASON_THREE, 33664, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_THREE, 33665, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_THREE, 33666, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_THREE, 33667, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_THREE, 33668, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_THREE, 33671, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33672, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33673, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33674, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33675, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33676, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33677, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33678, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33679, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33680, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33682, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33683, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33684, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33685, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33686, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_THREE, 33690, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33691, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33692, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33693, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33694, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33695, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33696, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33697, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33698, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33699, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33700, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_THREE, 33701, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_THREE, 33702, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_THREE, 33703, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_THREE, 33704, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_THREE, 33706, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33707, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33708, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33709, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33710, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33711, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33712, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33713, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33714, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33715, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33717, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33718, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33719, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33720, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33721, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33722, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33723, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33724, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33725, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33726, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33728, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_THREE, 33729, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_THREE, 33730, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_THREE, 33731, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_THREE, 33732, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_THREE, 33738, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33739, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33740, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33741, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33742, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33744, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33745, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33746, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33747, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33748, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_THREE, 33749, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33750, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33751, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33752, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33753, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33757, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_THREE, 33758, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_THREE, 33759, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_THREE, 33760, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_THREE, 33761, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_THREE, 33767, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33768, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33769, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33770, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33771, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33947, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33944, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33841, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_THREE, 33938, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33842, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33950, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_THREE, 33941, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33953, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 33843, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_THREE, 34014, 0, 1, 15, 0, 36, 0, 0, 0, 0, 0, '', ''); -- Hunter/DK
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 23) AND (`SourceGroup` = @NPC_SEASON_FOUR) AND (`SourceEntry` IN (34990,34991,34992,34993,34994,34998,34999,35000,35001,35002,35003,35004,35005,35006,35007,35009,35010,35011,35012,35013,35022,35023,35024,35025,35026,35027,35028,35029,35030,35031,35032,35033,35034,35035,35036,35042,35043,35044,35045,35046,35048,35049,35050,35051,35052,35053,35054,35055,35056,35057,35059,35060,35061,35062,35063,35066,35067,35068,35069,35070,35077,35078,35079,35080,35081,35083,35084,35085,35086,35087,35088,35089,35090,35091,35092,35096,35097,35098,35099,35100,35111,35112,35113,35114,35115,35104,35105,35106,35039,35040,35041,35019,35020,35021,35019,35020,35021,35039,35040,35041,35104,35105,35106,35110,36737));
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(23, @NPC_SEASON_FOUR, 34990, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 34991, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 34992, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 34993, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 34994, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 34998, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 34999, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35000, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35001, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35002, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35003, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35004, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35005, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35006, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35007, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35009, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35010, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35011, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35012, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35013, 0, 1, 15, 0, 256, 0, 0, 0, 0, 0, '', ''), -- Warlock
+(23, @NPC_SEASON_FOUR, 35022, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35023, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35024, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35025, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35026, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35027, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35028, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35029, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35030, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35031, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35032, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_FOUR, 35033, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_FOUR, 35034, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_FOUR, 35035, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_FOUR, 35036, 0, 1, 15, 0, 8, 0, 0, 0, 0, 0, '', ''), -- Rogue
+(23, @NPC_SEASON_FOUR, 35042, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35043, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35044, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35045, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35046, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35048, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35049, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35050, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35051, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35052, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35053, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35054, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35055, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35056, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35057, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35059, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35060, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35061, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35062, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35063, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35066, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_FOUR, 35067, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_FOUR, 35068, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_FOUR, 35069, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_FOUR, 35070, 0, 1, 15, 0, 1, 0, 0, 0, 0, 0, '', ''), -- Warrior
+(23, @NPC_SEASON_FOUR, 35077, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35078, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35079, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35080, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35081, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35083, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35084, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35085, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35086, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35087, 0, 1, 15, 0, 16, 0, 0, 0, 0, 0, '', ''), -- Priest
+(23, @NPC_SEASON_FOUR, 35088, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35089, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35090, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35091, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35092, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35096, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_FOUR, 35097, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_FOUR, 35098, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_FOUR, 35099, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_FOUR, 35100, 0, 1, 15, 0, 128, 0, 0, 0, 0, 0, '', ''), -- Mage
+(23, @NPC_SEASON_FOUR, 35111, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35112, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35113, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35114, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35115, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35104, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35105, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35106, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35039, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35040, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35041, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35019, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35020, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35021, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35019, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35020, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35021, 0, 1, 15, 0, 1024, 0, 0, 0, 0, 0, '', ''), -- Druid
+(23, @NPC_SEASON_FOUR, 35039, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35040, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35041, 0, 1, 15, 0, 2, 0, 0, 0, 0, 0, '', ''), -- Paladin
+(23, @NPC_SEASON_FOUR, 35104, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35105, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35106, 0, 1, 15, 0, 64, 0, 0, 0, 0, 0, '', ''), -- Shaman
+(23, @NPC_SEASON_FOUR, 35110, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''), -- Hunter
+(23, @NPC_SEASON_FOUR, 36737, 0, 1, 15, 0, 4, 0, 0, 0, 0, 0, '', ''); -- Hunter
