@@ -32,3 +32,6 @@ INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 11102, 'Bombing Run'),
 (1, 11119, 'Assault on Bash\'ir Landing!'),
 (1, 11885, 'Adversarial Blood');
+
+-- Remove Shadow Dust from the drop list
+DELETE FROM `creature_loot_template` WHERE `Item`=32388 AND `Entry` IN (21644, 21649, 21650, 21911, 23066, 23067, 23068);

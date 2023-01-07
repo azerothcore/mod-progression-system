@@ -29,3 +29,14 @@ UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (22987, 23449) AND `guid` I
 
 -- Restore Sha'tari Skyguard quests
 DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11004,11005,11006,11008,11010,11021,11023,11024,11028,11029,11056,11062,11065,11066,11072,11073,11074,11078,11085,11093,11096,11098,11102,11119,11885);
+
+-- Restore Shadow Dust to the drop list
+DELETE FROM `creature_loot_template` WHERE `Item`=32388 AND `Entry` IN (21644, 21649, 21650, 21911, 23066, 23067, 23068);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(21644, 32388, 0, 33, 0, 1, 0, 1, 1, 'Skettis Wing Guard - Shadow Dust'),
+(21649, 32388, 0, 33, 0, 1, 0, 1, 1, 'Skettis Windwalker - Shadow Dust'),
+(21650, 32388, 0, 33, 0, 1, 0, 1, 1, 'Skettis Talonite - Shadow Dust'),
+(21911, 32388, 0, 33, 0, 1, 0, 1, 1, 'Skettis Soulcaller - Shadow Dust'),
+(23066, 32388, 0, 33, 0, 1, 0, 1, 1, 'Talonpriest Ishaal - Shadow Dust'),
+(23067, 32388, 0, 33, 0, 1, 0, 1, 1, 'Talonpriest Skizzik - Shadow Dust'),
+(23068, 32388, 0, 33, 0, 1, 0, 1, 1, 'Talonpriest Zellek - Shadow Dust');
