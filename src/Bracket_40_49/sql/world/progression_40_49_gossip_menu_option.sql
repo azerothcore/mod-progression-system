@@ -2,7 +2,8 @@
 Dual spec progression prices
 40-49     500G
 50-59     600G
-60-69     800G
+60        800G
+61-70     900G
 71-80     1000G
 */
 
