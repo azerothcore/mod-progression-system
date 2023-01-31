@@ -7,5 +7,5 @@ Dual spec progression prices
 71-80     1000G
 */
 
--- 61-64 Dual Spec price
+-- 61-70 Dual Spec price
 UPDATE gossip_menu_option SET BoxMoney = 9000000 WHERE OptionType = 18;
