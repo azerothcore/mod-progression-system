@@ -53,5 +53,11 @@ UPDATE `creature` SET `position_x`=-1844.29, `position_y`=5475.24, `position_z`=
 UPDATE `creature` SET `position_x`=-1846.48, `position_y`=5470.35, `position_z`=0.940442, `orientation`=2.74017 WHERE `guid`=96661 AND `id1`=20331;
 UPDATE `creature` SET `position_x`=-1836.19, `position_y`=5472.1 , `position_z`=1.29797 , `orientation`=5.55015 WHERE `guid`=96662 AND `id1`=20331;
 
--- Enable breadcrumb quests and SSO dailies
-DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11481, 11482, 11550, 11513, 11514, 11515, 11516, 11875, 11877, 11880);
+-- Enable breadcrumb quests, SSO dailies and Magister's Terrace dailies
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11481, 11482, 11550, 11513, 11514, 11515, 11516, 11875, 11877, 11880, 11499, 11500);
+
+-- Restore Magister's Terrace dailies to quest pool
+DELETE FROM `pool_quest` WHERE `entry` IN (11499, 11500) AND `pool_entry` IN (356, 357);
+INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
+(11499, 356, 'Wanted: The Signet Ring of Prince Kael\'thas'),
+(11500, 357, 'Wanted: Sisters of Torment');
