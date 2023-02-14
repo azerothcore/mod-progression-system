@@ -1089,7 +1089,7 @@ public:
             }
         }
 
-        void EnterCombat(Unit* /*victim*/) override
+        void JustEngagedWith(Unit* /*victim*/) override
         {
             if (me->GetEntry() == NPC_ONYXIA_GUARD)
             {
