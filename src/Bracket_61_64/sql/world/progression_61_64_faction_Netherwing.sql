@@ -47,13 +47,49 @@ UPDATE `gameobject` SET `phaseMask`=16384 WHERE `id` IN (
 );
 
 -- Disable Netherwing Crystal drops
-DELETE FROM `creature_loot_template` WHERE `Item`=32427 AND `Entry` IN (23169,23264,23267,23269,23285,23286,23290,23305,23324,23326,23501);
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32427) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 23169, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23264, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23267, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23269, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23285, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23286, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23290, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23305, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23324, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23326, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427'),
+(1, 23501, 32427, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32427');
+
+-- Disable Netherwing Egg drops
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32506) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 23169, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23264, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23285, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23286, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23290, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23305, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23324, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23326, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(1, 23501, 32506, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506');
 
 -- Disable Nethermine Flayer Hide (32470)
-DELETE FROM `creature_loot_template` WHERE `Item`=32470 AND `Entry` IN (23169, 23326);
-DELETE FROM `skinning_loot_template` WHERE `Entry`=70165 AND `Item`=32470;
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 23169, 32470, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32470'),
+(1, 23326, 32470, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32470');
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 11) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(11, 70165, 32470, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32470');
 
 -- Remove non-trash drops from Sludge-Covered Object
-DELETE FROM `item_loot_template` WHERE `Entry`=32724 AND `Item` IN (32464, 32468, 32470, 32726);
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 5) AND (`SourceEntry` IN (32464, 32468, 32470, 32726)) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(5, 32724, 32464, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(5, 32724, 32468, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(5, 32724, 32470, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506'),
+(5, 32724, 32726, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32506');
+
 -- Set Sludge-Covered Object to Quality 0 to not mislead players
 UPDATE `item_template` SET `Quality` = 0 WHERE (`entry` = 32724);

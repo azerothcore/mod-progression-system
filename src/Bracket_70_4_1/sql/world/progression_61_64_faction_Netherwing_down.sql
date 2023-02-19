@@ -9,35 +9,17 @@ UPDATE `gameobject` SET `phaseMask`=1 WHERE `id` IN (
 );
 
 -- Enable Netherwing Crystal drops
-DELETE FROM `creature_loot_template` WHERE `Item`=32427 AND `Entry` IN (23169,23264,23267,23269,23285,23286,23290,23305,23324,23326,23501);
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(23169, 32427, 0, 32.9, 0, 1, 0, 1, 2, 'Nethermine Flayer - Netherwing Crystal'),
-(23264, 32427, 0, 33.2, 0, 1, 0, 1, 2, 'Overmine Flayer - Netherwing Crystal'),
-(23267, 32427, 0, 19.2, 0, 1, 0, 1, 2, 'Arvoar the Rapacious - Netherwing Crystal'),
-(23269, 32427, 0, 34.6, 0, 1, 0, 1, 2, 'Barash the Den Mother - Netherwing Crystal'),
-(23285, 32427, 0, 32.5, 0, 1, 0, 1, 2, 'Nethermine Burster - Netherwing Crystal'),
-(23286, 32427, 0, 32.1, 0, 1, 0, 1, 2, 'Black Blood of Draenor - Netherwing Crystal'),
-(23290, 32427, 0, 31.3, 0, 1, 0, 1, 2, 'Draenor Blood Terror - Netherwing Crystal'),
-(23305, 32427, 0, 32.7, 0, 1, 0, 1, 2, 'Crazed Murkblood Foreman - Netherwing Crystal'),
-(23324, 32427, 0, 33.4, 0, 1, 0, 1, 2, 'Crazed Murkblood Miner - Netherwing Crystal'),
-(23326, 32427, 0, 31.9, 0, 1, 0, 1, 2, 'Nethermine Ravager - Netherwing Crystal'),
-(23501, 32427, 0, 33.5, 0, 1, 0, 1, 2, 'Netherwing Ray - Netherwing Crystal');
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32427) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+
+-- Disable Netherwing Egg drops
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32506) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
 
 -- Enable Nethermine Flayer Hide (32470)
-DELETE FROM `creature_loot_template` WHERE `Item`=32470 AND `Entry` IN (23169, 23326);
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(23169, 32470, 0, 0.1, 0, 1, 0, 1, 1, 'Nethermine Flayer - Nethermine Flayer Hide'),
-(23326, 32470, 0, 0.1, 0, 1, 0, 1, 1, 'Nethermine Ravager - Nethermine Flayer Hide');
-DELETE FROM `skinning_loot_template` WHERE `Entry`=70165 AND `Item`=32470;
-INSERT INTO `skinning_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(70165, 32470, 0, 33, 0, 1, 1, 1, 1, NULL);
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 11) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
 
 -- Restore non-trash drops from Sludge-Covered Object
-DELETE FROM `item_loot_template` WHERE `Entry`=32724 AND `Item` IN (32464, 32468, 32470, 32726);
-INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(32724, 32464, 0, 5.8, 0, 1, 0, 1, 5, 'Sludge-covered Object - Nethercite Ore'),
-(32724, 32468, 0, 5.3, 0, 1, 0, 1, 5, 'Sludge-covered Object - Netherdust Pollen'),
-(32724, 32470, 0, 5.5, 0, 1, 0, 1, 5, 'Sludge-covered Object - Nethermine Flayer Hide'),
-(32724, 32726, 0, 1.5, 0, 1, 0, 1, 1, 'Sludge-covered Object - Murkblood Escape Plans');
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 5) AND (`SourceEntry` IN (32464, 32468, 32470, 32726)) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+
 -- Set Sludge-Covered Object to Quality back to 1
 UPDATE `item_template` SET `Quality` = 1 WHERE (`entry` = 32724);
