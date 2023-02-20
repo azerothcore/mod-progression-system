@@ -34,12 +34,6 @@ INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
 (1, 11885, 'Adversarial Blood');
 
 -- Disable Shadow Dust drops
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32388) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(1, 21644, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 21649, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 21650, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 21911, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 23066, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 23067, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388'),
-(1, 23068, 32388, 0, 0, 4, 0, 876, 0, 0, 0, 0, 0, '', 'Disable Item Drop 32388');
+DELETE FROM `disables` WHERE `sourceType`=10 AND `entry` IN (32388);
+INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
+(10, 32388, 'Disable Sha\'tari Skyguard Item Shadow Dust');

@@ -30,5 +30,5 @@ UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (22987, 23449) AND `guid` I
 -- Restore Sha'tari Skyguard quests
 DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (11004,11005,11006,11008,11010,11021,11023,11024,11028,11029,11056,11062,11065,11066,11072,11073,11074,11078,11085,11093,11096,11098,11102,11119,11885);
 
--- Restore Shadow Dust drops
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32388) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+-- Enable Shadow Dust drops
+DELETE FROM `disables` WHERE `sourceType`=10 AND `entry` IN (32388);

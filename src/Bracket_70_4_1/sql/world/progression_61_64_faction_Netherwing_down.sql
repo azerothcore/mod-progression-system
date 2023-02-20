@@ -8,18 +8,8 @@ UPDATE `gameobject` SET `phaseMask`=1 WHERE `id` IN (
 185881  -- Netherdust Bush
 );
 
--- Enable Netherwing Crystal drops
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32427) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
-
--- Disable Netherwing Egg drops
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32506) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
-
--- Enable Nethermine Flayer Hide (32470)
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 11) AND (`SourceEntry` = 32470) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
-
--- Restore non-trash drops from Sludge-Covered Object
-DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 5) AND (`SourceEntry` IN (32464, 32468, 32470, 32726)) AND (`ConditionTypeOrReference` = 4) AND (`ConditionValue1` = 876);
+-- Enable Netherwing Item drops
+DELETE FROM `disables` WHERE `sourceType`=10 AND `entry` IN (32427, 32464, 32468, 32470, 32506, 32726);
 
 -- Set Sludge-Covered Object to Quality back to 1
 UPDATE `item_template` SET `Quality` = 1 WHERE (`entry` = 32724);
