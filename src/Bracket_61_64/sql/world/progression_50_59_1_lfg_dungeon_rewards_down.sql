@@ -1,4 +1,5 @@
 -- restore the original value (TBC) for the satchel for level 
-REPLACE INTO `lfg_dungeon_rewards` (`dungeonId`, `maxLevel`, `firstQuestId`, `otherQuestId`)
-VALUES
-(259,64,24887,24895);
+UPDATE `lfg_dungeon_rewards` SET `firstQuestId` = 24887, `otherQuestId`=24895 WHERE `dungeonId`=259 AND `maxLevel`=64;
+
+-- Do the same for WotLK
+UPDATE `lfg_dungeon_rewards` SET `firstQuestId` = 24790, `otherQuestId`=24791 WHERE `dungeonId`=261 AND `maxLevel`=80;
