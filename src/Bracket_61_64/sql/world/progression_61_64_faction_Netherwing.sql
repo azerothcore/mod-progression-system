@@ -46,14 +46,15 @@ UPDATE `gameobject` SET `phaseMask`=16384 WHERE `id` IN (
 185881  -- Netherdust Bush
 );
 
--- Disable Netherwing Crystal drops
-DELETE FROM `creature_loot_template` WHERE `Item`=32427 AND `Entry` IN (23169,23264,23267,23269,23285,23286,23290,23305,23324,23326,23501);
+-- Disable Netherwing Item drops
+DELETE FROM `disables` WHERE `sourceType`=10 AND `entry` IN (32427, 32464, 32468, 32470, 32506, 32726);
+INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
+(10, 32427, 'Disable Netherwing Item Netherwing Crystal'),
+(10, 32464, 'Disable Netherwing Item Nethercite Ore'),
+(10, 32468, 'Disable Netherwing Item Netherdust Pollen'),
+(10, 32470, 'Disable Netherwing Item Nethermine Flayer Hide'),
+(10, 32506, 'Disable Netherwing Item Netherwing Egg'),
+(10, 32726, 'Disable Netherwing Item Murkblood Escape Plans');
 
--- Disable Nethermine Flayer Hide (32470)
-DELETE FROM `creature_loot_template` WHERE `Item`=32470 AND `Entry` IN (23169, 23326);
-DELETE FROM `skinning_loot_template` WHERE `Entry`=70165 AND `Item`=32470;
-
--- Remove non-trash drops from Sludge-Covered Object
-DELETE FROM `item_loot_template` WHERE `Entry`=32724 AND `Item` IN (32464, 32468, 32470, 32726);
 -- Set Sludge-Covered Object to Quality 0 to not mislead players
 UPDATE `item_template` SET `Quality` = 0 WHERE (`entry` = 32724);
