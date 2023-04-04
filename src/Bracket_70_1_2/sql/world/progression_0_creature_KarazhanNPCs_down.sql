@@ -1,4 +1,4 @@
--- Hide Karazhan NPCs
+-- Show Karazhan NPCs
 UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN 
 (
 7370,  -- Restless Shade
