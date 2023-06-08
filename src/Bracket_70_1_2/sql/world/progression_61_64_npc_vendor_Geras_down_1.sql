@@ -51,4 +51,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (18525, 0, 29383, 0, 0, 1027, 0), -- Bloodlust Brooch (Phase 1-3)
 (18525, 0, 29376, 0, 0, 1027, 0), -- Essence of the Martyr (Phase 1-3)
 (18525, 0, 29387, 0, 0, 1027, 0), -- Gnomeregan Auto-Blocker 600 (Phase 1-3)
-(18525, 0, 29370, 0, 0, 1027, 0); -- Icon of the Silver Crescent (Phase 1-3)
+(18525, 0, 29370, 0, 0, 1027, 0), -- Icon of the Silver Crescent (Phase 1-3)
+(18525, 0, 29388, 0, 0, 1642, 0), -- Libram of Repentance (Phase 1-3)
+(18525, 0, 29389, 0, 0, 1642, 0), -- Totem of the Pulsing Earth (Phase 1-3)
+(18525, 0, 29390, 0, 0, 1642, 0); -- Everbloom Idol (Phase 1-3)
