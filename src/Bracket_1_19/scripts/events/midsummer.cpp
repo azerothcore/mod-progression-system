@@ -50,6 +50,12 @@ public:
         if (!player || !go)
             return true;
 
+        // Not allowed in RDF/LFG
+        if (player->GetGroup() && player->GetGroup()->isLFGGroup())
+        {
+            return true;
+        }
+
         if (go->FindNearestCreature(NPC_AHUNE, 200.0f, true))
             return true;
 
@@ -65,6 +71,13 @@ public:
 
         if (action != GOSSIP_ACTION_INFO_DEF + 1337)
             return true;
+
+        // Not allowed in RDF/LFG
+        if (player->GetGroup() && player->GetGroup()->isLFGGroup())
+        {
+            return true;
+        }
+
         if (go->FindNearestCreature(NPC_AHUNE, 200.0f, true))
             return true;
 
