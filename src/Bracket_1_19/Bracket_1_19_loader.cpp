@@ -6,6 +6,7 @@
 
 void AddSC_event_love_in_the_air_1_19();
 void AddSC_event_brewfest_1_19();
+void AddSC_event_midsummer_1_19();
 
 void AddBracket_1_19_Scripts()
 {
@@ -14,4 +15,5 @@ void AddBracket_1_19_Scripts()
 
     AddSC_event_love_in_the_air_1_19();
     AddSC_event_brewfest_1_19();
+    AddSC_event_midsummer_1_19();
 }

@@ -23,3 +23,6 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 -- Change quest level requirement back to 75
 UPDATE `quest_template` SET `MinLevel` = 75 WHERE (`ID` = 11972);
 UPDATE `item_template` SET `RequiredLevel` = 75 WHERE (`entry` = 35723);
+
+UPDATE `creature_template` SET `MaxLevel` = 80, `MinLevel` = 80 WHERE `entry` IN (25755, 25756, 25757, 26340, 26341, 26342);
+UPDATE `creature_template` SET `MaxLevel` = 82, `MinLevel` = 82 WHERE `entry` IN (25740, 26338, 26865, 26339);
