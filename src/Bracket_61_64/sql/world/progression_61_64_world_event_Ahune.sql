@@ -21,3 +21,7 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Chance`, `GroupId`, `M
 (28683, 35495, 0, 1, 1, 1, 'The Frost Lord\'s War Cloak'),
 (28683, 35494, 0, 1, 1, 1, 'Shroud of Winter\'s Chill'),
 (28683, 34955, 2, 0, 1, 1, 'Scorched Stone');
+
+-- Change quest level requirement down to 65
+UPDATE `quest_template` SET `MinLevel` = 65 WHERE (`ID` = 11972);
+UPDATE `item_template` SET `RequiredLevel` = 65 WHERE (`entry` = 35723);

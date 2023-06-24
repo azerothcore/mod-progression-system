@@ -19,3 +19,7 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 (28683, 54803, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - The Frost Lord\'s Battle Shroud'),
 (28683, 54804, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - Shroud of Winter\'s Chill'),
 (28683, 54805, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - Cloak of the Frigid Winds');
+
+-- Change quest level requirement back to 75
+UPDATE `quest_template` SET `MinLevel` = 75 WHERE (`ID` = 11972);
+UPDATE `item_template` SET `RequiredLevel` = 75 WHERE (`entry` = 35723);
