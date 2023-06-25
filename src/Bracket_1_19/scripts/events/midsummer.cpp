@@ -60,6 +60,7 @@ public:
         // Only allow summoning him in heroic
         if (!go->GetMap()->IsHeroic())
         {
+            player->SendSystemMessage("Ahune may only be summoned in Heroic difficulty.");
             return true;
         }
 
@@ -81,6 +82,12 @@ public:
 
         // Not allowed in RDF/LFG
         if (player->GetGroup() && player->GetGroup()->isLFGGroup())
+        {
+            return true;
+        }
+
+        // Only allow summoning him in heroic
+        if (!go->GetMap()->IsHeroic())
         {
             return true;
         }
