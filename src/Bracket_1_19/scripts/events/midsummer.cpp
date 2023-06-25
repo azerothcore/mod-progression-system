@@ -36,6 +36,7 @@ enum Misc
     NPC_AHUNE_SUMMON_LOC_BUNNY = 25745,
 
     SPELL_STARTING_BEAM        = 46593,
+    SPELL_CHILLING_AURA        = 46542,
 
     SET_GUID_INVOKER           = 1
 };
@@ -52,6 +53,12 @@ public:
 
         // Not allowed in RDF/LFG
         if (player->GetGroup() && player->GetGroup()->isLFGGroup())
+        {
+            return true;
+        }
+
+        // Only allow summoning him in heroic
+        if (!go->GetMap()->IsHeroic())
         {
             return true;
         }
@@ -103,8 +110,23 @@ public:
     }
 };
 
+class global_midsummer_tuning_script : public GlobalScript
+{
+public:
+    global_midsummer_tuning_script() : GlobalScript("global_midsummer_tuning_script") { }
+
+    void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
+    {
+        if (spellInfo->Id == SPELL_CHILLING_AURA) // Chilling Aura
+        {
+            spellInfo->Effects[EFFECT_0].BasePoints = 1000;
+        }
+    }
+};
+
 
 void AddSC_event_midsummer_1_19()
 {
     new go_ahune_ice_stone_1_19();
+    new global_midsummer_tuning_script();
 }
