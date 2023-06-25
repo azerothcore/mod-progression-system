@@ -124,7 +124,6 @@ public:
     }
 };
 
-
 void AddSC_event_midsummer_1_19()
 {
     new go_ahune_ice_stone_1_19();
