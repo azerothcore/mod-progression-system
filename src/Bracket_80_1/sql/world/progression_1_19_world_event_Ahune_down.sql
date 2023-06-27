@@ -10,6 +10,7 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 (28682, 54803, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - The Frost Lord\'s Battle Shroud'),
 (28682, 54804, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - Shroud of Winter\'s Chill'),
 (28682, 54805, 0, 0, 0, 1, 1, 1, 1, 'Ice Chest - Cloak of the Frigid Winds'),
+
 (28683, 35498, 0, 3, 0, 1, 0, 1, 1, 'Ice Chest - Formula: Enchant Weapon - Deathfrost'),
 (28683, 35557, 0, 28, 0, 1, 0, 1, 2, 'Ice Chest - Huge Snowball'),
 (28683, 35720, 0, 3, 0, 1, 0, 5, 6, 'Ice Chest - Lord of Frost\'s Private Label'),
