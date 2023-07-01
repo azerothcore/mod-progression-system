@@ -35,7 +35,8 @@ C++ scripts can also be automatically loaded dependent on bracket level. All you
 </br>
 </br>
 WARNING: If you are applying some changes to main script (in AzerothCore) and they are independent from the level bracket, you should apply these changes to your progressive script as well.
-
+</br>
+</br>
 <b>DISCLAIMER<b>
 This module is used by Chromiecraft and the progression order here presented will oftentimes reflect Chromiecraft's progression. If you would like a different progression you are free to change the order of the files (file locations) and scripts as you would like.
 
