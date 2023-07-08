@@ -33,7 +33,7 @@ public:
     {
         LOG_INFO("server.server", "Loading mod-progression-system updates...");
 
-        if (DBUpdater<LoginDatabaseConnection>::IsEnabled(updateFlags))
+        if (DBUpdater::IsEnabled(LoginDatabase, updateFlags))
         {
             if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
             {
@@ -43,11 +43,11 @@ public:
             std::vector<std::string> loginDatabaseDirectories = GetDatabaseDirectories("auth");
             if (!loginDatabaseDirectories.empty())
             {
-                DBUpdater<LoginDatabaseConnection>::Update(LoginDatabase, &loginDatabaseDirectories);
+                DBUpdater::Update(LoginDatabase, &loginDatabaseDirectories);
             }
         }
 
-        if (DBUpdater<CharacterDatabaseConnection>::IsEnabled(updateFlags))
+        if (DBUpdater::IsEnabled(CharacterDatabase, updateFlags))
         {
             if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
             {
@@ -57,11 +57,11 @@ public:
             std::vector<std::string> charactersDatabaseDirectories = GetDatabaseDirectories("characters");
             if (!charactersDatabaseDirectories.empty())
             {
-                DBUpdater<CharacterDatabaseConnection>::Update(CharacterDatabase, &charactersDatabaseDirectories);
+                DBUpdater::Update(CharacterDatabase, &charactersDatabaseDirectories);
             }
         }
 
-        if (DBUpdater<WorldDatabaseConnection>::IsEnabled(updateFlags))
+        if (DBUpdater::IsEnabled(WorldDatabase, updateFlags))
         {
             if (sConfigMgr->GetOption<bool>("ProgressionSystem.ReapplyUpdates", false))
             {
@@ -71,7 +71,7 @@ public:
             std::vector<std::string> worldDatabaseDirectories = GetDatabaseDirectories("world");
             if (!worldDatabaseDirectories.empty())
             {
-                DBUpdater<WorldDatabaseConnection>::Update(WorldDatabase, &worldDatabaseDirectories);
+                DBUpdater::Update(WorldDatabase, &worldDatabaseDirectories);
             }
         }
     }
