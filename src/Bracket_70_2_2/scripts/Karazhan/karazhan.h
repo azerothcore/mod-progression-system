@@ -161,7 +161,7 @@ enum KarazhanSpells
     // Chess Event
     SPELL_GAME_IN_SESSION   = 39331,
     SPELL_HAND_OF_MEDIVH    = 39339, // 1st cheat: AOE spell burn cell under enemy chesspieces.
-    SPELL_FURY_OF_MEDIVH    = 39383  // 2nd cheat: Berserk own chesspieces.
+    SPELL_FURY_OF_MEDIVH    = 39383,  // 2nd cheat: Berserk own chesspieces.
 
  // Progression module
     ITEM_BLACKENED_URN          = 24140
