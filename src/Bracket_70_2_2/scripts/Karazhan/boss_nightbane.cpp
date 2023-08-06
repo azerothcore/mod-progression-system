@@ -398,10 +398,10 @@ private:
     uint8 _skeletonCount;
     uint8 _skeletonSpawnCounter;
 };
-class go_blackened_urn : public GameObjectScript
+class go_blackened_urn_70 : public GameObjectScript
 {
 public:
-    go_blackened_urn() : GameObjectScript("go_blackened_urn") { }
+    go_blackened_urn_70() : GameObjectScript("go_blackened_urn") { }
 
     //if we summon an entity instead of using a sort of invisible entity, we could unsummon boss on reset
     //right now that doesn't work because of how the urn works
@@ -422,6 +422,6 @@ public:
 
 void AddSC_boss_nightbane()
 {
-    RegisterKarazhanCreatureAI(boss_nightbane);
-    new go_blackened_urn();
+    RegisterKarazhanCreatureAI(boss_nightbane); 
+    new go_blackened_urn_70();
 }
