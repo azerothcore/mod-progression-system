@@ -5,18 +5,6 @@
 #include "Player.h"
 #include "ScriptMgr.h"
 
-float IntroWay[8][3] =
-{
-    {-11053.37f, -1794.48f, 149.00f},
-    {-11141.07f, -1841.40f, 125.00f},
-    {-11187.28f, -1890.23f, 125.00f},
-    {-11189.20f, -1931.25f, 125.00f},
-    {-11153.76f, -1948.93f, 125.00f},
-    {-11128.73f, -1929.75f, 125.00f},
-    {-11140.00f, -1915.00f, 122.00f},
-    {-11163.00f, -1903.00f, 91.473f}
-}; //TODO: move to table
-
 enum BlackUrn
 {
     DATA_NIGHTBANE     = 11,
@@ -33,6 +21,18 @@ public:
     //right now that doesn't work because of how the urn works
     bool OnGossipHello(Player* player, GameObject* go) override
     {
+        float IntroWay[8][3] =
+        {
+            {-11053.37f, -1794.48f, 149.00f},
+            {-11141.07f, -1841.40f, 125.00f},
+            {-11187.28f, -1890.23f, 125.00f},
+            {-11189.20f, -1931.25f, 125.00f},
+            {-11153.76f, -1948.93f, 125.00f},
+            {-11128.73f, -1929.75f, 125.00f},
+            {-11140.00f, -1915.00f, 122.00f},
+            {-11163.00f, -1903.00f, 91.473f}
+        }; //TODO: move to table
+
         if (player->HasItemCount(ITEM_BLACKENED_URN, 1))
         {
             if (InstanceScript* pInstance = go->GetInstanceScript())
