@@ -246,6 +246,11 @@ public:
                     {
                         player->RewardQuest(quest, 0, nullptr, false, true);
                     }
+                    else
+                    {
+                        player->SendSystemMessage("Debug: Seasonal daily quest could not be rewarded.");
+                        LOG_ERROR("server.server", "Coren daily could not be rewarded. Player: {}", player->GetName());
+                    }
                 }
             });
         }
