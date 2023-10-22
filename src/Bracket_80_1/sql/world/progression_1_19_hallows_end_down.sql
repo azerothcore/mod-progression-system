@@ -8,5 +8,4 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 (54516,49426,0,100,0,1,0,2,2,'Loot-Filled Pumpkin - Emblem of Frost');
 
 UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` IN (23682, 23775,23694, 23545);
-
-
+UPDATE `creature_template` SET `lootid` = 23682 WHERE `entry` = 23682;
