@@ -65,11 +65,14 @@ public:
         {
             killer->GetMap()->DoForAllPlayers([&](Player* player)
             {
-                player->CompleteQuest(QUEST_HEADLESS_HORSEMAN);
-
-                if (Quest const* quest = sObjectMgr->GetQuestTemplate(QUEST_HEADLESS_HORSEMAN))
+                if (player->HasQuest(QUEST_HEADLESS_HORSEMAN))
                 {
-                    player->RewardQuest(quest, 0, nullptr, true, true);
+                    player->CompleteQuest(QUEST_HEADLESS_HORSEMAN);
+
+                    if (Quest const* quest = sObjectMgr->GetQuestTemplate(QUEST_HEADLESS_HORSEMAN))
+                    {
+                        player->RewardQuest(quest, 0, nullptr, true, true);
+                    }
                 }
             });
         }
