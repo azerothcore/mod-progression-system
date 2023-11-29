@@ -6,9 +6,9 @@
 
 void AddSC_karazhan_70();
 
-void AddBracket_70_2_B_Scripts()
+void AddBracket_70_2_C_Scripts()
 {
-    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_2_2", false)))
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_2_3", false)))
         return;
 
     AddSC_karazhan_70();
