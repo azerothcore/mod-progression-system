@@ -105,3 +105,12 @@ ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
 
 ProgressionSystem.60.WorldBosses.KazzakPhasing = 1
 
+#
+#    ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses
+#        Description: Requires all bosses being killed before accessing Vashj's console panel.
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses = 1
