@@ -4,8 +4,12 @@
 
 #include "ProgressionSystem.h"
 
+void AddSC_serpentshrine_cavern_70();
+
 void AddBracket_70_3_A_Scripts()
 {
     if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_3_1", false)))
         return;
+
+    AddSC_serpentshrine_cavern_70();
 }
