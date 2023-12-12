@@ -5,6 +5,7 @@
 #include "Config.h"
 #include "Player.h"
 #include "ScriptMgr.h"
+#include "SpellInfo.h"
 
 enum SSCMisc
 {
@@ -26,6 +27,16 @@ public:
             {
                 go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
             }
+        }
+    }
+
+    void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
+    {
+        switch (spellInfo->Id)
+        {
+            case 38236: // Caribdis - Spawn Spitfire Totem
+                spellInfo->Effects[EFFECT_0].BasePoints = 70000;
+                break;
         }
     }
 
