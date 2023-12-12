@@ -5,6 +5,7 @@
 #include "Config.h"
 #include "Player.h"
 #include "ScriptMgr.h"
+#include "SpellInfo.h"
 
 enum SSCMisc
 {
@@ -13,9 +14,7 @@ enum SSCMisc
     DATA_VASHJ                   = 6
 };
 
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
-#include "SpellInfo.h"
+
 
 class GlobalSerpentshrineScript : public GlobalScript
 {
