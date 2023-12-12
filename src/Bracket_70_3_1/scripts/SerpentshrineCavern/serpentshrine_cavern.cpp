@@ -14,8 +14,6 @@ enum SSCMisc
     DATA_VASHJ                   = 6
 };
 
-
-
 class GlobalSerpentshrineScript : public GlobalScript
 {
 public:
