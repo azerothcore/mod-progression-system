@@ -10,3 +10,11 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 DELETE FROM `creature_loot_template` WHERE (`Entry` = 21212) AND (`Item` IN (34062));
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (21212, 34062, 34062, 100, 0, 1, 3, 1, 2, 'Lady Vashj - (ReferenceTable)');
+
+DELETE FROM `creature_loot_template` WHERE (`Entry` = 19516) AND (`Item` IN (34054));
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(19516, 34054, 34054, 100, 0, 1, 0, 1, 2, 'Void Reaver - (ReferenceTable)');
+
+DELETE FROM `creature_loot_template` WHERE (`Entry` = 19622) AND (`Item` IN (34056));
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(19622, 34056, 34056, 100, 0, 1, 3, 1, 2, 'Kael\'thas Sunstrider - (ReferenceTable)');
