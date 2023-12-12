@@ -13,6 +13,10 @@ enum SSCMisc
     DATA_VASHJ                   = 6
 };
 
+#include "ScriptMgr.h"
+#include "ScriptedCreature.h"
+#include "SpellInfo.h"
+
 class GlobalSerpentshrineScript : public GlobalScript
 {
 public:
@@ -26,6 +30,16 @@ public:
             {
                 go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
             }
+        }
+    }
+
+    void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
+    {
+        switch (spellInfo->Id)
+        {
+            case 38236: // Caribdis - Spawn Spitfire Totem
+                spellInfo->Effects[EFFECT_0].BasePoints = 60000;
+                break;
         }
     }
 
