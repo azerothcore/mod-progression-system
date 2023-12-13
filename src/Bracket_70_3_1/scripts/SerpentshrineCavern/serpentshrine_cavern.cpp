@@ -11,6 +11,7 @@ enum SSCMisc
 {
     GO_LADY_VASHJ_BRIDGE_CONSOLE = 184568,
     MAP_SSC                      = 548,
+    DATA_LURKER                  = 1,
     DATA_VASHJ                   = 6
 };
 
@@ -55,6 +56,11 @@ public:
                         for (uint8 id = 0; id <= bossCount; ++id)
                         {
                             if (id == bossId && newState == DONE)
+                            {
+                                continue;
+                            }
+
+                            if (id == DATA_LURKER)
                             {
                                 continue;
                             }
