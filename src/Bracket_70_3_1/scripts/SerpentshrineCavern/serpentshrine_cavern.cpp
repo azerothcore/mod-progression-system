@@ -45,9 +45,9 @@ public:
                     }
                 }
             }
-        }
 
-        return false;
+            return false;
+        }
     }
 
     void AfterInstanceGameObjectCreate(Map* map, GameObject* go) override
