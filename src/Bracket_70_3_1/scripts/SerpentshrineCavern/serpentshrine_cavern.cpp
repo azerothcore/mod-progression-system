@@ -20,13 +20,46 @@ class GlobalSerpentshrineScript : public GlobalScript
 public:
     GlobalSerpentshrineScript() : GlobalScript("GlobalSerpentshrineScript") { }
 
-    void AfterInstanceGameObjectCreate(Map* /*map*/, GameObject* go) override
+    bool IsAnyBossAlive(Map* map, uint32 bossId = 0, uint32 newState = 0)
+    {
+        if (InstanceMap* instanceMap = map->ToInstanceMap())
+        {
+            if (InstanceScript* instance = instanceMap->GetInstanceScript())
+            {
+                uint32 bossCount = instance->GetEncounterCount() - 3;
+                for (uint8 id = 0; id <= bossCount; ++id)
+                {
+                    if (id == bossId && newState == DONE)
+                    {
+                        continue;
+                    }
+
+                    if (id == DATA_LURKER)
+                    {
+                        continue;
+                    }
+
+                    if (instance->GetBossState(id) != DONE)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    }
+
+    void AfterInstanceGameObjectCreate(Map* map, GameObject* go) override
     {
         if (sConfigMgr->GetOption<int>("ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses", 1))
         {
             if (go->GetEntry() == GO_LADY_VASHJ_BRIDGE_CONSOLE)
             {
-                go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
+                if (!IsAnyBossAlive(map))
+                {
+                    go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
+                }
             }
         }
     }
@@ -51,27 +84,7 @@ public:
                 {
                     if (InstanceScript* instance = instanceMap->GetInstanceScript())
                     {
-                        uint32 bossCount = instance->GetEncounterCount() - 3;
-                        bool hasIncompleteBosses = false;
-                        for (uint8 id = 0; id <= bossCount; ++id)
-                        {
-                            if (id == bossId && newState == DONE)
-                            {
-                                continue;
-                            }
-
-                            if (id == DATA_LURKER)
-                            {
-                                continue;
-                            }
-
-                            if (instance->GetBossState(id) != DONE)
-                            {
-                                hasIncompleteBosses = true;
-                            }
-                        }
-
-                        if (!hasIncompleteBosses)
+                        if (!IsAnyBossAlive(map, bossId, newState))
                         {
                             if (Creature* vashj = instance->GetCreature(DATA_VASHJ))
                             {
