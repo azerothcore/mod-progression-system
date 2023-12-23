@@ -56,7 +56,7 @@ public:
         {
             if (go->GetEntry() == GO_LADY_VASHJ_BRIDGE_CONSOLE)
             {
-                if (!IsAnyBossAlive(map))
+                if (IsAnyBossAlive(map))
                 {
                     go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
                 }
