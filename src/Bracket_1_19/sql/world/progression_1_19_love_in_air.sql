@@ -29,6 +29,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (10901, 22206, 0, 0, 0, 1, 2, 1, 1, 'Love is in the Air - Lorekeeper Polkelt - Bouquet of Red Roses'),
 (11488, 22206, 0, 0, 0, 1, 3, 1, 1, 'Love is in the Air - Illyanna Ravenoak - Bouquet of Red Roses');
 
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 1) AND (`SourceGroup` IN (8929, 10811, 10901, 11488)) AND (`SourceEntry` = 22206) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 12) AND (`ConditionTarget` = 0) AND (`ConditionValue1` = 8) AND (`ConditionValue2` = 0) AND (`ConditionValue3` = 0);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (1, 8929, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Princess Moira Bronzebeard - Bouquet of Red Roses'),
 (1, 10811, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Archivist Galford - Bouquet of Red Roses'),
