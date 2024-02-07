@@ -21,6 +21,20 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 (54537, 50446, 0, 0, 0, 1, 1, 1, 1, NULL),
 (54537, 50471, 0, 0, 0, 1, 1, 1, 1, NULL);
 
+-- Bouquet of Red Roses
+DELETE FROM `creature_loot_template` WHERE (`Entry` IN (8929, 10811, 10901, 11488)) AND (`Item` = 22206);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(8929, 22206, 0, 0, 0, 1, 2, 1, 1, 'Love is in the Air - Princess Moira Bronzebeard - Bouquet of Red Roses'),
+(10811, 22206, 0, 0, 0, 1, 2, 1, 1, 'Love is in the Air - Archivist Galford - Bouquet of Red Roses'),
+(10901, 22206, 0, 0, 0, 1, 2, 1, 1, 'Love is in the Air - Lorekeeper Polkelt - Bouquet of Red Roses'),
+(11488, 22206, 0, 0, 0, 1, 3, 1, 1, 'Love is in the Air - Illyanna Ravenoak - Bouquet of Red Roses');
+
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 8929, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Princess Moira Bronzebeard - Bouquet of Red Roses'),
+(1, 10811, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Archivist Galford - Bouquet of Red Roses'),
+(1, 10901, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Lorekeeper Polkelt - Bouquet of Red Roses'),
+(1, 11488, 22206, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, '', 'Love is in the Air - Illyanna Ravenoak - Bouquet of Red Roses');
+
 UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` IN (36565, 36296, 36272, 36568);
 UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 36568; -- crazed apothecary
 UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 36296;
