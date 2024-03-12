@@ -9,8 +9,8 @@
 
 enum SSCMisc
 {
-    GO_RIGHT_KAEL_DOOR  = 29834,
-    GO_LEFT_KAEL_DOOR   = 29833,
+    GO_RIGHT_KAEL_DOOR  = 184327,
+    GO_LEFT_KAEL_DOOR   = 184329,
     MAP_TK              = 550,
     DATA_KAEL           = 3
 };
@@ -26,8 +26,8 @@ public:
         {
             if (InstanceScript* instance = instanceMap->GetInstanceScript())
             {
-                uint32 bossCount = instance->GetEncounterCount() - 3;
-                for (uint8 id = 0; id <= bossCount; ++id)
+                uint32 bossCount = instance->GetEncounterCount() - 1;
+                for (uint8 id = 0; id < bossCount; ++id)
                 {
                     if (id == bossId && newState == DONE)
                     {
