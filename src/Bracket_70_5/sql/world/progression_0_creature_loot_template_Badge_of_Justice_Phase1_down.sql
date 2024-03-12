@@ -25,4 +25,4 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19514, 29434, 0, 100, 0, 1, 0, 2, 2, 'Al\'ar - Badge of Justice'),
 (19622, 29434, 0, 100, 0, 1, 0, 2, 2, 'Kael\'thas - Badge of Justice'),
 (19516, 29434, 0, 100, 0, 1, 0, 2, 2, 'Void Reaver - Badge of Justice'),
-(18805 29434, 0, 100, 0, 1, 0, 2, 2, 'Solarian - Badge of Justice');
+(18805, 29434, 0, 100, 0, 1, 0, 2, 2, 'Solarian - Badge of Justice');
