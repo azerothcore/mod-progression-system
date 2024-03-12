@@ -21,4 +21,8 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (21215, 29434, 0, 100, 0, 1, 0, 2, 2, 'Leotheras - Badge of Justice'),
 (21214, 29434, 0, 100, 0, 1, 0, 2, 2, 'Fathom-Lord Karathress - Badge of Justice'),
 (21213, 29434, 0, 100, 0, 1, 0, 2, 2, 'Morogrim - Badge of Justice'),
-(21212, 29434, 0, 100, 0, 1, 0, 2, 2, 'Lady Vashj - Badge of Justice');
+(21212, 29434, 0, 100, 0, 1, 0, 2, 2, 'Lady Vashj - Badge of Justice'),
+(19514, 29434, 0, 100, 0, 1, 0, 2, 2, 'Al\'ar - Badge of Justice'),
+(19622, 29434, 0, 100, 0, 1, 0, 2, 2, 'Kael\'thas - Badge of Justice'),
+(19516, 29434, 0, 100, 0, 1, 0, 2, 2, 'Void Reaver - Badge of Justice'),
+(18805 29434, 0, 100, 0, 1, 0, 2, 2, 'Solarian - Badge of Justice');
