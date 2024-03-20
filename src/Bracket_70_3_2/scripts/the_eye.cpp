@@ -90,6 +90,16 @@ public:
     }
 };
 
+void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
+{
+    switch (spellInfo->Id)
+    {
+        case 36815: // Kael - Shock Barrier (is 80k by default, too low for wotlk geared player)
+            spellInfo->Effects[EFFECT_0].BasePoints = 200000;
+            break;
+    }
+}
+
 void AddSC_the_eye_70()
 {
     new GlobalTheEyeScript();
