@@ -20,6 +20,16 @@ class GlobalTheEyeScript : public GlobalScript
 public:
     GlobalTheEyeScript() : GlobalScript("GlobalTheEyeScript") { }
 
+    void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
+    {
+        switch (spellInfo->Id)
+        {
+            case 36815: // Kael - Shock Barrier (is 80k by default, too low for wotlk geared player)
+                spellInfo->Effects[EFFECT_0].BasePoints = 200000;
+                break;
+        }
+    }
+
     bool IsAnyBossAlive(Map* map, uint32 bossId = 0, uint32 newState = 0)
     {
         if (InstanceMap* instanceMap = map->ToInstanceMap())
@@ -89,16 +99,6 @@ public:
         }
     }
 };
-
-void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
-{
-    switch (spellInfo->Id)
-    {
-        case 36815: // Kael - Shock Barrier (is 80k by default, too low for wotlk geared player)
-            spellInfo->Effects[EFFECT_0].BasePoints = 200000;
-            break;
-    }
-}
 
 void AddSC_the_eye_70()
 {
