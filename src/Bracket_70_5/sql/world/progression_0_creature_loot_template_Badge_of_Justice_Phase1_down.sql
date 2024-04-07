@@ -1,5 +1,5 @@
 -- Restore Badge of Justice from Phase 1 Raids
-DELETE FROM `creature_loot_template` WHERE `Entry` IN  (17225, 15690, 15688, 15689, 16524, 15691, 17533, 18168, 17521, 16457, 15687, 16152, 19044, 18831, 17257, 21216, 21217, 21215, 21214, 21213, 21212, 19514, 19622, 19516, 18805) AND (`Item` IN (29434));
+DELETE FROM `creature_loot_template` WHERE `Entry` IN  (17225, 15690, 15688, 15689, 16524, 15691, 17533, 18168, 17521, 16457, 15687, 16152, 19044, 18831, 17257, 21216, 21217, 21215, 21214, 21213, 21212, 19514, 19622, 19516, 18805, 17767, 17808, 17888, 17842, 17968) AND (`Item` IN (29434));
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (17257, 29434, 0, 100, 0, 1, 0, 3, 3, 'Magtheridon - Badge of Justice'),
 (18831, 29434, 0, 100, 0, 1, 0, 2, 2, 'High King Maulgar - Badge of Justice'),
@@ -25,4 +25,9 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19514, 29434, 0, 100, 0, 1, 0, 2, 2, 'Al\'ar - Badge of Justice'),
 (19622, 29434, 0, 100, 0, 1, 0, 2, 2, 'Kael\'thas - Badge of Justice'),
 (19516, 29434, 0, 100, 0, 1, 0, 2, 2, 'Void Reaver - Badge of Justice'),
-(18805, 29434, 0, 100, 0, 1, 0, 2, 2, 'Solarian - Badge of Justice');
+(18805, 29434, 0, 100, 0, 1, 0, 2, 2, 'Solarian - Badge of Justice'),
+(17767, 29434, 0, 100, 0, 1, 0, 2, 2, 'Rage Winterchill - Badge of Justice'),
+(17808, 29434, 0, 100, 0, 1, 0, 2, 2, 'Anetheron - Badge of Justice'),
+(17888, 29434, 0, 100, 0, 1, 0, 2, 2, 'Kaz\'rogal - Badge of Justice'),
+(17842, 29434, 0, 100, 0, 1, 0, 2, 2, 'Azgalor - Badge of Justice'),
+(17968, 29434, 0, 100, 0, 1, 0, 2, 2, 'Archimonde - Badge of Justice');
