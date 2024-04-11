@@ -6,9 +6,7 @@ It allows to load scripts and sql files automatically dependent on level bracket
 </br>
 CONFIG
 
-[Here](https://github.com/UltraNix/mod_progression-system/blob/master/conf/progression_system.conf.dist#L34) you can set which level brackets should be loaded. It'a bitmask, so you can set here multiple brackets to be loaded. [Allowed brackets masks](https://github.com/UltraNix/mod_progression-system/blob/master/src/ProgressionSystem.h#L11)
-
-E.g. If you set 64, it means that scripts/sql files from level 50-59 - Tier B will be loaded. If you set 127, then all level brackets up to level 60 Tier 1. 0 means nothing - none of the scripts/sqls will be loaded.
+[Here](https://github.com/azerothcore/mod-progression-system/blob/main/conf/progression_system.conf.dist#L40-L68) you can set which level brackets should be loaded. It's a bool configuration where 0 is deactivated and 1 is activated. You can add custom files to Bracket_Custom, they will be executed at the very last, meaning it will load all the previous brackets before loading the custom one. The naming convention for this sql file should be progression_custom_%%%% or it won't respect the apply order.
 
 </br>
 </br>
@@ -37,3 +35,8 @@ C++ scripts can also be automatically loaded dependent on bracket level. All you
 </br>
 </br>
 WARNING: If you are applying some changes to main script (in AzerothCore) and they are independent from the level bracket, you should apply these changes to your progressive script as well.
+</br>
+</br>
+<b>DISCLAIMER<b>
+This module is used by Chromiecraft and the progression order here presented will oftentimes reflect Chromiecraft's progression. If you would like a different progression you are free to change the order of the files (file locations) and scripts as you would like.
+
