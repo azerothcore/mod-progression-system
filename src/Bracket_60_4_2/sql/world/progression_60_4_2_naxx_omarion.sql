@@ -1,18 +1,5 @@
--- Add Omarion to the cage in The Military Quarter
-SET @GUID:= 88811;
-DELETE FROM `creature` WHERE `guid` = @GUID AND `id1` = 16365;
-INSERT INTO `creature`
-(`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`,
-`phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`,
-`orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`,
-`curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`,
-`ScriptName`, `VerifiedBuild`)
-VALUES
-(@GUID, 16365, 0, 0, 533, 0, 0, 3, 1, 0, 2853.57, -3251.69, 298.21, 5.19, 3520,
-0.0, 0, 3052, 0, 0, 0, 0, 0, '', 0);
-
 -- Handle gossip with cpp script
-UPDATE `creature_template` SET `ScriptName`='npc_omarion_gossip',`gossip_menu_id`=0 WHERE `entry` = 16365;
+UPDATE `creature_template` SET `ScriptName`='npc_omarion_gossip',`gossip_menu_id`=0, `faction`=1766 WHERE `entry` = 16365;
 
 SET @ID:= 24400;
 -- Set correct text when gossip tailor/leatherwork/blacksmith option
@@ -47,11 +34,11 @@ UPDATE `npc_text` SET `Probability0`=1, `em0_0`=0, `em0_1`=1, `em0_2`=0, `em0_3`
 UPDATE `broadcast_text` SET `EmoteID1`=1, `EmoteID2`=0, `EmoteID3`=0 WHERE `ID` = 12258;
 -- Create menus
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN
-(@ID, @ID+1, @ID+2, @ID+3, @ID+4);
+                                       (@ID, @ID+1, @ID+2, @ID+3, @ID+4);
 INSERT INTO `gossip_menu_option`
 (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`,
-`OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`,
-`BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`)
+ `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`,
+ `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`)
 VALUES
 (@ID,   1, 0, 'Thank you, Omarion. You have taken a fatal blow for the team on this day.', 12281, 1, 1, 0,     0, 0, 0, '', 0, 0),
 (@ID+1, 1, 3, 'Glacial Cloak.',                                                            12254, 1, 1, @ID+1, 0, 0, 0, '', 0, 0),
