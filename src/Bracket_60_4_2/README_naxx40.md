@@ -1,9 +1,76 @@
-# Scaling lvl80 Naxx25 to lvl60 Naxx25
+# Changes in v2
+Implement changes inspired by Zhen's IndividualProgression mod
 
-Also see AutoBalance fork https://github.com/SoglaHash/mod-autobalance-naxx25-60/tree/naxx
+- [x] Removed autobalancer
+- [x] Leave Naxx10/25 untouched, instead add new creatures GUIDs in 10man HC
+- [x] Instance/boss has their own *cpp script allowing for naxx40 mechanics
+
+IndividualProgression has made some fixes/improvement to these original scripts. Some changes I can highlight
+- [x] Entrance script improved
+- [x] Beta entrance in Strat. Must enter once through Strat with attunement quest completed
+
+## TODO/Issues list
+Shared issues with Zhen's mod-individual-progression.
+
+https://github.com/ZhengPeiRu21/mod-individual-progression/issues/70
+
+Note that this mod uses an autobalancer so issues with damage may be due to the autobalancer.
+
+-[ ] Naxx40 spells, boss scripts and encounters are not implemented correctly
+-[ ] Sewage Slime, slime that spawns from Grobulus are lvl 80
+-[ ] Horse mounts from trash before Razuvious are lvl 80
+-[ ] Living Poison aka Frogger before Naxx is missing in lvl 60 instance
+
+## GM commands to help test
+
+attunement - reputation honored - complete quest
+```
+.mod reputation 529 10000
+.quest complete 9121
+.go creature 54192
+```
+
+teleport to naxx entrance inside strat
+```
+.go xyz 3960 -3392 121 329
+```
+
+reset instance
+```
+.instance unbind all
+```
+
+10man HC
+```
+/script SetRaidDifficulty(4)
+```
+
+go Thaddius
+```
+.go c 130957
+```
+
+4H door
+```
+.gobject activate 65753
+.go c 130961
+```
+
+patchwerk
+```
+.go c 128135
+```
+
+Naxx cauldron
+```
+.go xyz 3124 -3732 134
+```
+
+# Dev notes below regarding data/implementation details
+
+## Scaling lvl80 Naxx25 to lvl60 Naxx25
 
 A video (WIP). See more details below
-
 
 https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
 
@@ -36,7 +103,6 @@ Progress:
 - [ ] Accurate Naxx40 mechanics
 
 floating naxx 25 pathing plaguewood
-
 
 
 https://user-images.githubusercontent.com/74299960/184688910-a65da21f-cd03-4e46-b22e-7021fc1deb48.mp4
@@ -95,11 +161,10 @@ archmage
 https://user-images.githubusercontent.com/74299960/188228191-6a0598be-161c-4a8e-9eea-b9b5b67194fc.mp4
 
 
-
 ## Naxx Fixes
 I put fixes in fixes-*.sql
 
-Portal/instance/tp fixes in azerothcore/azerothcore-wotlk PR #12696
+PR has been merged, fixes-sql has been removed
 
 ```
 -- .go xyz 3668 -1262 310 (with .gm fly on)
@@ -123,13 +188,13 @@ SET @SAPPHIRON_EXIT_SPELL:= 72613;
 SET @SAPPHIRON_ENTRY_SPELL:= 72617;
 ```
 
-This fixes overlapping portals inside and outside Naxxramas. Their              
-rotation is also corrected (from CCW to CW). The post-boss                      
-Naxxramas portals now teleport to the blue hub portal and activate only         
-when all wings are cleared. This requirement can be bypassed with the           
-orbs, which are now correctly                                                   
-casting their respective sapphiron entry/exit spells in addition to having the  
-correct position.   
+This fixes overlapping portals inside and outside Naxxramas. Their
+rotation is also corrected (from CCW to CW). The post-boss
+Naxxramas portals now teleport to the blue hub portal and activate only
+when all wings are cleared. This requirement can be bypassed with the
+orbs, which are now correctly
+casting their respective sapphiron entry/exit spells in addition to having the
+correct position.
 
 Summary of multiple approaches
 ## 1 Select and Update ❌
@@ -140,7 +205,7 @@ PROS: EZ
 
 CONS: Data value of spells is not changed
 
-## 2 Autobalancer  ✅ 
+## 2 Autobalancer  ✅
 Set scaling with autobalancer script.
 Only autobalance creatures in Naxxramas (mapID: 533)
 
@@ -175,7 +240,7 @@ PROS: Low overhead scaling, Allows blizzlike lvl 60 Naxx mechanics, NPCs and map
 # Data
 some data of Naxx25
 
-## Select non-bosses 
+## Select non-bosses
 select spawned on map 533
 ```
 SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21;
@@ -333,7 +398,7 @@ https://www.youtube.com/watch?v=YgI2AMHMYe8
 
 can implement based on 14338
 
-lvl 60 char 
+lvl 60 char
 ```
 .tele lightshope
 .mod reputation 529 10000
@@ -513,7 +578,7 @@ lootspider
 
 ### Create Markdown tables of ACore DB
  ```
- select entry, difficulty_entry_1, name, lootid, skinloot, pickpocketloot  from creature_template where 
+ select entry, difficulty_entry_1, name, lootid, skinloot, pickpocketloot  from creature_template where
 entry  IN (...)
 ```
 
@@ -578,7 +643,7 @@ Mobs should not drop loot
 (16982, 14881, 16030, 16068, 16998, 16486, 16124, 16286, 17055, 16698, 16360,
 16428, 16429, 16427, 16375, 16057, 16441, 16037, 16036, 16290, 16024, 16056,
 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573,
-16148, 16149, 16150, 16127, 16029, 16126, 16142) 
+16148, 16149, 16150, 16127, 16029, 16126, 16142)
 ```
 
 
@@ -785,7 +850,7 @@ Naxx25 scaling observed with linear scaling factor X
 |Venom Stalker	|94320| 94321	|
 |Noth the Plaguebringer|	1665500| 1612000	|
 |Frenzied Bat|	10682| 9157	|
-|Patchwork Golem|	88032| 94321	| 
+|Patchwork Golem|	88032| 94321	|
 |Embalming Slime|	12208| 12209	|
 |Patchwork|	3997200| 3114000 	|
 
@@ -799,7 +864,7 @@ Spell damage values need to be changed
 Grab Wrath Spells
 We have a list of creatures in Naxx
 look up their smart ai scripts
-lookup the spells, then open spellDBC 
+lookup the spells, then open spellDBC
 https://github.com/wowgaming/node-dbc-reader
 
 Grab Brotalnia 1.12 Spells
@@ -825,7 +890,7 @@ custom map area
 ## Gold value
 bosses gold value
 ```
-select entry, MinLootGold, MaxLootGold  from creature_template where entry in 
+select entry, MinLootGold, MaxLootGold  from creature_template where entry in
 (15931, 15932, 15936, 15953, 15954, 15956, 16011, 16028, 16060, 16061, 15928, 15952, 16064, 16065, 30549, 16063, 15989, 15990);
 ```
 ## Trash loot
@@ -849,11 +914,11 @@ GUID 65854
 
 ID 181230
 
-Damnation 
+Damnation
 
 40348
 
-gameobject_loot_template 
+gameobject_loot_template
 
 Entry=25193
 
@@ -875,8 +940,6 @@ reference_loot_template
 token 22349
 
 
-
-
 ## Boss loot
 Adjust templates in Acore. Overwrite Naxx25 (if needed and Naxx10) GUIDs.
 
@@ -890,7 +953,7 @@ creature_loot_template
     Entry loot_id 15928
     22726 (atiesh)
     30450 ref
-       reference_loot_template 
+       reference_loot_template
        22353
        22361
        22367
@@ -899,7 +962,7 @@ creature_loot_template
        22360
        22367
     30452 ref
-       reference_loot_template 
+       reference_loot_template
        22801
        22808
        23000
@@ -915,7 +978,7 @@ Loot CMangos
 https://github.com/brotalnia/database
 `world_full_14_june_2021.7z`
 
-I setup a stack with Portainer and imported the data. 
+I setup a stack with Portainer and imported the data.
 
 Setup a `uploads.ini` (see below) to increase upload size. Go to localhost:8090 and upload SQL to import data.
 
@@ -968,7 +1031,7 @@ item in bags on use:
     CONS: more difficult to implement
 Set epic, itemlvl, turn off boa
 
-portal NPC: 
+portal NPC:
     https://github.com/Zoidwaffle/sql-npc-teleporter
     PRO: easy
     CONS: boring, not blizzlike
@@ -993,7 +1056,7 @@ ID GUID
 202278 268048
 
 29295 Tele DND -> does nothing
-72613 -> teles to Sapphiron (exit) 
+72613 -> teles to Sapphiron (exit)
 72617 Spphiron Entry: Teles to naxxramas
 
 just add the gameobject to EPL
@@ -1005,7 +1068,7 @@ Add transporter that you need to click like BWL orb
 icy rune
 186747
 or frozen rune
-181287 
+181287
 blue rune 182591 (wall) or 182590 ground
 necro rune stone
 189314
@@ -1021,7 +1084,7 @@ void OnPlayerEnter(Player* player) override
 }
 ```
 
-## Attunement 
+## Attunement
 Requires in acore is either quest completed, achievement or item in bags.
 
 Blizzlike Naxx attunement is OR of 3 quests. Not possible to add Blizzlike by only updating dungeon_access_requirements
@@ -1035,7 +1098,7 @@ Attunement quests
 9121
 9122
 9123
-reward learn spell 
+reward learn spell
 arcane cloaking
 280006
 
@@ -1065,7 +1128,7 @@ Either condition of either of 3 quests OR arcane cloaking learned
 
 
 Test attunement
-make fresh lvl 60 char 
+make fresh lvl 60 char
 try without attunement and try with attunement
 attunement spells are `9121, 9122, 9123`
 the attunement has an OR condition.
@@ -1080,7 +1143,7 @@ quest for 1 character.
 ```
 
 Test T3
-lvl 60 char 
+lvl 60 char
 ```
 .tele lightshope
 .mod reputation 529 10000
@@ -1101,7 +1164,7 @@ Check loot quests after echoes of war
 ## T3 loot quests
 
 loot quests wrong allowable classes
-also 
+also
 missing quest starter and quest ender
 
 hunter character
@@ -1138,33 +1201,3 @@ Also T3 paladin helm quest is the only one not disabled.
 
 
 Echoes of war needs upading so it can be completed in 1 raid ID
-
-## Some commands
-
-set 25man difficulty
-```
-/script SetRaidDifficulty(2)
-```
-
-reset instance
-```
-.instance unbount all
-```
-go Thaddius
-```
-.go c 130957
-```
-4H door
-```
-.gobject activate 65753
-.go c 130961
-```
-patchwerk
-```
-.go c 128135
-```
-
-Naxx cauldron
-```
-.go xyz 3124 -3732 134
-```
