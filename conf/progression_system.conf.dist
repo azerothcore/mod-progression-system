@@ -29,18 +29,52 @@ ProgressionSystem.LoadDatabase = 1
 #                     0 - Disabled
 #
 
-ProgressionSystem.ReapplyUpdates = 0
+ProgressionSystem.ReapplyUpdates = 1
 
 #
-#    ProgressionSystem.Brackets
-#        Description: Defined what brackets should be loaded. It is a bitmask. Available mask values are present in ProgressionSystem.h
-#        Default:     0 - None
-#                     > 0 - Specific brackets are loaded
-#					  E.g. 256 is Bracket 60 - Tier 2;
-#						   14 is: Bracket 10-19, 20-29 and 30-39
+#    ProgressionSystem.Bracket_X
+#        Description: Defines if the bracket should be loaded being 0 not loaded, 1 loaded.
+#        Default:     0 - Not loaded.
 #
 
-ProgressionSystem.Brackets = 0
+ProgressionSystem.Bracket_0       = 1
+ProgressionSystem.Bracket_1_19    = 1  # Shadowfang Keep, Deadmines, Wailing Caverns, Blackfathom Deeps, Ragefire Chasm
+ProgressionSystem.Bracket_20_29   = 1  # Stormwind Stockades, Razorfen Kraul, Gnomeregan
+ProgressionSystem.Bracket_30_39   = 1  # Uldaman, Razorfen Downs, Scarlet Monastery
+ProgressionSystem.Bracket_40_49   = 1  # Sunken Temple, Zul'Farrak, Maraudon
+ProgressionSystem.Bracket_50_59_1 = 1  # Blackrock Depths, Dire Maul, Scholomance, Stratholme
+ProgressionSystem.Bracket_50_59_2 = 1  # Blackrock Spire attunement requirement
+ProgressionSystem.Bracket_60_1_1  = 1  # Blackrock Spire
+ProgressionSystem.Bracket_60_1_2  = 1  # Molten Core
+ProgressionSystem.Bracket_60_2_1  = 1  # Onyxia's Lair
+ProgressionSystem.Bracket_60_2_2  = 1  # Blackwing Lair
+ProgressionSystem.Bracket_60_3_1  = 1  # Zul'Gurub
+ProgressionSystem.Bracket_60_3_2  = 1  # AQ20
+ProgressionSystem.Bracket_60_3_3  = 1  # AQ40
+ProgressionSystem.Bracket_60_4_1  = 1  # Scourge Event
+ProgressionSystem.Bracket_60_4_2  = 1  # NAXX40
+ProgressionSystem.Bracket_61_64   = 0 # 61-64 Dungeons
+ProgressionSystem.Bracket_65_69   = 0 # 65-69 Dungeons
+ProgressionSystem.Bracket_70_1_1  = 0 # Level 70, Flying, Normal Dungeons
+ProgressionSystem.Bracket_70_1_2  = 0 # Level 70, Heroics
+ProgressionSystem.Bracket_70_2_1  = 0 # Gruul's Lair, Magtheridon's Lair, Arena Season 1
+ProgressionSystem.Bracket_70_2_2  = 0 # Karazhan
+ProgressionSystem.Bracket_70_2_3  = 0 # Ogri'la
+ProgressionSystem.Bracket_70_3_1  = 0 # Serpentshrine Cavern
+ProgressionSystem.Bracket_70_3_2  = 0 # The Eye, Sha'tari Skyguard
+ProgressionSystem.Bracket_70_4_1  = 0 # Battle For Mount Hyjal, Arena Season 2, Netherwing
+ProgressionSystem.Bracket_70_4_2  = 0 # Black Temple
+ProgressionSystem.Bracket_70_5    = 0 # Zul'Aman, Arena Season 3
+ProgressionSystem.Bracket_70_6_1  = 0 # Isle of Quel'Danas, Magister's  Terrace
+ProgressionSystem.Bracket_70_6_2  = 0 # Sunwell Plateau, Arena Season 4
+ProgressionSystem.Bracket_71_74   = 0 # 71-74 Dungeons
+ProgressionSystem.Bracket_75_79   = 0 # 75-79 Dungeons
+ProgressionSystem.Bracket_80_1    = 0 # Heroic Dungeons, Naxxramas, Obsidian Sanctum, The Eye of Eternity, Vault of Archavon, Arena Season 5
+ProgressionSystem.Bracket_80_2    = 0 # Ulduar, Trial of the Champion, Arena Season 6
+ProgressionSystem.Bracket_80_3    = 0 # Onyxia's Lair, Trial of The Crusader, Arena Season 7
+ProgressionSystem.Bracket_80_4_1  = 0 # Icecrown Citadel, ICC Dungeons, Arena Season 8
+ProgressionSystem.Bracket_80_4_2  = 0 # Ruby Sanctum
+ProgressionSystem.Bracket_Custom  = 0
 
 #
 #
@@ -75,14 +109,21 @@ ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction = 0
 ProgressionSystem.60.WorldBosses.KazzakPhasing = 1
 
 #
-#     ProgressionSystem.60.Naxxramas.rate.*
-#        Tune all rates increasing/decreasing difficulty in a linear way
-#        Note that global rate will increase all other rates. For example:
-#        global = 2.0 , damage = 1.5  -> it means that damage will be 3.0
-#        Default:     1.0
+#    ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses
+#        Description: Requires all bosses being killed before accessing Vashj's console panel.
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
 
-ProgressionSystem.60.Naxxramas.rate.global = 1.0
-ProgressionSystem.60.Naxxramas.rate.health = 1.0
-ProgressionSystem.60.Naxxramas.rate.mana   = 1.0
-ProgressionSystem.60.Naxxramas.rate.armor  = 1.0
-ProgressionSystem.60.Naxxramas.rate.damage = 1.0
+ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses = 1
+
+#
+#    ProgressionSystem.70.TheEye.RequireAllBosses
+#        Description: Requires all bosses being killed to open the doors to Kael
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+ProgressionSystem.70.TheEye.RequireAllBosses = 1
