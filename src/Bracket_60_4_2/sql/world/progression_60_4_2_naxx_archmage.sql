@@ -1,10 +1,5 @@
 -- Add Archmage Tarsis Kir-Moldir
-SET @GUID:= 88813;
 UPDATE `creature_template` SET `gossip_menu_id` = 7229, `npcflag` = 1, `unit_flags` = 512 WHERE (`entry` = 16381);
-DELETE FROM `creature` WHERE `guid` = @GUID and `id1` = 16381;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(@GUID, 16381, 0, 0, 533, 0, 0, 3, 1, 0, 3005.77, -3486.86, 299.73, 1.62, 3520,
-0.0, 0, 256410, 0, 0, 0, 0, 0, '', 0);
 
 -- Sleep
 DELETE FROM `creature_template_addon` WHERE (`entry` = 16381);
@@ -20,8 +15,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (16381, 3, 0, '%s scratches at his throat.', 16, 0, 100, 0, 0, 0, 12314, 0, 'Archmage Tarsis Kir-Moldir');
 
 -- Menu
-DELETE FROM `gossip_menu` WHERE `MenuID` IN 
-(7222, 7223, 7224, 7225, 7226, 7227, 7228, 7231, 7232, 7233);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN
+                                (7222, 7223, 7224, 7225, 7226, 7227, 7228, 7231, 7232, 7233);
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 (7222, 8523),
 (7223, 8522),
