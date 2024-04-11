@@ -97,7 +97,7 @@ public:
     {
         boss_apothecary_hummelAI_1_19(Creature* creature) : BossAI(creature, DATA_APOTHECARY_HUMMEL), _deadCount(0), _isDead(false)
         {
-            _scheduler.SetValidator([this]
+            scheduler.SetValidator([this]
                 {
                     return !me->HasUnitState(UNIT_STATE_CASTING);
                 });
@@ -136,7 +136,7 @@ public:
             {
                 events.SetPhase(PHASE_INTRO);
                 _phase = PHASE_INTRO;
-                _scheduler.Schedule(1ms, [this](TaskContext /*context*/)
+                scheduler.Schedule(1ms, [this](TaskContext /*context*/)
                     {
                         Talk(SAY_INTRO_0);
                     })
@@ -240,9 +240,8 @@ public:
                 Talk(SAY_HUMMEL_DEATH);
             }
 
-            _scheduler.CancelAll();
+            _JustDied();
             me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
-            instance->SetBossState(DATA_APOTHECARY_HUMMEL, DONE);
 
             Map::PlayerList const& players = me->GetMap()->GetPlayers();
             if (!players.IsEmpty())
@@ -280,7 +279,7 @@ public:
                 return;
             }
 
-            _scheduler.Update(diff, [this]
+            scheduler.Update(diff, [this]
                 {
                     DoMeleeAttackIfReady();
                 });
@@ -289,7 +288,6 @@ public:
     private:
         uint8 _deadCount;
         bool _isDead;
-        TaskScheduler _scheduler;
         uint8 _phase;
     };
 
