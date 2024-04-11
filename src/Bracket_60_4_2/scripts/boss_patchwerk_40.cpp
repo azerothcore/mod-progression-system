@@ -184,7 +184,7 @@ public:
     };
 };
 
-void AddSC_boss_patchwerk_60_4_B()
+void AddSC_boss_patchwerk_40()
 {
     new boss_patchwerk_40();
 }

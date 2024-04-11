@@ -297,7 +297,7 @@ public:
     };
 };
 
-void AddSC_boss_noth_60_4_B()
+void AddSC_boss_noth_40()
 {
     new boss_noth_40();
 }

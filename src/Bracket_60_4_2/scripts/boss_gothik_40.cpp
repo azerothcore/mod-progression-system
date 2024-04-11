@@ -710,7 +710,7 @@ public:
     }
 };
 
-void AddSC_boss_gothik_60_4_B()
+void AddSC_boss_gothik_40()
 {
     new boss_gothik_40();
     new npc_boss_gothik_minion_40();

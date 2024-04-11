@@ -188,7 +188,7 @@ public:
                         {
                             if (Aura* aura = player->GetAura(SPELL_WEB_SPRAY))
                             {
-                                aura->SetDuration(8000);  // Set the duration to 8 seconds
+                                aura->SetDuration(8000);  // Set the duration to 8 seconds 
                             }
                         }
                     }
@@ -311,7 +311,7 @@ public:
     };
 };
 
-void AddSC_boss_maexxna_60_4_B()
+void AddSC_boss_maexxna_40()
 {
     new boss_maexxna_40();
     new boss_maexxna_webwrap40();

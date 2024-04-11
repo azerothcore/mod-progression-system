@@ -741,7 +741,7 @@ public:
     }
 };
 
-void AddSC_boss_kelthuzad_60_4_B()
+void AddSC_boss_kelthuzad_40()
 {
     new boss_kelthuzad_40();
     new boss_kelthuzad_minion_40();

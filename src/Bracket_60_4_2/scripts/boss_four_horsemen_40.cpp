@@ -450,7 +450,7 @@ class spell_four_horsemen_consumption : public SpellScript
     }
 };
 
-void AddSC_boss_four_horsemen_60_4_B()
+void AddSC_boss_four_horsemen_40()
 {
     new boss_four_horsemen_40();
 //    new spell_four_horsemen_mark();
