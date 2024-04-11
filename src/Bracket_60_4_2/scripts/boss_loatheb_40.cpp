@@ -195,7 +195,7 @@ public:
     };
 };
 
-void AddSC_boss_loatheb_40()
+void AddSC_boss_loatheb_60_4_B()
 {
     new boss_loatheb_40();
 }

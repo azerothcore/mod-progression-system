@@ -262,7 +262,7 @@ public:
     };
 };
 
-void AddSC_boss_faerlina_40()
+void AddSC_boss_faerlina_60_4_B()
 {
     new boss_faerlina_40();
 }

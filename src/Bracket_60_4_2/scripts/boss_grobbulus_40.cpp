@@ -317,7 +317,7 @@ class spell_grobbulus_mutating_injection : public SpellScriptLoader
         }
 };
 
-void AddSC_boss_grobbulus_40()
+void AddSC_boss_grobbulus_60_4_B()
 {
     new boss_grobbulus_40();
     new boss_grobbulus_poison_cloud_40();

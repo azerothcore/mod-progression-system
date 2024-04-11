@@ -287,7 +287,7 @@ public:
     }
 };
 
-void AddSC_boss_gluth_40()
+void AddSC_boss_gluth_60_4_B()
 {
     new boss_gluth_40();
     new spell_gluth_decimate();

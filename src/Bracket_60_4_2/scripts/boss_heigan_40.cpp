@@ -245,7 +245,7 @@ public:
     };
 };
 
-void AddSC_boss_heigan_40()
+void AddSC_boss_heigan_60_4_B()
 {
     new boss_heigan_40();
 }

@@ -37,7 +37,7 @@ enum Spells
 {
     SPELL_IMPALE                    = 28783,
     SPELL_LOCUST_SWARM              = 28785,
-    SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect 
+    SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect
     SPELL_SUMMON_CORPSE_SCRABS_5    = 90001, // Changed from 29105 to Level 60 Mob ID for summon
     SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, //  Changed from 29105 to Level 60 Mob ID for summon
     SPELL_BERSERK                   = 26662
@@ -248,7 +248,7 @@ public:
                 }
                 case EVENT_SPAWN_GUARD:
                     me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                    break; 
+                    break;
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
@@ -258,7 +258,7 @@ public:
     };
 };
 
-void AddSC_boss_anubrekhan_40()
+void AddSC_boss_anubrekhan_60_4_B()
 {
     new boss_anubrekhan_40();
 }

@@ -761,7 +761,7 @@ public:
     }
 };
 
-void AddSC_boss_thaddius_40()
+void AddSC_boss_thaddius_60_4_B()
 {
     new boss_thaddius_40();
     new boss_thaddius_summon_40();

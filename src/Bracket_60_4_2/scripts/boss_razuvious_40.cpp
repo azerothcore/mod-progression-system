@@ -225,7 +225,7 @@ public:
     };
 };
 
-void AddSC_boss_razuvious_40()
+void AddSC_boss_razuvious_60_4_B()
 {
     new boss_razuvious_40();
     new boss_razuvious_minion_40();

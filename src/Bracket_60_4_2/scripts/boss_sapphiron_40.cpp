@@ -507,7 +507,7 @@ public:
     }
 };
 
-void AddSC_boss_sapphiron_40()
+void AddSC_boss_sapphiron_60_4_B()
 {
     new boss_sapphiron_40();
     new spell_sapphiron_frost_explosion_40();
