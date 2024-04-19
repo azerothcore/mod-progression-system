@@ -1,4 +1,4 @@
-# Changes in v2
+# V2 devlog / notes
 Implement changes inspired by Zhen's IndividualProgression mod
 
 - [x] Removed autobalancer
@@ -16,9 +16,9 @@ https://github.com/ZhengPeiRu21/mod-individual-progression/issues/70
 
 Note that this mod uses an autobalancer so issues with damage may be due to the autobalancer.
 
--[ ] Naxx40 spells, boss scripts and encounters are not implemented correctly
--[ ] Sewage Slime, slime that spawns from Grobulus are lvl 80
--[ ] Horse mounts from trash before Razuvious are lvl 80
+-[ ] (see below) Naxx40 spells, boss scripts and encounters are not implemented correctly
+-[x] Sewage Slime, slime that spawns from Grobulus are lvl 80
+-[x] Horse mounts from trash before Razuvious are lvl 80
 -[ ] Living Poison aka Frogger before Naxx is missing in lvl 60 instance
 
 ## GM commands to help test
@@ -66,7 +66,30 @@ Naxx cauldron
 .go xyz 3124 -3732 134
 ```
 
-# Dev notes below regarding data/implementation details
+# Editing 80 spells / custom spells
+Workflow went like this:
+
+Look in CPP or smartAI with Keira3 https://github.com/azerothcore/Keira3
+what spellIds need changing
+
+https://github.com/stoneharry/WoW-Spell-Editor
+Import from DB (Mysql)
+if using default DB. user root, password password, port 3306, db acore_world
+import spells.dbc, create new spell 90000+ i.e. 90004
+Edit attribute, and export. Select SQL and click export dbc
+
+Go to ./Export folder and grep `grep 90004 Spell.sql`
+
+copy the query into `progression_60_4_2_naxx_spells.sql`
+
+Change smartAI or cpp to use new custom spellID
+
+## Exploring, comparing DBC Spells. Editing/exporting did not work for me. I used WoW-Spell-Editor instead
+https://github.com/azerothcore/SpellWork
+extract to azerothcore-wotlk/env/dist/data and run .exe
+
+
+# V1 Dev notes below regarding data/implementation details
 
 ## Scaling lvl80 Naxx25 to lvl60 Naxx25
 

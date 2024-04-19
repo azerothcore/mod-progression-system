@@ -50,7 +50,7 @@ enum Events
 enum Misc
 {
     NPC_FALLOUT_SLIME                       = 351067,
-    NPC_SEWAGE_SLIME                        = 351071,
+    NPC_SEWAGE_SLIME                        = 90003,
     NPC_STICHED_GIANT                       = 351027
 };
 
