@@ -6,6 +6,12 @@ INSERT INTO `spell_dbc` (`ID`,`Category`,`DispelType`,`Mechanic`,`Attributes`,`A
 (90003,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,101,0,0,0,0,26,0,0,0,0,0,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,28,0,0,1,0,0,0,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,351071,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,68,0,0,"Bombard Slime","","","","","","","","",0,0,0,0,0,0,0,16712190,"","","","","","","","","",0,0,0,0,0,0,0,16712190,"Bombards the area below with a Sewage Slime.","","","","","","","","",0,0,0,0,0,0,0,16712190,"","","","","","","","","",0,0,0,0,0,0,0,16712190,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0), # 28280 - Spell Bombard Slime - Sewage Slime (10)
 (90004,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,101,0,0,70,70,6,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,28,0,0,1,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,351041,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1952,0,0,"Dismount Deathcharger","","","","","","","","",0,0,0,0,0,0,0,16712190,"","","","","","","","","",0,0,0,0,0,0,0,16712188,"Summons a Skeletal Steed.","","","","","","","","",0,0,0,0,0,0,0,16712190,"","","","","","","","","",0,0,0,0,0,0,0,16712188,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0); # 55294 - Dismount Deathcharger - Skeletal Steed (10)
 
+-- Update target of spell 90003, summon Sewage Slime
+DELETE FROM `spell_target_position` WHERE (`ID` = 90003);
+INSERT INTO `spell_target_position`
+(`ID`, `EffectIndex`, `MapID`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `VerifiedBuild`)
+VALUES(90003, 0, 533, 3128.96, -3312.96, 293.25, 0.0, 0);
+
 -- Update Cavalier to use 90004, summon Skeletal Steed
 DELETE FROM `smart_scripts` WHERE (`entryorguid` = 351055) AND (`source_type` = 0) AND (`id` IN (6));
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES

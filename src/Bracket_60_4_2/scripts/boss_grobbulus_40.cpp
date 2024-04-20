@@ -31,7 +31,7 @@ enum Spells
     SPELL_SLIME_SPRAY                       = 28157,
     SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
     SPELL_BERSERK                           = 26662,
-    SPELL_BOMBARD_SLIME                     = 28280
+    SPELL_BOMBARD_SLIME                     = 90003
 };
 
 enum Emotes
@@ -50,7 +50,7 @@ enum Events
 enum Misc
 {
     NPC_FALLOUT_SLIME                       = 351067,
-    NPC_SEWAGE_SLIME                        = 90003,
+    NPC_SEWAGE_SLIME                        = 351071,
     NPC_STICHED_GIANT                       = 351027
 };
 
