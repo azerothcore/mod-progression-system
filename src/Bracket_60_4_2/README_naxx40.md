@@ -10,16 +10,33 @@ IndividualProgression has made some fixes/improvement to these original scripts.
 - [x] Beta entrance in Strat. Must enter once through Strat with attunement quest completed
 
 ## TODO/Issues list
-Shared issues with Zhen's mod-individual-progression.
-
-https://github.com/ZhengPeiRu21/mod-individual-progression/issues/70
-
-Note that this mod uses an autobalancer so issues with damage may be due to the autobalancer.
+Some shared issues with Zhen's mod-individual-progression. https://github.com/ZhengPeiRu21/mod-individual-progression/issues/70 Note that this mod uses an autobalancer so issues with damage may be due to the autobalancer.
 
 -[ ] (see below) Naxx40 spells, boss scripts and encounters are not implemented correctly
 -[x] Sewage Slime, slime that spawns from Grobulus are lvl 80
 -[x] Horse mounts from trash before Razuvious are lvl 80
 -[ ] Living Poison aka Frogger before Naxx is missing in lvl 60 instance
+-[x] Grobbulus: slime spray damage adjusted
+-[x] Grobbulus: debuff explosion damage adjusted
+-[x] Grobbulus: poison cloud damage, damage reduced by lowering ticktime
+-[ ] (skip) Grobbulus: poison cloud damage reduce damage properly. (requires custom spell+client patch)
+-[x] Gluth: enrage increased, icon not updated (requires custom spell+client patch)
+-[x] Thaddius: room Tesla shock reduced damage
+-[x] Thaddius: mark damage from 4500 to 2000
+-[x] Thaddius: lightning ball (wipe mechanic) adjusted
+-[x] Feugen: Power burn 500 every 3 seconds. Missing nature visual shock (requires custom spell). Or do hack with 63705 spell, change yards to 300. -500 mana, -2500 dmg
+
+Overview Spell fixes:
+Construct quarter
+-[x] Patchwerk
+-[x] Grobullus
+-[x] Gluth
+-[x] Thaddius
+-[ ] Thrash (not done)
+
+potential upstream/acore fixes:
+-[ ] Bombard Slime spell needs upstream fixes. Position is not random. Pos is pulled form spell_location template. Not present in VMangos/TC/CMangos from what I see
+-[ ] Thaddius is stuck in position and does not move
 
 ## GM commands to help test
 
@@ -69,7 +86,7 @@ Naxx cauldron
 # Editing 80 spells / custom spells
 Workflow went like this:
 
-Look in CPP or smartAI with Keira3 https://github.com/azerothcore/Keira3
+ Look in CPP or smartAI with Keira3 https://github.com/azerothcore/Keira3
 what spellIds need changing
 
 https://github.com/stoneharry/WoW-Spell-Editor
@@ -78,15 +95,35 @@ if using default DB. user root, password password, port 3306, db acore_world
 import spells.dbc, create new spell 90000+ i.e. 90004
 Edit attribute, and export. Select SQL and click export dbc
 
+create second folder and open 1.12
+
+create custom spell in 335 and match 1.12 values
+
 Go to ./Export folder and grep `grep 90004 Spell.sql`
 
 copy the query into `progression_60_4_2_naxx_spells.sql`
 
 Change smartAI or cpp to use new custom spellID
 
-## Exploring, comparing DBC Spells. Editing/exporting did not work for me. I used WoW-Spell-Editor instead
+## Exploring, comparing DBC Spells.
+Editing/exporting did not work for me. I used WoW-Spell-Editor instead
 https://github.com/azerothcore/SpellWork
 extract to azerothcore-wotlk/env/dist/data and run .exe
+
+## Spells
+requires client patch?
+detonate is still 10k
+poison cloud damage is 3k
+
+## Custom spell summon entry?
+?? Change entries of MiscValue to summon new entries?
+CastCustomSpell(...)
+
+Effect 0: Id 28 (SPELL_EFFECT_SUMMON)
+BasePoints = 1
+Targets (18, 0) (TARGET_DEST_CASTER, NO_TARGET)
+EffectMiscValueA = 16363
+EffectMiscValueB = 64
 
 
 # V1 Dev notes below regarding data/implementation details

@@ -25,13 +25,14 @@
 
 enum Spells
 {
-    SPELL_POISON_CLOUD                      = 28240,
+    SPELL_POISON_CLOUD                      = 90022, // update summon entry
     SPELL_MUTATING_INJECTION                = 28169,
     SPELL_MUTATING_EXPLOSION                = 28206,
     SPELL_SLIME_SPRAY                       = 28157,
     SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
+    SPELL_POISON_CLOUD_DAMAGE_AURA_TRIGGER  = 28241,
     SPELL_BERSERK                           = 26662,
-    SPELL_BOMBARD_SLIME                     = 90003
+    SPELL_BOMBARD_SLIME                     = 90003 // update summon entry
 };
 
 enum Emotes
@@ -170,10 +171,13 @@ public:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
                 case EVENT_SLIME_SPRAY:
+                {
                     Talk(EMOTE_SLIME);
-                    me->CastSpell(me->GetVictim(), SPELL_SLIME_SPRAY, false);
+                    int32 modifiedSlimeSprayDamage = urand(3200, 3400);
+                    me->CastCustomSpell(me->GetVictim(), SPELL_SLIME_SPRAY, &modifiedSlimeSprayDamage, 0, 0, false);
                     events.RepeatEvent(20000);
                     break;
+                }
                 case EVENT_MUTATING_INJECTION:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 100.0f, true, true, -SPELL_MUTATING_INJECTION))
                     {
@@ -225,10 +229,13 @@ public:
             if (auraVisualTimer) // this has to be delayed to be visible
             {
                 auraVisualTimer += diff;
-                if (auraVisualTimer >= 1000)
+                if (auraVisualTimer >= 3000) // Lowered to 3 seconds
                 {
-                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, true);
+                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, false);
                     auraVisualTimer = 0;
+                    // TODO: fix to vanilla values
+                    //int32 modifiedPoisonCloudDamage = 875;
+                    //me->CastCustomSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA_TRIGGER, &modifiedPoisonCloudDamage, nullptr, nullptr, true, nullptr, nullptr, me->GetGUID());
                 }
             }
             sizeTimer += diff; // increase size to 15yd in 60 seconds, 0.00025 is the growth of size in 1ms
@@ -275,14 +282,16 @@ public:
     }
 };
 
-class spell_grobbulus_mutating_injection : public SpellScriptLoader
+
+// This will overwrite the declared 10 and 25 man mutating injection to handle all versions of the spell script
+class spell_grobbulus_mutating_injection_40 : public SpellScriptLoader
 {
     public:
-        spell_grobbulus_mutating_injection() : SpellScriptLoader("spell_grobbulus_mutating_injection") { }
+        spell_grobbulus_mutating_injection_40() : SpellScriptLoader("spell_grobbulus_mutating_injection") { }
 
-        class spell_grobbulus_mutating_injection_AuraScript : public AuraScript
+        class spell_grobbulus_mutating_injection_40_AuraScript : public AuraScript
         {
-            PrepareAuraScript(spell_grobbulus_mutating_injection_AuraScript);
+            PrepareAuraScript(spell_grobbulus_mutating_injection_40_AuraScript);
 
             bool Validate(SpellInfo const* /*spellInfo*/) override
             {
@@ -297,7 +306,15 @@ class spell_grobbulus_mutating_injection : public SpellScriptLoader
                     case AURA_REMOVE_BY_EXPIRE:
                         if (auto caster = GetCaster())
                         {
-                            caster->CastSpell(GetTarget(), SPELL_MUTATING_EXPLOSION, true);
+                            if (caster->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                            {
+                                int32 modifiedMutatingExplosionDamage = 2379;
+                                caster->CastCustomSpell(GetTarget(), SPELL_MUTATING_EXPLOSION, &modifiedMutatingExplosionDamage, 0, 0, true);
+                            }
+                            else
+                            {
+                                caster->CastSpell(GetTarget(), SPELL_MUTATING_EXPLOSION, true);
+                            }
                         }
                         break;
                     default:
@@ -307,13 +324,13 @@ class spell_grobbulus_mutating_injection : public SpellScriptLoader
 
             void Register() override
             {
-                AfterEffectRemove += AuraEffectRemoveFn(spell_grobbulus_mutating_injection_AuraScript::HandleRemove, EFFECT_0, SPELL_AURA_DUMMY, AURA_EFFECT_HANDLE_REAL);
+                AfterEffectRemove += AuraEffectRemoveFn(spell_grobbulus_mutating_injection_40_AuraScript::HandleRemove, EFFECT_0, SPELL_AURA_DUMMY, AURA_EFFECT_HANDLE_REAL);
             }
         };
 
         AuraScript* GetAuraScript() const override
         {
-            return new spell_grobbulus_mutating_injection_AuraScript();
+            return new spell_grobbulus_mutating_injection_40_AuraScript();
         }
 };
 
@@ -321,6 +338,6 @@ void AddSC_boss_grobbulus_40()
 {
     new boss_grobbulus_40();
     new boss_grobbulus_poison_cloud_40();
-//    new spell_grobbulus_mutating_injection();
+    new spell_grobbulus_mutating_injection_40();
 //    new spell_grobbulus_poison();
 }
