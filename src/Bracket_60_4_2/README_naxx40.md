@@ -13,13 +13,17 @@ IndividualProgression has made some fixes/improvement to these original scripts.
 Some shared issues with Zhen's mod-individual-progression. https://github.com/ZhengPeiRu21/mod-individual-progression/issues/70 Note that this mod uses an autobalancer so issues with damage may be due to the autobalancer.
 
 -[ ] (see below) Naxx40 spells, boss scripts and encounters are not implemented correctly
--[x] Sewage Slime, slime that spawns from Grobulus are lvl 80
--[x] Horse mounts from trash before Razuvious are lvl 80
--[ ] Living Poison aka Frogger before Naxx is missing in lvl 60 instance
+
+Bosses
+Construct
+-[x] Patchwerk
+-[x] Grobullus
+-[x] Gluth
+-[x] Thaddius
+-[x] Living Poison aka Frogger before Naxx is missing in lvl 60 instance
 -[x] Grobbulus: slime spray damage adjusted
 -[x] Grobbulus: debuff explosion damage adjusted
 -[x] Grobbulus: poison cloud damage, damage reduced by lowering ticktime
--[ ] Pathwerk Trash: awkward pathing
 -[ ] (skip) Grobbulus: poison cloud damage reduce damage properly. (requires custom spell+client patch)
 -[x] Gluth: enrage increased, icon not updated (requires custom spell+client patch)
 -[x] Thaddius: room Tesla shock reduced damage
@@ -27,16 +31,14 @@ Some shared issues with Zhen's mod-individual-progression. https://github.com/Zh
 -[x] Thaddius: lightning ball (wipe mechanic) adjusted
 -[x] Feugen: Power burn 500 every 3 seconds. Missing nature visual shock (requires custom spell). Or do hack with 63705 spell, change yards to 300. -500 mana, -2500 dmg
 
-Overview Spell fixes:
 Construct quarter
--[x] Patchwerk
--[x] Grobullus
--[x] Gluth
--[x] Thaddius
--[ ] Thrash (not done)
-
 Trash
+Military
+-[x] Horse mounts from trash before Razuvious are lvl 80
+
 Construct
+-[x] Sewage Slime, slime that spawns from Grobulus are lvl 80
+-[ ] Pathwerk Trash (see below): awkward pathing with formations?
 -[ ] Sewage Slime, disease cloud 28153. Ticks for 600 instead of 300. Trigger spell requires spellscript HandleDamage
 -[x] Bile Retcher 351022  - 27807 Bile Vomit - ~5k instant, ~1200 dot to ~1500 instant, 250 dot
 -[x] Patchwerk Golem - cleave based on weapon damage instead of raw damage in classic. Requires custom patch
@@ -51,18 +53,22 @@ Construct
 -[x] Toxic Tunnel - unchanged, damage should be 300->200. Triggered spell 28369. Requires custom patch
 -[x] Necropolis Acolyte - Casts Shadow Bolt Volley and Arcane Explosion
 -[x] Plagued Ghoul - 351078, update smartAI
+-[x] Spirit of Naxxramas, update aura
+-[x] Deathknight Vindicator, smartAI
+-[x] Necro Knight Guardian, smartAI
 
 Issue Patchwerk Trash:
 Creature formations of patchwerk golems. Awkward pathing
 361229 leader, follow the leader but also wander?
+-[x] Removed wandering from non-leader
 (361229, 361227, 10.8064, 306.6246666000065, 515, 0, 0),
 (361229, 361228, 7.08383, 261.72081828001365, 515, 0, 0),
 (361229, 361246, 6.33888, 349.3644533277902, 515, 0, 0),
 
 potential upstream/acore fixes:
--[ ] Bombard Slime spell needs upstream fixes. Position is not random. Pos is pulled form spell_location template. Not present in VMangos/TC/CMangos from what I see
+-[ ] Bombard Slime spell position is not random. Pos is pulled form spell_location template. Not present in VMangos/TC/CMangos from what I see
 -[ ] Thaddius is stuck in position and does not move
--[ ] Lightning Totem, aggro issues?
+-[ ] Lightning Totem does not aggro properly?
 
 ## GM commands to help test
 
