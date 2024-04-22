@@ -19,6 +19,7 @@ Some shared issues with Zhen's mod-individual-progression. https://github.com/Zh
 -[x] Grobbulus: slime spray damage adjusted
 -[x] Grobbulus: debuff explosion damage adjusted
 -[x] Grobbulus: poison cloud damage, damage reduced by lowering ticktime
+-[ ] Pathwerk Trash: awkward pathing
 -[ ] (skip) Grobbulus: poison cloud damage reduce damage properly. (requires custom spell+client patch)
 -[x] Gluth: enrage increased, icon not updated (requires custom spell+client patch)
 -[x] Thaddius: room Tesla shock reduced damage
@@ -34,9 +35,34 @@ Construct quarter
 -[x] Thaddius
 -[ ] Thrash (not done)
 
+Trash
+Construct
+-[ ] Sewage Slime, disease cloud 28153. Ticks for 600 instead of 300. Trigger spell requires spellscript HandleDamage
+-[x] Bile Retcher 351022  - 27807 Bile Vomit - ~5k instant, ~1200 dot to ~1500 instant, 250 dot
+-[x] Patchwerk Golem - cleave based on weapon damage instead of raw damage in classic. Requires custom patch
+-[x] Embalming Slime - same AoE damage, unchanged
+-[x] Mad Scientist - Heal, reduced from ~20% hp to ~10% hp. Vanilla is raw ~3k
+-[x] Mad Scientist - Mana Burn ~3.5k to ~1.5k
+-[x] Surgical Assitant - Mind Flay damage from 1.5k to 600 per tick
+-[x] Living Monstrosity - Chain Lightning damage from ~4k to ~1k. (Chain Lightning should 3 to 10. Range 45 to 30, requires custom script)
+-[x] Living Monstrosity - Summon lvl 62 Lightning Totem
+-[x] Lightning Totem - lvl62 - Shock damage ~3k to ~2k
+-[x] Stitched Spewer - unchanged, weapon damage instead of raw 2k dmg
+-[x] Toxic Tunnel - unchanged, damage should be 300->200. Triggered spell 28369. Requires custom patch
+-[x] Necropolis Acolyte - Casts Shadow Bolt Volley and Arcane Explosion
+-[x] Plagued Ghoul - 351078, update smartAI
+
+Issue Patchwerk Trash:
+Creature formations of patchwerk golems. Awkward pathing
+361229 leader, follow the leader but also wander?
+(361229, 361227, 10.8064, 306.6246666000065, 515, 0, 0),
+(361229, 361228, 7.08383, 261.72081828001365, 515, 0, 0),
+(361229, 361246, 6.33888, 349.3644533277902, 515, 0, 0),
+
 potential upstream/acore fixes:
 -[ ] Bombard Slime spell needs upstream fixes. Position is not random. Pos is pulled form spell_location template. Not present in VMangos/TC/CMangos from what I see
 -[ ] Thaddius is stuck in position and does not move
+-[ ] Lightning Totem, aggro issues?
 
 ## GM commands to help test
 
@@ -86,7 +112,7 @@ Naxx cauldron
 # Editing 80 spells / custom spells
 Workflow went like this:
 
- Look in CPP or smartAI with Keira3 https://github.com/azerothcore/Keira3
+Look in CPP or smartAI with Keira3 https://github.com/azerothcore/Keira3
 what spellIds need changing
 
 https://github.com/stoneharry/WoW-Spell-Editor
@@ -97,6 +123,8 @@ Edit attribute, and export. Select SQL and click export dbc
 
 create second folder and open 1.12
 
+2 WoW-Spell-Editors side by side
+
 create custom spell in 335 and match 1.12 values
 
 Go to ./Export folder and grep `grep 90004 Spell.sql`
@@ -104,6 +132,11 @@ Go to ./Export folder and grep `grep 90004 Spell.sql`
 copy the query into `progression_60_4_2_naxx_spells.sql`
 
 Change smartAI or cpp to use new custom spellID
+
+## SmartAI CMangos 1.12
+cmangos db,
+cmangos core,
+Database Editor smartAI -> write smartAI with Keira
 
 ## Exploring, comparing DBC Spells.
 Editing/exporting did not work for me. I used WoW-Spell-Editor instead
