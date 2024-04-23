@@ -5593,4 +5593,85 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 (351084, 3, 29060, 12340),
 (351084, 4, 29061, 12340);
 
+-- Trash
+-- Plague Quarter
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351065;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351065);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351065, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 9000, 12000, 0, 0, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)'),
+(351065, 0, 1, 0, 0, 0, 100, 0, 3000, 3000, 15000, 15000, 0, 0, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - In Combat - Cast \'Rend\' (Naxx40)'),
+(351065, 0, 2, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - On 30% HP - CastSelf Frenzy (Naxx 40)'),
+(351065, 0, 3, 0, 2, 0, 100, 1, 0, 30, 60000, 60000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - Between 0-30% Health - Say Line 0 (Naxx40)');
+
+-- Stoneskin Gargoyle
+DELETE FROM `conditions` WHERE `SourceEntry` = 351059;
+INSERT INTO `conditions`
+(`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(22, 5, 351059, 0, 0, 21, 1, 16, 0, 0, 1, 0, 0, '', 'Stoneskin Gargoyle Not Roaming - Enable Script to set ''UNIT_STAND_STATE_SUBMERGED''(Naxx40)'),
+(22, 6, 351059, 0, 0, 21, 1, 16, 0, 0, 0, 0, 0, '', 'Stoneskin Gargoyle Roaming - Enable Script to remove ''UNIT_STAND_STATE_SUBMERGED'' (Naxx40)');
+
+-- Noth
+-- Plagued Champion
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351086;
+-- Reduce damage Plague Shock (30138) ~2.5k to ~500
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351086);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351086, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 9000, 11000, 0, 0, 11, 32736, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)'),
+(351086, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 13000, 15000, 0, 0, 218, 30138, 0, 554, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Champion - In Combat - Custom Cast Shadow Shock (Naxx 40)');
+-- Wrath of the Plaguebringer, if failed to decurse
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29213, 'spell_gothik_curse_of_the_plaguebringer_40');
+
+-- Mutaged Grub
+-- Reduce damage Slime Burst - AoE ~450 to ~200
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351068);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351068, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 8000, 0, 0, 218, 30109, 0, 462, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mutated Grub - In Combat - Custom Cast Slime Burst (Naxx40)');
+
+-- Frenzied Bat
+-- Update Frenzied Dive Id
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351031);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351031, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 11000, 17000, 0, 0, 11, 30112, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Frenzied Bat - In Combat - Cast Frenzied Dive (Naxx 40)');
+
+-- Plagued Bat
+-- Adjust IC timings
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351032);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351032, 0, 0, 0, 0, 0, 85, 0, 9000, 9000, 40000, 40000, 0, 0, 11, 30113, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Bat - In Combat - Cast \'Putrid Bite\' (Naxx40)');
+
+-- Plague Beast
+-- trample
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351030);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351030, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 3000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plague Beast - In Combat - Cast \'Trample\' (Naxx40)');
+
+-- Heigan, Plague Cloud
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29350;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29350, 'spell_heigan_plague_cloud_40');
+-- Heigan, Eruption
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29371;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29371, 'spell_heigan_eruption_40');
+-- Grobullus, Poison cast by Poison Cloud
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28158;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(28158, 'spell_grobbulus_poison_cloud_poison_40');
+
+-- Eye Stalk
+-- Reduce damage 2.5k to 750, movement speed reduction -50 to -20 (as unsigned int)
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351090);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351090, 0, 0, 0, 0, 0, 85, 0, 0, 0, 11000, 11000, 0, 0, 218, 29407, 0, 749, 4294967276, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - In Combat - Custom Cast Mind Flay (Naxx40)'),
+(351090, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 26586, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - On Respawn - Cast \'Birth\' (Naxx40)'),
+(351090, 0, 2, 0, 1, 0, 100, 0, 2000, 8000, 2000, 30000, 0, 0, 11, 28819, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Out of Combat - Cast \'Submerge Visual\' (Naxx40)'),
+(351090, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 2000, 36, 90, 24, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Within 36-90 Range - Evade (Naxx40)');
+
+-- Fungal Spore
+-- OnDeath Apply: Threat -100% (as unsigned int), Melee +50% crit, Casters +60% (up from 50%) crit
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351066);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351066, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 218, 29232, 2, 4294967196, 49, 59, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spore - On Just Died - Custom Cast Fungal Creep (Naxx 40)');
 

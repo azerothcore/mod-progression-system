@@ -25,12 +25,12 @@
 
 enum Spells
 {
-    SPELL_POISON_CLOUD                      = 90022, // update summon entry
+    SPELL_POISON_CLOUD                      = 28240,
+    SPELL_POISON_CLOUD_POISON_DAMAGE        = 28241,
     SPELL_MUTATING_INJECTION                = 28169,
     SPELL_MUTATING_EXPLOSION                = 28206,
     SPELL_SLIME_SPRAY                       = 28157,
     SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
-    SPELL_POISON_CLOUD_DAMAGE_AURA_TRIGGER  = 28241,
     SPELL_BERSERK                           = 26662,
     SPELL_BOMBARD_SLIME                     = 90003 // update summon entry
 };
@@ -229,13 +229,10 @@ public:
             if (auraVisualTimer) // this has to be delayed to be visible
             {
                 auraVisualTimer += diff;
-                if (auraVisualTimer >= 3000) // Lowered to 3 seconds
+                if (auraVisualTimer >= 1000) // Lowered to 3 seconds
                 {
-                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, false);
+                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, true);
                     auraVisualTimer = 0;
-                    // TODO: fix to vanilla values
-                    //int32 modifiedPoisonCloudDamage = 875;
-                    //me->CastCustomSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA_TRIGGER, &modifiedPoisonCloudDamage, nullptr, nullptr, true, nullptr, nullptr, me->GetGUID());
                 }
             }
             sizeTimer += diff; // increase size to 15yd in 60 seconds, 0.00025 is the growth of size in 1ms
@@ -334,10 +331,50 @@ class spell_grobbulus_mutating_injection_40 : public SpellScriptLoader
         }
 };
 
+
+class spell_grobbulus_poison_cloud_poison_40 : public SpellScriptLoader
+{
+    public:
+        spell_grobbulus_poison_cloud_poison_40() : SpellScriptLoader("spell_grobbulus_poison_cloud_poison_40") { }
+
+        class spell_grobbulus_poison_cloud_poison_40_AuraScript : public AuraScript
+        {
+            PrepareAuraScript(spell_grobbulus_poison_cloud_poison_40_AuraScript);
+
+            bool Validate(SpellInfo const* /*spellInfo*/) override
+            {
+                return ValidateSpellInfo({ SPELL_POISON_CLOUD_POISON_DAMAGE }); // Poison trigger
+            }
+
+            void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+            {
+                Unit* caster = GetCaster();
+                if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+                {
+                    return;
+                }
+                PreventDefaultAction();
+                int32 bp0 = 1109;
+                caster->CastCustomSpell(GetTarget(), SPELL_POISON_CLOUD_POISON_DAMAGE, &bp0, 0, 0, true);
+            }
+
+            void Register() override
+            {
+                OnEffectPeriodic += AuraEffectPeriodicFn(spell_grobbulus_poison_cloud_poison_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
+            }
+        };
+
+        AuraScript* GetAuraScript() const override
+        {
+            return new spell_grobbulus_poison_cloud_poison_40_AuraScript();
+        }
+};
+
 void AddSC_boss_grobbulus_40()
 {
     new boss_grobbulus_40();
     new boss_grobbulus_poison_cloud_40();
     new spell_grobbulus_mutating_injection_40();
 //    new spell_grobbulus_poison();
+    new spell_grobbulus_poison_cloud_poison_40();
 }
