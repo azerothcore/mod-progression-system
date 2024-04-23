@@ -31,17 +31,33 @@ Construct
 -[x] Thaddius: lightning ball (wipe mechanic) adjusted
 -[x] Feugen: Power burn 500 every 3 seconds. Missing nature visual shock (requires custom spell). Or do hack with 63705 spell, change yards to 300. -500 mana, -2500 dmg
 
-Construct quarter
 Trash
-Military
+Military Quarter
 -[x] Horse mounts from trash before Razuvious are lvl 80
+-[ ] Necro Knight, has smartAI (see Necro Knight Guardian)
+-[x] Death Knight Captain, updated smartAI to cast whirlwind/stun
+-[x] Plagued Gargoyle, smartAI
+-[x] Unholy swords, looks the same
+-[x] Unholy Axe, looks the same
+-[ ] Unholy Staff Arcane Explosion, damage is similar (~2k) but range is 45yd instead of 20yd. Requires spellscript to reduce radius
+3
+-[ ] Doom Touched Warrior, missing smartAI, casts dazed?
+-[ ] Dark Touched Warrior, smartAI casts whirlwind, should only cast dazed?
+-[ ] Death Touched Warrior, missing smartAI, should drop threat?
+-[ ] Risen Deathknight, missing smartAI, casts dazed?
+-[x] Death Lord, add smartAI
+-[x] Deathknight, update smartAI
+-[x] Skeletal Smith, update SmartAI
+-[x] Bony Construct, update smartAI
+-[x] Spirit of Naxxramas, update smartAI reduce shadow bolt damage from 2.2k to 1.8k
+-[x] Skeletal Steed, smartAI add trample and intercept
 
-Construct
+Construct Quarter
 -[x] Sewage Slime, slime that spawns from Grobulus are lvl 80
--[ ] Pathwerk Trash (see below): awkward pathing with formations?
+-[x] Pathwerk Trash (see below): awkward pathing with formations?
 -[ ] Sewage Slime, disease cloud 28153. Ticks for 600 instead of 300. Trigger spell requires spellscript HandleDamage
 -[x] Bile Retcher 351022  - 27807 Bile Vomit - ~5k instant, ~1200 dot to ~1500 instant, 250 dot
--[x] Patchwerk Golem - cleave based on weapon damage instead of raw damage in classic. Requires custom patch
+-[x] Patchwork Golem - cleave based on weapon damage instead of raw damage in classic. Requires custom patch
 -[x] Embalming Slime - same AoE damage, unchanged
 -[x] Mad Scientist - Heal, reduced from ~20% hp to ~10% hp. Vanilla is raw ~3k
 -[x] Mad Scientist - Mana Burn ~3.5k to ~1.5k
@@ -51,24 +67,32 @@ Construct
 -[x] Lightning Totem - lvl62 - Shock damage ~3k to ~2k
 -[x] Stitched Spewer - unchanged, weapon damage instead of raw 2k dmg
 -[x] Toxic Tunnel - unchanged, damage should be 300->200. Triggered spell 28369. Requires custom patch
--[x] Necropolis Acolyte - Casts Shadow Bolt Volley and Arcane Explosion
--[x] Plagued Ghoul - 351078, update smartAI
--[x] Spirit of Naxxramas, update aura
--[x] Deathknight Vindicator, smartAI
--[x] Necro Knight Guardian, smartAI
+-[x] Necropolis Acolyte - add smartAI, Casts Shadow Bolt Volley and Arcane Explosion
+-[x] Plagued Ghoul - 351078, add smartAI
+-[ ] Plagued Ghoul - missing smartAI say texts
+-[x] Deathknight Vindicator, add smartAI
+-[ ] Necro Knight Guardian, smartAI, similar implementation to Necro Knight might be better?
+-[x] Razuvious, removed knife throw mechanic, disrupting shout adjusted to 45yd and less damage. No power burn without client patch or remove animation
+-[ ] (waiting for upstream changes) Gothik adjust the spells
+-[ ] 4horsemen, needs to be revisited, naxx40 spells do similar damage to naxx40
 
-Issue Patchwerk Trash:
-Creature formations of patchwerk golems. Awkward pathing
-361229 leader, follow the leader but also wander?
--[x] Removed wandering from non-leader
+-[x] Issue Bony Construct patrol/creature_formation guid 3612410
+VMangos/CMangos show 5 points. No waypoints. 3 mobs wander with 15yd, 2 path
+https://youtu.be/4UTQFrMRk5c?si=ye3fIhp7pg88f03C&t=5222 classic shows 4+2 pathing
+ACore 25 shows 4+2 pathing
+
+-[x] Issue Patchwerk Trash:
+Creature formations of patchwork golems. Awkward pathing
+Removed wandering from non-leader, but does not look correct
 (361229, 361227, 10.8064, 306.6246666000065, 515, 0, 0),
 (361229, 361228, 7.08383, 261.72081828001365, 515, 0, 0),
 (361229, 361246, 6.33888, 349.3644533277902, 515, 0, 0),
 
 potential upstream/acore fixes:
--[ ] Bombard Slime spell position is not random. Pos is pulled form spell_location template. Not present in VMangos/TC/CMangos from what I see
+-[ ] Bombard Slime spell position is not random. Pos is pulled form spell_location template. Not present in acore, in VMangos/TC/CMangos from what I see
 -[ ] Thaddius is stuck in position and does not move
 -[ ] Lightning Totem does not aggro properly?
+-[ ] Razuvious' Death Knight Understudy should switch between AttackReady (333) and Attack (36), out of combat RP missing
 
 ## GM commands to help test
 
