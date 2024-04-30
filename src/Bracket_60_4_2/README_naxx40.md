@@ -2,23 +2,21 @@
 Implement changes inspired by Zhen's IndividualProgression mod
 
 - [x] Removed autobalancer
-- [x] Leave Naxx10/25 untouched, instead add new creatures GUIDs in 10man HC
-- [x] Instance/boss has their own *cpp script allowing for naxx40 mechanics
+- [x] leave Naxx10/25 untouched, instead use unused heroic 10man difficulty
+- [x] Instance/boss has their own script allowing for naxx40 mechanics
 
-IndividualProgression has made some fixes/improvement to these original scripts. Some changes I can highlight
+IndividualProgression has made some fixes/improvement that I like to these v1. Some changes I can highlight
 - [x] Entrance script improved
 - [x] Beta entrance in Strat. Must enter once through Strat with attunement quest completed
 
-
 See [devlog.md](devlog.md)
 
-# V1 Dev notes below regarding data/implementation details
+# (outdated) V1 Dev notes below regarding data/implementation details
+
+A muted video (WIP). See more details below
+https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
 
 ## Scaling lvl80 Naxx25 to lvl60 Naxx25
-
-A video (WIP). See more details below
-
-https://user-images.githubusercontent.com/74299960/183513127-17bd96f6-fac9-44a2-be0c-d2eacf6ec15e.mp4
 
 Progress:
 - [x] Allow lvl 60 to enter
@@ -49,7 +47,6 @@ Progress:
 - [ ] Accurate Naxx40 mechanics
 
 floating naxx 25 pathing plaguewood
-
 
 https://user-images.githubusercontent.com/74299960/184688910-a65da21f-cd03-4e46-b22e-7021fc1deb48.mp4
 
@@ -142,7 +139,7 @@ orbs, which are now correctly
 casting their respective sapphiron entry/exit spells in addition to having the
 correct position.
 
-Summary of multiple approaches
+## Summary of multiple approaches to scaling
 ## 1 Select and Update ❌
 Scale level and hp to appropriate level with SELECT
 and UPDATE statements
@@ -190,14 +187,6 @@ some data of Naxx25
 select spawned on map 533
 ```
 SELECT DISTINCT creature_template.entry, creature_template.difficulty_entry_1, creature_template.name FROM creature_template, creature WHERE creature_template.rank != 3 AND creature.map = 533 AND creature_template.entry = acore_world.creature.id1 AND creature_template.minlevel > 21;
-```
-
-
-ID1 of non-bosses
-```
-15974, 15975, 15976, 15977, 15978, 15979, 15980, 15981, 16017, 16018, 16020, 16021, 16022, 16024, 16025, 16029, 16034, 16036, 16037, 16056, 16057, 16067, 16082, 16145, 16146, 16154, 16156, 16163, 16164, 16165, 16167, 16168, 16193, 16194, 16215, 16216, 16236, 16243, 16244, 16297, 16400, 16447, 16980, 29912, 30071, 30083, 30085,
-
-16027, 16573, 16698, 16505, 16506, 17055, 16290, 16984, 16983, 16981, 16982, 16803, 16125, 16126, 16124, 16150, 16149, 16148, 23561, 23563, 23562, 16441, 16286, 16127, 16360
 ```
 
 |entry|difficulty_entry_1|name|
@@ -298,8 +287,6 @@ NPC Missing 16381
 Archmage Tarsis Kir-Moldir
 dialogue
 
-issue: he stands up while talking instead of remaining seated
-
 ## Omarion
 
 NPC Missing 16365
@@ -344,16 +331,6 @@ https://www.youtube.com/watch?v=YgI2AMHMYe8
 
 can implement based on 14338
 
-lvl 60 char
-```
-.tele lightshope
-.mod reputation 529 10000
-```
-CMangos
-16365
-gossip id
-24404
-
 horde tailor
 .go c 26623
 .setskill 197 225 225
@@ -365,10 +342,6 @@ Leatherwork
 .setskill 165 225 225
 
 .mod reputation 529 10000
-
-Omarion
-.go c 88811
-
 
 implementing menu with SmartAI
 - [x] giving book to non crafters
@@ -382,7 +355,7 @@ Need to use a cpp script instead as the gossip is too complicated
 ## Trash Loot
 Grab list of IDs wowhead -> check if drop loot
 split in loot, noloot, spiderloot, scraps
-verify with Brotalnia and CMangos DB
+verify with VMangos and CMangos DB
 
 Mobs found in Naxx40 by ID according to classic.wowhead
 --loot
@@ -591,7 +564,6 @@ Mobs should not drop loot
 15977, 16125, 16390, 16981, 16984, 16983, 16297, 16236, 16146, 16861, 16573,
 16148, 16149, 16150, 16127, 16029, 16126, 16142)
 ```
-
 
 Mobs that should NOT drop loot
 
