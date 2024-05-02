@@ -4,13 +4,12 @@ Some shared issues https://github.com/ZhengPeiRu21/mod-individual-progression/is
 - [ ] (see below) Naxx40 spells, boss scripts and encounters are not implemented correctly
 
 More todo:
-- [ ] (skip) Grobbulus: poison cloud damage reduce damage properly. (requires custom spell+client patch)
-- [ ] (waiting upstream) Gothik, waiting for upstream changes
-- [ ] Blaumeux+Zeliek: move
+- [ ] (waiting upstream) Gothik adjustments
+- [ ] (waiting upstream) Maexxna vanilla web wrap + Thrash (double attack) spell missing
+- [ ] Grobbulus: poison cloud damage reduce damage properly
+- [ ] Blaumeux+Zeliek: enable move
 - [ ] Horsemen: no pathing on pull
-- [ ] Blaumeux+Zeliek: Remove Punish spells for not being in range
-- [ ] Heigan: Adjust Eruption calc so it no longer uses SetHitDamage(damage) which ignores defensive CDs?
-- [ ] Infectious Ghoul: missing low hp text
+- [ ] Infectious Ghoul: missing low hp text in smartAI
 - [ ] (skip, do below instead) Eye Stalk, 36y-90y evade smartAI. Stuck in combat, not evading
 - [ ] Heigan: Eye Stalk/Heigan room adds should all despawn after defeating Heigan
 https://github.com/cmangos/mangos-wotlk/blob/a3a647a0da14f9b6de483f99149e09b6ff6e7c8a/src/game/AI/ScriptDevAI/scripts/northrend/naxxramas/naxxramas.cpp#L419
@@ -24,16 +23,6 @@ https://github.com/cmangos/mangos-wotlk/blob/a3a647a0da14f9b6de483f99149e09b6ff6
 - [ ] Sewage Slime, disease cloud 28153. Ticks for 600 instead of 300. Trigger spell requires spellscript HandleDamage
 - [ ] Plagued Ghoul - missing smartAI say texts
 - [ ] Razuvious DK Understudy. has 2, needs 4
-- [x] Venom Stalker updated double attack
-- [x] Venom Stalker: Charge needs to be larger AoE and do more dot damage
-- [x] Carrion Creeper: update smartAi
-- [x] Carrion Creeper: unchanged
-- [x] Skitterer, poison on attack aura
-- [x] Crypt Reaver, smartAI update enrage, poison attack aura
-- [x] Tomb Horror: Pointy Spike, Spike Volley
-- [x] Naxxramas Acolyte: Shadow Bolt, Arcane Explosion
-- [x] Naxxramas Cultist: Shadow Burst
-- [x] Archmage sits mid-air. .die .respawn fixes him..
 
 Client side patch:
 - [ ] 4H, needs client patch for mograine mark
@@ -66,12 +55,14 @@ Military Quarter
 - [x] Razuvious: reduce damage, range (45yd) of shout. Does not drain mana and ignores LoS. Needs client patch
 - [x] Horsemen: damage adjusted
 - [x] Blaumeux: Void Zone casts Consumption (28865). Should do 4k damage. Range 2-3 requires custom patch
+- [x] Blaumeux+Zeliek: Remove Punish spells for not being in range
 Plague Quarter
 - [x] Noth: curse range adjusted, number of curses, faster curses
 - [x] Noth: curse damage reduced, range increased
 - [x] Heigan: fever dot 3k -> 500
 - [x] Heigan: Poison Cloud, (AoE when he teleports), damage reduced to 500
 - [x] Heigan: Reduce damage from eruption
+- [x] Heigan: Adjust Eruption calc so it no longer uses SetHitDamage(damage) which ignores defensive CDs
 - [x] Loatheb: Deathbloom damage reduced to 33dps for 6 sec instead of 200dps
 - [x] Loatheb: Spores +50% to +60% caster crit
 Frost Wing
@@ -142,7 +133,7 @@ Removed wandering from non-leader, but does not look correct
 potential upstream/acore fixes:
 - [ ] Bombard Slime spell position is not random. Pos is pulled form spell_location template. Not present in acore, in VMangos/TC/CMangos from what I see
 - [ ] Thaddius is stuck in position and does not move
-- [ ] Lightning Totem does not aggro properly?
+- [ ] Lightning Totem does not aggro properly
 - [ ] Razuvious' Death Knight Understudy should switch between AttackReady (333) and Attack (36), out of combat RP missing
 - [ ] Relinquery of Souls / Eye Stalk use OOC submerge spell // 28819 - Submerge Visual
 implemented in TrinityCore: https://github.com/search?q=repo%3ATrinityCore%2FTrinityCore%20spell_reliquary_of_souls_submerge&type=code
