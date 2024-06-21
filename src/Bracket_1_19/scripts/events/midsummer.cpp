@@ -15,6 +15,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "GameObjectAI.h"
 #include "Group.h"
 #include "LFGMgr.h"
 #include "Player.h"
@@ -38,11 +39,11 @@ enum Misc
 class go_ahune_ice_stone_1_19 : public GameObjectAI
 {
 public:
-    go_ahune_ice_stone_1_19() : GameObjectAI("go_ahune_ice_stone") { }
+    go_ahune_ice_stone_1_19(GameObject* go) : GameObjectAI(go), _instance(go->GetInstanceScript()) { }
  
-    bool OnGossipSelect(Player* player, GameObject* go, uint32 /*sender*/, uint32 action) override
+    bool GossipSelect(Player* player, uint32 /*sender*/, uint32 /*action*/) override
     {
-        if (!player || !go)
+        if (!player)
             return true;
 
         // Not allowed in RDF/LFG
@@ -52,7 +53,7 @@ public:
         }
 
         // Only allow summoning him in heroic
-        if (!go->GetMap()->IsHeroic())
+        if (!me->GetMap()->IsHeroic())
         {
             return true;
         }
@@ -90,6 +91,6 @@ public:
 
 void AddSC_event_midsummer_1_19()
 {
-    new go_ahune_ice_stone_1_19();
+    RegisterGameObjectAI(go_ahune_ice_stone_1_19);
     new global_midsummer_tuning_script();
 }
