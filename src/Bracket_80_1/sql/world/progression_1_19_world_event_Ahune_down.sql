@@ -27,3 +27,7 @@ UPDATE `item_template` SET `RequiredLevel` = 75 WHERE (`entry` = 35723);
 
 UPDATE `creature_template` SET `MaxLevel` = 80, `MinLevel` = 80 WHERE `entry` IN (25755, 25756, 25757, 26340, 26341, 26342, 26339, 25865, 40446);
 UPDATE `creature_template` SET `MaxLevel` = 82, `MinLevel` = 82 WHERE `entry` IN (25740, 26338, 26865, 26339);
+
+-- Summon Loot Bunny SAI
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 25746 AND `source_type` = 0 AND `id` = 1;
+UPDATE `smart_scripts` SET `event_flags` = 0 WHERE `entryorguid` = 25746 AND `source_type` = 0 AND `id` = 0;
