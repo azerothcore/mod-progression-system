@@ -383,9 +383,9 @@ public:
             {
                 if (Player* player = itr->GetSource())
                 {
-                    if (player->getLevel() < 55 && sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_1_19", false))
+                    if (player->GetLevel() < 55 && sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_1_19", false))
                         _canTeleport = false;
-                    else if (player->getLevel() < 65 && sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_1_1", false))
+                    else if (player->GetLevel() < 65 && sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_70_1_1", false))
                         _canTeleport = false;
                 }
             }

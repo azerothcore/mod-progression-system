@@ -353,7 +353,7 @@ public:
             {
                 if (Player* player = itr->GetSource())
                 {
-                    if (player->getLevel() < 55)
+                    if (player->GetLevel() < 55)
                         _canTeleport = false;
                 }
             }
@@ -392,7 +392,7 @@ public:
         if (creature->IsQuestGiver())
             player->PrepareQuestMenu(creature->GetGUID());
 
-        if (player->getLevel() >= 55)
+        if (player->GetLevel() >= 55)
             AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Send me back to my capital city.", GOSSIP_SENDER_MAIN, 100);
 
         SendGossipMenuFor(player, 15310, creature);
