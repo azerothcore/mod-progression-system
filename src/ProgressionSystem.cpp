@@ -81,10 +81,7 @@ public:
         std::string disabledAttunements = sConfigMgr->GetOption<std::string>("ProgressionSystem.DisabledAttunements", "");
         std::vector<uint32> attunementIds;
         for (auto& itr : Acore::Tokenize(disabledAttunements, ',', false))
-            attunementIds.push_back(Acore::StringTo<uint32>(itr).value());
-
-        for (auto const& id : attunementIds)
-            WorldDatabase.Query("DELETE FROM dungeon_access_requirements WHERE dungeon_access_id = {}", id);
+            WorldDatabase.Query("DELETE FROM dungeon_access_requirements WHERE dungeon_access_id = {}", Acore::StringTo<uint32>(itr).value());
     }
 };
 
