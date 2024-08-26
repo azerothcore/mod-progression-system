@@ -159,3 +159,11 @@ ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses = 1
 #
 
 ProgressionSystem.70.TheEye.RequireAllBosses = 1
+
+#    ProgressionSystem.DisabledAttunements
+#        Description: Clears the selected attunements (dungeon_access_requirement) from database, even if SQL reapply mode is on.
+#                     Use this to end an attunement requirement prematurely, or debug.
+#                     Use `dungeon_access_id` separated by a comma, e.g "32, 64" to disable the attunements for Hyjal & Black Temple, respectively.
+#
+
+ProgressionSystem.DisabledAttunements = ""
