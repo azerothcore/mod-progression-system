@@ -12,7 +12,7 @@ SQL files can be loaded into your database once you have enabled the auto DB upd
 
 **WARNING:** SQL files cannot be "unloaded" once executed. If you configure the system to use the 30-39 level bracket and later change it to the 20-29 bracket, the SQL files from the 30-39 bracket will still be in your database. To undo changes made by these SQL files, create a new SQL file to restore the previous state in another bracket.
 
-**WARNING:** If you enable bracket 20-29 but DO NOT enable the bracket that reverts the SQL applied at 20-29, the changes will remain in your database leading to POLLUTION! Easiest way to revert all changes is to uinstall the module and reset your world database. 
+**WARNING:** If you enable bracket 20-29 but DO NOT enable the bracket that reverts the SQL applied at 20-29, the changes will remain in your database leading to POLLUTION! Easiest way to revert all changes is to uninstall the module and reset your world database. 
 
 **DO NOT ENABLE BRACKETS IF YOU ARE NOT SURE YOU WANT TO USE THEM. IT WILL LEAD TO DATABASE POLLUTION IF NOT REVERTED PROPERLY. IF YOU DO NOT KNOW HOW TO REVERT CHANGES, RESET YOUR WORLD DATABASE**
 
