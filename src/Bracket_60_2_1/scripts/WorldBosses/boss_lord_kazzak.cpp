@@ -25,6 +25,7 @@
 #include "SpellScript.h"
 
 #include "ProgressionSystem.h"
+#include "SpellMgr.h"
 
 enum Texts
 {
