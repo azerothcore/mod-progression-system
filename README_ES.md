@@ -56,11 +56,4 @@ Mi nuevo módulo requiere:
 
 Si necesita cambiar la configuración del módulo, vaya a la carpeta de configuración de su servidor (donde está su `worldserver` o `worldserver.exe`), copie `my_module.conf.dist` a `my_module.conf` y edite ese nuevo archivo.
 
-
-## Créditos
-
-* [Yo](https://github.com/YOUR_GITHUB_NAME) (autor del módulo) Edite el enlace para que apunte a su github si lo desea.
-* [BarbzYHOOL](https://github.com/barbzyhool) <!-- Puedes eliminar estas líneas, pero al crear un nuevo modulo, es notificado a estas personas, por lo que está bueno que eso ocurra. -->
-* [Talamortis](https://github.com/talamortis)<!-- Puedes eliminar estas líneas, pero al crear un nuevo modulo, es notificado a estas personas, por lo que está bueno que eso ocurra. -->
-
 AzerothCore: [repository](https://github.com/azerothcore) - [website](http://azerothcore.org/) - [discord chat community](https://discord.gg/PaqQRkd)
