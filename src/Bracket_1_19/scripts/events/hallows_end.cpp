@@ -15,6 +15,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "AreaDefines.h"
 #include "Player.h"
 #include "ScriptMgr.h"
 
@@ -22,8 +23,6 @@
 
 enum Misc
 {
-    MAP_SCARLET_MONASTERY = 189,
-
     QUEST_HEADLESS_HORSEMAN = 50000,
 
     NPC_HEADLESS_HORSEMAN   = 23682
