@@ -9,3 +9,4 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 
 UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` IN (23682, 23775,23694, 23545);
 UPDATE `creature_template` SET `lootid` = 23682 WHERE `entry` = 23682;
+DELETE FROM `creature_loot_template` WHERE `Entry` = 236820;
