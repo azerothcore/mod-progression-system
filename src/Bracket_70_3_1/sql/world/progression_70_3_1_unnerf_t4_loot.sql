@@ -31,4 +31,4 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17257,34039,34039,100,0,1,1,1,1,'Magtheridon - (ReferenceTable)'),
 (17257,34845,0,100,0,1,0,1,1,'Magtheridon - Pit Lord\s Satchel'),
 (17257,34846,0,100,0,1,0,1,1,'Magtheridon - Black Sack of Gems'),
-(17257,90039,34039,100,0,1,0,1,1,'Magtheridon - (ReferenceTable)');
+(17257,90039,34039,100,0,1,0,2,2,'Magtheridon - (ReferenceTable)');
