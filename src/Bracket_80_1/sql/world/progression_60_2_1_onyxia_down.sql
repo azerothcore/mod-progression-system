@@ -5,7 +5,9 @@ UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 
 UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `lootid` = 12129, `skinloot` = 12129 WHERE `entry` = 12129; -- Onyxian Warder
 
 DELETE FROM `creature_loot_template` WHERE `Entry` = 54003;
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (54001, 54002);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 54003 AND `SourceEntry` = 21108;
+
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (54000, 54001);
 
 DELETE FROM `disables` WHERE `entry` = 12559 AND `sourceType` = 4;
 
@@ -44,6 +46,7 @@ DELETE FROM `creature_questender` WHERE `quest` IN (7507, 7508, 7509); -- Loreke
 DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
 DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
+DELETE FROM `gossip_menu` WHERE `TextId` IN (60041, 60042, 60043, 60044, 60045, 60046);
 DELETE FROM `npc_text` WHERE `ID` IN (60040, 60041, 60042, 60043, 60044, 60046);
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (60040, 60041, 60042, 60043, 60044, 60045, 60046);
 
