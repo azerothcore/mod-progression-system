@@ -168,7 +168,7 @@ public:
             }
 
             _events.SetPhase(PHASE_INTRO);
-            _events.ScheduleEvent(EVENT_INTRO_1, 6 * IN_MILLISECONDS, 0, PHASE_INTRO);
+            _events.ScheduleEvent(EVENT_INTRO_1, 6s, 0, PHASE_INTRO);
             Talk(SAY_INTRO);
         }
 
@@ -189,8 +189,8 @@ public:
                 EntryCheckPredicate pred(NPC_ANTAGONIST);
                 _summons.DoAction(ACTION_ANTAGONIST_HOSTILE, pred);
 
-                _events.ScheduleEvent(EVENT_SUMMON_MOLE_MACHINE, 15 * IN_MILLISECONDS);
-                _events.ScheduleEvent(EVENT_DIREBREW_DISARM, 20 * IN_MILLISECONDS);
+                _events.ScheduleEvent(EVENT_SUMMON_MOLE_MACHINE, 15s);
+                _events.ScheduleEvent(EVENT_DIREBREW_DISARM, 20s);
             }
         }
 
@@ -212,11 +212,11 @@ public:
         {
             if (summon->GetEntry() == NPC_ILSA_DIREBREW)
             {
-                _events.ScheduleEvent(EVENT_RESPAWN_ILSA, 1 * IN_MILLISECONDS);
+                _events.ScheduleEvent(EVENT_RESPAWN_ILSA, 1s);
             }
             else if (summon->GetEntry() == NPC_URSULA_DIREBREW)
             {
-                _events.ScheduleEvent(EVENT_RESPAWN_URSULA, 1 * IN_MILLISECONDS);
+                _events.ScheduleEvent(EVENT_RESPAWN_URSULA, 1s);
             }
         }
 
@@ -283,13 +283,13 @@ public:
                 {
                 case EVENT_INTRO_1:
                     Talk(SAY_INTRO1);
-                    _events.ScheduleEvent(EVENT_INTRO_2, 4 * IN_MILLISECONDS, 0, PHASE_INTRO);
+                    _events.ScheduleEvent(EVENT_INTRO_2, 4s, 0, PHASE_INTRO);
                     break;
                 case EVENT_INTRO_2:
                 {
                     EntryCheckPredicate pred(NPC_ANTAGONIST);
                     _summons.DoAction(ACTION_ANTAGONIST_SAY_1, pred);
-                    _events.ScheduleEvent(EVENT_INTRO_3, 3 * IN_MILLISECONDS, 0, PHASE_INTRO);
+                    _events.ScheduleEvent(EVENT_INTRO_3, 3s, 0, PHASE_INTRO);
                     break;
                 }
                 case EVENT_INTRO_3:
@@ -308,12 +308,12 @@ public:
                 case EVENT_SUMMON_MOLE_MACHINE:
                 {
                     me->CastCustomSpell(SPELL_MOLE_MACHINE_TARGET_PICKER, SPELLVALUE_MAX_TARGETS, 1, nullptr, true);
-                    _events.RepeatEvent(15 * IN_MILLISECONDS);
+                    _events.Repeat(15s);
                     break;
                 }
                 case EVENT_DIREBREW_DISARM:
                     DoCastSelf(SPELL_DIREBREW_DISARM_PRE_CAST, true);
-                    _events.RepeatEvent(20 * IN_MILLISECONDS);
+                    _events.Repeat(20s);
                     break;
                 default:
                     break;
