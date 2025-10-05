@@ -204,7 +204,7 @@ public:
                 break;
             case 22:
                 SetEscortPaused(true);
-                _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8000);
+                _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8s);
                 if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                 {
                     me->GetMotionMaster()->Clear();
