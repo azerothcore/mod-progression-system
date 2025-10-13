@@ -334,7 +334,7 @@ public:
             }
         }
 
-        void SetGUID(ObjectGuid guid, int32 index) override
+        void SetGUID(ObjectGuid const& guid, int32 index) override
         {
             if (index == ACTION_START_ESCORT)
             {
@@ -1075,7 +1075,7 @@ public:
                 _inEvent = data == 1 ? true : false;
         }
 
-        void SetGUID(ObjectGuid guid, int32 /*data*/) override
+        void SetGUID(ObjectGuid const& guid, int32 /*data*/) override
         {
             _invokerGUID = guid;
         }
