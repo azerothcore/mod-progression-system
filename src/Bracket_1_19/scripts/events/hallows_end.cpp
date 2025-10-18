@@ -24,7 +24,7 @@
 enum Misc
 {
     QUEST_HEADLESS_HORSEMAN = 50000,
-
+    EVENT_HALLOWS_END       = 12,
     NPC_HEADLESS_HORSEMAN   = 23682
 };
 
@@ -35,7 +35,7 @@ public:
 
     void OnPlayerMapChanged(Player* player) override
     {
-        if (player->GetMap()->GetId() == MAP_SCARLET_MONASTERY && sGameEventMgr->IsActiveEvent(12))
+        if (player->GetMap()->GetId() == MAP_SCARLET_MONASTERY && sGameEventMgr->IsActiveEvent(EVENT_HALLOWS_END))
             if (Quest const* quest = sObjectMgr->GetQuestTemplate(QUEST_HEADLESS_HORSEMAN))
                 if (player->CanTakeQuest(quest, false))
                     player->AddQuestAndCheckCompletion(quest, nullptr);
