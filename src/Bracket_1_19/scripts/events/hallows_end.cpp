@@ -36,15 +36,9 @@ public:
     void OnPlayerMapChanged(Player* player) override
     {
         if (player->GetMap()->GetId() == MAP_SCARLET_MONASTERY && sGameEventMgr->IsActiveEvent(12))
-        {
             if (Quest const* quest = sObjectMgr->GetQuestTemplate(QUEST_HEADLESS_HORSEMAN))
-            {
                 if (player->CanTakeQuest(quest, false))
-                {
                     player->AddQuestAndCheckCompletion(quest, nullptr);
-                }
-            }
-        }
     }
 };
 
@@ -56,9 +50,7 @@ public:
     void OnUnitDeath(Unit* me, Unit* killer) override
     {
         if (me->GetEntry() != NPC_HEADLESS_HORSEMAN)
-        {
             return;
-        }
 
         if (killer->GetMap() && killer->GetMap()->IsDungeon())
         {
@@ -69,9 +61,7 @@ public:
                     player->CompleteQuest(QUEST_HEADLESS_HORSEMAN);
 
                     if (Quest const* quest = sObjectMgr->GetQuestTemplate(QUEST_HEADLESS_HORSEMAN))
-                    {
                         player->RewardQuest(quest, 0, nullptr, true, true);
-                    }
                 }
             });
         }
