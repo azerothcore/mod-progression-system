@@ -33,7 +33,7 @@ class mod_progression_eventquest_playerscript : public PlayerScript
 public:
     mod_progression_eventquest_playerscript() : PlayerScript("mod_progression_eventquest_playerscript") { }
 
-    void OnMapChanged(Player* player)
+    void OnPlayerMapChanged(Player* player) override
     {
         if (player->GetMap()->GetId() == MAP_SCARLET_MONASTERY && sGameEventMgr->IsActiveEvent(12))
         {
