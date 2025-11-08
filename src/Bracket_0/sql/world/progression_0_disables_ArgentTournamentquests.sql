@@ -1,0 +1,31 @@
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (13667, 13668, 13633, 13634, 14016, 14105, 14101, 14102, 14104, 14107, 14108, 14074, 14143, 14152, 14136, 14080, 14140, 14077, 14144, 14096, 14142, 14076, 14092, 14090, 14141, 14112, 14145);
+INSERT INTO `disables` (`sourceType`, `entry`, `comment`) VALUES
+-- Prior to Ulduar
+(1, 13667, 'The Argent Tournament - Alliance'),
+(1, 13668, 'The Argent Tournament - Horde'),
+(1, 13633, 'The Black Knight of Westfall?'),
+(1, 13634, 'The Black Knight of Silverpine?'),
+-- With Ulduar
+(1, 14016, 'The Black Knight''s Curse'),
+(1, 14105, 'Deathspeaker Kharos'),
+(1, 14101, 'Drottin Hrothgar'),
+(1, 14102, 'Mistcaller Yngvar'),
+(1, 14104, 'Ornolf the Scarred'),
+(1, 14107, 'The Fate of the Fallen'),
+(1, 14108, 'Get Kraken!'),
+(1, 14074, 'A Leg Up - Alliance'),
+(1, 14143, 'A Leg Up - Horde'),
+(1, 14152, 'Rescue at Sea - Alliance'),
+(1, 14136, 'Rescue at Sea - Horde'),
+(1, 14080, 'Stop the Aggressors - Alliance'),
+(1, 14140, 'Stop the Aggressors - Horde'),
+(1, 14077, 'The Light''s Mercy - Alliance'),
+(1, 14144, 'The Light''s Mercy - Horde'),
+(1, 14096, 'You''ve Really Done It This Time, Kul - Alliance'),
+(1, 14142, 'You''ve Really Done It This Time, Kul - Horde'),
+(1, 14076, 'Breakfast Of Champions - Alliance'),
+(1, 14092, 'Breakfast Of Champions - Horde'),
+(1, 14090, 'Gormok Wants His Snobolds - Alliance'),
+(1, 14141, 'Gormok Wants His Snobolds - Horde'),
+(1, 14112, 'What Do You Feed a Yeti, Anyway? - Alliance'),
+(1, 14145, 'What Do You Feed a Yeti, Anyway? - Horde');
