@@ -38,39 +38,74 @@ ProgressionSystem.ReapplyUpdates = 0
 #
 
 ProgressionSystem.Bracket_0       = 0
-ProgressionSystem.Bracket_1_19    = 0 # Shadowfang Keep, Deadmines, Wailing Caverns, Blackfathom Deeps, Ragefire Chasm
-ProgressionSystem.Bracket_20_29   = 0 # Stormwind Stockades, Razorfen Kraul, Gnomeregan
-ProgressionSystem.Bracket_30_39   = 0 # Uldaman, Razorfen Downs, Scarlet Monastery
-ProgressionSystem.Bracket_40_49   = 0 # Sunken Temple, Zul'Farrak, Maraudon
-ProgressionSystem.Bracket_50_59_1 = 0 # Blackrock Depths, Dire Maul, Scholomance, Stratholme 
-ProgressionSystem.Bracket_50_59_2 = 0 # Blackrock Spire attunement requirement
-ProgressionSystem.Bracket_60_1_1  = 0 # Blackrock Spire
-ProgressionSystem.Bracket_60_1_2  = 0 # Molten Core
-ProgressionSystem.Bracket_60_2_1  = 0 # Onyxia's Lair
-ProgressionSystem.Bracket_60_2_2  = 0 # Blackwing Lair
-ProgressionSystem.Bracket_60_3_1  = 0 # Zul'Gurub
-ProgressionSystem.Bracket_60_3_2  = 0 # AQ20
-ProgressionSystem.Bracket_60_3_3  = 0 # AQ40
-ProgressionSystem.Bracket_61_64   = 0 # 61-64 Dungeons
-ProgressionSystem.Bracket_65_69   = 0 # 65-69 Dungeons
-ProgressionSystem.Bracket_70_1_1  = 0 # Level 70, Flying, Normal Dungeons
-ProgressionSystem.Bracket_70_1_2  = 0 # Level 70, Heroics
-ProgressionSystem.Bracket_70_2_1  = 0 # Gruul's Lair, Magtheridon's Lair, Arena Season 1
-ProgressionSystem.Bracket_70_2_2  = 0 # Karazhan
-ProgressionSystem.Bracket_70_3_1  = 0 # Serpentshrine Cavern, Ogri'la
-ProgressionSystem.Bracket_70_3_2  = 0 # The Eye, Sha'tari Skyguard
-ProgressionSystem.Bracket_70_4_1  = 0 # Battle For Mount Hyjal, Arena Season 2, Netherwing
-ProgressionSystem.Bracket_70_4_2  = 0 # Black Temple
-ProgressionSystem.Bracket_70_5    = 0 # Zul'Aman, Arena Season 3
-ProgressionSystem.Bracket_70_6_1  = 0 # Isle of Quel'Danas, Magister's  Terrace
-ProgressionSystem.Bracket_70_6_2  = 0 # Sunwell Plateau, Arena Season 4
-ProgressionSystem.Bracket_71_74   = 0 # 71-74 Dungeons
-ProgressionSystem.Bracket_75_79   = 0 # 75-79 Dungeons
-ProgressionSystem.Bracket_80_1    = 0 # Heroic Dungeons, Naxxramas, Obsidian Sanctum, The Eye of Eternity, Vault of Archavon, Arena Season 5
-ProgressionSystem.Bracket_80_2    = 0 # Ulduar, Trial of the Champion, Arena Season 6
-ProgressionSystem.Bracket_80_3    = 0 # Onyxia's Lair, Trial of The Crusader, Arena Season 7
-ProgressionSystem.Bracket_80_4_1  = 0 # Icecrown Citadel, ICC Dungeons, Arena Season 8
-ProgressionSystem.Bracket_80_4_2  = 0 # Ruby Sanctum
+# Shadowfang Keep, Deadmines, Wailing Caverns, Blackfathom Deeps, Ragefire Chasm
+ProgressionSystem.Bracket_1_19    = 0
+# Stormwind Stockades, Razorfen Kraul, Gnomeregan
+ProgressionSystem.Bracket_20_29   = 0
+# Uldaman, Razorfen Downs, Scarlet Monastery
+ProgressionSystem.Bracket_30_39   = 0
+# Sunken Temple, Zul'Farrak, Maraudon
+ProgressionSystem.Bracket_40_49   = 0
+# Blackrock Depths, Dire Maul, Scholomance, Stratholme 
+ProgressionSystem.Bracket_50_59_1 = 0
+# Blackrock Spire attunement requirement
+ProgressionSystem.Bracket_50_59_2 = 0
+# Blackrock Spire
+ProgressionSystem.Bracket_60_1_1  = 0
+# Molten Core
+ProgressionSystem.Bracket_60_1_2  = 0
+# Onyxia's Lair
+ProgressionSystem.Bracket_60_2_1  = 0
+# Blackwing Lair
+ProgressionSystem.Bracket_60_2_2  = 0
+# Zul'Gurub
+ProgressionSystem.Bracket_60_3_1  = 0
+# AQ20
+ProgressionSystem.Bracket_60_3_2  = 0
+# AQ40
+ProgressionSystem.Bracket_60_3_3  = 0
+# 61-64 Dungeons
+ProgressionSystem.Bracket_61_64   = 0
+# 65-69 Dungeons
+ProgressionSystem.Bracket_65_69   = 0
+# Level 70, Flying, Normal Dungeons
+ProgressionSystem.Bracket_70_1_1  = 0
+# Level 70, Heroics
+ProgressionSystem.Bracket_70_1_2  = 0
+# Gruul's Lair, Magtheridon's Lair, Arena Season 1
+ProgressionSystem.Bracket_70_2_1  = 0
+# Karazhan
+ProgressionSystem.Bracket_70_2_2  = 0
+# Ogri'la
+ProgressionSystem.Bracket_70_2_3  = 0
+# Serpentshrine Cavern
+ProgressionSystem.Bracket_70_3_1  = 0
+# The Eye, Sha'tari Skyguard
+ProgressionSystem.Bracket_70_3_2  = 0
+# Battle For Mount Hyjal, Arena Season 2, Netherwing
+ProgressionSystem.Bracket_70_4_1  = 0
+# Black Temple
+ProgressionSystem.Bracket_70_4_2  = 0
+# Zul'Aman, Arena Season 3
+ProgressionSystem.Bracket_70_5    = 0
+# Isle of Quel'Danas, Magister's  Terrace
+ProgressionSystem.Bracket_70_6_1  = 0
+# Sunwell Plateau, Arena Season 4
+ProgressionSystem.Bracket_70_6_2  = 0
+# 71-74 Dungeons
+ProgressionSystem.Bracket_71_74   = 0
+# 75-79 Dungeons
+ProgressionSystem.Bracket_75_79   = 0
+# Heroic Dungeons, Naxxramas, Obsidian Sanctum, The Eye of Eternity, Vault of Archavon, Arena Season 5
+ProgressionSystem.Bracket_80_1    = 0
+# Ulduar, Trial of the Champion, Arena Season 6
+ProgressionSystem.Bracket_80_2    = 0
+# Onyxia's Lair, Trial of The Crusader, Arena Season 7
+ProgressionSystem.Bracket_80_3    = 0
+# Icecrown Citadel, ICC Dungeons, Arena Season 8
+ProgressionSystem.Bracket_80_4_1  = 0
+# Ruby Sanctum
+ProgressionSystem.Bracket_80_4_2  = 0
 ProgressionSystem.Bracket_Custom  = 0
 
 #
@@ -114,3 +149,21 @@ ProgressionSystem.60.WorldBosses.KazzakPhasing = 1
 #
 
 ProgressionSystem.70.SerpentshrineCavern.RequireAllBosses = 1
+
+#
+#    ProgressionSystem.70.TheEye.RequireAllBosses
+#        Description: Requires all bosses being killed to open the doors to Kael
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+ProgressionSystem.70.TheEye.RequireAllBosses = 1
+
+#    ProgressionSystem.DisabledAttunements
+#        Description: Clears the selected attunements (dungeon_access_requirement) from database, even if SQL reapply mode is on.
+#                     Use this to end an attunement requirement prematurely, or debug.
+#                     Use `dungeon_access_id` separated by a comma, e.g "32, 64" to disable the attunements for Hyjal & Black Temple, respectively.
+#
+
+ProgressionSystem.DisabledAttunements = ""
