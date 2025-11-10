@@ -20,7 +20,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19622, 34056, 34056, 100, 0, 1, 3, 1, 2, 'Kael\'thas Sunstrider - (ReferenceTable)');
 
 DELETE FROM `creature_loot_template` WHERE (`Entry` = 17842) AND (`Item` IN (34067));
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (17842, 34067, 34067, 100, 0, 1, 1, 2, 2, 'Azgalor - (ReferenceTable)');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (17842, 34067, 34067, 100, 0, 1, 1, 1, 2, 'Azgalor - (ReferenceTable)');
 
 DELETE FROM `creature_loot_template` WHERE (`Entry` = 17968) AND (`Item` IN (34068));
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (17968, 34068, 34068, 100, 0, 1, 0, 2, 2, 'Archimonde - (ReferenceTable)');
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (17968, 34068, 34068, 100, 0, 1, 0, 1, 2, 'Archimonde - (ReferenceTable)');
