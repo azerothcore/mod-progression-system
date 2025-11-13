@@ -37,9 +37,11 @@ UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (9022, 9679);
 
 DELETE FROM `gossip_menu` WHERE `MenuID` = 12580 AND `TextID` = 5633;
 
-UPDATE `creature_template` SET `gossip_menu_id` = 12580 WHERE `entry` = 12580;
+UPDATE `creature_template` SET `gossip_menu_id` = 0 WHERE `entry` = 12580;
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 12580;
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 15) AND (`SourceGroup` = 12580) AND (`SourceEntry` = 0) AND (`SourceId` = 0) AND (`ElseGroup` = 0) AND (`ConditionTypeOrReference` = 9) AND (`ConditionTarget` = 0) AND (`ConditionValue1` = 6403) AND (`ConditionValue2` = 0) AND (`ConditionValue3` = 0);
 
 SET @ENTRY := 12580;
 DELETE FROM `creature_text` WHERE `CreatureID` = @ENTRY;
@@ -67,6 +69,8 @@ DELETE FROM `creature_questender` WHERE `quest` = 6402 AND `id` = 12580;
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 7480;
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 17804;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(17804, 0, 0, '', 15, 0, 100.0, 0, 0, 0, 0, 0, '');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 7480;
 
