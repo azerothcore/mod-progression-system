@@ -1,4 +1,5 @@
 DELETE FROM `disables` WHERE `sourceType` = 10 AND `entry` IN (36919, 36922, 36925, 36928, 36931, 36934);
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (66659, 66664, 66662, 66660, 66663, 66658);
 
 DELETE FROM `npc_vendor` WHERE `item` IN (36919, 36922, 36925, 36928, 36931, 36934);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
