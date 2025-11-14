@@ -9,14 +9,14 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 
 DELETE FROM `npc_vendor` WHERE `item` IN (36919, 36922, 36925, 36928, 36931, 36934);
 
-DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (66659, 66664, 66662, 66660, 66663, 66658);
+DELETE FROM `disables` WHERE `sourceType` = 0 AND `entry` IN (66659, 66664, 66662, 66660, 66663, 66658);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES
-(1, 66659, 1, 0, 0, 'Transmute: Cardinal Ruby'),
-(1, 66664, 1, 0, 0, 'Transmute: Eye of Zul'),
-(1, 66662, 1, 0, 0, 'Transmute: Dreadstone'),
-(1, 66660, 1, 0, 0, 'Transmute: King\'s Amber'),
-(1, 66663, 1, 0, 0, 'Transmute: Majestic Zircon'),
-(1, 66658, 1, 0, 0, 'Transmute: Ametrine');
+(0, 66659, 1, 0, 0, 'Transmute: Cardinal Ruby'),
+(0, 66664, 1, 0, 0, 'Transmute: Eye of Zul'),
+(0, 66662, 1, 0, 0, 'Transmute: Dreadstone'),
+(0, 66660, 1, 0, 0, 'Transmute: King\'s Amber'),
+(0, 66663, 1, 0, 0, 'Transmute: Majestic Zircon'),
+(0, 66658, 1, 0, 0, 'Transmute: Ametrine');
 
 -- UPDATE `item_instance` SET `itemEntry` = 36918 WHERE `itemEntry` = 36919; -- Cardinal Ruby → Scarlet Ruby
 -- UPDATE `item_instance` SET `itemEntry` = 36921 WHERE `itemEntry` = 36922; -- King's Amber → Autumn's Glow
