@@ -8,3 +8,6 @@ INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, 
 (1, 24510, 0, '', '', "Inside the Frozen Citadel (Alliance)"), 
 (1, 24589, 0, '', '', "Lord Jaraxxus Must Die!"),
 (1, 26013, 0, '', '', "Assault on the Sanctum");
+
+-- Removes the weekely gossip and quest/gossip flags for Archmage Lan'dalock
+UPDATE `creature_template` SET `gossip_menu_id` = 0, `npcflag` = `npcflag` &~ 3 WHERE `entry` = 20735;
