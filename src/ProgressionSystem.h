@@ -8,7 +8,7 @@
 #include "Config.h"
 #include "ScriptMgr.h"
 
-#define PROGRESSION_BRACKET_MAX 37
+#define PROGRESSION_BRACKET_MAX 38
 std::array<std::string, PROGRESSION_BRACKET_MAX> const ProgressionBracketsNames =
 {
     "0",
@@ -42,7 +42,8 @@ std::array<std::string, PROGRESSION_BRACKET_MAX> const ProgressionBracketsNames 
     "70_6_3",
     "71_74",
     "75_79",
-    "80_1",
+    "80_1_1",
+    "80_1_2",
     "80_2",
     "80_3",
     "80_4_1",

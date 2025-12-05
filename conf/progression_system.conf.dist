@@ -96,8 +96,10 @@ ProgressionSystem.Bracket_70_6_2  = 0
 ProgressionSystem.Bracket_71_74   = 0
 # 75-79 Dungeons
 ProgressionSystem.Bracket_75_79   = 0
-# Heroic Dungeons, Naxxramas, Obsidian Sanctum, The Eye of Eternity, Vault of Archavon, Arena Season 5
-ProgressionSystem.Bracket_80_1    = 0
+# Normal WotLK dungeons
+ProgressionSystem.Bracket_80_1_1    = 0
+# Heroic WotLK Dungeons
+ProgressionSystem.Bracket_80_1_2    = 0
 # Ulduar, Trial of the Champion, Arena Season 6
 ProgressionSystem.Bracket_80_2    = 0
 # Onyxia's Lair, Trial of The Crusader, Arena Season 7
