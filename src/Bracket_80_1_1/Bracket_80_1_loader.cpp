@@ -4,7 +4,7 @@
 
 #include "ProgressionSystem.h"
 
-void AddBracket_80_1_Scripts()
+void AddBracket_80_1_A_Scripts()
 {
     if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_80_1", false)))
         return;
