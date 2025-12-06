@@ -13,7 +13,7 @@ void AddBracket_50_59_B_Scripts()
         return;
 
     // Patch 3.0.8 (2009-01-20): No longer requires the Seal of Ascension to enter.
-    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_80_1", false)))
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_80_1_1", false)))
     {
         AddSC_instance_blackrock_spire_50_59_B();
         AddSC_boss_drakkisath_50_59_B();
