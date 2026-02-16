@@ -52,4 +52,18 @@ std::array<std::string, PROGRESSION_BRACKET_MAX> const ProgressionBracketsNames 
     "Custom"
 };
 
+class ProgressionMgr
+{
+public:
+    static ProgressionMgr* instance()
+    {
+        static ProgressionMgr instance;
+        return &instance;
+    }
+
+    void LoadBracketDisables(std::string const& bracket);
+};
+
+#define sProgressionMgr ProgressionMgr::instance()
+
 #endif // _PROGRESSION_SYSTEM_H_

@@ -1,6 +1,3 @@
--- Enable normal dungeons
-UPDATE `disables` SET `flags` = `flags` &~1 WHERE `entry` IN (574, 575, 576, 578, 595, 599, 600, 601, 602, 604, 608, 619) AND `sourceType` = 2;
-
 -- Don't allow to pick up quests that require you to go into locked instances.
 DELETE FROM `disables` WHERE `sourceType`= 1 AND `entry` IN (24506, 24510, 24589, 26013);
 INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES 
