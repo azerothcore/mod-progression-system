@@ -7,6 +7,7 @@
 
 #include "Config.h"
 #include "ScriptMgr.h"
+#include <map>
 
 #define PROGRESSION_BRACKET_MAX 39
 std::array<std::string, PROGRESSION_BRACKET_MAX> const ProgressionBracketsNames =
@@ -52,6 +53,13 @@ std::array<std::string, PROGRESSION_BRACKET_MAX> const ProgressionBracketsNames 
     "Custom"
 };
 
+struct DungeonDisableData
+{
+    uint8 flags;
+    std::string params_0;
+    std::string params_1;
+};
+
 class ProgressionMgr
 {
 public:
@@ -62,6 +70,10 @@ public:
     }
 
     void LoadBracketDisables(std::string const& bracket);
+    void ApplyDungeonDisables();
+
+private:
+    std::map<std::pair<uint8, uint32>, DungeonDisableData> _dungeonDisables;
 };
 
 #define sProgressionMgr ProgressionMgr::instance()
