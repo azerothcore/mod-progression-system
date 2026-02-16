@@ -3,6 +3,7 @@
  */
 
 #include "ProgressionSystem.h"
+#include "DisableMgr.h"
 #include "DBUpdater.h"
 #include "Tokenize.h"
 #include "StringConvert.h"
@@ -30,10 +31,10 @@ void ProgressionMgr::LoadBracketDisables(std::string const& bracket)
 {
     if (bracket == "0")
     {
+        sDisableMgr->AddDisable(DISABLE_TYPE_MAP, MAP_SHADOWFANG_KEEP, 1, "", "");
         // 1-19 level range
-        WorldDatabase.Execute("DELETE FROM `disables` WHERE `entry` IN (33, 36, 43, 48, 389)");
+        WorldDatabase.Execute("DELETE FROM `disables` WHERE `entry` IN (36, 43, 48, 389)");
         WorldDatabase.Execute("INSERT INTO `disables` (`sourceType`, `entry`, `flags`, `params_0`, `params_1`, `comment`) VALUES "
-            "(2, 33, 1, '', '', 'Shadowfang Keep'),"
             "(2, 36, 1, '', '', 'Deadmines'),"
             "(2, 43, 1, '', '', 'Wailing Caverns'),"
             "(2, 48, 1, '', '', 'Blackfathom Deeps'),"
