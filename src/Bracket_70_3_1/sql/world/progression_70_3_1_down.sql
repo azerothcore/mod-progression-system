@@ -1,3 +1,26 @@
+-- Reveal Tier 5 token vendors
+UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (
+-- Tier 5
+21906, -- Kelara (Aldor)
+21905  -- Veynna Dawnstar (Scryer)
+);
+
+-- Enable BT attunement quest chain
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (10944);
+
+-- Remove attunement requirements for dungeons and Karazhan
+DELETE FROM `dungeon_access_requirements` WHERE `comment` LIKE 'Progression:%' AND `dungeon_access_id` IN (33,34,48,49,54,55,29);
+
+-- Restore Dungeon Heroic Keys to require Honored with their respective factions
+UPDATE `item_template` SET `RequiredReputationRank` = 5 WHERE `entry` IN (
+30622, -- Hellfire Citadel (Alliance)
+30623, -- Coilfang Resevoir
+30633, -- Auchindoun
+30634, -- Tempest Key
+30635, -- Caverns of Time
+30637  -- Hellfire Citadel (Horde)
+);
+
 -- Restore following TBC items from trainers (re-added in Black Temple)
 -- DELETE FROM `npc_trainer` WHERE `SpellID` IN (
 -- 36257, -- Bulwark of the Ancient Kings

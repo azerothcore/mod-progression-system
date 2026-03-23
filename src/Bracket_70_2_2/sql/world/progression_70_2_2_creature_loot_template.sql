@@ -1,3 +1,9 @@
+-- Philanthropist should drop gold
+UPDATE `creature_template` SET `mingold` = 110000, `maxgold` = 130000 WHERE (`entry` = 16470);
+-- No badge of justice from chess
+DELETE FROM `gameobject_loot_template` WHERE `Item` = 29434 AND `Entry` = 20712;
+
+-- Karazhan enchant drops
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (15688, 15687, 16524) AND `Item` IN (22560, 22561, 22559);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (15687, 22559, 0, 4, 0, 1, 0, 1, 1, 'Moroes - Formula: Enchant Weapon - Mongoose'),

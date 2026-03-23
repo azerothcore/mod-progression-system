@@ -1,4 +1,11 @@
--- Disable Arena Vendors from Netherstorm
+-- Reveal Tier 4 token vendors
+UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (
+-- Tier 4
+20616, -- Asuur (Aldor)
+20613  -- Arodis Sunblade (Scryer)
+);
+
+-- Re-enable Arena Vendors from Netherstorm
 UPDATE `creature_template` SET `npcflag`=`npcflag`|128 WHERE `entry` IN (
 26352, -- Big Zokk Torquewrench
 32355, -- Big Zokk Torquewrench
