@@ -1,5 +1,21 @@
+-- Set Primal Nether and Nether Vortex to BoP
+UPDATE `item_template` SET `bonding`=1 WHERE `entry` IN (
+23572, -- Primal Nether
+30183  -- Nether Vortex
+);
+
+-- Set Dungeon Heroic Keys to require Revered with their respective factions
+UPDATE `item_template` SET `RequiredReputationRank` = 6 WHERE `entry` IN (
+30622, -- Hellfire Citadel (Alliance)
+30623, -- Coilfang Resevoir
+30633, -- Auchindoun
+30634, -- Tempest Key
+30635, -- Caverns of Time
+30637  -- Hellfire Citadel (Horde)
+);
+
 -- Set World Boss loot to BoP until Sunwell
-UPDATE `item_template` SET `bonding`=2 WHERE `entry` IN (
+UPDATE `item_template` SET `bonding`=1 WHERE `entry` IN (
 30732, -- Exodar Life-Staff
 30733, -- Hope Ender
 30734, -- Leggings of the Seventh Circle
