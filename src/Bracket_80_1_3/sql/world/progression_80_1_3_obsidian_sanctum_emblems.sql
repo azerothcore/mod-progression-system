@@ -1,21 +1,14 @@
--- Obsidian Sanctum drakes: Heroism -> Valor
--- Shadron (10N: 30451, 25N: 31520)
--- Vesperon (10N: 30449, 25N: 31535)
--- Tenebron (10N: 30452, 25N: 31534)
+-- Obsidian Sanctum 25-man drakes: Heroism -> Valor
+-- Shadron 25N: 31520, Vesperon 25N: 31535, Tenebron 25N: 31534
+-- (10-man drakes remain at Heroism from Bracket_80_1_2 blanket conversion)
 UPDATE `creature_loot_template`
 SET `Item` = 40753, `Comment` = 'Emblem of Valor'
-WHERE `Entry` IN (30451, 31520, 30449, 31535, 30452, 31534)
+WHERE `Entry` IN (31520, 31535, 31534)
 AND `Item` = 40752;
 
--- Sartharion 10M: Heroism -> Valor
-UPDATE `creature_loot_template`
-SET `Item` = 40753, `Comment` = 'Emblem of Valor'
-WHERE `Entry` = 28860
-AND `Item` = 40752;
-
--- Satchel of Spoils (10M): Triumph -> Valor
+-- Satchel of Spoils (10M): Triumph -> Heroism
 UPDATE `item_loot_template`
-SET `Item` = 40753, `Comment` = 'Satchel of Spoils - Emblem of Valor'
+SET `Item` = 40752, `Comment` = 'Satchel of Spoils - Emblem of Heroism'
 WHERE `Entry` = 43347
 AND `Item` = 47241;
 
