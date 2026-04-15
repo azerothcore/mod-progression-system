@@ -12,3 +12,15 @@ UPDATE `creature_loot_template`
 SET `Item` = 40753, `Comment` = 'Emblem of Valor'
 WHERE `Entry` = 28860
 AND `Item` = 40752;
+
+-- Satchel of Spoils (10M): Triumph -> Valor
+UPDATE `item_loot_template`
+SET `Item` = 40753, `Comment` = 'Satchel of Spoils - Emblem of Valor'
+WHERE `Entry` = 43347
+AND `Item` = 47241;
+
+-- Large Satchel of Spoils (25M): Triumph -> Valor
+UPDATE `item_loot_template`
+SET `Item` = 40753, `Comment` = 'Large Satchel of Spoils - Emblem of Valor'
+WHERE `Entry` = 43346
+AND `Item` = 47241;
