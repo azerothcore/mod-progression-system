@@ -6,10 +6,10 @@ WHERE `Entry` IN (30451, 30449, 30452)
 AND `Item` = 40752;
 
 -- Obsidian Sanctum 25-man drakes: Valor -> Triumph
--- Shadron 25N: 31520, Vesperon 25N: 31535, Tenebron 25N: 31534
+-- Shadron 25M: 31520, Vesperon 25M: 31535, Tenebron 25M: 31534, Sartharion 25M: 31311
 UPDATE `creature_loot_template`
 SET `Item` = 47241, `Comment` = 'Emblem of Triumph'
-WHERE `Entry` IN (31520, 31535, 31534)
+WHERE `Entry` IN (31520, 31535, 31534, 31311)
 AND `Item` = 40753;
 
 -- Sartharion 10M: Heroism -> Triumph
@@ -17,6 +17,11 @@ UPDATE `creature_loot_template`
 SET `Item` = 47241, `Comment` = 'Emblem of Triumph'
 WHERE `Entry` = 28860
 AND `Item` = 40752;
+
+-- Sartharion 25M: Valor -> Triumph
+UPDATE `reference_loot_template`
+SET `Item` = 47241, `Comment` = 'Emblem of Triumph'
+WHERE `Entry` = 34349 AND `Item` = 40753;
 
 -- Satchel of Spoils (10M): Heroism -> Triumph
 UPDATE `item_loot_template`
