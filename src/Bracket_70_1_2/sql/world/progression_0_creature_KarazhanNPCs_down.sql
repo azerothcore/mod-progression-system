@@ -1,5 +1,5 @@
 -- Show Karazhan NPCs
-UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN 
+UPDATE `creature` SET `phasemask` = 1 WHERE `id` IN 
 (
 7370,  -- Restless Shade
 12377, -- Wailing Spectre

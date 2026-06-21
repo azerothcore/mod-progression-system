@@ -21,9 +21,9 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (12397, 7, 0, 'The universe will be remade.', 14, 0, 0, 0, 0, 11339, 20083, 0, 'kazzak SAY_WIPE'),
 (12397, 8, 0, 'Kazzak is supreme!', 16, 0, 0, 0, 0, 0, 0, 0, 'kazzak SAY_SUPREME_VANILA');
 
-DELETE FROM `creature` WHERE `guid` = 156950 AND `id1` = 12397;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(156950, 12397, 0, 0, 0, 0, 0, 1, 1, 0, -12241.3, -2432.1, 2.93936, 3.26504, 604800, 259200, 0, 1, 0, 2, 0, 0, 0, '', 0);
+DELETE FROM `creature` WHERE `guid` = 156950 AND `id` = 12397;
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+(156950, 12397, 0, 0, 0, 1, 1, 0, -12241.3, -2432.1, 2.93936, 3.26504, 604800, 259200, 0, 1, 0, 2, 0, 0, 0, '', 0);
 
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60000;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES

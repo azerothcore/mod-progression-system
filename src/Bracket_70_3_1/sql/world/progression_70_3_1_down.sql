@@ -1,5 +1,5 @@
 -- Reveal Tier 5 token vendors
-UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 1 WHERE `id` IN (
 -- Tier 5
 21906, -- Kelara (Aldor)
 21905  -- Veynna Dawnstar (Scryer)

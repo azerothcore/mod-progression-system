@@ -1,5 +1,5 @@
 -- Reveal Tier 6 token vendor
-UPDATE `creature` SET `phasemask` = 1 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 1 WHERE `id` IN (
 -- Tier 6
 23381  -- Tydormu
 );

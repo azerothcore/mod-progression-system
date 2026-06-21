@@ -1,8 +1,8 @@
 -- Hide Gangrenus which is accesible from exploits
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1`=29207 AND `guid`=125760;
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id`=29207 AND `guid`=125760;
 
 -- Hide Karazhan NPCs
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id` IN
 (
 7370,  -- Restless Shade
 12377, -- Wailing Spectre
@@ -15,17 +15,17 @@ UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN
 );
 
 -- Hide the 11 cultists in Un'Goro (Bracket 70_4)
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (28602, 28601) AND `guid` IN (209102,209103,209104,209105,209106,209107,209108,209109,209110,209111,209112);
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id` IN (28602, 28601) AND `guid` IN (209102,209103,209104,209105,209106,209107,209108,209109,209110,209111,209112);
 
 -- Hide Emalon, Koralon and Toravon at Vault of Archavon
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id` IN (
 33993, -- Emalon
 35013, -- Koralon
 38433  -- Toravon
 );
 
 -- Hide World Bosses
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id` IN (
 6109,  -- Azuregos
 12397, -- Lord Kazzak
 14890, -- Ysondre
@@ -37,4 +37,4 @@ UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
 );
 
 -- Replace Kor'Kron Overseer with Undercity Guardian until ICC
-UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `map`=0 AND `id1`=36213;
+UPDATE `creature` SET `id`=5624, `equipment_id`=0 WHERE `map`=0 AND `id`=36213;

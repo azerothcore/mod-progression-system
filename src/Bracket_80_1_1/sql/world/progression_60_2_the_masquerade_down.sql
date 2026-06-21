@@ -98,13 +98,13 @@ DELETE FROM `smart_scripts` WHERE `entryorguid` = 1749 AND `Source_type` = 0;
 
 -- Spawn Lady Katrana Prestor
 -- Positions are hand-made. There's a huge throne where she used to be spawned in classic...
-DELETE FROM `creature` WHERE `guid` = 500800 AND `id1` = 1749;
+DELETE FROM `creature` WHERE `guid` = 500800 AND `id` = 1749;
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
 
 UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 11446; -- A crumpled up note
 
-DELETE FROM `creature` WHERE `guid` = 500801 AND `id1` = 1748;
+DELETE FROM `creature` WHERE `guid` = 500801 AND `id` = 1748;
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1748;
 
