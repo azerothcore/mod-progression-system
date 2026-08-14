@@ -255,7 +255,7 @@ public:
 
                 _scheduler.Schedule(5s, [this](TaskContext task)
                     {
-                        if (Creature* shill = me->FindNearestCreature(NPC_SHILL_DINGER, 50.0f))
+                        if (me->FindNearestCreature(NPC_SHILL_DINGER, 50.0f))
                         {
                             task.Repeat();
                         }
@@ -279,7 +279,7 @@ public:
 
                 _scheduler.Schedule(5s, [this](TaskContext task)
                     {
-                        if (Creature* prisioner = me->FindNearestCreature(NPC_CREST_KILLER, 50.0f))
+                        if (me->FindNearestCreature(NPC_CREST_KILLER, 50.0f))
                         {
                             task.Repeat();
                         }

@@ -501,7 +501,7 @@ public:
             instance->DoAction(ACTION_CHECK_RUNES);
         }
 
-        if (uint32 cooldown = player->GetSpellCooldownDelay(SPELL_AQUAL_QUINTESSENCE))
+        if (player->GetSpellCooldownDelay(SPELL_AQUAL_QUINTESSENCE))
         {
             int32 cooldownredux = sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction", 0);
             player->ModifySpellCooldown(SPELL_AQUAL_QUINTESSENCE, -(cooldownredux * MINUTE * IN_MILLISECONDS));
