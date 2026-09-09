@@ -2,6 +2,7 @@
  * Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
  */
 
+#include "AreaDefines.h"
 #include "LootMgr.h"
 #include "Player.h"
 #include "ScriptMgr.h"
@@ -9,7 +10,6 @@
 
 enum UlduarEmblems
 {
-    MAP_ULDUAR              = 603,
     ITEM_EMBLEM_OF_VALOR    = 40753,
     ITEM_EMBLEM_OF_CONQUEST = 45624,
     LOOT_MODE_HARD_MODES    = LOOT_MODE_HARD_MODE_1 | LOOT_MODE_HARD_MODE_2 | LOOT_MODE_HARD_MODE_3 | LOOT_MODE_HARD_MODE_4
