@@ -1,52 +1,94 @@
 -- Ulduar at patch 3.1: 10-man drops Emblem of Valor, 25-man drops Emblem of
--- Conquest. The rows hold Heroism after the Bracket_80_1_2 blanket conversion,
--- or Triumph on a stock 3.3.5 database, so both are matched.
+-- Conquest. 10-man hard modes drop Conquest in place of Valor: Iron Council
+-- past the easy order, the hard-mode caches, Algalon, and (handled in
+-- ulduar_hard_mode_emblems.cpp because their default loot mode stays active)
+-- Flame Leviathan, XT-002, Vezax and Yogg-Saron.
+-- Rows hold Heroism after the Bracket_80_1_2 blanket conversion, or Triumph on
+-- a stock 3.3.5 database. Conquest updates also match Valor so realms that ran
+-- an earlier version of this file are corrected when it is re-applied.
+
+SET @VALOR = 40753,
+@CONQUEST = 45624;
 
 -- 10-man bosses: Valor
--- Brundir, Steelbreaker, Molgeim, Ignis, Razorscale, Vezax, Yogg-Saron, XT-002, Auriaya
+-- Brundir, Ignis, Razorscale, Vezax, Yogg-Saron, XT-002, Auriaya
 UPDATE `creature_loot_template`
-SET `Item` = 40753, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
-WHERE `Entry` IN (32857, 32867, 32927, 33118, 33186, 33271, 33288, 33293, 33515)
+SET `Item` = @VALOR, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` IN (32857, 33118, 33186, 33271, 33288, 33293, 33515)
 AND `Item` IN (40752, 47241);
+
+-- 10-man Iron Council with Steelbreaker or Molgeim last: Conquest
+UPDATE `creature_loot_template`
+SET `Item` = @CONQUEST, `Comment` = REPLACE(REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest'), 'Emblem of Valor', 'Emblem of Conquest')
+WHERE `Entry` IN (32867, 32927)
+AND `Item` IN (40752, 47241, 40753);
 
 -- 25-man bosses: Conquest
 UPDATE `creature_loot_template`
-SET `Item` = 45624, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
+SET `Item` = @CONQUEST, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
 WHERE `Entry` IN (33694, 33693, 33692, 33190, 33724, 33449, 33955, 33885, 34175)
 AND `Item` IN (40752, 47241);
 
--- 10-man caches: Valor
--- Kologarn 27061, Hodir 27068, Thorim 27073/27074, Mimiron 27085/27086,
--- Algalon 27030, Freya's Gift 26959/26961/27078/27080
+-- 10-man normal-mode caches: Valor
+-- Kologarn 27061, Hodir 27068, Thorim 27073, Mimiron 27085, Freya's Gift without elders 26961
 UPDATE `gameobject_loot_template`
-SET `Item` = 40753, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
-WHERE `Entry` IN (27061, 27068, 27073, 27074, 27085, 27086, 27030, 26959, 26961, 27078, 27080)
+SET `Item` = @VALOR, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` IN (27061, 27068, 27073, 27085, 26961)
 AND `Item` IN (40752, 47241);
+
+-- 10-man hard-mode caches: Conquest
+-- Thorim 27074, Mimiron 27086, Algalon 27030
+UPDATE `gameobject_loot_template`
+SET `Item` = @CONQUEST, `Comment` = REPLACE(REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest'), 'Emblem of Valor', 'Emblem of Conquest')
+WHERE `Entry` IN (27074, 27086, 27030)
+AND `Item` IN (40752, 47241, 40753);
+
+-- Hodir's 10-man Rare Cache of Winter 27069 has no emblem row at all
+DELETE FROM `gameobject_loot_template` WHERE `Entry` = 27069 AND `Item` IN (40752, 40753, 45624, 47241);
+INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(27069, @CONQUEST, 0, 100, 0, 1, 0, 1, 1, 'Rare Cache of Winter - Emblem of Conquest');
 
 -- 25-man caches: Conquest
 -- Kologarn 26929, Hodir 26946, Thorim 26955/26956, Mimiron 26963/26967,
 -- Algalon 26974, Freya's Gift 26960/26962/27079/27081
 UPDATE `gameobject_loot_template`
-SET `Item` = 45624, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
+SET `Item` = @CONQUEST, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
 WHERE `Entry` IN (26929, 26946, 26955, 26956, 26963, 26967, 26974, 26960, 26962, 27079, 27081)
 AND `Item` IN (40752, 47241);
 
 -- Flame Leviathan, Yogg-Saron (keeper hard modes) and Freya's Gift (elder hard
 -- modes) take their emblems from reference 34349, which is shared with
 -- Sartharion 25 and follows the Obsidian Sanctum brackets. Give Ulduar its own
--- per-difficulty references so the two raids can be tuned independently.
-SET @REF_ULDUAR_10 = 80200,
-@REF_ULDUAR_25 = 80201;
+-- references so the two raids can be tuned independently.
+SET @REF_VALOR = 80200,
+@REF_CONQUEST = 80201;
 
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (@REF_ULDUAR_10, @REF_ULDUAR_25);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (@REF_VALOR, @REF_CONQUEST);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(@REF_ULDUAR_10, 40753, 0, 100, 0, 1, 0, 1, 1, 'Ulduar 10 - Emblem of Valor'),
-(@REF_ULDUAR_25, 45624, 0, 100, 0, 1, 0, 1, 1, 'Ulduar 25 - Emblem of Conquest');
+(@REF_VALOR, @VALOR, 0, 100, 0, 1, 0, 1, 1, 'Ulduar - Emblem of Valor'),
+(@REF_CONQUEST, @CONQUEST, 0, 100, 0, 1, 0, 1, 1, 'Ulduar - Emblem of Conquest');
 
 -- Flame Leviathan 33113 / 34003, Yogg-Saron 33288 / 33955
-UPDATE `creature_loot_template` SET `Reference` = @REF_ULDUAR_10 WHERE `Entry` IN (33113, 33288) AND `Reference` = 34349;
-UPDATE `creature_loot_template` SET `Reference` = @REF_ULDUAR_25 WHERE `Entry` IN (34003, 33955) AND `Reference` = 34349;
+UPDATE `creature_loot_template` SET `Reference` = @REF_VALOR WHERE `Entry` IN (33113, 33288) AND `Reference` = 34349;
+UPDATE `creature_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN (34003, 33955) AND `Reference` = 34349;
 
--- Freya's Gift with elders alive
-UPDATE `gameobject_loot_template` SET `Reference` = @REF_ULDUAR_10 WHERE `Entry` IN (26959, 27078, 27080) AND `Reference` = 34349;
-UPDATE `gameobject_loot_template` SET `Reference` = @REF_ULDUAR_25 WHERE `Entry` IN (26960, 27081) AND `Reference` = 34349;
+-- Freya's Gift with elders alive. 10-man: one Conquest plus one Valor per
+-- elder on top of the normal Valor (1 elder 26959, 2 elders 27080, 3 elders 27078).
+UPDATE `gameobject_loot_template`
+SET `Reference` = @REF_CONQUEST, `MinCount` = 1, `MaxCount` = 1
+WHERE `Entry` IN (26959, 27078, 27080) AND `Reference` IN (34349, @REF_VALOR, @REF_CONQUEST);
+
+UPDATE `gameobject_loot_template`
+SET `Item` = @VALOR, `MinCount` = 2, `MaxCount` = 2, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` = 26959 AND `Item` IN (40752, 47241, 40753);
+
+UPDATE `gameobject_loot_template`
+SET `Item` = @VALOR, `MinCount` = 3, `MaxCount` = 3, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` = 27080 AND `Item` IN (40752, 47241, 40753);
+
+UPDATE `gameobject_loot_template`
+SET `Item` = @VALOR, `MinCount` = 4, `MaxCount` = 4, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` = 27078 AND `Item` IN (40752, 47241, 40753);
+
+-- 25-man Freya's Gift keeps the stock counts, all Conquest
+UPDATE `gameobject_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN (26960, 27081) AND `Reference` = 34349;
