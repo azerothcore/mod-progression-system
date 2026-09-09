@@ -1,7 +1,7 @@
--- Ulduar at patch 3.1: 10-man drops Emblem of Valor, 25-man drops Emblem of
--- Conquest. 10-man hard modes drop Conquest in place of Valor: Iron Council
--- past the easy order, the hard-mode caches, Algalon, and (handled in
--- ulduar_hard_mode_emblems.cpp because their default loot mode stays active)
+-- Ulduar and Emalon at patch 3.1: 10-man drops Emblem of Valor, 25-man drops
+-- Emblem of Conquest. Ulduar 10-man hard modes drop Conquest in place of Valor:
+-- Iron Council past the easy order, the hard-mode caches, Algalon, and (handled
+-- in ulduar_hard_mode_emblems.cpp because their default loot mode stays active)
 -- Flame Leviathan, XT-002, Vezax and Yogg-Saron.
 -- Rows hold Heroism after the Bracket_80_1_2 blanket conversion, or Triumph on
 -- a stock 3.3.5 database. Conquest updates also match Valor so realms that ran
@@ -92,3 +92,14 @@ WHERE `Entry` = 27078 AND `Item` IN (40752, 47241, 40753);
 
 -- 25-man Freya's Gift keeps the stock counts, all Conquest
 UPDATE `gameobject_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN (26960, 27081) AND `Reference` = 34349;
+
+-- Emalon the Storm Watcher: 10-man 33993 Valor, 25-man 33994 Conquest
+UPDATE `creature_loot_template`
+SET `Item` = @VALOR, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
+WHERE `Entry` = 33993
+AND `Item` IN (40752, 47241);
+
+UPDATE `creature_loot_template`
+SET `Item` = @CONQUEST, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
+WHERE `Entry` = 33994
+AND `Item` IN (40752, 47241);
