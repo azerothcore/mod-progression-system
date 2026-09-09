@@ -103,3 +103,15 @@ UPDATE `creature_loot_template`
 SET `Item` = @CONQUEST, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Conquest')
 WHERE `Entry` = 33994
 AND `Item` IN (40752, 47241);
+
+-- Sack of Ulduar Spoils 45875 (10-man) and Large Sack of Ulduar Spoils 45878
+-- (25-man) are the rewards of the Algalon weekly quests 13614 and 13818.
+UPDATE `item_loot_template`
+SET `Item` = @VALOR, `Comment` = 'Sack of Ulduar Spoils - Emblem of Valor'
+WHERE `Entry` = 45875
+AND `Item` IN (40752, 47241);
+
+UPDATE `item_loot_template`
+SET `Item` = @CONQUEST, `Comment` = 'Large Sack of Ulduar Spoils - Emblem of Conquest'
+WHERE `Entry` = 45878
+AND `Item` IN (40752, 47241, 40753);
