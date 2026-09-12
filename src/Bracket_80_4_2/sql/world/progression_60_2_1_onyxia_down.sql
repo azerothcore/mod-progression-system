@@ -26,8 +26,6 @@ UPDATE `item_template` SET `startquest` = 0 WHERE `entry` = 18401; -- Foror's Co
 
 DELETE FROM `creature_questender` WHERE `quest` = 7495;
 DELETE FROM `creature_questender` WHERE `quest` = 7490;
-DELETE FROM `creature_queststarter` WHERE `quest` = 7496;
-DELETE FROM `creature_questender` WHERE `quest` = 7496;
 DELETE FROM `creature_queststarter` WHERE `quest` = 7497;
 DELETE FROM `creature_questender` WHERE `quest` = 7497;
 DELETE FROM `creature_queststarter` WHERE `quest` = 7493;
