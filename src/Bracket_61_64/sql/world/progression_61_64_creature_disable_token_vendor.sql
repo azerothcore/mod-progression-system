@@ -1,4 +1,4 @@
-UPDATE `creature` SET `phasemask` = 16384 WHERE `id1` IN (
+UPDATE `creature` SET `phasemask` = 16384 WHERE `id` IN (
 -- Tier 4
 20616, -- Asuur (Aldor)
 20613, -- Arodis Sunblade (Scryer)

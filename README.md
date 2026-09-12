@@ -12,9 +12,31 @@ SQL files can be loaded into your database once you have enabled the auto DB upd
 
 **WARNING:** SQL files cannot be "unloaded" once executed. If you configure the system to use the 30-39 level bracket and later change it to the 20-29 bracket, the SQL files from the 30-39 bracket will still be in your database. To undo changes made by these SQL files, create a new SQL file to restore the previous state in another bracket.
 
-**WARNING:** If you enable bracket 20-29 but DO NOT enable the bracket that reverts the SQL applied at 20-29, the changes will remain in your database leading to POLLUTION! Easiest way to revert all changes is to uninstall the module and reset your world database. 
+**WARNING:** If you enable bracket 20-29 but DO NOT enable the bracket that reverts the SQL applied at 20-29, the changes will remain in your database leading to POLLUTION! Easiest way to revert all changes is to uninstall the module and reset your world database.
 
 **DO NOT ENABLE BRACKETS IF YOU ARE NOT SURE YOU WANT TO USE THEM. IT WILL LEAD TO DATABASE POLLUTION IF NOT REVERTED PROPERLY. IF YOU DO NOT KNOW HOW TO REVERT CHANGES, RESET YOUR WORLD DATABASE**
+
+### SQL File Naming Convention
+
+SQL files follow a naming convention that encodes the originating bracket and the target database table:
+
+```
+progression_[bracket]_[table_or_theme].sql
+```
+
+- **`[bracket]`** identifies which bracket's content this file relates to (e.g., `0`, `61_64`, `80_1`).
+- **`[table_or_theme]`** describes what the file modifies (e.g., `creature`, `disables`, `item_template`, `brewfest`).
+
+A bracket's directory may contain files with a different bracket prefix. These are "down" files that revert changes made by a previous bracket. For example, `Bracket_61_64/` may contain `progression_0_item_loot_template_down.sql`, which reverts changes originally applied by `Bracket_0`.
+
+### SQL File Organization Rules
+
+When adding or modifying SQL files, follow these rules to keep the module organized:
+
+1. **Group by table**: Multiple small changes to the same database table within the same bracket prefix should be consolidated into a single file (e.g., `progression_61_64_item_template.sql` instead of separate files per item group).
+2. **Keep thematic files intact**: Event-related files (e.g., `brewfest`, `hallows_end`, `love_in_air`) that span multiple tables should remain as standalone files since they represent a logical unit.
+3. **Do not mix bracket prefixes**: Never merge SQL from different bracket prefixes into one file. Each file's bracket prefix indicates which bracket's changes it applies or reverts, and this must remain clear.
+4. **Keep large files separate**: Files over ~50 lines should generally remain standalone rather than being merged with other files.
 
 ## C++ SCRIPTS
 
