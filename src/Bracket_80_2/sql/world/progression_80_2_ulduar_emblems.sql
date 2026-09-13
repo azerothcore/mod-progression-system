@@ -93,6 +93,24 @@ WHERE `Entry` = 27078 AND `Item` IN (40752, 47241, 40753);
 -- 25-man Freya's Gift keeps the stock counts, all Conquest
 UPDATE `gameobject_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN (26960, 27081) AND `Reference` = 34349;
 
+-- Freya's Elders killed before the encounter pay the emblem the chest then no
+-- longer hands out. The 25-man Ironbranch and Stonebark had no loot id of their
+-- own, and the 25-man Brightleaf pointed at the 10-man table, which cannot hold
+-- Valor and Conquest at once. Core only gives them one shared Emblem of
+-- Triumph, so the rows are rebuilt rather than converted.
+UPDATE `creature_template` SET `lootid` = `entry` WHERE `entry` IN (32913, 32914, 33391, 33392, 33393);
+
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (32913, 32914, 32915, 33391, 33392, 33393) AND `Item` IN (40752, 40753, 45624, 47241, 45912);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(32913, @VALOR, 0, 100, 0, 1, 0, 1, 1, 'Elder Ironbranch - Emblem of Valor'),
+(32914, @VALOR, 0, 100, 0, 1, 0, 1, 1, 'Elder Stonebark - Emblem of Valor'),
+(32915, 45912, 0, 0.1, 0, 1, 0, 1, 1, 'Elder Brightleaf - Book of Glyph Mastery'),
+(32915, @VALOR, 0, 100, 0, 1, 0, 1, 1, 'Elder Brightleaf - Emblem of Valor'),
+(33391, 45912, 0, 0.1, 0, 1, 0, 1, 1, 'Elder Brightleaf (1) - Book of Glyph Mastery'),
+(33391, @CONQUEST, 0, 100, 0, 1, 0, 1, 1, 'Elder Brightleaf (1) - Emblem of Conquest'),
+(33392, @CONQUEST, 0, 100, 0, 1, 0, 1, 1, 'Elder Ironbranch (1) - Emblem of Conquest'),
+(33393, @CONQUEST, 0, 100, 0, 1, 0, 1, 1, 'Elder Stonebark (1) - Emblem of Conquest');
+
 -- Emalon the Storm Watcher: 10-man 33993 Valor, 25-man 33994 Conquest
 UPDATE `creature_loot_template`
 SET `Item` = @VALOR, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
