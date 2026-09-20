@@ -74,9 +74,14 @@ UPDATE `creature_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN
 
 -- Freya's Gift with elders alive. 10-man: one Conquest plus one Valor per
 -- elder on top of the normal Valor (1 elder 26959, 2 elders 27080, 3 elders 27078).
-UPDATE `gameobject_loot_template`
-SET `Reference` = @REF_CONQUEST, `MinCount` = 1, `MaxCount` = 1
-WHERE `Entry` IN (26959, 27078, 27080) AND `Reference` IN (34349, @REF_VALOR, @REF_CONQUEST);
+-- Inserted rather than converted, because the stock reference row this used to ride on is
+-- removed upstream by https://github.com/azerothcore/azerothcore-wotlk/pull/27718. On a
+-- reference row `Item` is only an index within the entry; these are the ones the delete frees.
+DELETE FROM `gameobject_loot_template` WHERE `Entry` IN (26959, 27078, 27080) AND `Reference` IN (34349, @REF_VALOR, @REF_CONQUEST);
+INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(26959, 3, @REF_CONQUEST, 100, 0, 1, 0, 1, 1, 'Freya\'s Gift - (ReferenceTable)'),
+(27078, 4, @REF_CONQUEST, 100, 0, 1, 0, 1, 1, 'Freya\'s Gift - (ReferenceTable)'),
+(27080, 4, @REF_CONQUEST, 100, 0, 1, 0, 1, 1, 'Freya\'s Gift - (ReferenceTable)');
 
 UPDATE `gameobject_loot_template`
 SET `Item` = @VALOR, `MinCount` = 2, `MaxCount` = 2, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
@@ -90,8 +95,17 @@ UPDATE `gameobject_loot_template`
 SET `Item` = @VALOR, `MinCount` = 4, `MaxCount` = 4, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emblem of Valor')
 WHERE `Entry` = 27078 AND `Item` IN (40752, 47241, 40753);
 
--- 25-man Freya's Gift keeps the stock counts, all Conquest
-UPDATE `gameobject_loot_template` SET `Reference` = @REF_CONQUEST WHERE `Entry` IN (26960, 27081) AND `Reference` = 34349;
+-- 25-man Freya's Gift pays one emblem plus one per elder left alive, so the encounter pays four
+-- either way once the elders killed early are counted. The stock rows rolled a second emblem
+-- reference on top of their own: with one elder alive that paid six from the chest and eight for
+-- the encounter, while full hard mode paid three.
+-- https://github.com/azerothcore/azerothcore-wotlk/pull/27718
+DELETE FROM `gameobject_loot_template` WHERE `Entry` IN (26960, 27081) AND `Reference` IN (34349, @REF_VALOR, @REF_CONQUEST);
+
+UPDATE `gameobject_loot_template` SET `MinCount` = 1, `MaxCount` = 1 WHERE `Entry` = 26962 AND `Item` = @CONQUEST;
+UPDATE `gameobject_loot_template` SET `MinCount` = 2, `MaxCount` = 2 WHERE `Entry` = 26960 AND `Item` = @CONQUEST;
+UPDATE `gameobject_loot_template` SET `MinCount` = 3, `MaxCount` = 3 WHERE `Entry` = 27081 AND `Item` = @CONQUEST;
+UPDATE `gameobject_loot_template` SET `MinCount` = 4, `MaxCount` = 4 WHERE `Entry` = 27079 AND `Item` = @CONQUEST;
 
 -- Freya's Elders killed before the encounter pay the emblem the chest then no
 -- longer hands out. The 25-man Ironbranch and Stonebark had no loot id of their
