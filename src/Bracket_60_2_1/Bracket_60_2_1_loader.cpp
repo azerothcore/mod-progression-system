@@ -17,7 +17,13 @@ void AddBracket_60_2_Scripts()
 
     AddSC_quest_jail_break_60_2();
     AddSC_quest_the_masquerade_60_2();
-    AddSC_boss_onyxia_60_2();
-    AddSC_instance_onyxias_lair_60_2();
+
+    // Patch 3.2.2 (2009-09-22): Onyxia's Lair revamped as a level 80 raid.
+    if (!(sConfigMgr->GetOption<bool>("ProgressionSystem.Bracket_80_3", false)))
+    {
+        AddSC_boss_onyxia_60_2();
+        AddSC_instance_onyxias_lair_60_2();
+    }
+
     AddSC_boss_lord_kazzak_60_2();
 }
