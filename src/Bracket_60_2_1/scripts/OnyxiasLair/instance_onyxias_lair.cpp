@@ -15,7 +15,8 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ScriptMgr.h"
+#include "GlobalScript.h"
+#include "InstanceMapScript.h"
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "onyxias_lair.h"
@@ -23,33 +24,37 @@
 ObjectData const creatureData[] =
 {
     { NPC_ONYXIA, DATA_ONYXIA },
-    { 0, 0 } // END
+    { 0,          0           }
+};
+
+// Leash radius: 95 yards plus Onyxia's 18 yard combat reach
+BossBoundaryData const boundaries =
+{
+    { DATA_ONYXIA, new CircleBoundary(Position(-10.6155f, -219.357f), 113.0) }
 };
 
 class instance_onyxias_lair_60_2 : public InstanceMapScript
 {
 public:
-    instance_onyxias_lair_60_2() : InstanceMapScript("instance_onyxias_lair", 249) {}
+    instance_onyxias_lair_60_2() : InstanceMapScript(OnyxiasLairScriptName, MAP_ONYXIAS_LAIR) { }
 
-    InstanceScript* GetInstanceScript(InstanceMap* pMap) const override
+    InstanceScript* GetInstanceScript(InstanceMap* map) const override
     {
-        return new instance_onyxias_lair_InstanceMapScript(pMap);
+        return new instance_onyxias_lair_InstanceMapScript(map);
     }
 
     struct instance_onyxias_lair_InstanceMapScript : public InstanceScript
     {
-        instance_onyxias_lair_InstanceMapScript(Map* pMap) : InstanceScript(pMap) {Initialize();};
-
-        std::string str_data;
-        uint16 ManyWhelpsCounter;
-        bool bDeepBreath;
+        instance_onyxias_lair_InstanceMapScript(Map* map) : InstanceScript(map) { }
 
         void Initialize() override
         {
+            SetHeaders(DataHeader);
             SetBossNumber(MAX_ENCOUNTER);
-            ManyWhelpsCounter = 0;
-            bDeepBreath = true;
             LoadObjectData(creatureData, nullptr);
+            LoadBossBoundaries(boundaries);
+            _manyWhelpsCounter = 0;
+            _deepBreath = true;
         }
 
         void OnGameObjectCreate(GameObject* go) override
@@ -57,11 +62,13 @@ public:
             switch (go->GetEntry())
             {
                 case GO_WHELP_SPAWNER:
-                    go->CastSpell((Unit*)nullptr, 17646);
+                    go->CastSpell(nullptr, SPELL_SUMMON_WHELP);
                     if (Creature* onyxia = GetCreature(DATA_ONYXIA))
                     {
-                        onyxia->AI()->DoAction(-1);
+                        onyxia->AI()->DoAction(ACTION_WHELP_SUMMONED);
                     }
+                    break;
+                default:
                     break;
             }
         }
@@ -75,8 +82,8 @@ public:
 
             if (type == DATA_ONYXIA && state == NOT_STARTED)
             {
-                ManyWhelpsCounter = 0;
-                bDeepBreath = true;
+                _manyWhelpsCounter = 0;
+                _deepBreath = true;
             }
             else if (type == DATA_ONYXIA && state == DONE)
             {
@@ -86,32 +93,39 @@ public:
             return true;
         }
 
-        void SetData(uint32 uiType, uint32 /*uiData*/) override
+        void SetData(uint32 type, uint32 /*data*/) override
         {
-            switch (uiType)
+            switch (type)
             {
                 case DATA_WHELP_SUMMONED:
-                    ++ManyWhelpsCounter;
+                    ++_manyWhelpsCounter;
                     break;
                 case DATA_DEEP_BREATH_FAILED:
-                    bDeepBreath = false;
+                    _deepBreath = false;
+                    break;
+                default:
                     break;
             }
         }
 
-        bool CheckAchievementCriteriaMeet(uint32 criteria_id, Player const*  /*source*/, Unit const*  /*target*/, uint32  /*miscvalue1*/) override
+        bool CheckAchievementCriteriaMeet(uint32 criteriaId, Player const* /*source*/, Unit const* /*target*/, uint32 /*miscvalue1*/) override
         {
-            switch(criteria_id)
+            switch (criteriaId)
             {
                 case ACHIEV_CRITERIA_MANY_WHELPS_10_PLAYER:
                 case ACHIEV_CRITERIA_MANY_WHELPS_25_PLAYER:
-                    return ManyWhelpsCounter >= 50;
+                    return _manyWhelpsCounter >= 50;
                 case ACHIEV_CRITERIA_DEEP_BREATH_10_PLAYER:
                 case ACHIEV_CRITERIA_DEEP_BREATH_25_PLAYER:
-                    return bDeepBreath;
+                    return _deepBreath;
+                default:
+                    return false;
             }
-            return false;
         }
+
+    private:
+        uint16 _manyWhelpsCounter;
+        bool _deepBreath;
     };
 };
 
@@ -139,6 +153,21 @@ public:
             case 17731: // Eruption
                 spellInfo->Effects[EFFECT_0].DieSides = 375;
                 spellInfo->Effects[EFFECT_0].BasePoints = 656;
+                break;
+            case 22191: // Heated Ground
+            case 22192:
+            case 22193:
+            case 22194:
+            case 22195:
+            case 22196:
+            case 22197:
+            case 22198:
+            case 22199:
+            case 22200:
+            case 22201:
+            case 22202:
+                spellInfo->Effects[EFFECT_0].DieSides = 175;
+                spellInfo->Effects[EFFECT_0].BasePoints = 412;
                 break;
             case 17086: // Breath
             case 17087:
