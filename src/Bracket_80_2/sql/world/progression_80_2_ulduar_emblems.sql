@@ -56,6 +56,10 @@ SET `Item` = @CONQUEST, `Comment` = REPLACE(`Comment`, 'Emblem of Triumph', 'Emb
 WHERE `Entry` IN (26929, 26946, 26955, 26956, 26963, 26967, 26974, 26960, 26962, 27079, 27081)
 AND `Item` IN (40752, 47241);
 
+-- Kologarn has no hard mode, but the stock 25-man cache rolled one or two emblems.
+-- https://github.com/azerothcore/azerothcore-wotlk/pull/27887
+UPDATE `gameobject_loot_template` SET `MinCount` = 1, `MaxCount` = 1 WHERE `Entry` = 26929 AND `Item` = @CONQUEST;
+
 -- Flame Leviathan, Yogg-Saron (keeper hard modes) and Freya's Gift (elder hard
 -- modes) take their emblems from reference 34349, which is shared with
 -- Sartharion 25 and follows the Obsidian Sanctum brackets. Give Ulduar its own
