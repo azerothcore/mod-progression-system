@@ -29,6 +29,7 @@
 #include "molten_core.h"
 
 #include "ProgressionSystem.h"
+#include "SpellHistory.h"
 
 MinionData const minionData[] =
 {
@@ -501,10 +502,10 @@ public:
             instance->DoAction(ACTION_CHECK_RUNES);
         }
 
-        if (player->GetSpellCooldownDelay(SPELL_AQUAL_QUINTESSENCE))
+        if (player->GetSpellHistory()->GetRemainingCooldown(SPELL_AQUAL_QUINTESSENCE))
         {
             int32 cooldownredux = sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction", 0);
-            player->ModifySpellCooldown(SPELL_AQUAL_QUINTESSENCE, -(cooldownredux * MINUTE * IN_MILLISECONDS));
+            player->GetSpellHistory()->ModifyCooldown(SPELL_AQUAL_QUINTESSENCE, -(cooldownredux * MINUTE * IN_MILLISECONDS));
         }
 
         return true;
